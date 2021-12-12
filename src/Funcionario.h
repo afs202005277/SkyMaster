@@ -1,0 +1,35 @@
+//
+// Created by andre on 28/11/2021.
+//
+
+#ifndef PROJETO1_FUNCIONARIO_H
+#define PROJETO1_FUNCIONARIO_H
+
+
+#include <string>
+#include "Aeroporto.h"
+
+class Funcionario {
+    private:
+    int telemovel;
+    std::string nome, morada;
+    Aeroporto * airport;
+public:
+    Funcionario(int telemovel, const std::string &nome, const std::string &morada);
+
+public:
+    int getTelemovel() const;
+
+    void setTelemovel(int telemovel);
+
+    const std::string &getNome() const;
+
+    void setNome(const std::string &nome);
+
+    const std::string &getMorada() const;
+
+    void setMorada(const std::string &morada);
+};
+
+
+#endif //PROJETO1_FUNCIONARIO_H
