@@ -58,7 +58,3 @@ void Aviao::addVoo(Voo *voo) {
 void Aviao::sortPlano() {
     plano.sort();
 }
-
-bool Aviao::sorter(const Voo *v1, const Voo *v2) {
-    return v1->dataPartida < v2->dataPartida;
-}

@@ -4,9 +4,9 @@
 
 #include "Voo.h"
 
-Voo::Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, int lotacaoAtual=0)
+Voo::Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao, int lotacaoAtual=0)
         : nVoo(nVoo), duracao(duracao), lotacaoAtual(lotacaoAtual), dataPartida(dataPartida), origem(origem),
-          destino(destino) {}
+          destino(destino), aviao(aviao) {}
 
 int Voo::getNVoo() const {
     return nVoo;
@@ -33,7 +33,7 @@ void Voo::setLotacaoAtual(int lotacaoAtual) {
 }
 
 const Data &Voo::getDataPartida() const {
-    return dataPartida;
+    return this->dataPartida;
 }
 
 void Voo::setDataPartida(const Data &dataPartida) {
@@ -56,18 +56,26 @@ void Voo::setDestino(Aeroporto *destino) {
     Voo::destino = destino;
 }
 
-const vector<Passageiro> &Voo::getPassageiros() const {
+const vector<Passageiro *> &Voo::getPassageiros() const {
     return passageiros;
 }
 
-void Voo::setPassageiros(const vector<Passageiro> &passageiros) {
-    Voo::passageiros = passageiros;
+Bilhete* Voo::sellBilhete(bool checkInAuto, unsigned int nMalas) {
+    Bilhete *temp = nullptr;
+    if (this->lotacaoAtual < this->aviao->getCapacidade())
+    {
+        temp = new Bilhete(this->nVoo, checkInAuto, nMalas);
+        this->lotacaoAtual++;
+    }
+    return temp;
 }
 
-const vector<Bilhete> &Voo::getBilhetesVendidos() const {
-    return bilhetes_vendidos;
-}
-
-void Voo::setBilhetesVendidos(const vector<Bilhete> &bilhetesVendidos) {
-    bilhetes_vendidos = bilhetesVendidos;
+bool Voo::addPassageiro(Passageiro *passageiro)
+{
+    if (passageiro->hasBilhete(nVoo))
+    {
+        passageiros.push_back(passageiro);
+        return true;
+    }
+    return false;
 }

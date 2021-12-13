@@ -32,4 +32,4 @@ void Aeroporto::setCountry(const std::string &country) {
     Aeroporto::country = country;
 }
 
-Aeroporto::Aeroporto() {}
+Aeroporto::Aeroporto() = default;

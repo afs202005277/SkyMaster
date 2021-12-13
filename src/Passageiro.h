@@ -9,13 +9,14 @@
 #include <string>
 #include <queue>
 #include "Bilhete.h"
+class Bilhete;
 
 class Passageiro {
 private:
     int idade, id;
     bool levaBagagem, checkInAutomatico;
     std::string nome;
-    std::queue<Bilhete> bilhetes;
+    std::queue<Bilhete *> bilhetes;
 public:
     Passageiro(const std::string &nome, int idade, int id);
 
@@ -27,11 +28,11 @@ public:
 
     void setCheckInAutomatico(bool checkInAutomatico);
 
-    const std::queue<Bilhete> &getBilhetes() const;
+    const std::queue<Bilhete *> &getBilhetes() const;
 
-    void addBilhete(const Bilhete &bilhete);
+    void addBilhete(Bilhete *bilhete);
 
-    Bilhete frontBilhete() const;
+    Bilhete* frontBilhete();
 
     void popBilhete();
 
@@ -46,6 +47,8 @@ public:
     int getId() const;
 
     void setId(int id);
+
+    bool hasBilhete(int nVoo);
 };
 
 

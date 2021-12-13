@@ -26,10 +26,12 @@ int main() {
     Passageiro p10("Hugo Monteiro", 35, 575041321);
 
 
-    Voo v1(1, 523, Data(2021, 12, 17), OPO, LAX, 55),
+    // Eu precisei do Aviao no Voo, por isso, agora está tudo uma confusao. Aviao->Voo & Voo->Aviao
+
+    /*Voo v1(1, 523, Data(2021, 12, 17), OPO, LAX, 55),
         v2(2, 50, Data(2022, 1, 1), FAO, OPO),
         v3(3, 300, Data(2021, 12, 25), JFK, LGW);
-
+    */
 
 
 

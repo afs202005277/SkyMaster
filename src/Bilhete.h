@@ -5,12 +5,14 @@
 #ifndef PROJETO1_BILHETE_H
 #define PROJETO1_BILHETE_H
 
-
 class Bilhete
 {
 private:
-    unsigned int numMalas;
+    bool checkInAuto;
+    unsigned int numMalas, nVoo;
 public:
+    Bilhete(unsigned int nVoo, bool checkInAuto, unsigned int numMalas);
+
     unsigned int getNumMalas() const;
 
     void setNumMalas(unsigned int numMalas);
@@ -19,8 +21,7 @@ public:
 
     void setCheckInAuto(bool checkInAuto);
 
-private:
-    bool checkInAuto;
+    unsigned int getNVoo() const;
 };
 
 

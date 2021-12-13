@@ -2,6 +2,7 @@
 // Created by andre on 12/12/2021.
 //
 
+#include <stack>
 #include "Passageiro.h"
 
 const std::string &Passageiro::getNome() const {
@@ -46,15 +47,15 @@ void Passageiro::setCheckInAutomatico(bool checkInAutomatico) {
     Passageiro::checkInAutomatico = checkInAutomatico;
 }
 
-const std::queue<Bilhete> &Passageiro::getBilhetes() const {
+const std::queue<Bilhete *> &Passageiro::getBilhetes() const {
     return this->bilhetes;
 }
 
-void Passageiro::addBilhete(const Bilhete &bilhete) {
+void Passageiro::addBilhete(Bilhete *bilhete) {
     this->bilhetes.push(bilhete);
 }
 
-Bilhete Passageiro::frontBilhete() const
+Bilhete* Passageiro::frontBilhete()
 {
     return this->bilhetes.front();
 }
@@ -62,4 +63,20 @@ Bilhete Passageiro::frontBilhete() const
 void Passageiro::popBilhete()
 {
     return this->bilhetes.pop();
+}
+
+bool Passageiro::hasBilhete(int nVoo) {
+    std::queue<Bilhete *> temp;
+    bool res = false;
+    while (!this->bilhetes.empty())
+    {
+        if (this->bilhetes.front()->getNVoo() == nVoo)
+        {
+            res = true;
+        }
+        temp.push(this->bilhetes.front());
+        this->bilhetes.pop();
+    }
+    this->bilhetes = temp;
+    return res;
 }

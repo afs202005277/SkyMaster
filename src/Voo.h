@@ -10,17 +10,22 @@
 #include "Aeroporto.h"
 #include "Bilhete.h"
 #include "Passageiro.h"
+#include "Aviao.h"
+class Aviao;
+class Bilhete;
+class Passageiro;
 
 class Voo {
 private:
-    int nVoo, duracao, lotacaoAtual;
+    int duracao, lotacaoAtual;
+    unsigned int nVoo;
     Data dataPartida;
     Aeroporto * origem;
     Aeroporto * destino;
-    vector<Passageiro> passageiros;
-    vector<Bilhete> bilhetes_vendidos;
+    vector<Passageiro *> passageiros;
+    Aviao *aviao;
 public:
-    Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, int lotacaoAtual=0);
+    Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao, int lotacaoAtual=0);
 
     int getNVoo() const;
 
@@ -46,13 +51,11 @@ public:
 
     void setDestino(Aeroporto *destino);
 
-    const vector<Passageiro> &getPassageiros() const;
+    const vector<Passageiro *> &getPassageiros() const;
 
-    void setPassageiros(const vector<Passageiro> &passageiros);
+    Bilhete* sellBilhete(bool checkInAuto, unsigned int nMalas);
 
-    const vector<Bilhete> &getBilhetesVendidos() const;
-
-    void setBilhetesVendidos(const vector<Bilhete> &bilhetesVendidos);
+    bool addPassageiro(Passageiro *passageiro);
 };
 
 

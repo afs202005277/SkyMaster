@@ -14,7 +14,7 @@
 #include "Servico.h"
 #include "Aeroporto.h"
 #include "Voo.h"
-
+class Voo;
 
 class Aviao {
 private:
