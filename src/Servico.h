@@ -11,7 +11,22 @@
 enum Tipo {manutencao, limpeza};
 
 class Servico {
+private:
     Tipo tipo;
+public:
+    Tipo getTipo() const;
+
+    void setTipo(Tipo tipo);
+
+    const Data &getData() const;
+
+    void setData(const Data &data);
+
+    const Funcionario &getFuncionario() const;
+
+    void setFuncionario(const Funcionario &funcionario);
+
+private:
     Data data;
     Funcionario funcionario;
 };

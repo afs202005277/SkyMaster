@@ -9,7 +9,17 @@
 class Bilhete
 {
 private:
-    unsigned numMalas;
+    unsigned int numMalas;
+public:
+    unsigned int getNumMalas() const;
+
+    void setNumMalas(unsigned int numMalas);
+
+    bool isCheckInAuto() const;
+
+    void setCheckInAuto(bool checkInAuto);
+
+private:
     bool checkInAuto;
 };
 

@@ -6,9 +6,25 @@
 #define PROJETO1_CARRINHOTRANSPORTE_H
 
 
-class CarrinhoTransporte {
-    int nCarruagens, nPilhas, nMalas;
+#include "Mala.h"
 
+class CarrinhoTransporte {
+private:
+    int nCarruagens, nPilhas, nMalas;
+public:
+    int getNCarruagens() const;
+
+    void setNCarruagens(int nCarruagens);
+
+    int getNPilhas() const;
+
+    void setNPilhas(int nPilhas);
+
+    int getNMalas() const;
+
+    void setNMalas(int nMalas);
+
+    bool addMala(Mala m);
 };
 
 
