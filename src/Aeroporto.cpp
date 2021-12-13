@@ -40,3 +40,7 @@ BST<Transporte> Aeroporto::getTransportes() {
     return transportes;
 }
 
+void Aeroporto::insertTransporte(Transporte &t) {
+    transportes.insert(tolaa)
+}
+

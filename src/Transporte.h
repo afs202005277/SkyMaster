@@ -36,6 +36,8 @@ public:
     const Tempo &getHoraChegada() const;
 
     void setHoraChegada(const Tempo &horaChegada);
+
+    friend bool operator<(const Transporte &lhs, const Transporte &rhs);
 };
 
 

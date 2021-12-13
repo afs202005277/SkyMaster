@@ -34,6 +34,8 @@ public:
     void setTransportes(BST<Transporte> &t);
 
     BST<Transporte> getTransportes();
+
+    void insertTransporte(Transporte &t);
 };
 
 
