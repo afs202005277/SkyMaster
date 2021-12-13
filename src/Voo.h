@@ -16,7 +16,7 @@ private:
     Aeroporto * origem;
     Aeroporto * destino;
 public:
-    Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, int lotacaoAtual=0);
+    Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, int lotacaoAtual);
 };
 
 
