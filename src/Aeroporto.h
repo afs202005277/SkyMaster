@@ -37,6 +37,8 @@ public:
 
     void insertTransporte(Transporte &t);
 
+    bool removeTransporte(Transporte &t);
+
     Transporte getNearestTransport();
 
     vector<Transporte> getAvailableTransports(Tempo min, Tempo max);

@@ -57,7 +57,6 @@ Transporte Aeroporto::getNearestTransport() {
     return transportes.findMin();
 }
 
-
 vector<Transporte> Aeroporto::getAvailableTransports(Tempo min, Tempo max) {
     vector<Transporte> res;
     BSTItrIn<Transporte> it(transportes);
@@ -69,5 +68,9 @@ vector<Transporte> Aeroporto::getAvailableTransports(Tempo min, Tempo max) {
         it.advance();
     }
     return res;
+}
+
+bool Aeroporto::removeTransporte(Transporte &t) {
+    return transportes.remove(t);
 }
 
