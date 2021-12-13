@@ -17,6 +17,8 @@ struct Tempo
 class Transporte {
 
 private:
+    int distancia;
+    Tempo horaChegada;
     TipoTransporte tipo;
 public:
     TipoTransporte getTipo() const;
@@ -30,10 +32,6 @@ public:
     const Tempo &getHoraChegada() const;
 
     void setHoraChegada(const Tempo &horaChegada);
-
-private:
-    int distancia;
-    Tempo horaChegada;
 };
 
 

@@ -7,15 +7,34 @@
 
 
 #include <string>
+#include <queue>
+#include "Bilhete.h"
 
 class Passageiro {
 private:
-    std::string nome;
     int idade, id;
+    bool levaBagagem, checkInAutomatico;
+    std::string nome;
+    std::queue<Bilhete> bilhetes;
 public:
     Passageiro(const std::string &nome, int idade, int id);
 
-public:
+    bool isLevaBagagem() const;
+
+    void setLevaBagagem(bool levaBagagem);
+
+    bool isCheckInAutomatico() const;
+
+    void setCheckInAutomatico(bool checkInAutomatico);
+
+    const std::queue<Bilhete> &getBilhetes() const;
+
+    void addBilhete(const Bilhete &bilhete);
+
+    Bilhete frontBilhete() const;
+
+    void popBilhete();
+
     const std::string &getNome() const;
 
     void setNome(const std::string &nome);
@@ -27,15 +46,6 @@ public:
     int getId() const;
 
     void setId(int id);
-
-    bool isLevaBgagem() const;
-
-    void setLevaBgagem(bool levaBgagem);
-
-    bool isCheckInAutomatico() const;
-
-    void setCheckInAutomatico(bool checkInAutomatico);
-
 };
 
 
