@@ -3,14 +3,15 @@
 #include <Passageiro.h>
 #include <vector>
 #include <Aviao.h>
+#include "Voo.h"
 
 int main() {
-    Aeroporto OPO("Aeroporto Francisco Sá Carneiro", "Porto", "Portugal");
-    Aeroporto LIS("Aeroporto de Lisboa", "Lisboa", "Portugal");
-    Aeroporto FAO("Aeroporto de Faro", "Faro", "Portugal");
-    Aeroporto LAX("Los Angeles International Airport", "Los Angeles", "USA");
-    Aeroporto JFK("John F. Kennedy International Airport", "New York", "USA");
-    Aeroporto LGW("Gatwick Airport", "London", "United Kingdom");
+    auto *OPO = new Aeroporto("Aeroporto Francisco Sá Carneiro", "Porto", "Portugal");
+    auto *LIS = new Aeroporto("Aeroporto de Lisboa", "Lisboa", "Portugal");
+    auto *FAO = new Aeroporto("Aeroporto de Faro", "Faro", "Portugal");
+    auto *LAX = new Aeroporto("Los Angeles International Airport", "Los Angeles", "USA");
+    auto *JFK = new Aeroporto("John F. Kennedy International Airport", "New York", "USA");
+    auto *LGW = new Aeroporto("Gatwick Airport", "London", "United Kingdom");
 
 
     Passageiro p1("Julieta Branco", 30, 882128799);
@@ -25,8 +26,10 @@ int main() {
     Passageiro p10("Hugo Monteiro", 35, 575041321);
 
 
-    Voo v1, v2, v3;
-    v1.dataPartida = Data()
+    Voo v1(1, 523, Data(2021, 12, 17), OPO, LAX, 55),
+        v2(2, 50, Data(2022, 1, 1), FAO, OPO),
+        v3(3, 300, Data(2021, 12, 25), JFK, LGW);
+
 
 
 
