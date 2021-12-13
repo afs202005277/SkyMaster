@@ -58,3 +58,11 @@ void Aviao::addVoo(Voo *voo) {
 void Aviao::sortPlano() {
     plano.sort();
 }
+
+bool Aviao::processService() {
+    if (servicos.empty())
+        return false;
+    pastServices.push(servicos.front());
+    servicos.pop();
+    return true;
+}

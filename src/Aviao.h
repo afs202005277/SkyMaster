@@ -25,7 +25,6 @@ private:
     std::stack<Servico*> pastServices;
 
     void sortPlano();
-    static bool sorter(const Voo *v1, const Voo *v2);
 public:
     // CONSTRUTORES && GETTERS && SETTERS
     Aviao(int capacidade, const std::list<Voo *> &plano, const std::string &matricula,
@@ -56,6 +55,8 @@ public:
     void addServico(Servico *servico);
 
     void addVoo(Voo *voo);
+
+    bool processService();
 
 };
 
