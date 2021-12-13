@@ -4,3 +4,18 @@
 
 #include "Bilhete.h"
 
+unsigned int Bilhete::getNumMalas() const {
+    return numMalas;
+}
+
+void Bilhete::setNumMalas(unsigned int numMalas) {
+    Bilhete::numMalas = numMalas;
+}
+
+bool Bilhete::isCheckInAuto() const {
+    return checkInAuto;
+}
+
+void Bilhete::setCheckInAuto(bool checkInAuto) {
+    Bilhete::checkInAuto = checkInAuto;
+}

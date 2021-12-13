@@ -7,12 +7,33 @@
 
 enum TipoTransporte {autocarro, metro, comboio};
 
+struct Tempo
+{
+    int hora;
+    int minuto;
+    int segundo = 0;
+};
+
 class Transporte {
+
 private:
     TipoTransporte tipo;
-    int distancia;
-    // COMO É Q SE FAZ UM HORARIO???
+public:
+    TipoTransporte getTipo() const;
 
+    void setTipo(TipoTransporte tipo);
+
+    int getDistancia() const;
+
+    void setDistancia(int distancia);
+
+    const Tempo &getHoraChegada() const;
+
+    void setHoraChegada(const Tempo &horaChegada);
+
+private:
+    int distancia;
+    Tempo horaChegada;
 };
 
 

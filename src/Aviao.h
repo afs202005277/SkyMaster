@@ -16,7 +16,7 @@
 
 
 struct Voo{
-    int nVoo, duracao, nPassageiros, lotacaoAtual;
+    int nVoo, duracao, lotacaoAtual;
     Data dataPartida;
     Aeroporto * origem;
     Aeroporto * destino;
