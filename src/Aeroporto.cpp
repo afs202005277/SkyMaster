@@ -40,7 +40,7 @@ BST<Transporte> Aeroporto::getTransportes() {
     return transportes;
 }
 
-void Aeroporto::insertTransporte(Transporte &t) {
+void Aeroporto::addTransporte(Transporte &t) {
     Transporte f = transportes.find(t);
     if (f.getDistancia() == -1) // Not found
     {
@@ -72,5 +72,22 @@ vector<Transporte> Aeroporto::getAvailableTransports(Tempo min, Tempo max) {
 
 bool Aeroporto::removeTransporte(Transporte &t) {
     return transportes.remove(t);
+}
+
+Transporte Aeroporto::getNextTransport() {
+    Tempo t = {INT_MAX, INT_MAX, INT_MAX};
+    Transporte res;
+    BSTItrIn<Transporte> it(transportes);
+    while(!it.isAtEnd())
+    {
+        Transporte current = it.retrieve();
+        if (current.getHoraChegada() < t)
+        {
+            t = current.getHoraChegada();
+            res = current;
+        }
+        it.advance();
+    }
+    return res;
 }
 

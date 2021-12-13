@@ -31,3 +31,17 @@ void Transporte::setHoraChegada(const Tempo &horaChegada) {
 Transporte::Transporte(int distancia, const Tempo &horaChegada, TipoTransporte tipo) : distancia(distancia),
                                                                                        horaChegada(horaChegada),
                                                                                        tipo(tipo) {}
+
+Transporte::Transporte() {
+    horaChegada = {0, 0, 0};
+    distancia = -1;
+    tipo = metro;
+}
+
+bool operator<(const Transporte &lhs, const Transporte &rhs) {
+    if (lhs.distancia < rhs.distancia)
+        return true;
+    if (lhs.distancia == rhs.distancia && lhs.horaChegada < rhs.horaChegada)
+        return true;
+    return false;
+}

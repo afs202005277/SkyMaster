@@ -44,6 +44,8 @@ class Transporte {
 private:
     int distancia;
 public:
+    Transporte();
+
     Transporte(int distancia, const Tempo &horaChegada, TipoTransporte tipo);
 
 private:

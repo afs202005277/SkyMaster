@@ -35,11 +35,13 @@ public:
 
     BST<Transporte> getTransportes();
 
-    void insertTransporte(Transporte &t);
+    void addTransporte(Transporte &t);
 
     bool removeTransporte(Transporte &t);
 
     Transporte getNearestTransport();
+
+    Transporte getNextTransport();
 
     vector<Transporte> getAvailableTransports(Tempo min, Tempo max);
 };
