@@ -28,18 +28,4 @@ void Passageiro::setId(int id) {
     Passageiro::id = id;
 }
 
-bool Passageiro::isLevaBgagem() const {
-    return levaBgagem;
-}
-
-void Passageiro::setLevaBgagem(bool levaBgagem) {
-    Passageiro::levaBgagem = levaBgagem;
-}
-
-bool Passageiro::isCheckInAutomatico() const {
-    return checkInAutomatico;
-}
-
-void Passageiro::setCheckInAutomatico(bool checkInAutomatico) {
-    Passageiro::checkInAutomatico = checkInAutomatico;
-}
+Passageiro::Passageiro(const std::string &nome, int idade, int id) : nome(nome), idade(idade), id(id) {}

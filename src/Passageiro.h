@@ -11,6 +11,10 @@
 class Passageiro {
 private:
     std::string nome;
+    int idade, id;
+public:
+    Passageiro(const std::string &nome, int idade, int id);
+
 public:
     const std::string &getNome() const;
 
@@ -31,10 +35,6 @@ public:
     bool isCheckInAutomatico() const;
 
     void setCheckInAutomatico(bool checkInAutomatico);
-
-private:
-    int idade, id;
-    bool levaBgagem, checkInAutomatico;
 
 };
 
