@@ -18,7 +18,10 @@ private:
     Aeroporto * origem;
     Aeroporto * destino;
     vector<Passageiro> passageiros;
+    vector<Bilhete> bilhetes_vendidos;
 public:
+    Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, int lotacaoAtual=0);
+
     int getNVoo() const;
 
     void setNVoo(int nVoo);
@@ -50,16 +53,6 @@ public:
     const vector<Bilhete> &getBilhetesVendidos() const;
 
     void setBilhetesVendidos(const vector<Bilhete> &bilhetesVendidos);
-
-private:
-    vector<Bilhete> bilhetes_vendidos;
-public:
-    Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, int lotacaoAtual=0);
-
-    bool addPassageiro();
-
-
-
 };
 
 
