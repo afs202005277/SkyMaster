@@ -6,7 +6,7 @@
 
 
 Aeroporto::Aeroporto(std::string name, std::string city, std::string country) : name(std::move(name)), city(std::move(city)),
-                                                                                                 country(std::move(country)) {}
+                                                                                country(std::move(country)) {}
 
 const std::string &Aeroporto::getName() const {
     return name;
@@ -31,3 +31,5 @@ const std::string &Aeroporto::getCountry() const {
 void Aeroporto::setCountry(const std::string &country) {
     Aeroporto::country = country;
 }
+
+Aeroporto::Aeroporto() {}

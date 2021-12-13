@@ -4,17 +4,18 @@
 
 #ifndef PROJETO1_AEROPORTO_H
 #define PROJETO1_AEROPORTO_H
+#include "Transporte.h"
+#include "Funcionario.h"
+#include "bst.h"
 #include <string>
 #include <vector>
-#include "Funcionario.h"
-#include "Transporte.h"
-#include "bst.h"
+class Funcionario;
 
 class Aeroporto {
 private:
     std::string name, city, country;
     std::vector<Funcionario> funcionarios;
-    BST<Transporte> transportes;
+    // BST<Transporte> transportes;
 public:
     const std::string &getName() const;
 
@@ -27,6 +28,8 @@ public:
     const std::string &getCountry() const;
 
     void setCountry(const std::string &country);
+
+    Aeroporto();
 
     Aeroporto(std::string name, std::string city, std::string country);
 };

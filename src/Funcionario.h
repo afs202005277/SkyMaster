@@ -5,16 +5,18 @@
 #ifndef PROJETO1_FUNCIONARIO_H
 #define PROJETO1_FUNCIONARIO_H
 
-
-#include <string>
 #include "Aeroporto.h"
+#include <string>
+class Aeroporto;
 
 class Funcionario {
-    private:
+private:
     int telemovel;
     std::string nome, morada;
-    Aeroporto * airport;
+    Aeroporto *aeroporto;
 public:
+    Funcionario();
+
     Funcionario(int telemovel, const std::string &nome, const std::string &morada);
 
 public:
@@ -30,6 +32,5 @@ public:
 
     void setMorada(const std::string &morada);
 };
-
 
 #endif //PROJETO1_FUNCIONARIO_H
