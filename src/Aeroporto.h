@@ -15,7 +15,7 @@ class Aeroporto {
 private:
     std::string name, city, country;
     std::vector<Funcionario> funcionarios;
-    // BST<Transporte> transportes;
+    BST<Transporte> transportes;
 public:
     const std::string &getName() const;
 

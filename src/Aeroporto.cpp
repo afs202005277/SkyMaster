@@ -5,7 +5,7 @@
 #include "Aeroporto.h"
 
 
-Aeroporto::Aeroporto(std::string name, std::string city, std::string country) : name(std::move(name)), city(std::move(city)),
+Aeroporto::Aeroporto(std::string name, std::string city, std::string country) : transportes(Transporte(-1, Tempo {-1, -1, -1}, metro)), name(std::move(name)), city(std::move(city)),
                                                                                 country(std::move(country)) {}
 
 const std::string &Aeroporto::getName() const {
@@ -31,5 +31,3 @@ const std::string &Aeroporto::getCountry() const {
 void Aeroporto::setCountry(const std::string &country) {
     Aeroporto::country = country;
 }
-
-Aeroporto::Aeroporto() = default;

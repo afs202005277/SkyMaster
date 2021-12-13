@@ -7,17 +7,21 @@
 
 enum TipoTransporte {autocarro, metro, comboio};
 
-struct Tempo
+typedef struct
 {
     int hora;
     int minuto;
     int segundo = 0;
-};
+} Tempo;
 
 class Transporte {
 
 private:
     int distancia;
+public:
+    Transporte(int distancia, const Tempo &horaChegada, TipoTransporte tipo);
+
+private:
     Tempo horaChegada;
     TipoTransporte tipo;
 public:
