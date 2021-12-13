@@ -60,5 +60,5 @@ void Aviao::sortPlano() {
 }
 
 bool Aviao::sorter(const Voo *v1, const Voo *v2) {
-    return v1->dataPartida < v2->dataPartida;
+    return v1->getDataPartida() < v2->getDataPartida();
 }
