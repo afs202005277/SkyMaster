@@ -41,6 +41,15 @@ BST<Transporte> Aeroporto::getTransportes() {
 }
 
 void Aeroporto::insertTransporte(Transporte &t) {
-    transportes.insert(tolaa)
+    Transporte f = transportes.find(t);
+    if (f.getDistancia() == -1) // Not found
+    {
+        transportes.insert(t);
+    }
+    else
+    {
+        transportes.remove(t);
+        transportes.insert(t);
+    }
 }
 

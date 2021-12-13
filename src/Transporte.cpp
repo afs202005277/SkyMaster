@@ -15,9 +15,9 @@ void Transporte::setTipo(TipoTransporte tipo) {
 bool operator<(const Tempo &lhs, const Tempo &rhs) {
     if (lhs.hora < rhs.hora)
         return true;
-    else if (lhs.hora == rhs.hora && lhs.minuto < rhs.minuto)
+    if (lhs.hora == rhs.hora && lhs.minuto < rhs.minuto)
         return true;
-    else if (lhs.hora == rhs.hora && lhs.minuto == rhs.minuto && lhs.segundo < rhs.segundo)
+    if (lhs.hora == rhs.hora && lhs.minuto == rhs.minuto && lhs.segundo < rhs.segundo)
         return true;
     return false;
 }
@@ -25,7 +25,7 @@ bool operator<(const Tempo &lhs, const Tempo &rhs) {
 bool operator<(const Transporte &lhs, const Transporte &rhs) {
     if (lhs.distancia < rhs.distancia)
         return true;
-    else if (lhs.distancia == rhs.distancia && lhs.horaChegada < rhs.horaChegada)
+    if (lhs.distancia == rhs.distancia && lhs.horaChegada < rhs.horaChegada)
         return true;
     return false;
 }
