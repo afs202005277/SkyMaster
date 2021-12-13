@@ -33,7 +33,7 @@ void Voo::setLotacaoAtual(int lotacaoAtual) {
 }
 
 const Data &Voo::getDataPartida() const {
-    return this->dataPartida;
+    return dataPartida;
 }
 
 void Voo::setDataPartida(const Data &dataPartida) {
