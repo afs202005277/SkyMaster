@@ -57,3 +57,17 @@ Transporte Aeroporto::getNearestTransport() {
     return transportes.findMin();
 }
 
+
+vector<Transporte> Aeroporto::getAvailableTransports(Tempo min, Tempo max) {
+    vector<Transporte> res;
+    BSTItrIn<Transporte> it(transportes);
+    while(!it.isAtEnd())
+    {
+        Transporte current = it.retrieve();
+        if (current.getHoraChegada() >= min && current.getHoraChegada() <= max)
+            res.push_back(current);
+        it.advance();
+    }
+    return res;
+}
+

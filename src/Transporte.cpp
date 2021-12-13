@@ -12,24 +12,6 @@ void Transporte::setTipo(TipoTransporte tipo) {
     Transporte::tipo = tipo;
 }
 
-bool operator<(const Tempo &lhs, const Tempo &rhs) {
-    if (lhs.hora < rhs.hora)
-        return true;
-    if (lhs.hora == rhs.hora && lhs.minuto < rhs.minuto)
-        return true;
-    if (lhs.hora == rhs.hora && lhs.minuto == rhs.minuto && lhs.segundo < rhs.segundo)
-        return true;
-    return false;
-}
-
-bool operator<(const Transporte &lhs, const Transporte &rhs) {
-    if (lhs.distancia < rhs.distancia)
-        return true;
-    if (lhs.distancia == rhs.distancia && lhs.horaChegada < rhs.horaChegada)
-        return true;
-    return false;
-}
-
 int Transporte::getDistancia() const {
     return distancia;
 }

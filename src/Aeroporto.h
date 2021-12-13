@@ -38,6 +38,8 @@ public:
     void insertTransporte(Transporte &t);
 
     Transporte getNearestTransport();
+
+    vector<Transporte> getAvailableTransports(Tempo min, Tempo max);
 };
 
 

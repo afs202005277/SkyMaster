@@ -14,6 +14,31 @@ typedef struct
     int segundo = 0;
 } Tempo;
 
+bool operator<(const Tempo &lhs, const Tempo &rhs) {
+    if (lhs.hora < rhs.hora)
+        return true;
+    if (lhs.hora == rhs.hora && lhs.minuto < rhs.minuto)
+        return true;
+    if (lhs.hora == rhs.hora && lhs.minuto == rhs.minuto && lhs.segundo < rhs.segundo)
+        return true;
+    return false;
+}
+
+bool operator==(const Tempo &lhs, const Tempo &rhs){
+    return lhs.hora==rhs.hora && lhs.minuto == rhs.minuto && lhs.segundo==rhs.segundo;
+}
+
+bool operator<=(const Tempo &lhs, const Tempo &rhs){
+    return (lhs<rhs) || lhs==rhs;
+}
+
+bool operator>=(const Tempo &lhs, const Tempo &rhs){
+    return (rhs<lhs) || lhs==rhs;
+}
+
+bool operator>(const Tempo &lhs, const Tempo &rhs){
+    return (rhs<lhs);
+}
 class Transporte {
 
 private:
