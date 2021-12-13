@@ -13,6 +13,7 @@ class Mala {
 private:
     Passageiro dono;
     Aviao *despachada;
+    float peso;
 public:
     const Passageiro &getDono() const;
 
@@ -21,9 +22,6 @@ public:
     float getPeso() const;
 
     void setPeso(float peso);
-
-private:
-    float peso;
 };
 
 

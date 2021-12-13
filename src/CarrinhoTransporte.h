@@ -11,7 +11,9 @@
 class CarrinhoTransporte {
 private:
     int nCarruagens, nPilhas, nMalas;
+    vector<vector<stack<Mala*>>> transporte;
 public:
+    CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas);
     int getNCarruagens() const;
 
     void setNCarruagens(int nCarruagens);
@@ -24,7 +26,9 @@ public:
 
     void setNMalas(int nMalas);
 
-    bool addMala(Mala m);
+    bool addMala(Mala *m);
+
+    vector<Mala*> descarregarMalas();
 };
 
 
