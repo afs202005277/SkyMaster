@@ -24,6 +24,7 @@ int main() {
     Passageiro p9("Joaquina Mota", 80, 626482872);
     Passageiro p10("Hugo Monteiro", 35, 575041321);
 
+
     Voo v1, v2, v3;
     v1.dataPartida = Data()
 

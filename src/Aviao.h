@@ -13,14 +13,8 @@
 #include "Data.h"
 #include "Servico.h"
 #include "Aeroporto.h"
+#include "Voo.h"
 
-
-struct Voo{
-    int nVoo, duracao, lotacaoAtual;
-    Data dataPartida;
-    Aeroporto * origem;
-    Aeroporto * destino;
-};
 
 class Aviao {
 private:
