@@ -31,3 +31,12 @@ const std::string &Aeroporto::getCountry() const {
 void Aeroporto::setCountry(const std::string &country) {
     Aeroporto::country = country;
 }
+
+void Aeroporto::setTransportes(BST<Transporte> &t) {
+    transportes = t;
+}
+
+BST<Transporte> Aeroporto::getTransportes() {
+    return transportes;
+}
+

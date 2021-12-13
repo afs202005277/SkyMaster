@@ -29,9 +29,11 @@ public:
 
     void setCountry(const std::string &country);
 
-    Aeroporto();
-
     Aeroporto(std::string name, std::string city, std::string country);
+
+    void setTransportes(BST<Transporte> &t);
+
+    BST<Transporte> getTransportes();
 };
 
 
