@@ -36,6 +36,8 @@ public:
     BST<Transporte> getTransportes();
 
     void insertTransporte(Transporte &t);
+
+    Transporte getNearestTransport();
 };
 
 

@@ -53,3 +53,7 @@ void Aeroporto::insertTransporte(Transporte &t) {
     }
 }
 
+Transporte Aeroporto::getNearestTransport() {
+    return transportes.findMin();
+}
+
