@@ -10,6 +10,11 @@
 class Aeroporto;
 
 class Funcionario {
+public:
+    bool operator==(const Funcionario &rhs) const;
+
+    bool operator!=(const Funcionario &rhs) const;
+
 private:
     int telemovel;
     std::string nome, morada;

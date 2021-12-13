@@ -58,6 +58,7 @@ public:
 
     bool processService();
 
+    vector<vector<Servico *>> getServicesBy(const Funcionario &f) const;
 };
 
 

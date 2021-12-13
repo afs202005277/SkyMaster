@@ -33,3 +33,14 @@ Funcionario::Funcionario(int telemovel, const std::string &nome, const std::stri
                                                                                               morada(morada) {}
 
 Funcionario::Funcionario() {}
+
+bool Funcionario::operator==(const Funcionario &rhs) const {
+    return telemovel == rhs.telemovel &&
+           nome == rhs.nome &&
+           morada == rhs.morada &&
+           aeroporto == rhs.aeroporto;
+}
+
+bool Funcionario::operator!=(const Funcionario &rhs) const {
+    return !(rhs == *this);
+}

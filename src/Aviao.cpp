@@ -66,3 +66,24 @@ bool Aviao::processService() {
     servicos.pop();
     return true;
 }
+
+vector<vector<Servico*>> Aviao::getServicesBy(const Funcionario &f) const{
+    vector<vector<Servico*>> res(2, vector<Servico*> (0));
+    stack<Servico*> aux_past = pastServices;
+    queue<Servico*> aux_future = servicos;
+    while(!aux_past.empty())
+    {
+        if (aux_past.top()->getFuncionario() == f)
+        {
+            res[0].push_back(aux_past.top());
+        }
+        aux_past.pop();
+    }
+    while(!aux_future.empty())
+    {
+        if (aux_future.front()->getFuncionario() == f)
+            res[1].push_back(aux_future.front());
+        aux_future.pop();
+    }
+    return res;
+}
