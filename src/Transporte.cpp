@@ -32,8 +32,7 @@ Transporte::Transporte(int distancia, const Tempo &horaChegada, TipoTransporte t
                                                                                        horaChegada(horaChegada),
                                                                                        tipo(tipo) {}
 
-Transporte::Transporte() {
-    horaChegada = {0, 0, 0};
+Transporte::Transporte() : horaChegada(0, 0, 0){
     distancia = -1;
     tipo = metro;
 }
