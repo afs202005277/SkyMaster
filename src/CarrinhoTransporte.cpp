@@ -4,15 +4,16 @@
 
 #include "CarrinhoTransporte.h"
 
-CarrinhoTransporte::CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas) {
+CarrinhoTransporte::CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas, Aviao *aviao) {
     this->nCarruagens = nCarruagens;
     this->nPilhas = nPilhas;
     this->nMalas = nMalas;
-    this->transporte = vector<vector<stack<Mala*>>>(this->nCarruagens);
-    for (auto &temp : this->transporte)
+    this->carga = vector<vector<stack<Mala*>>>(this->nCarruagens);
+    for (auto &temp : this->carga)
     {
         temp = vector<stack<Mala*>>(this->nPilhas);
     }
+    this->aviao=aviao;
 }
 
 int CarrinhoTransporte::getNCarruagens() const {
@@ -40,7 +41,7 @@ void CarrinhoTransporte::setNMalas(int nMalas) {
 }
 
 bool CarrinhoTransporte::addMala(Mala *m) {
-    for (vector<stack<Mala*>> &carruagem : this->transporte)
+    for (vector<stack<Mala*>> &carruagem : this->carga)
     {
         for (stack<Mala*> &carrinho : carruagem)
         {
@@ -63,7 +64,7 @@ bool CarrinhoTransporte::addMala(Mala *m) {
 vector<Mala *> CarrinhoTransporte::descarregarMalas()
 {
     vector<Mala *> temp;
-    for (vector<stack<Mala*>> &carruagem : this->transporte)
+    for (vector<stack<Mala*>> &carruagem : this->carga)
     {
         for (stack<Mala*> &carrinho : carruagem)
         {
@@ -75,4 +76,20 @@ vector<Mala *> CarrinhoTransporte::descarregarMalas()
         }
     }
     return temp;
+}
+
+const vector<vector<stack<Mala *>>> &CarrinhoTransporte::getCarga() const {
+    return carga;
+}
+
+void CarrinhoTransporte::setCarga(const vector<vector<stack<Mala *>>> &carga) {
+    CarrinhoTransporte::carga = carga;
+}
+
+Aviao *CarrinhoTransporte::getAviao() const {
+    return aviao;
+}
+
+void CarrinhoTransporte::setAviao(Aviao *aviao) {
+    CarrinhoTransporte::aviao = aviao;
 }

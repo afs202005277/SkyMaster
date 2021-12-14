@@ -4,11 +4,11 @@
 
 #include "Mala.h"
 
-const Passageiro &Mala::getDono() const {
+Passageiro * Mala::getDono() const {
     return dono;
 }
 
-void Mala::setDono(const Passageiro &dono) {
+void Mala::setDono(Passageiro* dono) {
     Mala::dono = dono;
 }
 

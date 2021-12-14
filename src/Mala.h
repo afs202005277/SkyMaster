@@ -11,13 +11,13 @@
 
 class Mala {
 private:
-    Passageiro dono;
+    Passageiro* dono;
     Aviao *despachada;
     float peso;
 public:
-    const Passageiro &getDono() const;
+    Passageiro * getDono() const;
 
-    void setDono(const Passageiro &dono);
+    void setDono(Passageiro* dono);
 
     float getPeso() const;
 
