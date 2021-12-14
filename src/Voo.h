@@ -22,7 +22,7 @@ private:
     Data dataPartida;
     Aeroporto * origem;
     Aeroporto * destino;
-    vector<Passageiro *> passageiros;
+    list<Passageiro *> passageiros;
     Aviao *aviao;
 public:
     Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao, int lotacaoAtual=0);
@@ -51,11 +51,12 @@ public:
 
     void setDestino(Aeroporto *destino);
 
-    const vector<Passageiro *> &getPassageiros() const;
+    const list<Passageiro *> & getPassageiros() const;
 
-    Bilhete* sellBilhete(bool checkInAuto, unsigned int nMalas);
+    Bilhete *sellBilhete(bool checkInAuto, unsigned int nMalas, Passageiro *p);
 
-    vector<Bilhete*> sellBilheteGroup(const vector<bool> &checkInAuto, const vector<unsigned int> &nMalas);
+    vector<Bilhete *> sellBilheteGroup(const vector<bool> &checkInAuto, const vector<unsigned int> &nMalas,
+                                       const vector<Passageiro *> &p);
 
     bool addPassageiro(Passageiro *passageiro);
 };
