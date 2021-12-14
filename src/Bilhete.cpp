@@ -4,7 +4,8 @@
 
 #include "Bilhete.h"
 
-Bilhete::Bilhete(unsigned int nVoo, bool checkInAuto, unsigned int numMalas) : nVoo(nVoo), checkInAuto(checkInAuto), numMalas(numMalas) {}
+Bilhete::Bilhete(unsigned int nVoo, bool checkInAuto, unsigned int numMalas, Passageiro *p)
+        : nVoo(nVoo), checkInAuto(checkInAuto), numMalas(numMalas), passageiro(p) {}
 
 unsigned int Bilhete::getNumMalas() const {
     return numMalas;
@@ -24,4 +25,16 @@ void Bilhete::setCheckInAuto(bool checkInAuto) {
 
 unsigned int Bilhete::getNVoo() const {
     return nVoo;
+}
+
+void Bilhete::setNVoo(unsigned int nVoo) {
+    Bilhete::nVoo = nVoo;
+}
+
+Passageiro *Bilhete::getPassageiro() const {
+    return passageiro;
+}
+
+void Bilhete::setPassageiro(Passageiro *passageiro) {
+    Bilhete::passageiro = passageiro;
 }

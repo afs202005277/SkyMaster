@@ -53,13 +53,13 @@ public:
 
     const list<Passageiro *> & getPassageiros() const;
 
-    Bilhete *sellBilhete(bool checkInAuto, unsigned int nMalas, Passageiro *p);
+    bool sellBilhete(bool checkInAuto, unsigned int nMalas, Passageiro *p);
 
-    vector<Bilhete *> sellBilheteGroup(const vector<bool> &checkInAuto, const vector<unsigned int> &nMalas,
-                                       const vector<Passageiro *> &p);
+    bool sellBilheteGroup(const vector<bool> &checkInAuto, const vector<unsigned int> &nMalas,
+                          const vector<Passageiro *> &p);
 
-    bool addPassageiro(Passageiro *passageiro);
 };
+
 
 
 #endif //PROJETO1_VOO_H
