@@ -91,3 +91,20 @@ Transporte Aeroporto::getNextTransport() {
     return res;
 }
 
+void Aeroporto::addFuncionario(Funcionario* &f) {
+    funcionarios.push_back(f);
+}
+
+Funcionario *Aeroporto::removeFuncionario(const string &name) {
+    for (auto it =funcionarios.begin();it!=funcionarios.end();it++)
+    {
+        if ((*it)->getNome() == name)
+        {
+            Funcionario* tmp = (*it);
+            funcionarios.erase(it);
+            return tmp;
+        }
+    }
+    return nullptr;
+}
+

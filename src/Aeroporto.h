@@ -14,7 +14,7 @@ class Funcionario;
 class Aeroporto {
 private:
     std::string name, city, country;
-    std::vector<Funcionario> funcionarios;
+    std::vector<Funcionario*> funcionarios;
     BST<Transporte> transportes;
 public:
     const std::string &getName() const;
@@ -44,6 +44,10 @@ public:
     Transporte getNextTransport();
 
     vector<Transporte> getAvailableTransports(Tempo min, Tempo max);
+
+    void addFuncionario(Funcionario * &f);
+
+    Funcionario* removeFuncionario(const string &name);
 };
 
 
