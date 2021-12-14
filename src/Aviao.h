@@ -23,6 +23,7 @@ private:
     std::string matricula;
     std::queue<Servico*> servicos;
     std::stack<Servico*> pastServices;
+    std::vector<Malas*> carga;
 
     void sortPlano();
 public:

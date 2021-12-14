@@ -12,6 +12,7 @@ class CarrinhoTransporte {
 private:
     int nCarruagens, nPilhas, nMalas;
     vector<vector<stack<Mala*>>> carga;
+    Aviao * aviao;
 public:
     const vector<vector<stack<Mala *>>> &getCarga() const;
 
@@ -21,9 +22,6 @@ public:
 
     void setAviao(Aviao *aviao);
 
-private:
-    Aviao * aviao;
-public:
     CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas, Aviao *aviao);
 
     int getNCarruagens() const;
