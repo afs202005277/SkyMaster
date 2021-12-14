@@ -4,23 +4,15 @@
 
 #include "Bilhete.h"
 
-Bilhete::Bilhete(unsigned int nVoo, bool checkInAuto, unsigned int numMalas, Passageiro *p)
-        : nVoo(nVoo), checkInAuto(checkInAuto), numMalas(numMalas), passageiro(p) {}
+Bilhete::Bilhete(unsigned int nVoo, bool levaBagagem, Passageiro *p)
+        : nVoo(nVoo), levaBagagem(levaBagagem), passageiro(p) {}
 
-unsigned int Bilhete::getNumMalas() const {
-    return numMalas;
+bool Bilhete::getLevaBagagem() const {
+    return levaBagagem;
 }
 
-void Bilhete::setNumMalas(unsigned int numMalas) {
-    Bilhete::numMalas = numMalas;
-}
-
-bool Bilhete::isCheckInAuto() const {
-    return checkInAuto;
-}
-
-void Bilhete::setCheckInAuto(bool checkInAuto) {
-    Bilhete::checkInAuto = checkInAuto;
+void Bilhete::setLevaBagagem(bool leva) {
+    Bilhete::levaBagagem = leva;
 }
 
 unsigned int Bilhete::getNVoo() const {

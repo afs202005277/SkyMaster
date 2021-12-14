@@ -6,6 +6,7 @@
 #define PROJETO1_AEROPORTO_H
 #include "Transporte.h"
 #include "Funcionario.h"
+#include "CarrinhoTransporte.h"
 #include "bst.h"
 #include <string>
 #include <vector>
@@ -16,9 +17,14 @@ private:
     std::string name, city, country;
     std::vector<Funcionario*> funcionarios;
     BST<Transporte> transportes;
+    std::vector<CarrinhoTransporte*> carrinhos;
 
 public:
     const std::string &getName() const;
+
+    const vector<CarrinhoTransporte *> &getCarrinhos() const;
+
+    void setCarrinhos(const vector<CarrinhoTransporte *> &carrinhos);
 
     void setName(const std::string &name);
 

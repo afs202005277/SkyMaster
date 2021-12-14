@@ -64,7 +64,7 @@ bool Voo::sellBilhete(bool checkInAuto, unsigned int nMalas, Passageiro *p) {
     if (this->lotacaoAtual < this->aviao->getCapacidade())
     {
         Bilhete *temp;
-        temp = new Bilhete(this->nVoo, checkInAuto, nMalas, p);
+        temp = new Bilhete(this->nVoo, nMalas, p);
         this->lotacaoAtual++;
         this->passageiros.push_back(p);
         p->addBilhete(temp);

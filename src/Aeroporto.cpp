@@ -135,3 +135,11 @@ void Aeroporto::setFuncionarios(const vector<Funcionario *> &funcionariosNew) {
     Aeroporto::funcionarios = funcionariosNew;
 }
 
+const vector<CarrinhoTransporte *> &Aeroporto::getCarrinhos() const {
+    return carrinhos;
+}
+
+void Aeroporto::setCarrinhos(const vector<CarrinhoTransporte *> &carrinhos) {
+    Aeroporto::carrinhos = carrinhos;
+}
+

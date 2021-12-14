@@ -4,6 +4,7 @@
 
 #include <stack>
 #include "Passageiro.h"
+#include "Mala.h"
 
 const std::string &Passageiro::getNome() const {
     return nome;
@@ -30,22 +31,6 @@ void Passageiro::setId(int id) {
 }
 
 Passageiro::Passageiro(const std::string &nome, int idade, int id) : nome(nome), idade(idade), id(id) {}
-
-bool Passageiro::isLevaBagagem() const {
-    return levaBagagem;
-}
-
-void Passageiro::setLevaBagagem(bool levaBagagem) {
-    Passageiro::levaBagagem = levaBagagem;
-}
-
-bool Passageiro::isCheckInAutomatico() const {
-    return checkInAutomatico;
-}
-
-void Passageiro::setCheckInAutomatico(bool checkInAutomatico) {
-    Passageiro::checkInAutomatico = checkInAutomatico;
-}
 
 const std::queue<Bilhete *> &Passageiro::getBilhetes() const {
     return this->bilhetes;
@@ -79,4 +64,8 @@ bool Passageiro::hasBilhete(int nVoo) {
     }
     this->bilhetes = temp;
     return res;
+}
+
+void Passageiro::checkIn(bool checkInAutomatico, vector<Mala *> &malas, Voo &v) {
+
 }

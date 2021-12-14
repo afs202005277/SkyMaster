@@ -14,19 +14,12 @@ class Bilhete;
 class Passageiro {
 private:
     int idade, id;
-    bool levaBagagem, checkInAutomatico;
     std::string nome;
     std::queue<Bilhete *> bilhetes;
 public:
     Passageiro(const std::string &nome, int idade, int id);
 
-    bool isLevaBagagem() const;
-
-    void setLevaBagagem(bool levaBagagem);
-
-    bool isCheckInAutomatico() const;
-
-    void setCheckInAutomatico(bool checkInAutomatico);
+    void checkIn(bool checkInAutomatico, vector<Mala *> &malas, Voo &v);
 
     const std::queue<Bilhete *> &getBilhetes() const;
 

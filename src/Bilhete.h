@@ -6,15 +6,15 @@
 #define PROJETO1_BILHETE_H
 
 #include "Passageiro.h"
-
+class Passageiro;
 class Bilhete
 {
 private:
-    bool checkInAuto;
-    unsigned int numMalas, nVoo;
+    unsigned int nVoo;
     Passageiro* passageiro;
+    bool levaBagagem;
 public:
-    Bilhete(unsigned int nVoo, bool checkInAuto, unsigned int numMalas, Passageiro *p);
+    Bilhete(unsigned int nVoo, bool levaBagagem, Passageiro *p);
 
     void setNVoo(unsigned int nVoo);
 
@@ -22,13 +22,9 @@ public:
 
     void setPassageiro(Passageiro *passageiro);
 
-    unsigned int getNumMalas() const;
+    bool getLevaBagagem() const;
 
-    void setNumMalas(unsigned int numMalas);
-
-    bool isCheckInAuto() const;
-
-    void setCheckInAuto(bool checkInAuto);
+    void setLevaBagagem(bool leva);
 
     unsigned int getNVoo() const;
 };
