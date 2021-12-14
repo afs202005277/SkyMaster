@@ -58,7 +58,11 @@ public:
 
     bool processService();
 
-    vector<vector<Servico *>> getServicesBy(const Funcionario &f) const;
+    vector<Servico *> getPastServicesBy(const Funcionario &f) const;
+
+    vector<Servico *> getFutureServicesBy(const Funcionario &f) const;
+
+    vector<vector<Servico *>> getAllServicesBy(const Funcionario &f) const;
 };
 
 
