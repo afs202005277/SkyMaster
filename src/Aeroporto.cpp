@@ -108,12 +108,18 @@ void Aeroporto::addFuncionario(Funcionario* &f) {
 }
 
 Funcionario *Aeroporto::removeFuncionario(const Funcionario &f) {
-    for (auto it =funcionarios.begin();it!=funcionarios.end();it++)
+    int left = 0, right = funcionarios.size() - 1;
+    while (left <= right)
     {
-        if (*(*it) == f)
+        int middle = (left + right) / 2;
+        if (*funcionarios[middle] < f)
+            left = middle + 1;
+        else if (f < *funcionarios[middle])
+            right = middle - 1;
+        else
         {
-            Funcionario* tmp = (*it);
-            funcionarios.erase(it);
+            Funcionario* tmp = funcionarios[middle];
+            funcionarios.erase(funcionarios.begin() + middle);
             return tmp;
         }
     }
