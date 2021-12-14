@@ -27,6 +27,14 @@ public:
 public:
     int getTelemovel() const;
 
+    friend bool operator<(const Funcionario &lhs, const Funcionario &rhs);
+
+    friend bool operator>(const Funcionario &lhs, const Funcionario &rhs);
+
+    friend bool operator<=(const Funcionario &lhs, const Funcionario &rhs);
+
+    friend bool operator>=(const Funcionario &lhs, const Funcionario &rhs);
+
     void setTelemovel(int telemovel);
 
     const std::string &getNome() const;

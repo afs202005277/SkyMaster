@@ -44,3 +44,23 @@ bool Funcionario::operator==(const Funcionario &rhs) const {
 bool Funcionario::operator!=(const Funcionario &rhs) const {
     return !(rhs == *this);
 }
+
+bool operator<(const Funcionario &lhs, const Funcionario &rhs) {
+    if (lhs.nome < rhs.nome)
+        return true;
+    if (lhs.nome == rhs.nome && rhs.telemovel < lhs.telemovel)
+        return true;
+    return false;
+}
+
+bool operator>(const Funcionario &lhs, const Funcionario &rhs) {
+    return rhs < lhs;
+}
+
+bool operator<=(const Funcionario &lhs, const Funcionario &rhs) {
+    return !(rhs < lhs);
+}
+
+bool operator>=(const Funcionario &lhs, const Funcionario &rhs) {
+    return !(lhs < rhs);
+}

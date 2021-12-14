@@ -16,6 +16,7 @@ private:
     std::string name, city, country;
     std::vector<Funcionario*> funcionarios;
     BST<Transporte> transportes;
+
 public:
     const std::string &getName() const;
 
@@ -33,6 +34,10 @@ public:
 
     void setTransportes(BST<Transporte> &t);
 
+    const vector<Funcionario *> &getFuncionarios() const;
+
+    void setFuncionarios(const vector<Funcionario *> &funcionariosNew);
+
     BST<Transporte> getTransportes();
 
     void addTransporte(Transporte &t);
@@ -47,7 +52,7 @@ public:
 
     void addFuncionario(Funcionario * &f);
 
-    Funcionario* removeFuncionario(const string &name);
+    Funcionario* removeFuncionario(const Funcionario &f);
 };
 
 

@@ -2,6 +2,7 @@
 // Created by andre on 12/12/2021.
 //
 
+#include <algorithm>
 #include "Aeroporto.h"
 
 
@@ -92,13 +93,24 @@ Transporte Aeroporto::getNextTransport() {
 }
 
 void Aeroporto::addFuncionario(Funcionario* &f) {
-    funcionarios.push_back(f);
+    int left = 0, right = funcionarios.size() - 1;
+    while (left <= right)
+    {
+        int middle = (left + right) / 2;
+        if (*funcionarios[middle] < *f)
+            left = middle + 1;
+        else if (*f < *funcionarios[middle])
+            right = middle - 1;
+        else
+            return;
+    }
+    funcionarios.insert(funcionarios.begin()+left, f);
 }
 
-Funcionario *Aeroporto::removeFuncionario(const string &name) {
+Funcionario *Aeroporto::removeFuncionario(const Funcionario &f) {
     for (auto it =funcionarios.begin();it!=funcionarios.end();it++)
     {
-        if ((*it)->getNome() == name)
+        if (*(*it) == f)
         {
             Funcionario* tmp = (*it);
             funcionarios.erase(it);
@@ -106,5 +118,14 @@ Funcionario *Aeroporto::removeFuncionario(const string &name) {
         }
     }
     return nullptr;
+}
+
+const vector<Funcionario *> &Aeroporto::getFuncionarios() const {
+    return funcionarios;
+}
+
+void Aeroporto::setFuncionarios(const vector<Funcionario *> &funcionariosNew) {
+    sort(funcionariosNew.begin(), funcionariosNew.end());
+    Aeroporto::funcionarios = funcionariosNew;
 }
 

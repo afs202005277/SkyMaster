@@ -93,7 +93,6 @@ vector<Servico *> Aviao::getFutureServicesBy(const Funcionario &f) const {
     return res;
 }
 
-
 vector<vector<Servico*>> Aviao::getAllServicesBy(const Funcionario &f) const{
     vector<vector<Servico*>> res(2);
     res[0] = getPastServicesBy(f);
