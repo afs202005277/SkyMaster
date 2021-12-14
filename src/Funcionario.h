@@ -22,6 +22,10 @@ private:
 public:
     Funcionario();
 
+    Aeroporto *getAeroporto() const;
+
+    void setAeroporto(Aeroporto *aeroporto);
+
     Funcionario(int telemovel, const std::string &nome, const std::string &morada, Aeroporto *aeroporto);
 
 public:

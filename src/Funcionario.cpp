@@ -65,3 +65,12 @@ bool operator<=(const Funcionario &lhs, const Funcionario &rhs) {
 bool operator>=(const Funcionario &lhs, const Funcionario &rhs) {
     return !(lhs < rhs);
 }
+
+Aeroporto *Funcionario::getAeroporto() const {
+    return aeroporto;
+}
+
+void Funcionario::setAeroporto(Aeroporto *aeroporto) {
+    aeroporto->removeFuncionario(*this);
+    Funcionario::aeroporto = aeroporto;
+}
