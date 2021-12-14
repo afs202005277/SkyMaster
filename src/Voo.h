@@ -55,6 +55,8 @@ public:
 
     Bilhete* sellBilhete(bool checkInAuto, unsigned int nMalas);
 
+    vector<Bilhete*> sellBilheteGroup(const vector<bool> &checkInAuto, const vector<unsigned int> &nMalas);
+
     bool addPassageiro(Passageiro *passageiro);
 };
 

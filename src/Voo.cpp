@@ -79,3 +79,15 @@ bool Voo::addPassageiro(Passageiro *passageiro)
     }
     return false;
 }
+
+vector<Bilhete*> Voo::sellBilheteGroup(const vector<bool> &checkInAuto, const vector<unsigned int> &nMalas) {
+    unsigned int nPassageiros = checkInAuto.size();
+    vector<Bilhete *> res(nPassageiros, nullptr);
+    if (this->lotacaoAtual + nPassageiros > aviao->getCapacidade())
+        return res;
+    for (int i=0;i<nPassageiros;i++)
+    {
+        res[i] = this->sellBilhete(checkInAuto[i], nMalas[i]);
+    }
+    return res;
+}
