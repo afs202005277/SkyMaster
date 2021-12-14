@@ -12,6 +12,8 @@ enum Tipo {manutencao, limpeza};
 
 class Servico {
 private:
+    Servico() {}
+
     Data data;
     Funcionario funcionario;
     Tipo tipo;

@@ -28,9 +28,10 @@ void Funcionario::setMorada(const std::string &morada) {
     Funcionario::morada = morada;
 }
 
-Funcionario::Funcionario(int telemovel, const std::string &nome, const std::string &morada) : telemovel(telemovel),
-                                                                                              nome(nome),
-                                                                                              morada(morada) {}
+Funcionario::Funcionario(int telemovel, const std::string &nome, const std::string &morada, Aeroporto *aeroporto)
+        : telemovel(telemovel), nome(nome), morada(morada), aeroporto(aeroporto) {
+    aeroporto->addFuncionario(this);
+}
 
 Funcionario::Funcionario() {}
 

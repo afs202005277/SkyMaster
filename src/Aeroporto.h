@@ -50,7 +50,7 @@ public:
 
     vector<Transporte> getAvailableTransports(Tempo min, Tempo max);
 
-    void addFuncionario(Funcionario * &f);
+    void addFuncionario(Funcionario *f);
 
     Funcionario* removeFuncionario(const Funcionario &f);
 };

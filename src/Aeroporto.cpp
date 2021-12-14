@@ -92,7 +92,7 @@ Transporte Aeroporto::getNextTransport() {
     return res;
 }
 
-void Aeroporto::addFuncionario(Funcionario* &f) {
+void Aeroporto::addFuncionario(Funcionario *f) {
     int left = 0, right = funcionarios.size() - 1;
     while (left <= right)
     {

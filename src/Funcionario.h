@@ -22,7 +22,7 @@ private:
 public:
     Funcionario();
 
-    Funcionario(int telemovel, const std::string &nome, const std::string &morada);
+    Funcionario(int telemovel, const std::string &nome, const std::string &morada, Aeroporto *aeroporto);
 
 public:
     int getTelemovel() const;
