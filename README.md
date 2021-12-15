@@ -4,7 +4,8 @@
 ####Passageiro compra bilhete FEITO
  - Voo::sellBilhete()
  - Voo::sellBilheteGrupo()
-####Faz check-in & Despacha as malas
+####Faz check-in & Despacha as malas FEITO
+- Passageiro::checkIn()
 ####Vai para o avião
 - classe Voo/Avião
 

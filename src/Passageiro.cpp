@@ -66,10 +66,13 @@ bool Passageiro::hasBilhete(int nVoo) {
     return res;
 }
 
-void Passageiro::checkIn(bool checkInAutomatico, queue<Mala *> &malas, Voo &v) {
-   ARRANJAR ISTO
-    std::vector<CarrinhoTransporte *> ve = v.getOrigem()->getCarrinhos();
-    for (auto &c:ve)
+bool Passageiro::checkIn(bool checkInAutomatico, queue<Mala *> &malas, Voo &v) {
+   if (!this->hasBilhete(v.getNVoo()))
+       return false;
+   if (!checkInAutomatico)
+       return true;
+    std::vector<CarrinhoTransporte *> carrinhos = v.getOrigem()->getCarrinhos();
+    for (auto &c:carrinhos)
     {
         if (c->getAviao() == v.getAviao())
         {
@@ -80,6 +83,7 @@ void Passageiro::checkIn(bool checkInAutomatico, queue<Mala *> &malas, Voo &v) {
             }
         }
     }
+    return true;
 }
 
 

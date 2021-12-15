@@ -46,7 +46,7 @@ public:
 
     bool hasBilhete(int nVoo);
 
-    void checkIn(bool checkInAutomatico, std::queue<Mala *> &malas, Voo &v);
+    bool checkIn(bool checkInAutomatico, std::queue<Mala *> &malas, Voo &v);
 };
 
 
