@@ -113,3 +113,7 @@ void Aviao::descarregarMalas(CarrinhoTransporte *carrinho) {
     carga.clear();
 }
 
+void Aviao::addMala(Mala* m) {
+    carga.push_back(m);
+}
+

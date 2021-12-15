@@ -12,8 +12,9 @@
 #Transporte de malas:
 
 ####Associar carrinho a aviao (CARRINHOS LIMITADOS??? EXTRA)
-####Carregar malas para o carrinho
-####Descarregar malas do carrinho
+####Carregar malas para o carrinho FEITO
+- Passageiro::checkIn()
+####Descarregar malas do carrinho FEITO
 - No addMala verificar se carrinho está cheio e descarregar no avião
 
 #Avião:
@@ -34,7 +35,7 @@
 #Serviços:
 
 ####Escolher funcionario com menos ocupacao (EXTRA)
-####Fazer o serviço
+####Fazer o serviço FEITO
 - Aviao::processService()
 
 #Transporte:

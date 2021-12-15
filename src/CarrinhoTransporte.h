@@ -40,9 +40,9 @@ public:
 
     void setNMalas(int nMalas);
 
-    bool addMala(Mala *m);
+    void addMala(Mala *m);
 
-    vector<Mala*> descarregarMalas();
+    void descarregarMalas();
 };
 
 

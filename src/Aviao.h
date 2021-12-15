@@ -75,6 +75,8 @@ public:
     void aterrar();
 
     void descarregarMalas(CarrinhoTransporte *carrinho);
+
+    void addMala(Mala *m);
 };
 
 

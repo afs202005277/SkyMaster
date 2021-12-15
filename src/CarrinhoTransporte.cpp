@@ -40,7 +40,7 @@ void CarrinhoTransporte::setNMalas(int nMalas) {
     CarrinhoTransporte::nMalas = nMalas;
 }
 
-bool CarrinhoTransporte::addMala(Mala *m) {
+void CarrinhoTransporte::addMala(Mala *m) {
     for (vector<stack<Mala*>> &carruagem : this->carga)
     {
         for (stack<Mala*> &carrinho : carruagem)
@@ -48,34 +48,31 @@ bool CarrinhoTransporte::addMala(Mala *m) {
             if (carrinho.size() < nMalas)
             {
                 carrinho.push(m);
-                return true;
             }
         }
         if (carruagem.size() < this->nPilhas) {
             stack<Mala*> temp;
             temp.push(m);
             carruagem.push_back(temp);
-            return true;
         }
     }
-    return false;
+    this->descarregarMalas();
+    addMala(m);
 }
 
-vector<Mala *> CarrinhoTransporte::descarregarMalas()
+void CarrinhoTransporte::descarregarMalas()
 {
-    vector<Mala *> temp;
     for (vector<stack<Mala*>> &carruagem : this->carga)
     {
         for (stack<Mala*> &carrinho : carruagem)
         {
             while (!carrinho.empty())
             {
-                temp.push_back(carrinho.top());
+                aviao->addMala(carrinho.top());
                 carrinho.pop();
             }
         }
     }
-    return temp;
 }
 
 const vector<vector<stack<Mala *>>> &CarrinhoTransporte::getCarga() const {
