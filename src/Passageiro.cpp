@@ -2,9 +2,10 @@
 // Created by andre on 12/12/2021.
 //
 
-#include <stack>
 #include "Passageiro.h"
-#include "Mala.h"
+
+#include <utility>
+
 
 const std::string &Passageiro::getNome() const {
     return nome;
@@ -30,7 +31,7 @@ void Passageiro::setId(int id) {
     Passageiro::id = id;
 }
 
-Passageiro::Passageiro(const std::string &nome, int idade, int id) : nome(nome), idade(idade), id(id) {}
+Passageiro::Passageiro(std::string nome, int idade, int id) : nome(std::move(nome)), idade(idade), id(id) {}
 
 const std::queue<Bilhete *> &Passageiro::getBilhetes() const {
     return this->bilhetes;
@@ -40,34 +41,30 @@ void Passageiro::addBilhete(Bilhete *bilhete) {
     this->bilhetes.push(bilhete);
 }
 
-Bilhete* Passageiro::frontBilhete()
+Bilhete* Passageiro::getNextBilhete()
 {
     return this->bilhetes.front();
 }
 
-void Passageiro::popBilhete()
-{
-    return this->bilhetes.pop();
+void Passageiro::removeNextBilhete() {
+    this->bilhetes.pop();
 }
 
-bool Passageiro::hasBilhete(int nVoo) {
-    std::queue<Bilhete *> temp;
-    bool res = false;
-    while (!this->bilhetes.empty())
+bool Passageiro::hasBilhete(int nVoo) const {
+    std::queue<Bilhete *> temp = bilhetes;
+    while (!temp.empty())
     {
-        if (this->bilhetes.front()->getNVoo() == nVoo)
+        if (temp.front()->getNVoo() == nVoo)
         {
-            res = true;
+            return true;
         }
-        temp.push(this->bilhetes.front());
-        this->bilhetes.pop();
+        temp.pop();
     }
-    this->bilhetes = temp;
-    return res;
+    return false;
 }
 
 
-bool Passageiro::checkIn(bool checkInAutomatico, Voo &v, std::queue<Mala *> &malas) {
+bool Passageiro::checkIn(bool checkInAutomatico, Voo &v, std::queue<Mala *> &malas) const {
     if (!this->hasBilhete(v.getNVoo()))
        return false;
    if (!checkInAutomatico)
@@ -88,11 +85,15 @@ bool Passageiro::checkIn(bool checkInAutomatico, Voo &v, std::queue<Mala *> &mal
 }
 
 bool Passageiro::getIntoPlane(Voo &v) {
-    std::queue<Mala*> def;
-    if (!checkIn(0, v, def))
+    std::queue<Mala*> reference;
+    if (!checkIn(0, v, reference))
         return false;
     v.addPassageiro(this);
     return true;
 }
+
+Passageiro::Passageiro(int idade, int id, string nome, const queue<Bilhete *> &bilhetes) : idade(idade), id(id),
+                                                                                                  nome(std::move(nome)),
+                                                                                                  bilhetes(bilhetes) {}
 
 

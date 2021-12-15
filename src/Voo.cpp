@@ -95,3 +95,11 @@ void Voo::setAviao(Aviao *aviao) {
 void Voo::addPassageiro(Passageiro *p) {
     passageiros.push_back(p);
 }
+
+void Voo::setNVoo(unsigned int nVoo) {
+    Voo::nVoo = nVoo;
+}
+
+void Voo::setPassageiros(const list<Passageiro *> &passageiros) {
+    Voo::passageiros = passageiros;
+}

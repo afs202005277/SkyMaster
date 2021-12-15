@@ -30,3 +30,7 @@ Passageiro *Bilhete::getPassageiro() const {
 void Bilhete::setPassageiro(Passageiro *passageiro) {
     Bilhete::passageiro = passageiro;
 }
+
+bool Bilhete::isLevaBagagem() const {
+    return levaBagagem;
+}

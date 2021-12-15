@@ -27,3 +27,6 @@ const Funcionario * Servico::getFuncionario() const {
 void Servico::setFuncionario(Funcionario *funcionario) {
     Servico::funcionario = funcionario;
 }
+
+Servico::Servico(const Data &data, Funcionario *funcionario, Tipo tipo) : data(data), funcionario(funcionario),
+                                                                          tipo(tipo) {}

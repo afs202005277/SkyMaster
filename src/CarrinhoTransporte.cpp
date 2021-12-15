@@ -57,7 +57,7 @@ void CarrinhoTransporte::addMala(Mala *m) {
         }
     }
     this->descarregarMalas();
-    addMala(m);
+    carga[0][0].push(m);
 }
 
 void CarrinhoTransporte::descarregarMalas()

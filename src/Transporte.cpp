@@ -28,22 +28,18 @@ void Transporte::setHoraChegada(const Tempo &horaChegada) {
     Transporte::horaChegada = horaChegada;
 }
 
-const Tempo &Transporte::getHoraSaida() const {
-    return horaChegada;
+const Tempo &Transporte::getHoraPartida() const {
+    return horaPartida;
 }
 
-void Transporte::setHoraSaida(const Tempo &horaChegada) {
-    Transporte::horaChegada = horaChegada;
+void Transporte::setHoraPartida(const Tempo &horaSaida) {
+    Transporte::horaPartida = horaSaida;
 }
 
-Transporte::Transporte(int distancia, const Tempo &horaChegada, TipoTransporte tipo) : distancia(distancia),
+Transporte::Transporte(int distancia, const Tempo &horaChegada, const Tempo &horaPartida, TipoTransporte tipo) : distancia(distancia),
                                                                                        horaChegada(horaChegada),
+                                                                                       horaPartida(horaPartida),
                                                                                        tipo(tipo) {}
-
-Transporte::Transporte() : horaChegada(0, 0, 0){
-    distancia = -1;
-    tipo = metro;
-}
 
 bool operator<(const Transporte &lhs, const Transporte &rhs) {
     if (lhs.distancia < rhs.distancia)

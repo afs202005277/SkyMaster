@@ -7,16 +7,19 @@
 
 #include "Data.h"
 #include "Funcionario.h"
+
 class Funcionario;
+
 enum Tipo {manutencao, limpeza};
 
 class Servico {
 private:
-    Servico() {}
     Data data;
     Funcionario * funcionario;
     Tipo tipo;
 public:
+    Servico(const Data &data, Funcionario *funcionario, Tipo tipo);
+
     Tipo getTipo() const;
 
     void setTipo(Tipo tipo);

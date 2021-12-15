@@ -17,12 +17,14 @@
 #include "Mala.h"
 #include "CarrinhoTransporte.h"
 
+using namespace std;
+
 class CarrinhoTransporte;
 class Mala;
 class Servico;
 class Funcionario;
-using namespace std;
 class Voo;
+
 class Aviao {
 private:
     int capacidade;
@@ -35,6 +37,12 @@ private:
 
     void sortPlano();
 public:
+    Aviao(int capacidade, const list<Voo *> &plano, const string &matricula, const queue<Servico *> &servicos,
+          const stack<Servico *> &pastServices, const vector<Mala *> &carga, CarrinhoTransporte *carrinhoAssociado);
+
+    Aviao(int capacidade, std::list<Voo *> plano, std::string matricula,
+          std::queue<Servico *> servicos);
+
     const stack<Servico *> &getPastServices() const;
 
     void setPastServices(const stack<Servico *> &pastServices);
@@ -48,14 +56,12 @@ public:
     void setCarrinhoAssociado(CarrinhoTransporte *carrinhoAssociado);
 
     // CONSTRUTORES && GETTERS && SETTERS
-    Aviao(int capacidade, const std::list<Voo *> &plano, const std::string &matricula,
-          const std::queue<Servico *> &servicos);
 
-    const std::queue<Servico *> getServicos() const;
+    std::queue<Servico *> getServicos() const;
 
     void setServicos(const std::queue<Servico *> &servicos);
 
-    Aviao(int capacidade, const std::list<Voo *> &plano, const std::string &matricula);
+    Aviao(int capacidade, std::list<Voo *> plano, std::string matricula);
 
     Aviao();
 

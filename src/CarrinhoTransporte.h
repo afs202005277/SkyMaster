@@ -17,6 +17,7 @@ private:
     int nCarruagens, nPilhas, nMalas;
     std::vector<std::vector<std::stack<Mala*>>> carga;
     Aviao * aviao;
+
 public:
     const vector<vector<stack<Mala *>>> &getCarga() const;
 
@@ -43,7 +44,6 @@ public:
     void addMala(Mala *m);
 
     void descarregarMalas();
-
 };
 
 

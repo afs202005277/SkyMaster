@@ -6,16 +6,20 @@
 #define PROJETO1_VOO_H
 
 #include <list>
+
 #include "Data.h"
 #include "Aeroporto.h"
 #include "Bilhete.h"
 #include "Passageiro.h"
 #include "Aviao.h"
+
 using namespace std;
+
 class Aviao;
 class Bilhete;
 class Passageiro;
 class Aeroporto;
+
 class Voo {
 private:
     int duracao, lotacaoAtual;
@@ -25,12 +29,12 @@ private:
     Aeroporto * destino;
     std::list<Passageiro *> passageiros;
     Aviao *aviao;
+
 public:
     Aviao *getAviao() const;
 
     void setAviao(Aviao *aviao);
 
-public:
     Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao, int lotacaoAtual=0);
 
     int getNVoo() const;
@@ -38,6 +42,10 @@ public:
     void setNVoo(int nVoo);
 
     int getDuracao() const;
+
+    void setNVoo(unsigned int nVoo);
+
+    void setPassageiros(const list<Passageiro *> &passageiros);
 
     void setDuracao(int duracao);
 

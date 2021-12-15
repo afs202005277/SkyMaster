@@ -16,6 +16,8 @@ private:
 public:
     Bilhete(unsigned int nVoo, bool levaBagagem, Passageiro *p);
 
+    bool isLevaBagagem() const;
+
     void setNVoo(unsigned int nVoo);
 
     Passageiro *getPassageiro() const;

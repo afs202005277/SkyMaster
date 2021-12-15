@@ -5,10 +5,10 @@
 #ifndef PROJETO1_PASSAGEIRO_H
 #define PROJETO1_PASSAGEIRO_H
 
-
 #include <string>
 #include <queue>
 #include <vector>
+
 #include "Bilhete.h"
 #include "Voo.h"
 
@@ -22,15 +22,17 @@ private:
     std::string nome;
     std::queue<Bilhete *> bilhetes;
 public:
-    Passageiro(const std::string &nome, int idade, int id);
+    Passageiro(std::string nome, int idade, int id);
+
+    Passageiro(int idade, int id, std::string nome, const std::queue<Bilhete *> &bilhetes);
 
     const std::queue<Bilhete *> &getBilhetes() const;
 
     void addBilhete(Bilhete *bilhete);
 
-    Bilhete* frontBilhete();
+    Bilhete* getNextBilhete();
 
-    void popBilhete();
+    void removeNextBilhete();
 
     const std::string &getNome() const;
 
@@ -44,9 +46,9 @@ public:
 
     void setId(int id);
 
-    bool hasBilhete(int nVoo);
+    bool hasBilhete(int nVoo) const;
 
-    bool checkIn(bool checkInAutomatico, Voo &v, std::queue<Mala *> &malas);
+    bool checkIn(bool checkInAutomatico, Voo &v, std::queue<Mala *> &malas) const;
 
     bool getIntoPlane(Voo &v);
 };

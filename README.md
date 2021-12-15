@@ -45,7 +45,7 @@
 
 #### Horas de chegada/saida no Aeroporto (FEITO)
 - Transporte::getHoraChegada()
-- Transporte::getHoraSaida()
+- Transporte::getHoraPartida()
 
 # Aeroporto:
 

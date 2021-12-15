@@ -4,15 +4,18 @@
 
 #ifndef PROJETO1_AEROPORTO_H
 #define PROJETO1_AEROPORTO_H
+
+#include <string>
+#include <vector>
 #include "Transporte.h"
 #include "Funcionario.h"
 #include "CarrinhoTransporte.h"
 #include "bst.h"
 #include "Aviao.h"
-#include <string>
-#include <vector>
+
 class Funcionario;
 class CarrinhoTransporte;
+
 class Aeroporto {
 private:
     std::string name, city, country;
@@ -27,19 +30,27 @@ public:
 
     vector<CarrinhoTransporte *> & getCarrinhos();
 
-    void setCarrinhos(const vector<CarrinhoTransporte *> &carrinhos);
+    void setCarrinhos(const vector<CarrinhoTransporte *> &Carrinhos);
 
-    void setName(const std::string &name);
+    void setName(const std::string &Name);
 
     const std::string &getCity() const;
 
-    void setCity(const std::string &city);
+    void setCity(const std::string &City);
+
+    Aeroporto(string name, string city, string country, const vector<Funcionario *> &funcionarios,
+              const BST<Transporte> &transportes, const vector<CarrinhoTransporte *> &carrinhos,
+              const list<Aviao *> &avioes);
+
+    Aeroporto(std::string name, std::string city, std::string country);
+
+    const list<Aviao *> &getAvioes() const;
+
+    void setAvioes(const list<Aviao *> &Avioes);
 
     const std::string &getCountry() const;
 
-    void setCountry(const std::string &country);
-
-    Aeroporto(std::string name, std::string city, std::string country);
+    void setCountry(const std::string &Country);
 
     void setTransportes(BST<Transporte> &t);
 

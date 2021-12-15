@@ -4,6 +4,8 @@
 
 #include "Aviao.h"
 
+#include <utility>
+
 const std::string &Aviao::getMatricula() const {
     return matricula;
 }
@@ -25,17 +27,17 @@ const std::list<Voo *> & Aviao::getPlano() const {
 }
 
 void Aviao::setPlano(std::list<Voo *> plano) {
-    this->plano = plano;
+    this->plano = std::move(plano);
     sortPlano();
 }
 
-Aviao::Aviao(int capacidade, const std::list<Voo *> &plano, const std::string &matricula) : capacidade(capacidade),
-                                                                                            plano(plano),
-                                                                                            matricula(matricula) {sortPlano();}
+Aviao::Aviao(int capacidade, std::list<Voo *> plano, std::string matricula) : capacidade(capacidade),
+                                                                                            plano(std::move(plano)),
+                                                                                            matricula(std::move(matricula)) {sortPlano();}
 
 Aviao::Aviao() {capacidade=0;}
 
-const std::queue<Servico *> Aviao::getServicos() const {
+std::queue<Servico *> Aviao::getServicos() const {
     return servicos;
 }
 
@@ -43,9 +45,9 @@ void Aviao::setServicos(const std::queue<Servico *> &servicos) {
     this->servicos = servicos;
 }
 
-Aviao::Aviao(int capacidade, const std::list<Voo *> &plano, const std::string &matricula,
-             const std::queue<Servico *> &servicos) : capacidade(capacidade), plano(plano), matricula(matricula),
-                                                      servicos(servicos) {sortPlano();}
+Aviao::Aviao(int capacidade, std::list<Voo *> plano, std::string matricula,
+             std::queue<Servico *> servicos) : capacidade(capacidade), plano(std::move(plano)), matricula(std::move(matricula)),
+                                                      servicos(std::move(servicos)) {sortPlano();}
 
 void Aviao::addServico(Servico *servico) {
     servicos.push(servico);
@@ -161,4 +163,9 @@ CarrinhoTransporte *Aviao::getCarrinhoAssociado() const {
 void Aviao::setCarrinhoAssociado(CarrinhoTransporte *carrinhoAssociado) {
     Aviao::carrinhoAssociado = carrinhoAssociado;
 }
+
+Aviao::Aviao(int capacidade, const list<Voo *> &plano, const string &matricula, const queue<Servico *> &servicos,
+             const stack<Servico *> &pastServices, const vector<Mala *> &carga, CarrinhoTransporte *carrinhoAssociado)
+        : capacidade(capacidade), plano(plano), matricula(matricula), servicos(servicos), pastServices(pastServices),
+          carga(carga), carrinhoAssociado(carrinhoAssociado) {}
 

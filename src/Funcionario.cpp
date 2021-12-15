@@ -4,6 +4,8 @@
 
 #include "Funcionario.h"
 
+#include <utility>
+
 int Funcionario::getTelemovel() const {
     return telemovel;
 }
@@ -28,12 +30,10 @@ void Funcionario::setMorada(const std::string &morada) {
     Funcionario::morada = morada;
 }
 
-Funcionario::Funcionario(int telemovel, const std::string &nome, const std::string &morada, Aeroporto *aeroporto)
-        : telemovel(telemovel), nome(nome), morada(morada), aeroporto(aeroporto) {
+Funcionario::Funcionario(int telemovel, std::string nome, std::string morada, Aeroporto *aeroporto)
+        : telemovel(telemovel), nome(std::move(nome)), morada(std::move(morada)), aeroporto(aeroporto) {
     aeroporto->addFuncionario(this);
 }
-
-Funcionario::Funcionario() {}
 
 bool Funcionario::operator==(const Funcionario &rhs) const {
     return telemovel == rhs.telemovel &&

@@ -3,6 +3,7 @@
 //
 
 #include <algorithm>
+#include <utility>
 #include "Aeroporto.h"
 
 
@@ -13,24 +14,24 @@ const std::string &Aeroporto::getName() const {
     return name;
 }
 
-void Aeroporto::setName(const std::string &name) {
-    Aeroporto::name = name;
+void Aeroporto::setName(const std::string &Name) {
+    Aeroporto::name = Name;
 }
 
 const std::string &Aeroporto::getCity() const {
     return city;
 }
 
-void Aeroporto::setCity(const std::string &city) {
-    Aeroporto::city = city;
+void Aeroporto::setCity(const std::string &City) {
+    Aeroporto::city = City;
 }
 
 const std::string &Aeroporto::getCountry() const {
     return country;
 }
 
-void Aeroporto::setCountry(const std::string &country) {
-    Aeroporto::country = country;
+void Aeroporto::setCountry(const std::string &Country) {
+    Aeroporto::country = Country;
 }
 
 void Aeroporto::setTransportes(BST<Transporte> &t) {
@@ -108,7 +109,7 @@ void Aeroporto::addFuncionario(Funcionario *f) {
 }
 
 Funcionario *Aeroporto::removeFuncionario(const Funcionario &f) {
-    int left = 0, right = funcionarios.size() - 1;
+    int left = 0, right = (int) funcionarios.size() - 1;
     while (left <= right)
     {
         int middle = (left + right) / 2;
@@ -139,8 +140,8 @@ vector<CarrinhoTransporte *> & Aeroporto::getCarrinhos() {
     return carrinhos;
 }
 
-void Aeroporto::setCarrinhos(const vector<CarrinhoTransporte *> &carrinhos) {
-    Aeroporto::carrinhos = carrinhos;
+void Aeroporto::setCarrinhos(const vector<CarrinhoTransporte *> &Carrinhos) {
+    Aeroporto::carrinhos = Carrinhos;
 }
 
 bool Aeroporto::sorterFuncionarios(const Funcionario *f1, const Funcionario *f2) {
@@ -162,7 +163,7 @@ void Aeroporto::addAviao(Aviao *a) {
     if (!assigned)
     {
         CarrinhoTransporte ref = *carrinhos.front();
-        CarrinhoTransporte* c = new CarrinhoTransporte(ref.getNCarruagens(), ref.getNPilhas(),ref.getNMalas(), a);
+        auto* c = new CarrinhoTransporte(ref.getNCarruagens(), ref.getNPilhas(),ref.getNMalas(), a);
         carrinhos.push_back(c);
     }
 }
@@ -172,9 +173,30 @@ bool Aeroporto::removeAviao(Aviao *a)
     auto t = find(avioes.begin(), avioes.end(), a);
     if (t != avioes.end())
     {
+        (*t)->getCarrinhoAssociado()->setAviao(nullptr);
         avioes.erase(t);
         return true;
     }
     return false;
 }
+
+const list<Aviao *> &Aeroporto::getAvioes() const {
+    return avioes;
+}
+
+void Aeroporto::setAvioes(const list<Aviao *> &Avioes) {
+    Aeroporto::avioes = Avioes;
+}
+
+Aeroporto::Aeroporto(string name, string city, string country,
+                     const vector<Funcionario *> &funcionarios, const BST<Transporte> &transportes,
+                     const vector<CarrinhoTransporte *> &carrinhos, const list<Aviao *> &avioes) : name(std::move(name)),
+                                                                                                   city(std::move(city)),
+                                                                                                   country(std::move(country)),
+                                                                                                   funcionarios(
+                                                                                                           funcionarios),
+                                                                                                   transportes(
+                                                                                                           transportes),
+                                                                                                   carrinhos(carrinhos),
+                                                                                                   avioes(avioes) {}
 

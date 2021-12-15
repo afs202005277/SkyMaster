@@ -19,3 +19,13 @@ float Mala::getPeso() const {
 void Mala::setPeso(float peso) {
     Mala::peso = peso;
 }
+
+Aviao *Mala::getDespachada() const {
+    return despachada;
+}
+
+void Mala::setDespachada(Aviao *despachada) {
+    Mala::despachada = despachada;
+}
+
+Mala::Mala(Passageiro *dono, float peso, Aviao *despachada) : dono(dono), despachada(despachada), peso(peso) {}
