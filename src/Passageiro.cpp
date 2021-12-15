@@ -66,8 +66,8 @@ bool Passageiro::hasBilhete(int nVoo) {
     return res;
 }
 
-bool Passageiro::checkIn(bool checkInAutomatico, queue<Mala *> &malas, Voo &v) {
-   if (!this->hasBilhete(v.getNVoo()))
+bool Passageiro::checkIn(bool checkInAutomatico, Voo &v, std::queue<Mala *> &malas) {
+    if (!this->hasBilhete(v.getNVoo()))
        return false;
    if (!checkInAutomatico)
        return true;
@@ -83,6 +83,13 @@ bool Passageiro::checkIn(bool checkInAutomatico, queue<Mala *> &malas, Voo &v) {
             }
         }
     }
+    return true;
+}
+
+bool Passageiro::getIntoPlane(Voo &v) {
+    if (!checkIn(0, v))
+        return false;
+    v.addPassageiro(this);
     return true;
 }
 

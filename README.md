@@ -6,8 +6,8 @@
  - Voo::sellBilheteGrupo()
 ####Faz check-in & Despacha as malas FEITO
 - Passageiro::checkIn()
-####Vai para o avião
-- classe Voo/Avião
+####Vai para o avião FEITO
+- Passageiro::getIntoPlane() and Voo:addPassageiro()
 
 #Transporte de malas:
 

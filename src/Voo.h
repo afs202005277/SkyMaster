@@ -63,6 +63,7 @@ public:
 
     bool sellBilheteGroup(const vector<bool> &checkInAuto, const vector<Passageiro *> &p);
 
+    void addPassageiro(Passageiro *p);
 };
 
 

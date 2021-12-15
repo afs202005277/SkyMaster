@@ -66,7 +66,6 @@ bool Voo::sellBilhete(bool levaBagagem, Passageiro *p) {
         Bilhete *temp;
         temp = new Bilhete(this->nVoo, levaBagagem, p);
         this->lotacaoAtual++;
-        this->passageiros.push_back(p);
         p->addBilhete(temp);
         return true;
     }
@@ -91,4 +90,8 @@ Aviao *Voo::getAviao() const {
 
 void Voo::setAviao(Aviao *aviao) {
     Voo::aviao = aviao;
+}
+
+void Voo::addPassageiro(Passageiro *p) {
+    passageiros.push_back(p);
 }
