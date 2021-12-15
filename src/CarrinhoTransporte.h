@@ -26,7 +26,7 @@ public:
 
     void setAviao(Aviao *aviao);
 
-    CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas, Aviao *aviao);
+    CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas, Aviao *aviao=nullptr);
 
     int getNCarruagens() const;
 

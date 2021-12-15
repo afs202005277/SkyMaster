@@ -67,6 +67,8 @@ public:
     vector<Servico *> getFutureServicesBy(const Funcionario &f) const;
 
     vector<vector<Servico *>> getAllServicesBy(const Funcionario &f) const;
+
+    void aterrar();
 };
 
 

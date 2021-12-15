@@ -147,3 +147,22 @@ bool Aeroporto::sorterFuncionarios(const Funcionario *f1, const Funcionario *f2)
     return f1->getNome() < f2->getNome();
 }
 
+void Aeroporto::addAviao(Aviao *a) {
+    avioes.push_back(a);
+    bool assigned=false;
+    for (auto &c:carrinhos)
+    {
+        if (c->getAviao() == nullptr)
+        {
+            c->setAviao(a);
+            assigned = true;
+        }
+    }
+    if (!assigned)
+    {
+        CarrinhoTransporte ref = *carrinhos.front();
+        CarrinhoTransporte* c = new CarrinhoTransporte(ref.getNCarruagens(), ref.getNPilhas(),ref.getNMalas(), a);
+        carrinhos.push_back(c);
+    }
+}
+

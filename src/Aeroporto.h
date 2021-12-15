@@ -8,6 +8,7 @@
 #include "Funcionario.h"
 #include "CarrinhoTransporte.h"
 #include "bst.h"
+#include "Aviao.h"
 #include <string>
 #include <vector>
 class Funcionario;
@@ -19,6 +20,7 @@ private:
     BST<Transporte> transportes;
     std::vector<CarrinhoTransporte*> carrinhos;
     static bool sorterFuncionarios(const Funcionario * f1, const Funcionario * f2);
+    list<Aviao*> avioes; //LISTA ORDENADA
 
 public:
     const std::string &getName() const;
@@ -60,6 +62,8 @@ public:
     void addFuncionario(Funcionario *f);
 
     Funcionario* removeFuncionario(const Funcionario &f);
+
+    void addAviao(Aviao * a);
 };
 
 
