@@ -173,6 +173,7 @@ bool Aeroporto::removeAviao(Aviao *a)
     if (t != avioes.end())
     {
         avioes.erase(t);
+        a->getCarrinhoAssociado()->setAviao(nullptr);
         return true;
     }
     return false;
