@@ -102,5 +102,6 @@ vector<vector<Servico*>> Aviao::getAllServicesBy(const Funcionario &f) const{
 
 void Aviao::aterrar() {
     this->plano.front()->getDestino()->addAviao(this);
+    this->plano.erase(plano.begin());
 }
 
