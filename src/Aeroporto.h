@@ -65,6 +65,8 @@ public:
 
     void addAviao(Aviao * a);
 
+    bool removeAviao(Aviao * a);
+
 };
 
 

@@ -28,10 +28,12 @@
 #### Fazer servicos (FEITO)
 - Aviao::addServico()
 - Aviao::processServico()
-#### Atualiza o plano de voo
+#### Atualiza o plano de voo (FEITO)
 - Aviao::addVoo()
-#### Carrega as novas malas se o carrinho estiver cheio
-#### Carregar malas restantes e Partir
+- Aviao::removeFromPlanoVoo()??
+- Aviao::viajar()
+#### Carregar malas restantes e Partir (FEITO)
+- Aviao::viajar()
 
 # Serviços:
 
@@ -41,14 +43,14 @@
 
 # Transporte:
 
-#### Horas de chegada/saida no Aeroporto
+#### Horas de chegada/saida no Aeroporto (FEITO)
 - Transporte::getHoraChegada()
+- Transporte::getHoraSaida()
 
 # Aeroporto:
 
-#### Chegada & Partida de Aviões
-- Atributo aviões
-- add e removeAviao()
-#### Gestão dos CarrinhosTransporte
-- Atributo carrinhos
-- Associar Avião carrinho
+#### Chegada & Partida de Aviões (FEITO)
+- Aeroporto::addAviao()
+- Aeroporto::removeAviao()
+#### Gestão dos CarrinhosTransporte (FEITO)
+- Aeroporto::addAviao()

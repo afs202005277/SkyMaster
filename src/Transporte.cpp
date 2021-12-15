@@ -28,6 +28,14 @@ void Transporte::setHoraChegada(const Tempo &horaChegada) {
     Transporte::horaChegada = horaChegada;
 }
 
+const Tempo &Transporte::getHoraSaida() const {
+    return horaChegada;
+}
+
+void Transporte::setHoraSaida(const Tempo &horaChegada) {
+    Transporte::horaChegada = horaChegada;
+}
+
 Transporte::Transporte(int distancia, const Tempo &horaChegada, TipoTransporte tipo) : distancia(distancia),
                                                                                        horaChegada(horaChegada),
                                                                                        tipo(tipo) {}

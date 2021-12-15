@@ -31,9 +31,22 @@ private:
     std::queue<Servico*> servicos;
     std::stack<Servico*> pastServices;
     std::vector<Mala*> carga;
+    CarrinhoTransporte *carrinhoAssociado;
 
     void sortPlano();
 public:
+    const stack<Servico *> &getPastServices() const;
+
+    void setPastServices(const stack<Servico *> &pastServices);
+
+    const vector<Mala *> &getCarga() const;
+
+    void setCarga(const vector<Mala *> &carga);
+
+    CarrinhoTransporte *getCarrinhoAssociado() const;
+
+    void setCarrinhoAssociado(CarrinhoTransporte *carrinhoAssociado);
+
     // CONSTRUTORES && GETTERS && SETTERS
     Aviao(int capacidade, const std::list<Voo *> &plano, const std::string &matricula,
           const std::queue<Servico *> &servicos);
@@ -62,7 +75,7 @@ public:
 
     void addServico(Servico *servico);
 
-    void addVoo(Voo *voo);
+    void addToPlanoVoo(Voo *voo);
 
     bool processService();
 
@@ -72,11 +85,15 @@ public:
 
     vector<vector<Servico *>> getAllServicesBy(const Funcionario &f) const;
 
-    void aterrar();
-
     void descarregarMalas(CarrinhoTransporte *carrinho);
 
     void addMala(Mala *m);
+
+    void addMalas(vector<Mala*> malas);
+
+    bool removeFromPlanoVoo(Voo &voo);
+
+    void viajar();
 };
 
 

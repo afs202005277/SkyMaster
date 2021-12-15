@@ -51,7 +51,7 @@ void Aviao::addServico(Servico *servico) {
     servicos.push(servico);
 }
 
-void Aviao::addVoo(Voo *voo) {
+void Aviao::addToPlanoVoo(Voo *voo) {
     plano.push_back(voo);
 }
 
@@ -100,11 +100,6 @@ vector<vector<Servico*>> Aviao::getAllServicesBy(const Funcionario &f) const{
     return res;
 }
 
-void Aviao::aterrar() {
-    this->plano.front()->getDestino()->addAviao(this);
-    this->plano.erase(plano.begin());
-}
-
 void Aviao::descarregarMalas(CarrinhoTransporte *carrinho) {
     for (auto &m:carga)
     {
@@ -115,5 +110,55 @@ void Aviao::descarregarMalas(CarrinhoTransporte *carrinho) {
 
 void Aviao::addMala(Mala* m) {
     carga.push_back(m);
+}
+
+void Aviao::addMalas(vector<Mala *> malas) {
+    for (auto mala : malas)
+    {
+        addMala(mala);
+    }
+}
+
+bool Aviao::removeFromPlanoVoo(Voo &voo) {
+    if (find(plano.begin(), plano.end(), voo) != plano.end())
+    {
+        plano.remove(reinterpret_cast<Voo *const &>(voo));
+        return true;
+    }
+    return false;
+}
+
+void Aviao::viajar()
+{
+    carrinhoAssociado->descarregarMalas();
+    carrinhoAssociado->setAviao(nullptr);
+    carrinhoAssociado = nullptr;
+    this->plano.front()->getDestino()->addAviao(this);
+    this->plano.front()->getOrigem()->removeAviao(this);
+    this->plano.erase(plano.begin());
+}
+
+const stack<Servico *> &Aviao::getPastServices() const {
+    return pastServices;
+}
+
+void Aviao::setPastServices(const stack<Servico *> &pastServices) {
+    Aviao::pastServices = pastServices;
+}
+
+const vector<Mala *> &Aviao::getCarga() const {
+    return carga;
+}
+
+void Aviao::setCarga(const vector<Mala *> &carga) {
+    Aviao::carga = carga;
+}
+
+CarrinhoTransporte *Aviao::getCarrinhoAssociado() const {
+    return carrinhoAssociado;
+}
+
+void Aviao::setCarrinhoAssociado(CarrinhoTransporte *carrinhoAssociado) {
+    Aviao::carrinhoAssociado = carrinhoAssociado;
 }
 

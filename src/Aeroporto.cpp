@@ -155,6 +155,7 @@ void Aeroporto::addAviao(Aviao *a) {
         if (c->getAviao() == nullptr)
         {
             c->setAviao(a);
+            a->setCarrinhoAssociado(c);
             assigned = true;
         }
     }
@@ -164,5 +165,16 @@ void Aeroporto::addAviao(Aviao *a) {
         CarrinhoTransporte* c = new CarrinhoTransporte(ref.getNCarruagens(), ref.getNPilhas(),ref.getNMalas(), a);
         carrinhos.push_back(c);
     }
+}
+
+bool Aeroporto::removeAviao(Aviao *a)
+{
+    auto t = find(avioes.begin(), avioes.end(), a);
+    if (t != avioes.end())
+    {
+        avioes.erase(t);
+        return true;
+    }
+    return false;
 }
 

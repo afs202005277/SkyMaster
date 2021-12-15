@@ -13,15 +13,13 @@ class Transporte {
 
 private:
     int distancia;
+    Tempo horaChegada;
+    TipoTransporte tipo;
 public:
     Transporte();
 
     Transporte(int distancia, const Tempo &horaChegada, TipoTransporte tipo);
 
-private:
-    Tempo horaChegada;
-    TipoTransporte tipo;
-public:
     TipoTransporte getTipo() const;
 
     void setTipo(TipoTransporte tipo);
@@ -33,6 +31,10 @@ public:
     const Tempo &getHoraChegada() const;
 
     void setHoraChegada(const Tempo &horaChegada);
+
+    const Tempo &getHoraSaida() const;
+
+    void setHoraSaida(const Tempo &horaChegada);
 
     friend bool operator<(const Transporte &lhs, const Transporte &rhs);
 };
