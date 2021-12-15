@@ -20,10 +20,10 @@ void Servico::setData(const Data &data) {
     Servico::data = data;
 }
 
-const Funcionario &Servico::getFuncionario() const {
+const Funcionario * Servico::getFuncionario() const {
     return funcionario;
 }
 
-void Servico::setFuncionario(const Funcionario &funcionario) {
+void Servico::setFuncionario(Funcionario *funcionario) {
     Servico::funcionario = funcionario;
 }

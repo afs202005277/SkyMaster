@@ -11,18 +11,19 @@
 #include <string>
 #include <vector>
 class Funcionario;
-
+class CarrinhoTransporte;
 class Aeroporto {
 private:
     std::string name, city, country;
     std::vector<Funcionario*> funcionarios;
     BST<Transporte> transportes;
     std::vector<CarrinhoTransporte*> carrinhos;
+    static bool sorterFuncionarios(const Funcionario * f1, const Funcionario * f2);
 
 public:
     const std::string &getName() const;
 
-    const vector<CarrinhoTransporte *> &getCarrinhos() const;
+    vector<CarrinhoTransporte *> & getCarrinhos();
 
     void setCarrinhos(const vector<CarrinhoTransporte *> &carrinhos);
 
@@ -42,7 +43,7 @@ public:
 
     const vector<Funcionario *> &getFuncionarios() const;
 
-    void setFuncionarios(const vector<Funcionario *> &funcionariosNew);
+    void setFuncionarios(vector<Funcionario *> &funcionariosNew);
 
     BST<Transporte> getTransportes();
 

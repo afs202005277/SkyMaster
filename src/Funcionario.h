@@ -8,7 +8,7 @@
 #include "Aeroporto.h"
 #include <string>
 class Aeroporto;
-
+class Servico;
 class Funcionario {
 public:
     bool operator==(const Funcionario &rhs) const;

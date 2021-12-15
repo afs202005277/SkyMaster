@@ -66,6 +66,20 @@ bool Passageiro::hasBilhete(int nVoo) {
     return res;
 }
 
-void Passageiro::checkIn(bool checkInAutomatico, vector<Mala *> &malas, Voo &v) {
-
+void Passageiro::checkIn(bool checkInAutomatico, queue<Mala *> &malas, Voo &v) {
+   ARRANJAR ISTO
+    std::vector<CarrinhoTransporte *> ve = v.getOrigem()->getCarrinhos();
+    for (auto &c:ve)
+    {
+        if (c->getAviao() == v.getAviao())
+        {
+            for (int i=0;i<malas.size();i++)
+            {
+                c->addMala(malas.front());
+                malas.pop();
+            }
+        }
+    }
 }
+
+

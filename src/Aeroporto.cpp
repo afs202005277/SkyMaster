@@ -130,16 +130,20 @@ const vector<Funcionario *> &Aeroporto::getFuncionarios() const {
     return funcionarios;
 }
 
-void Aeroporto::setFuncionarios(const vector<Funcionario *> &funcionariosNew) {
-    sort(funcionariosNew.begin(), funcionariosNew.end());
+void Aeroporto::setFuncionarios(vector<Funcionario *> &funcionariosNew) {
+    sort(funcionariosNew.begin(), funcionariosNew.end(), sorterFuncionarios);
     Aeroporto::funcionarios = funcionariosNew;
 }
 
-const vector<CarrinhoTransporte *> &Aeroporto::getCarrinhos() const {
+vector<CarrinhoTransporte *> & Aeroporto::getCarrinhos() {
     return carrinhos;
 }
 
 void Aeroporto::setCarrinhos(const vector<CarrinhoTransporte *> &carrinhos) {
     Aeroporto::carrinhos = carrinhos;
+}
+
+bool Aeroporto::sorterFuncionarios(const Funcionario *f1, const Funcionario *f2) {
+    return f1->getNome() < f2->getNome();
 }
 

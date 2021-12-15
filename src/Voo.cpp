@@ -60,11 +60,11 @@ const list<Passageiro *> & Voo::getPassageiros() const {
     return passageiros;
 }
 
-bool Voo::sellBilhete(bool checkInAuto, unsigned int nMalas, Passageiro *p) {
+bool Voo::sellBilhete(bool levaBagagem, Passageiro *p) {
     if (this->lotacaoAtual < this->aviao->getCapacidade())
     {
         Bilhete *temp;
-        temp = new Bilhete(this->nVoo, nMalas, p);
+        temp = new Bilhete(this->nVoo, levaBagagem, p);
         this->lotacaoAtual++;
         this->passageiros.push_back(p);
         p->addBilhete(temp);
@@ -73,15 +73,22 @@ bool Voo::sellBilhete(bool checkInAuto, unsigned int nMalas, Passageiro *p) {
     return false;
 }
 
-bool Voo::sellBilheteGroup(const vector<bool> &checkInAuto, const vector<unsigned int> &nMalas,
-                           const vector<Passageiro *> &p) {
+bool Voo::sellBilheteGroup(const vector<bool> &checkInAuto, const vector<Passageiro *> &p) {
     unsigned int nPassageiros = checkInAuto.size();
     if (this->lotacaoAtual + nPassageiros > aviao->getCapacidade())
         return false;
     for (int i=0;i<nPassageiros;i++)
     {
-        this->sellBilhete(checkInAuto[i], nMalas[i], p[i]);
+        this->sellBilhete(checkInAuto[i], p[i]);
         passageiros.push_back(p[i]);
     }
     return true;
+}
+
+Aviao *Voo::getAviao() const {
+    return aviao;
+}
+
+void Voo::setAviao(Aviao *aviao) {
+    Voo::aviao = aviao;
 }

@@ -5,13 +5,17 @@
 #ifndef PROJETO1_CARRINHOTRANSPORTE_H
 #define PROJETO1_CARRINHOTRANSPORTE_H
 
-
+#include <vector>
 #include "Mala.h"
+#include <stack>
+using namespace std;
+class Mala;
+class Aviao;
 
 class CarrinhoTransporte {
 private:
     int nCarruagens, nPilhas, nMalas;
-    vector<vector<stack<Mala*>>> carga;
+    std::vector<std::vector<std::stack<Mala*>>> carga;
     Aviao * aviao;
 public:
     const vector<vector<stack<Mala *>>> &getCarga() const;

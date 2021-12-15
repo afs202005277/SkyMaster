@@ -5,16 +5,17 @@
 #ifndef PROJETO1_VOO_H
 #define PROJETO1_VOO_H
 
-
+#include <list>
 #include "Data.h"
 #include "Aeroporto.h"
 #include "Bilhete.h"
 #include "Passageiro.h"
 #include "Aviao.h"
+using namespace std;
 class Aviao;
 class Bilhete;
 class Passageiro;
-
+class Aeroporto;
 class Voo {
 private:
     int duracao, lotacaoAtual;
@@ -22,8 +23,13 @@ private:
     Data dataPartida;
     Aeroporto * origem;
     Aeroporto * destino;
-    list<Passageiro *> passageiros;
+    std::list<Passageiro *> passageiros;
     Aviao *aviao;
+public:
+    Aviao *getAviao() const;
+
+    void setAviao(Aviao *aviao);
+
 public:
     Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao, int lotacaoAtual=0);
 
@@ -53,13 +59,11 @@ public:
 
     const list<Passageiro *> & getPassageiros() const;
 
-    bool sellBilhete(bool checkInAuto, unsigned int nMalas, Passageiro *p);
+    bool sellBilhete(bool levaBagagem, Passageiro *p);
 
-    bool sellBilheteGroup(const vector<bool> &checkInAuto, const vector<unsigned int> &nMalas,
-                          const vector<Passageiro *> &p);
+    bool sellBilheteGroup(const vector<bool> &checkInAuto, const vector<Passageiro *> &p);
 
 };
-
 
 
 #endif //PROJETO1_VOO_H

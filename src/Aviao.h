@@ -14,8 +14,11 @@
 #include "Servico.h"
 #include "Aeroporto.h"
 #include "Voo.h"
+class Servico;
+class Funcionario;
+using namespace std;
 class Voo;
-
+class Malas;
 class Aviao {
 private:
     int capacidade;

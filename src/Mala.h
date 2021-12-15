@@ -8,7 +8,7 @@
 
 #include "Passageiro.h"
 #include "Aviao.h"
-
+class Passageiro;
 class Mala {
 private:
     Passageiro* dono;

@@ -8,8 +8,13 @@
 
 #include <string>
 #include <queue>
+#include <vector>
 #include "Bilhete.h"
+#include "Voo.h"
+
+class Voo;
 class Bilhete;
+class Mala;
 
 class Passageiro {
 private:
@@ -18,8 +23,6 @@ private:
     std::queue<Bilhete *> bilhetes;
 public:
     Passageiro(const std::string &nome, int idade, int id);
-
-    void checkIn(bool checkInAutomatico, vector<Mala *> &malas, Voo &v);
 
     const std::queue<Bilhete *> &getBilhetes() const;
 
@@ -42,6 +45,8 @@ public:
     void setId(int id);
 
     bool hasBilhete(int nVoo);
+
+    void checkIn(bool checkInAutomatico, std::queue<Mala *> &malas, Voo &v);
 };
 
 

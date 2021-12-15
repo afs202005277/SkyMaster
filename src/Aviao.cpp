@@ -72,7 +72,7 @@ vector<Servico *> Aviao::getPastServicesBy(const Funcionario &f) const {
     stack<Servico*> aux_past = pastServices;
     while(!aux_past.empty())
     {
-        if (aux_past.top()->getFuncionario() == f)
+        if (*(aux_past.top()->getFuncionario()) == f)
         {
             res.push_back(aux_past.top());
         }
@@ -86,7 +86,7 @@ vector<Servico *> Aviao::getFutureServicesBy(const Funcionario &f) const {
     queue<Servico*> aux_future = servicos;
     while(!aux_future.empty())
     {
-        if (aux_future.front()->getFuncionario() == f)
+        if (*(aux_future.front()->getFuncionario()) == f)
             res.push_back(aux_future.front());
         aux_future.pop();
     }
