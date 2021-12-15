@@ -1,53 +1,54 @@
 
-#Passageiros:
+# Passageiros:
 
-####Passageiro compra bilhete FEITO
+#### Passageiro compra bilhete (FEITO)
  - Voo::sellBilhete()
  - Voo::sellBilheteGrupo()
-####Faz check-in & Despacha as malas FEITO
+#### Faz check-in & Despacha as malas (FEITO)
 - Passageiro::checkIn()
-####Vai para o avião FEITO
+#### Vai para o avião (FEITO)
 - Passageiro::getIntoPlane() and Voo:addPassageiro()
 
-#Transporte de malas:
+# Transporte de malas:
 
-####Associar carrinho a aviao (CARRINHOS LIMITADOS??? EXTRA)
-####Carregar malas para o carrinho FEITO
+#### Associar carrinho a aviao (FEITO) (CARRINHOS LIMITADOS??? EXTRA)
+- CarrinhoTransporte::setAviao()
+#### Carregar malas para o carrinho (FEITO)
 - Passageiro::checkIn()
-####Descarregar malas do carrinho FEITO
+#### Descarregar malas do carrinho (FEITO)
 - No addMala verificar se carrinho está cheio e descarregar no avião
 
-#Avião:
+# Avião:
 
-####Chega ao Aeroporto FEITO
+#### Chega ao Aeroporto (FEITO)
 - Aviao::aterrar()
 - Aeroporto::addAviao() (neste metodo é feita a atribuicao do carrinho)
-####Descarrega as malas do avião FEITO
+#### Descarrega as malas do avião (FEITO)
 - Aviao::descarregarMalas()
 #### Fazer servicos (FEITO)
 - Aviao::addServico()
 - Aviao::processServico()
-####Atualiza o plano de voo
+#### Atualiza o plano de voo
 - Aviao::addVoo()
-####Carrega as novas malas se o carrinho estiver cheio
-####Carregar malas restantes e Partir
+#### Carrega as novas malas se o carrinho estiver cheio
+#### Carregar malas restantes e Partir
 
-#Serviços:
+# Serviços:
 
-####Escolher funcionario com menos ocupacao (EXTRA)
-####Fazer o serviço FEITO
+#### Escolher funcionario com menos ocupacao (EXTRA)
+#### Fazer o serviço (FEITO)
 - Aviao::processService()
 
-#Transporte:
+# Transporte:
 
-####Horas de chegada/saida no Aeroporto
+#### Horas de chegada/saida no Aeroporto
 - Transporte::getHoraChegada()
 
-#Aeroporto:
+# Aeroporto:
 
-####Chegada & Partida de Aviões
+#### Chegada & Partida de Aviões
 - Atributo aviões
 - add e removeAviao()
-####Gestão dos CarrinhosTransporte
+#### Gestão dos CarrinhosTransporte
 - Atributo carrinhos
 - Associar Avião carrinho

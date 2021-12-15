@@ -43,6 +43,8 @@ public:
     void addMala(Mala *m);
 
     void descarregarMalas();
+
+
 };
 
 
