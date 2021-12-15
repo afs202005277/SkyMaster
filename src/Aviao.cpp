@@ -105,3 +105,11 @@ void Aviao::aterrar() {
     this->plano.erase(plano.begin());
 }
 
+void Aviao::descarregarMalas(CarrinhoTransporte *carrinho) {
+    for (auto &m:carga)
+    {
+        carrinho->addMala(m);
+    }
+    carga.clear();
+}
+

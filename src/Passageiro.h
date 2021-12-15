@@ -48,7 +48,6 @@ public:
 
     bool checkIn(bool checkInAutomatico, Voo &v, std::queue<Mala *> &malas);
 
-
     bool getIntoPlane(Voo &v);
 };
 

@@ -14,11 +14,15 @@
 #include "Servico.h"
 #include "Aeroporto.h"
 #include "Voo.h"
+#include "Mala.h"
+#include "CarrinhoTransporte.h"
+
+class CarrinhoTransporte;
+class Mala;
 class Servico;
 class Funcionario;
 using namespace std;
 class Voo;
-class Malas;
 class Aviao {
 private:
     int capacidade;
@@ -26,7 +30,7 @@ private:
     std::string matricula;
     std::queue<Servico*> servicos;
     std::stack<Servico*> pastServices;
-    std::vector<Malas*> carga;
+    std::vector<Mala*> carga;
 
     void sortPlano();
 public:
@@ -69,6 +73,8 @@ public:
     vector<vector<Servico *>> getAllServicesBy(const Funcionario &f) const;
 
     void aterrar();
+
+    void descarregarMalas(CarrinhoTransporte *carrinho);
 };
 
 
