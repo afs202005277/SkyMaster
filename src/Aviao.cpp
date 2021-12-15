@@ -120,7 +120,7 @@ void Aviao::addMalas(vector<Mala *> malas) {
 }
 
 bool Aviao::removeFromPlanoVoo(Voo &voo) {
-    if (find(plano.begin(), plano.end(), voo) != plano.end())
+    if (find(plano.begin(), plano.end(), &voo) != plano.end())
     {
         plano.remove(reinterpret_cast<Voo *const &>(voo));
         return true;
