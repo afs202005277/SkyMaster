@@ -7,7 +7,7 @@
 #include "Aeroporto.h"
 
 
-Aeroporto::Aeroporto(std::string name, std::string city, std::string country) : transportes(Transporte(-1, Tempo {-1, -1, -1}, metro)), name(std::move(name)), city(std::move(city)),
+Aeroporto::Aeroporto(std::string name, std::string city, std::string country) : transportes(Transporte(-1, Tempo {-1, -1, -1},Tempo {-1, -1, -1}, metro)), name(std::move(name)), city(std::move(city)),
                                                                                 country(std::move(country)) {}
 
 const std::string &Aeroporto::getName() const {
@@ -149,6 +149,11 @@ bool Aeroporto::sorterFuncionarios(const Funcionario *f1, const Funcionario *f2)
 }
 
 void Aeroporto::addAviao(Aviao *a) {
+    for (auto it=avioes.begin();it!=avioes.end();it++)
+    {
+        if (a->getNextVoo() < (*next(it))->getNextVoo() && a->getNextVoo() > (*it)->getNextVoo())
+            avioes.insert(it, a);
+    }
     avioes.push_back(a);
     bool assigned=false;
     for (auto &c:carrinhos)
@@ -198,5 +203,11 @@ Aeroporto::Aeroporto(string name, string city, string country,
                                                                                                    transportes(
                                                                                                            transportes),
                                                                                                    carrinhos(carrinhos),
-                                                                                                   avioes(avioes) {}
+                                                                                                   avioes(avioes) {
+    this->avioes.sort(sorterAvioes);
+}
+
+bool Aeroporto::sorterAvioes(const Aviao* a1, const Aviao* a2) {
+    return a1->getNextVoo() < a2->getNextVoo();
+}
 

@@ -28,6 +28,8 @@ public:
 
     const Tempo &getHoraChegada() const;
 
+    Transporte();
+
     void setHoraChegada(const Tempo &horaChegada);
 
     const Tempo &getHoraPartida() const;

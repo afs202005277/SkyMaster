@@ -48,3 +48,5 @@ bool operator<(const Transporte &lhs, const Transporte &rhs) {
         return true;
     return false;
 }
+
+Transporte::Transporte() : horaChegada(-1, -1, -1), horaPartida (-1, -1, -1) {}

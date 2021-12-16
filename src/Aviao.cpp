@@ -169,3 +169,8 @@ Aviao::Aviao(int capacidade, const list<Voo *> &plano, const string &matricula, 
         : capacidade(capacidade), plano(plano), matricula(matricula), servicos(servicos), pastServices(pastServices),
           carga(carga), carrinhoAssociado(carrinhoAssociado) {}
 
+Voo Aviao::getNextVoo() const {
+    auto it=plano.begin();
+    return *(*next(it));
+}
+

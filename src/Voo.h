@@ -25,17 +25,23 @@ private:
     int duracao, lotacaoAtual;
     unsigned int nVoo;
     Data dataPartida;
+    Tempo horaPartida;
     Aeroporto * origem;
     Aeroporto * destino;
     std::list<Passageiro *> passageiros;
     Aviao *aviao;
 
 public:
+    const Tempo &getHoraPartida() const;
+
+    void setHoraPartida(const Tempo &horaPartida);
+
     Aviao *getAviao() const;
 
     void setAviao(Aviao *aviao);
 
-    Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao, int lotacaoAtual=0);
+    Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao,
+        Tempo &partida, int lotacaoAtual = 0);
 
     int getNVoo() const;
 
@@ -60,6 +66,14 @@ public:
     Aeroporto *getOrigem() const;
 
     void setOrigem(Aeroporto *origem);
+
+    friend bool operator<(const Voo &lhs, const Voo &rhs);
+
+    friend bool operator>(const Voo &lhs, const Voo &rhs);
+
+    friend bool operator<=(const Voo &lhs, const Voo &rhs);
+
+    friend bool operator>=(const Voo &lhs, const Voo &rhs);
 
     Aeroporto *getDestino() const;
 

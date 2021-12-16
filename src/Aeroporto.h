@@ -23,6 +23,7 @@ private:
     BST<Transporte> transportes;
     std::vector<CarrinhoTransporte*> carrinhos;
     static bool sorterFuncionarios(const Funcionario * f1, const Funcionario * f2);
+    static bool sorterAvioes(const Aviao* a1, const Aviao* a2);
     list<Aviao*> avioes; //LISTA ORDENADA
 
 public:

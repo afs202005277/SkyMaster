@@ -26,7 +26,7 @@ public:
 
     Passageiro(int idade, int id, std::string nome, const std::queue<Bilhete *> &bilhetes);
 
-    const std::queue<Bilhete *> &getBilhetes() const;
+    const std::queue<Bilhete *> & getBilhetes() const;
 
     void addBilhete(Bilhete *bilhete);
 

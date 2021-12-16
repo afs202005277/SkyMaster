@@ -37,6 +37,8 @@ private:
 
     void sortPlano();
 public:
+    Voo getNextVoo() const;
+
     Aviao(int capacidade, const list<Voo *> &plano, const string &matricula, const queue<Servico *> &servicos,
           const stack<Servico *> &pastServices, const vector<Mala *> &carga, CarrinhoTransporte *carrinhoAssociado);
 

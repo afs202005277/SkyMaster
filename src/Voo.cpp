@@ -4,9 +4,10 @@
 
 #include "Voo.h"
 
-Voo::Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao, int lotacaoAtual)
+Voo::Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao,
+         Tempo &partida, int lotacaoAtual)
         : nVoo(nVoo), duracao(duracao), lotacaoAtual(lotacaoAtual), dataPartida(dataPartida), origem(origem),
-          destino(destino), aviao(aviao) {}
+          destino(destino), aviao(aviao), horaPartida(partida) {}
 
 int Voo::getNVoo() const {
     return nVoo;
@@ -102,4 +103,32 @@ void Voo::setNVoo(unsigned int nVoo) {
 
 void Voo::setPassageiros(const list<Passageiro *> &passageiros) {
     Voo::passageiros = passageiros;
+}
+
+const Tempo &Voo::getHoraPartida() const {
+    return horaPartida;
+}
+
+void Voo::setHoraPartida(const Tempo &horaPartida) {
+    Voo::horaPartida = horaPartida;
+}
+
+bool operator<(const Voo &lhs, const Voo &rhs) {
+    if (lhs.dataPartida < rhs.dataPartida)
+        return true;
+    if (rhs.dataPartida == lhs.dataPartida && lhs.horaPartida < rhs.horaPartida)
+        return true;
+    return false;
+}
+
+bool operator>(const Voo &lhs, const Voo &rhs) {
+    return rhs < lhs;
+}
+
+bool operator<=(const Voo &lhs, const Voo &rhs) {
+    return !(rhs < lhs);
+}
+
+bool operator>=(const Voo &lhs, const Voo &rhs) {
+    return !(lhs < rhs);
 }

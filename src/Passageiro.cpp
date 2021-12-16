@@ -4,8 +4,6 @@
 
 #include "Passageiro.h"
 
-#include <utility>
-
 
 const std::string &Passageiro::getNome() const {
     return nome;
@@ -33,7 +31,7 @@ void Passageiro::setId(int id) {
 
 Passageiro::Passageiro(std::string nome, int idade, int id) : nome(std::move(nome)), idade(idade), id(id) {}
 
-const std::queue<Bilhete *> &Passageiro::getBilhetes() const {
+const queue<Bilhete *> & Passageiro::getBilhetes() const {
     return this->bilhetes;
 }
 
