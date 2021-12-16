@@ -27,9 +27,18 @@ void processInput(const string &line, vector<string> & arguments){
     arguments[arguments.size()-1] = tmp;
 }
 
+template<class  T>
+T* find(list<T> &l, T val){
+    for (auto it = l.begin();it!=l.end();it++)
+    {
+        if (*it == val)
+            return &(*it);
+    }
+    cout << "Not found" << endl;
+}
 int main() {
     ifstream input;
-    input.open(R"(D:\Importante\FEUP\2 ano\1 semestre\AED\Projeto1\povoar)");
+    input.open(R"(D:\Importante\FEUP\2 ano\1 semestre\AED\Projeto1\povoar.txt)");
     if (!input.is_open())
     {
         cout << "File not found" << endl;
@@ -58,73 +67,86 @@ int main() {
         }
         else if (object == "Transporte")
         {
-            vector<string> arguments(4);
+
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
+                vector<string> arguments(4);
                 processInput(instruction, arguments);
                 transportes.emplace_back(Transporte(stoi(arguments[0]), arguments[1], arguments[2], arguments[3]));
             }
         }
         else if (object == "Funcionario")
         {
-            vector<string> arguments(4);
+
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
+                vector<string> arguments(4);
                 processInput(instruction, arguments);
-                auto required = *std::find(aeroportos.begin(), aeroportos.end(), Aeroporto(arguments[3], "", ""));
-                funcionarios.emplace_back(Funcionario(stoi(arguments[0]), arguments[1], arguments[2], &required));
+                Aeroporto tmp(arguments[3], "", "");
+                auto required = find(aeroportos, tmp);
+                funcionarios.emplace_back(Funcionario(stoi(arguments[0]), arguments[1], arguments[2], required));
             }
         }
-        else if(object == "Servico")
+        else if (object == "Servico")
         {
-            vector<string> arguments(3);
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
+                vector<string> arguments(3);
                 processInput(instruction, arguments);
-                Funcionario required = *find(funcionarios.begin(), funcionarios.end(), Funcionario(stoi(arguments[1]), "", "", nullptr));
-                servicos.emplace_back(Servico(arguments[0], &required, arguments[2]));
+                Funcionario tmp(stoi(arguments[1]), "", "", nullptr);
+                auto required = find(funcionarios, tmp);
+                servicos.emplace_back(Servico(arguments[0], required, arguments[2]));
             }
         }
         else if (object == "Passageiro")
         {
-            vector<string> arguments(3);
+
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
+                vector<string> arguments(3);
                 processInput(instruction, arguments);
                 passageiros.emplace_back(Passageiro(arguments[0], stoi(arguments[1]), stoi(arguments[2])));
             }
         }
         else if (object == "Mala")
         {
-            vector<string> arguments(2);
+
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
+                vector<string> arguments(2);
                 processInput(instruction, arguments);
-                Passageiro required = *find(passageiros.begin(), passageiros.end(), Passageiro("", 0, stoi(arguments[0])));
-                malas.emplace_back(Mala(&required, stof(arguments[1])));
+                Passageiro tmp(Passageiro("", 0, stoi(arguments[0])));
+                auto required = find(passageiros,tmp);
+                malas.emplace_back(Mala(required, stof(arguments[1])));
             }
         }
         else if (object == "Aviao")
         {
-            vector<string> arguments(3);
+
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
+                vector<string> arguments(3);
                 processInput(instruction, arguments);
                 avioes.emplace_back(Aviao(stoi(arguments[0]), arguments[1], arguments[2]));
             }
         }
         else if (object == "Voo")
         {
-            vector<string> arguments(7);
+
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
+                vector<string> arguments(7);
                 processInput(instruction, arguments);
-                Aeroporto origem = *std::find(aeroportos.begin(), aeroportos.end(), Aeroporto(arguments[3], "", ""));
-                Aeroporto destino = *std::find(aeroportos.begin(), aeroportos.end(), Aeroporto(arguments[4], "", ""));
-                Aviao aviao = *std::find(avioes.begin(), avioes.end(), Aviao(0, arguments[5], std::__cxx11::string()));
-                voos.emplace_back(Voo(stoi(arguments[0]), stoi(arguments[1]), arguments[2], &origem, &destino, &aviao, arguments[6]));
+                Aeroporto tmp(arguments[3], "", "");
+                auto origem = find(aeroportos, tmp);
+                tmp = Aeroporto(arguments[4], "", "");
+                auto destino = find(aeroportos, tmp);
+                Aviao tmp_aviao(0, arguments[5], "");
+                auto aviao = find(avioes, tmp_aviao);
+                voos.emplace_back(Voo(stoi(arguments[0]), stoi(arguments[1]), arguments[2], origem, destino, aviao, arguments[6]));
             }
         }
         else if (object == "CarrinhoTransporte")
         {
-            vector<string> arguments(4);
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
+                vector<string> arguments(4);
                 processInput(instruction, arguments);
-                Aeroporto required = *std::find(aeroportos.begin(), aeroportos.end(), Aeroporto(arguments[3], "", ""));
-                carrinhosTransporte.emplace_back(CarrinhoTransporte(stoi(arguments[0]), stoi(arguments[1]), stoi(arguments[2]), &required));
+                Aeroporto tmp(arguments[3], "", "");
+                auto required = find(aeroportos, tmp);
+                carrinhosTransporte.emplace_back(CarrinhoTransporte(stoi(arguments[0]), stoi(arguments[1]), stoi(arguments[2]), required));
             }
         }
     }

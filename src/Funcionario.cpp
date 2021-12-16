@@ -28,7 +28,8 @@ void Funcionario::setMorada(const std::string &morada) {
 
 Funcionario::Funcionario(int telemovel, std::string nome, std::string morada, Aeroporto *aeroporto)
         : telemovel(telemovel), nome(std::move(nome)), morada(std::move(morada)), aeroporto(aeroporto) {
-    aeroporto->addFuncionario(this);
+    if (aeroporto != nullptr)
+        aeroporto->addFuncionario(this);
 }
 
 bool Funcionario::operator==(const Funcionario &rhs) const {
