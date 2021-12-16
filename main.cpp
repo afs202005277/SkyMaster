@@ -126,7 +126,6 @@ int main() {
         }
         else if (object == "Voo")
         {
-
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 vector<string> arguments(7);
                 processInput(instruction, arguments);

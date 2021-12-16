@@ -74,6 +74,8 @@ public:
 
     friend bool operator>=(const Voo &lhs, const Voo &rhs);
 
+    friend bool operator==(const Voo &lhs, const Voo &rhs);
+
     Aeroporto *getDestino() const;
 
     void setDestino(Aeroporto *destino);
