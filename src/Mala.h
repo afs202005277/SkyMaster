@@ -1,7 +1,3 @@
-//
-// Created by Pedro Fonseca on 13/12/2021.
-//
-
 #ifndef PROJETO1_MALA_H
 #define PROJETO1_MALA_H
 

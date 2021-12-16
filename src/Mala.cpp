@@ -1,7 +1,3 @@
-//
-// Created by Pedro Fonseca on 13/12/2021.
-//
-
 #include "Mala.h"
 
 Passageiro * Mala::getDono() const {

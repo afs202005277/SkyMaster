@@ -1,7 +1,3 @@
-//
-// Created by andre on 12/12/2021.
-//
-
 #ifndef PROJETO1_TRANSPORTE_H
 #define PROJETO1_TRANSPORTE_H
 

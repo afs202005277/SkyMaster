@@ -1,7 +1,3 @@
-//
-// Created by andre on 13/12/2021.
-//
-
 #ifndef PROJETO1_VOO_H
 #define PROJETO1_VOO_H
 

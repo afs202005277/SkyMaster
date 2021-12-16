@@ -1,10 +1,4 @@
-//
-// Created by andre on 28/11/2021.
-//
-
 #include "Aviao.h"
-
-#include <utility>
 
 const std::string &Aviao::getMatricula() const {
     return matricula;
@@ -33,9 +27,9 @@ void Aviao::setPlano(std::list<Voo *> plano) {
 
 Aviao::Aviao(int capacidade, std::list<Voo *> plano, std::string matricula) : capacidade(capacidade),
                                                                                             plano(std::move(plano)),
-                                                                                            matricula(std::move(matricula)) {sortPlano();}
-
-Aviao::Aviao() {capacidade=0;}
+                                                                                            matricula(std::move(matricula)),
+                                                                                            carrinhoAssociado(nullptr)
+                                                                                            {sortPlano();}
 
 std::queue<Servico *> Aviao::getServicos() const {
     return servicos;

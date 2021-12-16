@@ -1,7 +1,3 @@
-//
-// Created by andre on 12/12/2021.
-//
-
 #include "CarrinhoTransporte.h"
 
 CarrinhoTransporte::CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas, Aeroporto *aeroporto, Aviao *aviao) {

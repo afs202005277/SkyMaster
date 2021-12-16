@@ -1,7 +1,3 @@
-//
-// Created by andre on 28/11/2021.
-//
-
 #ifndef PROJETO1_FUNCIONARIO_H
 #define PROJETO1_FUNCIONARIO_H
 

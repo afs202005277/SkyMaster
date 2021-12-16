@@ -1,7 +1,3 @@
-//
-// Created by andre on 14/12/2021.
-//
-
 #include "Tempo.h"
 
 int Tempo::getHora() const {

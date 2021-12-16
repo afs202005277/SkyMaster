@@ -1,9 +1,6 @@
-//
-// Created by andre on 28/11/2021.
-//
-
 #ifndef PROJETO1_AVIAO_H
 #define PROJETO1_AVIAO_H
+
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -64,8 +61,6 @@ public:
     void setServicos(const std::queue<Servico *> &servicos);
 
     Aviao(int capacidade, std::list<Voo *> plano, std::string matricula);
-
-    Aviao();
 
     const std::string &getMatricula() const;
 

@@ -1,7 +1,3 @@
-//
-// Created by andre on 12/12/2021.
-//
-
 #ifndef PROJETO1_AEROPORTO_H
 #define PROJETO1_AEROPORTO_H
 

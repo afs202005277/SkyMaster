@@ -1,7 +1,3 @@
-//
-// Created by andre on 14/12/2021.
-//
-
 #ifndef PROJETO1_TEMPO_H
 #define PROJETO1_TEMPO_H
 

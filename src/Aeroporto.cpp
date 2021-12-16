@@ -1,7 +1,3 @@
-//
-// Created by andre on 12/12/2021.
-//
-
 #include <algorithm>
 #include <utility>
 #include "Aeroporto.h"
