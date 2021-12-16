@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 #include "Aviao.h"
 
 #include "Tempo.h"
@@ -13,9 +14,17 @@ void processInput(const string &line, vector<string> & arguments){
     int index=0;
     while(stream >> argument)
     {
-        arguments[index] = argument;
-        index++;
+        if (argument.find(',') != string::npos)
+        {
+            arguments[index] += argument.substr(0, argument.find(','));
+            index++;
+        }
+        else
+            arguments[index] += argument + " ";
     }
+    string tmp = arguments[arguments.size()-1];
+    tmp = tmp.substr(0, tmp.find_last_of(' '));
+    arguments[arguments.size()-1] = tmp;
 }
 
 int main() {
@@ -38,71 +47,70 @@ int main() {
     string line, object, instruction;
     while(getline(input, line))
     {
-        vector<string> arguments;
         object = line.substr(0, line.find(':'));
         if (object == "Aeroporto")
         {
-            arguments.resize(3);
-            while(getline(input, instruction) && instruction.find(':') != string::npos) {
+            while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
+                vector<string> arguments(3);
                 processInput(instruction, arguments);
                 aeroportos.emplace_back(Aeroporto(arguments[0], arguments[1], arguments[2]));
             }
         }
         else if (object == "Transporte")
         {
-            arguments.resize(4);
-            while(getline(input, instruction) && instruction.find(':') != string::npos) {
+            vector<string> arguments(4);
+            while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 processInput(instruction, arguments);
                 transportes.emplace_back(Transporte(stoi(arguments[0]), arguments[1], arguments[2], arguments[3]));
             }
         }
         else if (object == "Funcionario")
         {
-            arguments.resize(4);
-            while(getline(input, instruction) && instruction.find(':') != string::npos) {
+            vector<string> arguments(4);
+            while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 processInput(instruction, arguments);
-                Aeroporto required = *std::find(aeroportos.begin(), aeroportos.end(), Aeroporto(arguments[3], "", ""));
+                auto required = *std::find(aeroportos.begin(), aeroportos.end(), Aeroporto(arguments[3], "", ""));
                 funcionarios.emplace_back(Funcionario(stoi(arguments[0]), arguments[1], arguments[2], &required));
             }
         }
         else if(object == "Servico")
         {
-            arguments.resize(3);
-            while(getline(input, instruction) && instruction.find(':') != string::npos) {
+            vector<string> arguments(3);
+            while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 processInput(instruction, arguments);
-                Funcionario required = *std::find(funcionarios.begin(), funcionarios.end(), Funcionario(stoi(arguments[1]), "", "", nullptr));
+                Funcionario required = *find(funcionarios.begin(), funcionarios.end(), Funcionario(stoi(arguments[1]), "", "", nullptr));
                 servicos.emplace_back(Servico(arguments[0], &required, arguments[2]));
             }
         }
         else if (object == "Passageiro")
         {
-            arguments.resize(3);
-            while(getline(input, instruction) && instruction.find(':') != string::npos) {
+            vector<string> arguments(3);
+            while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 processInput(instruction, arguments);
                 passageiros.emplace_back(Passageiro(arguments[0], stoi(arguments[1]), stoi(arguments[2])));
             }
         }
         else if (object == "Mala")
         {
-            arguments.resize(2);
-            while(getline(input, instruction) && instruction.find(':') != string::npos) {
+            vector<string> arguments(2);
+            while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 processInput(instruction, arguments);
-                Passageiro required = *std::find(passageiros.begin(), passageiros.end(), Passageiro("", 0, stoi(arguments[0])));
+                Passageiro required = *find(passageiros.begin(), passageiros.end(), Passageiro("", 0, stoi(arguments[0])));
                 malas.emplace_back(Mala(&required, stof(arguments[1])));
             }
         }
         else if (object == "Aviao")
         {
-            arguments.resize(3);
-            while(getline(input, instruction) && instruction.find(':') != string::npos) {
+            vector<string> arguments(3);
+            while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 processInput(instruction, arguments);
                 avioes.emplace_back(Aviao(stoi(arguments[0]), arguments[1], arguments[2]));
             }
         }
         else if (object == "Voo")
         {
-            arguments.resize(7);
-            while(getline(input, instruction) && instruction.find(':') != string::npos) {
+            vector<string> arguments(7);
+            while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 processInput(instruction, arguments);
                 Aeroporto origem = *std::find(aeroportos.begin(), aeroportos.end(), Aeroporto(arguments[3], "", ""));
                 Aeroporto destino = *std::find(aeroportos.begin(), aeroportos.end(), Aeroporto(arguments[4], "", ""));
@@ -112,8 +120,8 @@ int main() {
         }
         else if (object == "CarrinhoTransporte")
         {
-            arguments.resize(4);
-            while(getline(input, instruction) && instruction.find(':') != string::npos) {
+            vector<string> arguments(4);
+            while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 processInput(instruction, arguments);
                 Aeroporto required = *std::find(aeroportos.begin(), aeroportos.end(), Aeroporto(arguments[3], "", ""));
                 carrinhosTransporte.emplace_back(CarrinhoTransporte(stoi(arguments[0]), stoi(arguments[1]), stoi(arguments[2]), &required));
