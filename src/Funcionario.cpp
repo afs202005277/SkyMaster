@@ -78,3 +78,15 @@ std::string Funcionario::getObjectName() {
 std::string Funcionario::getObjectID() {
     return to_string(telemovel);
 }
+
+std::stack<std::string> Funcionario::funcs() {
+    stack<string> temp;
+    temp.push("setAeroporto()");
+    temp.push("getTelemovel()");
+    temp.push("setTelemovel()");
+    temp.push("getNome()");
+    temp.push("setNome()");
+    temp.push("getMorada()");
+    temp.push("setMorada()");
+    return temp;
+}

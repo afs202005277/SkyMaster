@@ -140,3 +140,23 @@ std::string Voo::getObjectName() {
 std::string Voo::getObjectID() {
     return to_string(nVoo);
 }
+
+std::stack<std::string> Voo::funcs() {
+    stack<string> temp;
+    temp.push("getHoraPartida()");
+    temp.push("setHoraPartida()");
+    temp.push("setAviao()");
+    temp.push("getNVoo()");
+    temp.push("setNVoo()");
+    temp.push("getDuracao()");
+    temp.push("setDuracao()");
+    temp.push("getLotacoAtual()");
+    temp.push("setLotacaoAtual()");
+    temp.push("getDataPartida()");
+    temp.push("setDataPartida()");
+    temp.push("setOrigem()");
+    temp.push("setDestino()");
+    temp.push("sellBilhete()");
+    temp.push("addPassagero()");
+    return temp;
+}

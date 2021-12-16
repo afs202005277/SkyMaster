@@ -106,4 +106,19 @@ std::string Passageiro::getObjectID() {
     return to_string(id);
 }
 
+std::stack<std::string> Passageiro::funcs() {
+    stack<string> temp;
+    temp.push("addBilhete()");
+    temp.push("getNextBilhete()");
+    temp.push("removeNextBilhete()");
+    temp.push("getNome()");
+    temp.push("getIdade()");
+    temp.push("setIdade()");
+    temp.push("getId()");
+    temp.push("setId()");
+    temp.push("hasBilhete()");
+    temp.push("getIntoPlane()");
+    return temp;
+}
+
 

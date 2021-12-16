@@ -196,3 +196,26 @@ std::string Aviao::getObjectID() {
     return matricula;
 }
 
+std::stack<std::string> Aviao::funcs() {
+    stack<string> temp;
+    temp.push("getNextVoo()");
+    temp.push("getTipo()");
+    temp.push("setTipo()");
+    temp.push("setCarrinhoAssociado()");
+    temp.push("getMatricula()");
+    temp.push("setMatricula()");
+    temp.push("getCapacidade()");
+    temp.push("setCapacidade()");
+    temp.push("addServico()");
+    temp.push("addToPlanoVoo()");
+    temp.push("removeFromPlanoVoo()");
+    temp.push("processService()");
+    temp.push("getPastServicesBy()");
+    temp.push("getFutureServicesBy()");
+    temp.push("getAllServicesBy()");
+    temp.push("descarregarMalas()");
+    temp.push("addMala()");
+    temp.push("viajar()");
+    return temp;
+}
+

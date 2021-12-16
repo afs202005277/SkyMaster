@@ -38,3 +38,14 @@ std::string Bilhete::getObjectName() {
 std::string Bilhete::getObjectID() {
     return passageiro->getNome();
 }
+
+std::stack<std::string> Bilhete::funcs() {
+    stack<string> temp;
+    temp.push("isLevaBagagem()");
+    temp.push("getNVoo()");
+    temp.push("setNVoo()");
+    temp.push("setPassageiro()");
+    temp.push("getLevaBagagem()");
+    temp.push("setLevaBagagem()");
+    return temp;
+}

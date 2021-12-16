@@ -65,3 +65,16 @@ std::string Transporte::getObjectName() {
 std::string Transporte::getObjectID() {
     return horaChegada.getTempo();
 }
+
+std::stack<std::string> Transporte::funcs() {
+    std::stack<std::string> temp;
+    temp.push("getTipo()");
+    temp.push("setTipo()");
+    temp.push("getDistancia()");
+    temp.push("setDitancia()");
+    temp.push("getHoraChegada()");
+    temp.push("setHoraChegada()");
+    temp.push("getHoraPartida()");
+    temp.push("setHoraPartida()");
+    return temp;
+}

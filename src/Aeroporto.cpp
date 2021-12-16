@@ -227,3 +227,22 @@ std::string Aeroporto::getObjectID() {
     return name;
 }
 
+std::stack<std::string> Aeroporto::funcs() {
+    stack<string> temp;
+    temp.push("getName()");
+    temp.push("setName()");
+    temp.push("getCity()");
+    temp.push("setCity()");
+    temp.push("getCountry()");
+    temp.push("setCountry()");
+    temp.push("addTransporte()");
+    temp.push("removeTransporte()");
+    temp.push("getNearestTransport()");
+    temp.push("getNextTransport()");
+    temp.push("addFuncionario()");
+    temp.push("removeFuncionario()");
+    temp.push("addAviao()");
+    temp.push("removeAviao()");
+    return temp;
+}
+

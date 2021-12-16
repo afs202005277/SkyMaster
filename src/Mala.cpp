@@ -33,3 +33,12 @@ std::string Mala::getObjectName() {
 std::string Mala::getObjectID() {
     return to_string(dono->getId());
 }
+
+std::stack<std::string> Mala::funcs() {
+    stack<string> temp;
+    temp.push("setDespachada()");
+    temp.push("setDono()");
+    temp.push("getPeso()");
+    temp.push("setPeso()");
+    return temp;
+}

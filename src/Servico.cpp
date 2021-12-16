@@ -42,3 +42,13 @@ std::string Servico::getObjectName() {
 std::string Servico::getObjectID() {
     return to_string(funcionario->getTelemovel());
 }
+
+std::stack<std::string> Servico::funcs() {
+    stack<string> temp;
+    temp.push("getTipo()");
+    temp.push("setTipo()");
+    temp.push("getData()");
+    temp.push("setData()");
+    temp.push("setFuncionario()");
+    return temp;
+}

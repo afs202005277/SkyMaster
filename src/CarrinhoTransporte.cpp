@@ -113,3 +113,17 @@ std::string CarrinhoTransporte::getObjectName() {
 std::string CarrinhoTransporte::getObjectID() {
     return aviao->getMatricula();
 }
+
+std::stack<std::string> CarrinhoTransporte::funcs() {
+    stack<string> temp;
+    temp.push("getNCarruagens()");
+    temp.push("setNCarruagens()");
+    temp.push("getNPilhas()");
+    temp.push("setNPilhas()");
+    temp.push("getNMalas()");
+    temp.push("setNMalas()");
+    temp.push("addMala()");
+    temp.push("descarregarMalasAviao()");
+    temp.push("descarregarMalasAeroporto()");
+    return temp;
+}
