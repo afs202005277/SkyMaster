@@ -192,3 +192,7 @@ std::string Aviao::getObjectName() {
     return "Aviao (" + matricula + ", " + to_string(capacidade) + ", " + tipo + ")";
 }
 
+std::string Aviao::getObjectID() {
+    return matricula;
+}
+

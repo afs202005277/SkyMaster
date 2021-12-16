@@ -136,3 +136,7 @@ Voo::Voo(int nVoo, int duracao, string dataPartida, Aeroporto *origem, Aeroporto
 std::string Voo::getObjectName() {
     return "Voo (" + std::to_string(nVoo) + ", " + std::to_string(duracao) + ", " + dataPartida.getDate() + ", " + horaPartida.getTempo() + ", " + origem->getName() + ", " + destino->getName() + ", " + aviao->getMatricula() + ")";
 }
+
+std::string Voo::getObjectID() {
+    return to_string(nVoo);
+}

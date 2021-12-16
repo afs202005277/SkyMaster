@@ -74,3 +74,7 @@ void Funcionario::setAeroporto(Aeroporto *aeroporto) {
 std::string Funcionario::getObjectName() {
     return "Funcionario (" + to_string(telemovel) + ", " + nome + ", " + morada + ", " + aeroporto->getName() + ")";
 }
+
+std::string Funcionario::getObjectID() {
+    return to_string(telemovel);
+}

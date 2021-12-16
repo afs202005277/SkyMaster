@@ -223,3 +223,7 @@ std::string Aeroporto::getObjectName() {
     return "Aeroporto (" + name + ", " + city + ", " + country + ")";
 }
 
+std::string Aeroporto::getObjectID() {
+    return name;
+}
+

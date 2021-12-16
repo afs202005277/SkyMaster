@@ -129,14 +129,14 @@ int main() {
         }
         else if (object == "Voo")
         {
-            vector<string> arguments(7);
+            /*vector<string> arguments(7);
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 processInput(instruction, arguments);
                 Aeroporto origem = *std::find(aeroportos.begin(), aeroportos.end(), Aeroporto(arguments[3], "", ""));
                 Aeroporto destino = *std::find(aeroportos.begin(), aeroportos.end(), Aeroporto(arguments[4], "", ""));
                 Aviao aviao = *std::find(avioes.begin(), avioes.end(), Aviao(0, arguments[5], std::__cxx11::string()));
                 voos.emplace_back(Voo(stoi(arguments[0]), stoi(arguments[1]), arguments[2], &origem, &destino, &aviao, arguments[6]));
-            }
+            }*/
         }
         else if (object == "CarrinhoTransporte")
         {

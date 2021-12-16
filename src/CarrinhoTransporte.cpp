@@ -104,3 +104,12 @@ void CarrinhoTransporte::descarregarMalasAeroporto() {
     }
     aeroporto->setStorage(res);
 }
+
+std::string CarrinhoTransporte::getObjectName() {
+    return "CarrinhoTransporte (" + aviao->getMatricula() +  ", " + aeroporto->getName() + ", " + to_string(nCarruagens) + ", " +
+            to_string(nPilhas) + ", " + to_string(nMalas) + ")";
+}
+
+std::string CarrinhoTransporte::getObjectID() {
+    return aviao->getMatricula();
+}

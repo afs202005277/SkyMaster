@@ -34,3 +34,7 @@ bool Bilhete::isLevaBagagem() const {
 std::string Bilhete::getObjectName() {
     return "Bilhete (" + passageiro->getNome() + ", " + to_string(nVoo) + ", " + to_string(levaBagagem) + ")";
 }
+
+std::string Bilhete::getObjectID() {
+    return passageiro->getNome();
+}

@@ -36,5 +36,9 @@ Servico::Servico(const string &data, Funcionario *funcionario, const string &tip
 }
 
 std::string Servico::getObjectName() {
-    return "Servico (" + funcionario->getNome() + ", " + data.getDate() + ", " + to_string(tipo) + ")";
+    return "Servico (" + to_string(funcionario->getTelemovel()) + ", " + data.getDate() + ", " + to_string(tipo) + ")";
+}
+
+std::string Servico::getObjectID() {
+    return to_string(funcionario->getTelemovel());
 }

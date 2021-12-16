@@ -99,7 +99,11 @@ bool operator==(const Passageiro &lhs, const Passageiro &rhs) {
 }
 
 std::string Passageiro::getObjectName() {
-    return "Passageiro (" + nome + ", " + to_string(id) + ", " + to_string(idade) + ")";
+    return "Passageiro (" + to_string(id) + ", " + nome + ", " + to_string(idade) + ")";
+}
+
+std::string Passageiro::getObjectID() {
+    return to_string(id);
 }
 
 

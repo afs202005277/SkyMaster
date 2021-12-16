@@ -61,3 +61,7 @@ Transporte::Transporte(int distancia, const std::string &horaChegada, const std:
 std::string Transporte::getObjectName() {
     return "Transporte (" + horaChegada.getTempo() + ", " + horaPartida.getTempo() + ", " + std::to_string(distancia) + ")";
 }
+
+std::string Transporte::getObjectID() {
+    return horaChegada.getTempo();
+}
