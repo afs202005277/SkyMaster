@@ -168,7 +168,7 @@ void Aeroporto::addAviao(Aviao *a) {
     if (!assigned)
     {
         CarrinhoTransporte ref = *carrinhos.front();
-        auto* c = new CarrinhoTransporte(ref.getNCarruagens(), ref.getNPilhas(),ref.getNMalas(), a);
+        auto* c = new CarrinhoTransporte(ref.getNCarruagens(), ref.getNPilhas(), ref.getNMalas(), nullptr, a);
         carrinhos.push_back(c);
     }
 }
@@ -209,5 +209,13 @@ Aeroporto::Aeroporto(string name, string city, string country,
 
 bool Aeroporto::sorterAvioes(const Aviao* a1, const Aviao* a2) {
     return a1->getNextVoo() < a2->getNextVoo();
+}
+
+const queue<Mala *> &Aeroporto::getStorage() const {
+    return storage;
+}
+
+void Aeroporto::setStorage(const queue<Mala *> &storage) {
+    Aeroporto::storage = storage;
 }
 

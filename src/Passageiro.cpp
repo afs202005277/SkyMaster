@@ -74,7 +74,11 @@ bool Passageiro::checkIn(bool checkInAutomatico, Voo &v, std::queue<Mala *> &mal
         {
             for (int i=0;i<malas.size();i++)
             {
-                c->addMala(malas.front());
+                bool flag = c->addMala(malas.front());
+                if (!flag){
+                    c->descarregarMalasAviao();
+                    c->addMala(malas.front());
+                }
                 malas.pop();
             }
         }

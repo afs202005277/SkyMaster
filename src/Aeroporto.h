@@ -7,6 +7,7 @@
 
 #include <string>
 #include <vector>
+#include <queue>
 #include "Transporte.h"
 #include "Funcionario.h"
 #include "CarrinhoTransporte.h"
@@ -22,12 +23,18 @@ private:
     std::vector<Funcionario*> funcionarios;
     BST<Transporte> transportes;
     std::vector<CarrinhoTransporte*> carrinhos;
+    list<Aviao*> avioes;
+    std::queue<Mala*> storage;
+
     static bool sorterFuncionarios(const Funcionario * f1, const Funcionario * f2);
     static bool sorterAvioes(const Aviao* a1, const Aviao* a2);
-    list<Aviao*> avioes; //LISTA ORDENADA
 
 public:
     const std::string &getName() const;
+
+    const queue<Mala *> &getStorage() const;
+
+    void setStorage(const queue<Mala *> &storage);
 
     vector<CarrinhoTransporte *> & getCarrinhos();
 

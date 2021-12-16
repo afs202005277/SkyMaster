@@ -24,7 +24,7 @@
 - Aviao::aterrar()
 - Aeroporto::addAviao() (neste metodo é feita a atribuicao do carrinho)
 #### Descarrega as malas do avião (FEITO)
-- Aviao::descarregarMalas()
+- Aviao::descarregarMalasAviao()
 #### Fazer servicos (FEITO)
 - Aviao::addServico()
 - Aviao::processServico()

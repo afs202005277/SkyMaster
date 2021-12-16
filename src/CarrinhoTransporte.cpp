@@ -4,7 +4,7 @@
 
 #include "CarrinhoTransporte.h"
 
-CarrinhoTransporte::CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas, Aviao *aviao) {
+CarrinhoTransporte::CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas, Aeroporto *aeroporto, Aviao *aviao) {
     this->nCarruagens = nCarruagens;
     this->nPilhas = nPilhas;
     this->nMalas = nMalas;
@@ -14,6 +14,7 @@ CarrinhoTransporte::CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas,
         temp = vector<stack<Mala*>>(this->nPilhas);
     }
     this->aviao=aviao;
+    this->aeroporto = aeroporto;
 }
 
 int CarrinhoTransporte::getNCarruagens() const {
@@ -40,7 +41,7 @@ void CarrinhoTransporte::setNMalas(int nMalas) {
     CarrinhoTransporte::nMalas = nMalas;
 }
 
-void CarrinhoTransporte::addMala(Mala *m) {
+bool CarrinhoTransporte::addMala(Mala *m) {
     for (vector<stack<Mala*>> &carruagem : this->carga)
     {
         for (stack<Mala*> &carrinho : carruagem)
@@ -48,19 +49,20 @@ void CarrinhoTransporte::addMala(Mala *m) {
             if (carrinho.size() < nMalas)
             {
                 carrinho.push(m);
+                return true;
             }
         }
         if (carruagem.size() < this->nPilhas) {
             stack<Mala*> temp;
             temp.push(m);
             carruagem.push_back(temp);
+            return true;
         }
     }
-    this->descarregarMalas();
-    carga[0][0].push(m);
+    return false;
 }
 
-void CarrinhoTransporte::descarregarMalas()
+void CarrinhoTransporte::descarregarMalasAviao()
 {
     for (vector<stack<Mala*>> &carruagem : this->carga)
     {
@@ -89,4 +91,20 @@ Aviao *CarrinhoTransporte::getAviao() const {
 
 void CarrinhoTransporte::setAviao(Aviao *aviao) {
     CarrinhoTransporte::aviao = aviao;
+}
+
+void CarrinhoTransporte::descarregarMalasAeroporto() {
+    std::queue<Mala*> res;
+    for (vector<stack<Mala*>> &carruagem : this->carga)
+    {
+        for (stack<Mala*> &carrinho : carruagem)
+        {
+            while (!carrinho.empty())
+            {
+                res.push(carrinho.top());
+                carrinho.pop();
+            }
+        }
+    }
+    aeroporto->setStorage(res);
 }

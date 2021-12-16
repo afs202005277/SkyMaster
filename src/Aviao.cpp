@@ -105,7 +105,12 @@ vector<vector<Servico*>> Aviao::getAllServicesBy(const Funcionario &f) const{
 void Aviao::descarregarMalas(CarrinhoTransporte *carrinho) {
     for (auto &m:carga)
     {
-        carrinho->addMala(m);
+        bool flag = carrinho->addMala(m);
+        if (!flag)
+        {
+            carrinho->descarregarMalasAeroporto();
+            carrinho->addMala(m);
+        }
     }
     carga.clear();
 }
@@ -132,9 +137,8 @@ bool Aviao::removeFromPlanoVoo(Voo &voo) {
 
 void Aviao::viajar()
 {
-    carrinhoAssociado->descarregarMalas();
+    carrinhoAssociado->descarregarMalasAviao();
     carrinhoAssociado->setAviao(nullptr);
-    carrinhoAssociado = nullptr;
     this->plano.front()->getDestino()->addAviao(this);
     this->plano.front()->getOrigem()->removeAviao(this);
     this->plano.erase(plano.begin());

@@ -17,6 +17,7 @@ private:
     int nCarruagens, nPilhas, nMalas;
     std::vector<std::vector<std::stack<Mala*>>> carga;
     Aviao * aviao;
+    Aeroporto * aeroporto;
 
 public:
     const vector<vector<stack<Mala *>>> &getCarga() const;
@@ -27,7 +28,7 @@ public:
 
     void setAviao(Aviao *aviao);
 
-    CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas, Aviao *aviao=nullptr);
+    CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas, Aeroporto *aeroporto, Aviao *aviao = nullptr);
 
     int getNCarruagens() const;
 
@@ -41,9 +42,11 @@ public:
 
     void setNMalas(int nMalas);
 
-    void addMala(Mala *m);
+    bool addMala(Mala *m);
 
-    void descarregarMalas();
+    void descarregarMalasAviao();
+
+    void descarregarMalasAeroporto();
 };
 
 
