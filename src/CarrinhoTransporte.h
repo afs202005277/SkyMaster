@@ -4,11 +4,12 @@
 #include <vector>
 #include "Mala.h"
 #include <stack>
+#include "Terminal.h"
 using namespace std;
 class Mala;
 class Aviao;
 
-class CarrinhoTransporte {
+class CarrinhoTransporte : public Terminal {
 private:
     int nCarruagens, nPilhas, nMalas;
     std::vector<std::vector<std::stack<Mala*>>> carga;
@@ -43,6 +44,12 @@ public:
     void descarregarMalasAviao();
 
     void descarregarMalasAeroporto();
+
+    std::string getObjectName() override;
+    std::string getObjectID() override;
+    bool findFunc(std::string nomeFunc) override;
+    std::stack<std::string> funcs() override;
+    std::vector<Terminal*> *getV(std::string nameVector) override;
 };
 
 

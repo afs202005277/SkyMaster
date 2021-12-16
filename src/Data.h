@@ -40,6 +40,9 @@ public:
     int getDay() const;
 
     void setDay(int day);
+
+    std::string getDate();
+
 };
 
 

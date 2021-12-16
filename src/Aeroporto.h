@@ -9,11 +9,12 @@
 #include "CarrinhoTransporte.h"
 #include "bst.h"
 #include "Aviao.h"
+#include "Terminal.h"
 
 class Funcionario;
 class CarrinhoTransporte;
 
-class Aeroporto {
+class Aeroporto : public Terminal {
 private:
     std::string name, city, country;
     std::vector<Funcionario*> funcionarios;
@@ -84,6 +85,11 @@ public:
 
     bool removeAviao(Aviao * a);
 
+    std::string getObjectName() override;
+    std::string getObjectID() override;
+    bool findFunc(std::string nomeFunc) override;
+    std::stack<std::string> funcs() override;
+    std::vector<Terminal*> *getV(std::string nameVector) override;
 };
 
 

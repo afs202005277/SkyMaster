@@ -34,3 +34,7 @@ Servico::Servico(const string &data, Funcionario *funcionario, const string &tip
     else
         this->tipo=limpeza;
 }
+
+std::string Servico::getObjectName() {
+    return "Servico (" + funcionario->getNome() + ", " + data.getDate() + ", " + to_string(tipo) + ")";
+}

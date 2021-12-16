@@ -3,10 +3,11 @@
 
 #include "Tempo.h"
 #include <string>
+#include "Terminal.h"
 
 enum TipoTransporte {autocarro, metro, comboio};
 
-class Transporte {
+class Transporte : public Terminal {
 
 private:
     int distancia;
@@ -36,6 +37,12 @@ public:
     void setHoraPartida(const Tempo &horaSaida);
 
     friend bool operator<(const Transporte &lhs, const Transporte &rhs);
+
+    std::string getObjectName() override;
+    std::string getObjectID() override;
+    bool findFunc(std::string nomeFunc) override;
+    std::stack<std::string> funcs() override;
+    std::vector<Terminal*> *getV(std::string nameVector) override;
 };
 
 

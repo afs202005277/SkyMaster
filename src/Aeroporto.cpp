@@ -219,3 +219,7 @@ bool operator==(const Aeroporto &lhs, const Aeroporto &rhs) {
     return lhs.name == rhs.name;
 }
 
+std::string Aeroporto::getObjectName() {
+    return "Aeroporto (" + name + ", " + city + ", " + country + ")";
+}
+

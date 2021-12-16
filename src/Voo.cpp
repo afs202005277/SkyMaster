@@ -132,3 +132,7 @@ bool operator>=(const Voo &lhs, const Voo &rhs) {
 Voo::Voo(int nVoo, int duracao, string dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao,
          string partida) : nVoo(nVoo), duracao(duracao), dataPartida(Data(dataPartida)), origem(origem),
                            destino(destino), aviao(aviao), horaPartida(partida){}
+
+std::string Voo::getObjectName() {
+    return "Voo (" + std::to_string(nVoo) + ", " + std::to_string(duracao) + ", " + dataPartida.getDate() + ", " + horaPartida.getTempo() + ", " + origem->getName() + ", " + destino->getName() + ", " + aviao->getMatricula() + ")";
+}

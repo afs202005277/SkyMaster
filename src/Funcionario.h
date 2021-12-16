@@ -3,11 +3,12 @@
 
 #include "Aeroporto.h"
 #include <string>
+#include "Terminal.h"
 
 class Aeroporto;
 class Servico;
 
-class Funcionario {
+class Funcionario : public Terminal {
 public:
 
 private:
@@ -45,6 +46,12 @@ public:
     bool operator==(const Funcionario &rhs) const;
 
     bool operator!=(const Funcionario &rhs) const;
+
+    std::string getObjectName() override;
+    std::string getObjectID() override;
+    bool findFunc(std::string nomeFunc) override;
+    std::stack<std::string> funcs() override;
+    std::vector<Terminal*> *getV(std::string nameVector) override;
 };
 
 #endif //PROJETO1_FUNCIONARIO_H

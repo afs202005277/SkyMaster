@@ -24,6 +24,11 @@ void Tempo::setSegundo(int segundo) {
     Tempo::segundo = segundo;
 }
 
+std::string Tempo::getTempo()
+{
+    return std::to_string(getHora()) + ":" + std::to_string(getMinuto()) + ":" + std::to_string(getSegundo());
+}
+
 bool operator<(const Tempo &lhs, const Tempo &rhs) {
     if (lhs.hora < rhs.hora)
         return true;

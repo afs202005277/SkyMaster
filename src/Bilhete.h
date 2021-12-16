@@ -2,9 +2,9 @@
 #define PROJETO1_BILHETE_H
 
 #include "Passageiro.h"
+#include "Terminal.h"
 class Passageiro;
-class Bilhete
-{
+class Bilhete : public Terminal {
 private:
     unsigned int nVoo;
     Passageiro* passageiro;
@@ -25,6 +25,12 @@ public:
     void setLevaBagagem(bool leva);
 
     unsigned int getNVoo() const;
+
+    std::string getObjectName() override;
+    std::string getObjectID() override;
+    bool findFunc(std::string nomeFunc) override;
+    std::stack<std::string> funcs() override;
+    std::vector<Terminal*> *getV(std::string nameVector) override;
 };
 
 

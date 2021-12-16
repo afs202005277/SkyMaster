@@ -3,10 +3,11 @@
 
 #include "Passageiro.h"
 #include "Aviao.h"
+#include "Terminal.h"
 
 class Passageiro;
 
-class Mala {
+class Mala : public Terminal {
 private:
     Passageiro* dono;
     Aviao *despachada;
@@ -25,6 +26,12 @@ public:
     float getPeso() const;
 
     void setPeso(float peso);
+
+    std::string getObjectName() override;
+    std::string getObjectID() override;
+    bool findFunc(std::string nomeFunc) override;
+    std::stack<std::string> funcs() override;
+    std::vector<Terminal*> *getV(std::string nameVector) override;
 };
 
 

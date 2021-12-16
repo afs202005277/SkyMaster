@@ -70,3 +70,7 @@ void Funcionario::setAeroporto(Aeroporto *aeroporto) {
     aeroporto->removeFuncionario(*this);
     Funcionario::aeroporto = aeroporto;
 }
+
+std::string Funcionario::getObjectName() {
+    return "Funcionario (" + to_string(telemovel) + ", " + nome + ", " + morada + ", " + aeroporto->getName() + ")";
+}

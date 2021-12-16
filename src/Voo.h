@@ -8,6 +8,7 @@
 #include "Bilhete.h"
 #include "Passageiro.h"
 #include "Aviao.h"
+#include "Terminal.h"
 
 using namespace std;
 
@@ -16,7 +17,7 @@ class Bilhete;
 class Passageiro;
 class Aeroporto;
 
-class Voo {
+class Voo : public Terminal {
 private:
     int duracao, lotacaoAtual;
     unsigned int nVoo;
@@ -85,6 +86,12 @@ public:
     bool sellBilheteGroup(const vector<bool> &checkInAuto, const vector<Passageiro *> &p);
 
     void addPassageiro(Passageiro *p);
+
+    std::string getObjectName() override;
+    std::string getObjectID() override;
+    bool findFunc(std::string nomeFunc) override;
+    std::stack<std::string> funcs() override;
+    std::vector<Terminal*> *getV(std::string nameVector) override;
 };
 
 

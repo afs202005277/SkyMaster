@@ -188,3 +188,7 @@ void Aviao::setTipo(const string &tipo) {
     Aviao::tipo = tipo;
 }
 
+std::string Aviao::getObjectName() {
+    return "Aviao (" + matricula + ", " + to_string(capacidade) + ", " + tipo + ")";
+}
+

@@ -7,12 +7,13 @@
 
 #include "Bilhete.h"
 #include "Voo.h"
+#include "Terminal.h"
 
 class Voo;
 class Bilhete;
 class Mala;
 
-class Passageiro {
+class Passageiro : public Terminal {
 private:
     int idade, id;
     std::string nome;
@@ -49,6 +50,12 @@ public:
     bool checkIn(bool checkInAutomatico, Voo &v, std::queue<Mala *> &malas) const;
 
     bool getIntoPlane(Voo &v);
+
+    std::string getObjectName() override;
+    std::string getObjectID() override;
+    bool findFunc(std::string nomeFunc) override;
+    std::stack<std::string> funcs() override;
+    std::vector<Terminal*> *getV(std::string nameVector) override;
 };
 
 

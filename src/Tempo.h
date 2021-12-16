@@ -3,6 +3,7 @@
 
 
 #include <string>
+#include "Terminal.h"
 
 class Tempo {
 private:
@@ -30,6 +31,8 @@ public:
 
     void setSegundo(int segundo);
 
+    std::string getTempo();
+
     friend bool operator<(const Tempo &lhs, const Tempo &rhs);
 
     friend bool operator>(const Tempo &lhs, const Tempo &rhs);
@@ -37,6 +40,7 @@ public:
     friend bool operator<=(const Tempo &lhs, const Tempo &rhs);
 
     friend bool operator>=(const Tempo &lhs, const Tempo &rhs);
+
 };
 
 

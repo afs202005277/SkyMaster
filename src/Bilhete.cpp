@@ -30,3 +30,7 @@ void Bilhete::setPassageiro(Passageiro *passageiro) {
 bool Bilhete::isLevaBagagem() const {
     return levaBagagem;
 }
+
+std::string Bilhete::getObjectName() {
+    return "Bilhete (" + passageiro->getNome() + ", " + to_string(nVoo) + ", " + to_string(levaBagagem) + ")";
+}
