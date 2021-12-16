@@ -2,6 +2,7 @@
 #define PROJETO1_TRANSPORTE_H
 
 #include "Tempo.h"
+#include <string>
 
 enum TipoTransporte {autocarro, metro, comboio};
 
@@ -13,6 +14,8 @@ private:
     TipoTransporte tipo;
 public:
     Transporte(int distancia, const Tempo &horaChegada, const Tempo &horaPartida, TipoTransporte tipo);
+
+    Transporte(int distancia, const std::string &horaChegada, const std::string &horaPartida, const std::string &tipo);
 
     TipoTransporte getTipo() const;
 

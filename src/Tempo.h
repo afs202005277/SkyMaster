@@ -2,6 +2,8 @@
 #define PROJETO1_TEMPO_H
 
 
+#include <string>
+
 class Tempo {
 private:
     int hora;
@@ -9,6 +11,8 @@ private:
     int segundo = 0;
 public:
     Tempo(int hora, int minuto, int segundo);
+
+    Tempo(const std::string &tempo);
 
     int getHora() const;
 

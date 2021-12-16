@@ -1,40 +1,74 @@
 #include <iostream>
-#include <Aeroporto.h>
-#include <Passageiro.h>
 #include <vector>
-#include <Aviao.h>
-#include "Voo.h"
+#include <fstream>
+#include <sstream>
+#include "Aviao.h"
 
+#include "Tempo.h"
+using namespace std;
+
+void processInput(const string &line, vector<string> & arguments){
+    istringstream stream(line);
+    string argument;
+    int index=0;
+    while(stream >> argument)
+    {
+        arguments[index] = argument;
+        index++;
+    }
+}
+
+void f(int* i){}
 int main() {
-    auto *OPO = new Aeroporto("Aeroporto Francisco Sá Carneiro", "Porto", "Portugal");
-    auto *LIS = new Aeroporto("Aeroporto de Lisboa", "Lisboa", "Portugal");
-    auto *FAO = new Aeroporto("Aeroporto de Faro", "Faro", "Portugal");
-    auto *LAX = new Aeroporto("Los Angeles International Airport", "Los Angeles", "USA");
-    auto *JFK = new Aeroporto("John F. Kennedy International Airport", "New York", "USA");
-    auto *LGW = new Aeroporto("Gatwick Airport", "London", "United Kingdom");
-
-
-    Passageiro p1("Julieta Branco", 30, 882128799);
-    Passageiro p2("Arthur Borges", 50, 947739138);
-    Passageiro p3("Nicolau Melo", 20, 700001005);
-    Passageiro p4("Solange Leite", 70, 393213807);
-    Passageiro p5("Sandra Valente", 20, 555057094);
-    Passageiro p6("Tiago Gouveia", 18, 710052462);
-    Passageiro p7("Armando Santos", 30, 383973487);
-    Passageiro p8("Bernardino Soares", 40, 903373072);
-    Passageiro p9("Joaquina Mota", 80, 626482872);
-    Passageiro p10("Hugo Monteiro", 35, 575041321);
-
-
-    // Eu precisei do Aviao no Voo, por isso, agora está tudo uma confusao. Aviao->Voo & Voo->Aviao
-
-    /*Voo v1(1, 523, Data(2021, 12, 17), OPO, LAX, 55),
-        v2(2, 50, Data(2022, 1, 1), FAO, OPO),
-        v3(3, 300, Data(2021, 12, 25), JFK, LGW);
-    */
-
-
-
-
+    ifstream input("povoar.txt");
+    if (!input.is_open())
+    {
+        cout << "File not found" << endl;
+        return 1;
+    }
+    list<Aeroporto> aeroportos;
+    list<Transporte> transportes;
+    list<Funcionario> funcionarios;
+    list<Servico> servicos;
+    string line, object, instruction;
+    while(getline(cin, line))
+    {
+        vector<string> arguments;
+        object = line.substr(0, line.find(':'));
+        if (object == "Aeroporto")
+        {
+            while(getline(cin, instruction) && instruction.find(':') != string::npos) {
+                arguments.resize(3);
+                processInput(instruction, arguments);
+                aeroportos.emplace_back(Aeroporto(arguments[0], arguments[1], arguments[2]));
+            }
+        }
+        else if (object == "Transporte")
+        {
+            while(getline(cin, instruction) && instruction.find(':') != string::npos) {
+                arguments.resize(4);
+                processInput(instruction, arguments);
+                transportes.emplace_back(Transporte(stoi(arguments[0]), arguments[1], arguments[2], arguments[3]));
+            }
+        }
+        else if (object == "Funcionario")
+        {
+            while(getline(cin, instruction) && instruction.find(':') != string::npos) {
+                arguments.resize(4);
+                processInput(instruction, arguments);
+                Aeroporto required = *std::find(aeroportos.begin(), aeroportos.end(), Aeroporto(arguments[3], "", ""));
+                funcionarios.emplace_back(Funcionario(stoi(arguments[0]), arguments[1], arguments[2], &required));
+            }
+        }
+        else if(object == "Servico")
+        {
+            while(getline(cin, instruction) && instruction.find(':') != string::npos) {
+                arguments.resize(3);
+                processInput(instruction, arguments);
+                Funcionario required = *std::find(funcionarios.begin(), funcionarios.end(), Funcionario(stoi(arguments[1]), "", ""));
+                funcionarios.emplace_back(Funcionario(stoi(arguments[0]), arguments[1], arguments[2], &required));
+            }
+        }
+    }
     return 0;
 }

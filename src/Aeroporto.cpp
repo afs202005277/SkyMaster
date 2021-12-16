@@ -215,3 +215,7 @@ void Aeroporto::setStorage(const queue<Mala *> &storage) {
     Aeroporto::storage = storage;
 }
 
+bool operator==(const Aeroporto &lhs, const Aeroporto &rhs) {
+    return lhs.name == rhs.name;
+}
+

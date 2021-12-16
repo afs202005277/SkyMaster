@@ -46,3 +46,14 @@ bool operator<(const Transporte &lhs, const Transporte &rhs) {
 }
 
 Transporte::Transporte() : horaChegada(-1, -1, -1), horaPartida (-1, -1, -1) {}
+
+Transporte::Transporte(int distancia, const std::string &horaChegada, const std::string &horaPartida,
+                       const std::string &tipo) : distancia(distancia), horaChegada(Tempo(horaChegada)),
+                                             horaPartida(Tempo(horaPartida)){
+    if (tipo=="metro")
+        this->tipo=metro;
+    else if (tipo=="comboio")
+        this->tipo=comboio;
+    else
+        this->tipo=autocarro;
+}

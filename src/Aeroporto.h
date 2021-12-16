@@ -26,6 +26,8 @@ private:
     static bool sorterAvioes(const Aviao* a1, const Aviao* a2);
 
 public:
+    friend bool operator==(const Aeroporto &lhs, const Aeroporto &rhs);
+
     const std::string &getName() const;
 
     const queue<Mala *> &getStorage() const;
