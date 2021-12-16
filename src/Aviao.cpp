@@ -219,3 +219,7 @@ std::stack<std::string> Aviao::funcs() {
     return temp;
 }
 
+bool Aviao::operator==(Aviao &a) {
+    return this->matricula == a.matricula;
+}
+

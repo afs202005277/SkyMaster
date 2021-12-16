@@ -32,10 +32,7 @@ Funcionario::Funcionario(int telemovel, std::string nome, std::string morada, Ae
 }
 
 bool Funcionario::operator==(const Funcionario &rhs) const {
-    return telemovel == rhs.telemovel &&
-           nome == rhs.nome &&
-           morada == rhs.morada &&
-           aeroporto == rhs.aeroporto;
+    return telemovel == rhs.telemovel;
 }
 
 bool Funcionario::operator!=(const Funcionario &rhs) const {

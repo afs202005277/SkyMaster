@@ -108,6 +108,8 @@ public:
 
     void viajar();
 
+    bool operator==(Aviao &a);
+
     std::string getObjectName() override;
     std::string getObjectID() override;
     bool findFunc(std::string nomeFunc) override;
