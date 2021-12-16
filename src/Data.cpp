@@ -69,3 +69,9 @@ bool Data::operator>=(const Data &rhs) const {
     return !(*this < rhs);
 }
 
+Data::Data(std::string data) {
+    year = stoi(data.substr(0, data.find('/')));
+    month = stoi(data.substr(data.find('/') + 1, data.find_last_of('/')));
+    day = stoi(data.substr(data.find_last_of('/') + 1));
+}
+

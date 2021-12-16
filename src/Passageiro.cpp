@@ -94,4 +94,8 @@ Passageiro::Passageiro(int idade, int id, string nome, const queue<Bilhete *> &b
                                                                                                   nome(std::move(nome)),
                                                                                                   bilhetes(bilhetes) {}
 
+bool operator==(const Passageiro &lhs, const Passageiro &rhs) {
+    return lhs.id == rhs.id;
+}
+
 

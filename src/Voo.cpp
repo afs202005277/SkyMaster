@@ -128,3 +128,7 @@ bool operator<=(const Voo &lhs, const Voo &rhs) {
 bool operator>=(const Voo &lhs, const Voo &rhs) {
     return !(lhs < rhs);
 }
+
+Voo::Voo(int nVoo, int duracao, string dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao,
+         string partida) : nVoo(nVoo), duracao(duracao), dataPartida(Data(dataPartida)), origem(origem),
+                           destino(destino), aviao(aviao), horaPartida(partida){}

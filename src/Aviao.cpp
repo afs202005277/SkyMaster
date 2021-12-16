@@ -25,10 +25,11 @@ void Aviao::setPlano(std::list<Voo *> plano) {
     sortPlano();
 }
 
-Aviao::Aviao(int capacidade, std::list<Voo *> plano, std::string matricula) : capacidade(capacidade),
-                                                                                            plano(std::move(plano)),
-                                                                                            matricula(std::move(matricula)),
-                                                                                            carrinhoAssociado(nullptr)
+Aviao::Aviao(int capacidade, std::list<Voo *> plano, std::string matricula, std::string tipo) : capacidade(capacidade),
+                                                                                                plano(std::move(plano)),
+                                                                                                matricula(std::move(matricula)),
+                                                                                                carrinhoAssociado(nullptr),
+                                                                                                tipo(tipo)
                                                                                             {sortPlano();}
 
 std::queue<Servico *> Aviao::getServicos() const {
@@ -39,9 +40,9 @@ void Aviao::setServicos(const std::queue<Servico *> &servicos) {
     this->servicos = servicos;
 }
 
-Aviao::Aviao(int capacidade, std::list<Voo *> plano, std::string matricula,
-             std::queue<Servico *> servicos) : capacidade(capacidade), plano(std::move(plano)), matricula(std::move(matricula)),
-                                                      servicos(std::move(servicos)) {sortPlano();}
+Aviao::Aviao(int capacidade, std::list<Voo *> plano, std::string matricula, std::queue<Servico *> servicos,
+             std::string tipo) : capacidade(capacidade), plano(std::move(plano)), matricula(std::move(matricula)),
+                                                      servicos(std::move(servicos)), tipo(tipo) {sortPlano();}
 
 void Aviao::addServico(Servico *servico) {
     servicos.push(servico);
@@ -163,12 +164,27 @@ void Aviao::setCarrinhoAssociado(CarrinhoTransporte *carrinhoAssociado) {
 }
 
 Aviao::Aviao(int capacidade, const list<Voo *> &plano, const string &matricula, const queue<Servico *> &servicos,
-             const stack<Servico *> &pastServices, const vector<Mala *> &carga, CarrinhoTransporte *carrinhoAssociado)
+             const stack<Servico *> &pastServices, const vector<Mala *> &carga, CarrinhoTransporte *carrinhoAssociado,
+             std::string tipo)
         : capacidade(capacidade), plano(plano), matricula(matricula), servicos(servicos), pastServices(pastServices),
-          carga(carga), carrinhoAssociado(carrinhoAssociado) {}
+          carga(carga), carrinhoAssociado(carrinhoAssociado), tipo(tipo) {}
 
 Voo Aviao::getNextVoo() const {
     auto it=plano.begin();
     return *(*next(it));
+}
+
+Aviao::Aviao(int capacidade, std::string matricula, std::string tipo) : capacidade(capacidade), matricula(matricula), tipo(tipo){}
+
+bool operator==(const Aviao &lhs, const Aviao &rhs) {
+    return lhs.matricula == rhs.matricula;
+}
+
+const string &Aviao::getTipo() const {
+    return tipo;
+}
+
+void Aviao::setTipo(const string &tipo) {
+    Aviao::tipo = tipo;
 }
 

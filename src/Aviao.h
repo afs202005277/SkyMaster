@@ -26,7 +26,7 @@ class Aviao {
 private:
     int capacidade;
     std::list<Voo*> plano;
-    std::string matricula;
+    std::string matricula, tipo;
     std::queue<Servico*> servicos;
     std::stack<Servico*> pastServices;
     std::vector<Mala*> carga;
@@ -37,10 +37,13 @@ public:
     Voo getNextVoo() const;
 
     Aviao(int capacidade, const list<Voo *> &plano, const string &matricula, const queue<Servico *> &servicos,
-          const stack<Servico *> &pastServices, const vector<Mala *> &carga, CarrinhoTransporte *carrinhoAssociado);
+          const stack<Servico *> &pastServices, const vector<Mala *> &carga, CarrinhoTransporte *carrinhoAssociado,
+          std::string tipo);
 
-    Aviao(int capacidade, std::list<Voo *> plano, std::string matricula,
-          std::queue<Servico *> servicos);
+    Aviao(int capacidade, std::list<Voo *> plano, std::string matricula, std::queue<Servico *> servicos,
+          std::string tipo);
+
+    Aviao(int capacidade, std::string matricula, std::string tipo);
 
     const stack<Servico *> &getPastServices() const;
 
@@ -48,9 +51,15 @@ public:
 
     const vector<Mala *> &getCarga() const;
 
+    friend bool operator==(const Aviao &lhs, const Aviao &rhs);
+
     void setCarga(const vector<Mala *> &carga);
 
     CarrinhoTransporte *getCarrinhoAssociado() const;
+
+    const string &getTipo() const;
+
+    void setTipo(const string &tipo);
 
     void setCarrinhoAssociado(CarrinhoTransporte *carrinhoAssociado);
 
@@ -60,7 +69,7 @@ public:
 
     void setServicos(const std::queue<Servico *> &servicos);
 
-    Aviao(int capacidade, std::list<Voo *> plano, std::string matricula);
+    Aviao(int capacidade, std::list<Voo *> plano, std::string matricula, std::string tipo);
 
     const std::string &getMatricula() const;
 

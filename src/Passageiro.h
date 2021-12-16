@@ -28,6 +28,8 @@ public:
 
     Bilhete* getNextBilhete();
 
+    friend bool operator==(const Passageiro &lhs, const Passageiro &rhs);
+
     void removeNextBilhete();
 
     const std::string &getNome() const;

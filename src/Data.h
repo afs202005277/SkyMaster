@@ -27,6 +27,8 @@ public:
 
     Data(int year, int month, int day);
 
+    Data(std::string data);
+
     int getYear() const;
 
     void setYear(int year);

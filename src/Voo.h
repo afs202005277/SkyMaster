@@ -39,6 +39,9 @@ public:
     Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao,
         Tempo &partida, int lotacaoAtual = 0);
 
+    Voo(int nVoo, int duracao, string dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao,
+        string partida);
+
     int getNVoo() const;
 
     void setNVoo(int nVoo);

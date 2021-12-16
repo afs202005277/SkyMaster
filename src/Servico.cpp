@@ -26,3 +26,11 @@ void Servico::setFuncionario(Funcionario *funcionario) {
 
 Servico::Servico(const Data &data, Funcionario *funcionario, Tipo tipo) : data(data), funcionario(funcionario),
                                                                           tipo(tipo) {}
+
+Servico::Servico(const string &data, Funcionario *funcionario, const string &tipo) {
+    this->data=Data(data);
+    if (tipo == "manutencao")
+        this->tipo=manutencao;
+    else
+        this->tipo=limpeza;
+}
