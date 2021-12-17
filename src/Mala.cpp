@@ -42,3 +42,16 @@ std::stack<std::string> Mala::funcs() {
     temp.push("setPeso()");
     return temp;
 }
+
+std::vector<Terminal *> *Mala::getV(std::string nameVector) {
+    vector<Terminal*> *temp;
+    if (nameVector == "dono")
+    {
+        temp->push_back(dono);
+    }
+    else if (nameVector == "despachada")
+    {
+        temp->push_back(despachada);
+    }
+    return temp;
+}

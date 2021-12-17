@@ -160,3 +160,26 @@ std::stack<std::string> Voo::funcs() {
     temp.push("addPassagero()");
     return temp;
 }
+
+std::vector<Terminal *> *Voo::getV(std::string nameVector) {
+    vector<Terminal*> *temp;
+    if (nameVector == "origem")
+    {
+        temp->push_back(origem);
+    }
+    else if (nameVector == "destino")
+    {
+        temp->push_back(destino);
+    }
+    else if (nameVector == "passageiros")
+    {
+        for (auto p : passageiros)
+        {
+            temp->push_back(p);
+        }
+    }
+    else if (nameVector == "aviao")
+    {
+        temp->push_back(aviao);
+    }
+}

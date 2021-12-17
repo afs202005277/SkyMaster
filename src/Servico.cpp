@@ -52,3 +52,12 @@ std::stack<std::string> Servico::funcs() {
     temp.push("setFuncionario()");
     return temp;
 }
+
+std::vector<Terminal *> *Servico::getV(std::string nameVector) {
+    vector<Terminal *> *temp;
+    if (nameVector == "funcionario")
+    {
+        temp->push_back(funcionario);
+    }
+    return temp;
+}

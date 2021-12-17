@@ -99,3 +99,13 @@ bool Bilhete::findFunc(std::string nomeFunc) {
         return true;
     }
 }
+
+vector<Terminal*> *Bilhete::getV(std::string nameVector)
+{
+    vector<Terminal*> *temp;
+    if (nameVector == "passageiro")
+    {
+        temp->push_back(passageiro);
+    }
+    return temp;
+}

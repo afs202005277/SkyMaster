@@ -459,5 +459,6 @@ std::vector<Terminal *> *Aviao::getV(std::string nameVector) {
     {
         temp->push_back(carrinhoAssociado);
     }
+    return temp;
 }
 

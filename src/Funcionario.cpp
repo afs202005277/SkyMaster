@@ -87,3 +87,12 @@ std::stack<std::string> Funcionario::funcs() {
     temp.push("setMorada()");
     return temp;
 }
+
+std::vector<Terminal *> *Funcionario::getV(std::string nameVector) {
+    vector<Terminal*> *temp;
+    if (nameVector == "aeroporto")
+    {
+        temp->push_back(aeroporto);
+    }
+    return temp;
+}

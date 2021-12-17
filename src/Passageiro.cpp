@@ -121,4 +121,18 @@ std::stack<std::string> Passageiro::funcs() {
     return temp;
 }
 
+std::vector<Terminal *> *Passageiro::getV(std::string nameVector) {
+    vector<Terminal*> *temp;
+    if (nameVector == "bilhetes")
+    {
+        auto temp1 = getBilhetes();
+        while (!temp1.empty())
+        {
+            temp->push_back(temp1.front());
+            temp1.pop();
+        }
+    }
+    return temp;
+}
+
 

@@ -127,3 +127,32 @@ std::stack<std::string> CarrinhoTransporte::funcs() {
     temp.push("descarregarMalasAeroporto()");
     return temp;
 }
+
+std::vector<Terminal *> *CarrinhoTransporte::getV(std::string nameVector)
+{
+    vector<Terminal*> *temp;
+    if (nameVector == "carga")
+    {
+        for (auto c : carga)
+        {
+            for (auto p : c)
+            {
+                auto m = p;
+                while (!m.empty())
+                {
+                    temp->push_back(m.top());
+                    m.pop();
+                }
+            }
+        }
+    }
+    else if (nameVector == "aviao")
+    {
+        temp->push_back(aviao);
+    }
+    else if (nameVector == "aeroporto")
+    {
+        temp->push_back(aeroporto);
+    }
+    return temp;
+}

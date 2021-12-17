@@ -78,3 +78,8 @@ std::stack<std::string> Transporte::funcs() {
     temp.push("setHoraPartida()");
     return temp;
 }
+
+std::vector<Terminal *> *Transporte::getV(std::string nameVector) {
+    std::vector<Terminal*> *temp;
+    return temp;
+}
