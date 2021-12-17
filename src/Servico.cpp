@@ -65,7 +65,10 @@ std::vector<Terminal *> *Servico::getV(std::string nameVector) {
 bool Servico::findFunc(std::string nomeFunc) {
     nomeFunc = processString(nomeFunc, '(', 1, false);
     if (nomeFunc == "getTipo"){
-        cout << tipo << endl;
+        if (tipo == manutencao)
+            cout << "manutencao" << endl;
+        else
+            cout << limpeza << endl;
         return true;
     }
     else if (nomeFunc == "setTipo"){

@@ -3,6 +3,7 @@
 
 
 #include <string>
+#include <ostream>
 #include "Terminal.h"
 
 class Tempo {
@@ -11,7 +12,7 @@ private:
     int minuto;
     int segundo = 0;
 public:
-    Tempo(int hora, int minuto, int segundo);
+    Tempo(int hora, int minuto, int segundo=0);
 
     Tempo(const std::string &tempo);
 
@@ -40,6 +41,8 @@ public:
     friend bool operator<=(const Tempo &lhs, const Tempo &rhs);
 
     friend bool operator>=(const Tempo &lhs, const Tempo &rhs);
+
+    friend std::ostream &operator<<(std::ostream &os, const Tempo &tempo);
 
 };
 

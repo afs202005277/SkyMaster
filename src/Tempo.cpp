@@ -68,3 +68,8 @@ Tempo::Tempo(const std::string &tempo) {
     minuto = stoi(tempo.substr(tempo.find(':') + 1));
 }
 
+std::ostream &operator<<(std::ostream &os, const Tempo &tempo) {
+    os << tempo.hora << ":" << tempo.minuto << ":" << tempo.segundo << std::endl;
+    return os;
+}
+
