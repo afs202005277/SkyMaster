@@ -61,3 +61,40 @@ std::vector<Terminal *> *Servico::getV(std::string nameVector) {
     }
     return temp;
 }
+
+bool Servico::findFunc(std::string nomeFunc) {
+    nomeFunc = processString(nomeFunc, '(', 1, false);
+    if (nomeFunc == "getTipo"){
+        cout << tipo << endl;
+        return true;
+    }
+    else if (nomeFunc == "setTipo"){
+        string tmp;
+        cin >> tmp;
+        if (tmp == "manutencao")
+        {
+            tipo = manutencao;
+            return true;
+        }
+        else if (tmp == "limpeza"){
+            tipo = limpeza;
+            return true;
+        }
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+    else if (nomeFunc == "getData"){
+        cout << data << endl;
+        return true;
+    }
+    else if (nomeFunc == "setData"){
+        lalal
+    }
+    else if (nomeFunc == "setFuncionario"){
+        lalal
+    }
+    else{
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+}
