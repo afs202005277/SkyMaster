@@ -59,14 +59,14 @@ void Aviao::sortPlano() {
 bool Aviao::processService() {
     if (servicos.empty())
         return false;
-    pastServices.push(servicos.front());
+    servicosProcessados.push(servicos.front());
     servicos.pop();
     return true;
 }
 
 vector<Servico *> Aviao::getPastServicesBy(const Funcionario &f) const {
     vector<Servico *> res;
-    stack<Servico*> aux_past = pastServices;
+    stack<Servico*> aux_past = servicosProcessados;
     while(!aux_past.empty())
     {
         if (*(aux_past.top()->getFuncionario()) == f)
@@ -97,28 +97,23 @@ vector<vector<Servico*>> Aviao::getAllServicesBy(const Funcionario &f) const{
     return res;
 }
 
-void Aviao::descarregarMalas(CarrinhoTransporte *carrinho) {
+void Aviao::descarregarMalas() {
+
     for (auto &m:carga)
     {
-        bool flag = carrinho->addMala(m);
+        bool flag = carrinhoAssociado->addMala(m);
         if (!flag)
         {
-            carrinho->descarregarMalasAeroporto();
-            carrinho->addMala(m);
+            carrinhoAssociado->descarregarMalasAeroporto();
+            carrinhoAssociado->addMala(m);
         }
     }
+    carrinhoAssociado->descarregarMalasAeroporto();
     carga.clear();
 }
 
 void Aviao::addMala(Mala* m) {
     carga.push_back(m);
-}
-
-void Aviao::addMalas(vector<Mala *> malas) {
-    for (auto mala : malas)
-    {
-        addMala(mala);
-    }
 }
 
 bool Aviao::removeFromPlanoVoo(Voo &voo) {
@@ -139,12 +134,12 @@ void Aviao::viajar()
     this->plano.erase(plano.begin());
 }
 
-const stack<Servico *> &Aviao::getPastServices() const {
-    return pastServices;
+const stack<Servico *> &Aviao::getServicosProcessados() const {
+    return servicosProcessados;
 }
 
-void Aviao::setPastServices(const stack<Servico *> &pastServices) {
-    Aviao::pastServices = pastServices;
+void Aviao::setServicosProcessados(const stack<Servico *> &pastServices) {
+    Aviao::servicosProcessados = pastServices;
 }
 
 const vector<Mala *> &Aviao::getCarga() const {
@@ -166,10 +161,10 @@ void Aviao::setCarrinhoAssociado(CarrinhoTransporte *carrinhoAssociado) {
 Aviao::Aviao(int capacidade, const list<Voo *> &plano, const string &matricula, const queue<Servico *> &servicos,
              const stack<Servico *> &pastServices, const vector<Mala *> &carga, CarrinhoTransporte *carrinhoAssociado,
              std::string tipo)
-        : capacidade(capacidade), plano(plano), matricula(matricula), servicos(servicos), pastServices(pastServices),
+        : capacidade(capacidade), plano(plano), matricula(matricula), servicos(servicos), servicosProcessados(pastServices),
           carga(carga), carrinhoAssociado(carrinhoAssociado), tipo(tipo) {}
 
-Voo Aviao::getNextVoo() const {
+Voo& Aviao::getNextVoo() const {
     auto it=plano.begin();
     return *(*next(it));
 }
