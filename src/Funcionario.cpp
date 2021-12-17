@@ -87,3 +87,40 @@ std::stack<std::string> Funcionario::funcs() {
     temp.push("setMorada()");
     return temp;
 }
+
+bool Funcionario::findFunc(std::string nomeFunc) {
+    nomeFunc = processString(nomeFunc, '(', 1, false);
+    if (nomeFunc == "setAeroporto"){
+        lalal
+    }
+    else if (nomeFunc == "getTelemovel"){
+        cout << telemovel << endl;
+        return true;
+    }
+    else if (nomeFunc == "setTelemovel") {
+        cout << "input Telemovel: ";
+        string temp;
+        cin >> temp;
+        try {
+            setTelemovel(stoi(temp));
+            return true;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return true;
+    }
+    else if (nomeFunc == "getNome"){
+        cout << nome << endl;
+    }
+    else if (nomeFunc == "setNome"){
+        cout << "input Nome: ";
+        string temp;
+        getline(cin, nome);
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return true;
+    }
+
+}
