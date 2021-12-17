@@ -202,4 +202,17 @@ bool Passageiro::findFunc(std::string nomeFunc) {
     }
 }
 
+const vector<Mala *> &Passageiro::getMalas() const {
+    return malas;
+}
+
+void Passageiro::setMalas(const vector<Mala *> &malas) {
+    Passageiro::malas = malas;
+}
+
+void Passageiro::addMala(Mala *m)
+{
+    malas.push_back(m);
+}
+
 

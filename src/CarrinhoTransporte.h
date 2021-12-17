@@ -39,7 +39,7 @@ public:
 
     void setNMalas(int nMalas);
 
-    bool addMala(Mala *m);
+    bool addMalas(vector<Mala*> m);
 
     void descarregarMalasAviao();
 
@@ -50,6 +50,8 @@ public:
     bool findFunc(std::string nomeFunc) override;
     std::stack<std::string> funcs() override;
     std::vector<Terminal*> *getV(std::string nameVector) override;
+
+    bool addMala(Mala *&pMala);
 };
 
 

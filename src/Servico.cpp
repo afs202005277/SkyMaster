@@ -91,7 +91,17 @@ bool Servico::findFunc(std::string nomeFunc) {
         return true;
     }
     else if (nomeFunc == "setData"){
-        lalal
+        cout << "input data (YYYY/MM/DD): ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            setData(Data(temp1));
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
     }
     else if (nomeFunc == "setFuncionario"){
         lalal

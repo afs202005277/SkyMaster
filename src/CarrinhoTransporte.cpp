@@ -37,20 +37,43 @@ void CarrinhoTransporte::setNMalas(int nMalas) {
     CarrinhoTransporte::nMalas = nMalas;
 }
 
-bool CarrinhoTransporte::addMala(Mala *m) {
+bool CarrinhoTransporte::addMalas(vector<Mala*> m) {
+    for (auto f : m) {
+        for (vector<stack<Mala*>> &carruagem : this->carga)
+        {
+            for (stack<Mala*> &carrinho : carruagem)
+            {
+                if (carrinho.size() < nMalas)
+                {
+                    carrinho.push(f);
+                    return true;
+                }
+            }
+            if (carruagem.size() < this->nPilhas) {
+                stack<Mala*> temp;
+                temp.push(f);
+                carruagem.push_back(temp);
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool CarrinhoTransporte::addMala(Mala *&pMala) {
     for (vector<stack<Mala*>> &carruagem : this->carga)
     {
         for (stack<Mala*> &carrinho : carruagem)
         {
             if (carrinho.size() < nMalas)
             {
-                carrinho.push(m);
+                carrinho.push(pMala);
                 return true;
             }
         }
         if (carruagem.size() < this->nPilhas) {
             stack<Mala*> temp;
-            temp.push(m);
+            temp.push(pMala);
             carruagem.push_back(temp);
             return true;
         }
@@ -122,7 +145,7 @@ std::stack<std::string> CarrinhoTransporte::funcs() {
     temp.push("setNPilhas()");
     temp.push("getNMalas()");
     temp.push("setNMalas()");
-    temp.push("addMala()");
+    temp.push("addMalas()");
     temp.push("descarregarMalasAviao()");
     temp.push("descarregarMalasAeroporto()");
     return temp;
@@ -187,8 +210,18 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return false;
     }
-    else if (nomeFunc == "addMala"){
-        lal
+    else if (nomeFunc == "addMalas"){
+        cout << "input passageiro (index): ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            anfenfsenfosfno;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
     }
     else if (nomeFunc == "descarregarMalasAviao"){
         descarregarMalasAviao();

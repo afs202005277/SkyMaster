@@ -21,6 +21,7 @@ Aviao *Mala::getDespachada() const {
 }
 
 void Mala::setDespachada(Aviao *despachada) {
+    despachada->addMala(this);
     Mala::despachada = despachada;
 }
 
@@ -46,10 +47,35 @@ std::stack<std::string> Mala::funcs() {
 bool Mala::findFunc(std::string nomeFunc) {
     nomeFunc = processString(nomeFunc, '(', 1, false);
     if (nomeFunc == "setDespachada") {
-        lalal
+        cout << "input aviao (index): ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            if (stoi(temp1) < despachada->getNextVoo().getOrigem()->getAvioes().size())
+            {
+                auto temp2 = despachada->getNextVoo().getOrigem()->getAvioes().begin();
+                advance(temp2, stoi(temp1));
+                setDespachada(*temp2);
+            }
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
     }
     else if (nomeFunc == "setDono"){
-        lalal
+        cout << "input passageiro (index): ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            odwdnaoidnaiodn;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
     }
     else if (nomeFunc == "getPeso") {
         cout << peso << endl;

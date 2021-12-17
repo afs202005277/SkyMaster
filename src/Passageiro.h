@@ -18,7 +18,14 @@ private:
     int idade, id;
     std::string nome;
     std::queue<Bilhete *> bilhetes;
+    std::vector<Mala*> malas;
 public:
+    const vector<Mala *> &getMalas() const;
+
+    void setMalas(const vector<Mala *> &malas);
+
+    void addMala(Mala *m);
+
     Passageiro(std::string nome, int idade, int id);
 
     Passageiro(int idade, int id, std::string nome, const std::queue<Bilhete *> &bilhetes);
