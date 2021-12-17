@@ -1,0 +1,43 @@
+Aeroporto:
+Aeroporto Francisco Sa Carneiro, Porto, Portugal
+Aeroporto de Lisboa, Lisboa, Portugal
+
+Transporte:
+55, 12:02, 12:10, comboio
+5, 9:02, 9:03, metro
+
+Funcionario:
+913762445, Andre Sousa, avenida feup 503, Aeroporto Francisco Sa Carneiro
+191919191, Pedro Fonseca, avenida serralves 201, Aeroporto de Lisboa
+
+Servico:
+2020/06/23, 913762445, manutencao
+2021/12/16, 191919191, limpeza
+
+Passageiro:
+Josefa Joao, 25, 158149
+Alberto Joaquim, 34, 59923
+
+Mala:
+158149, 16.5
+158149, 20.0
+59923, 55.5
+59923, 25.5
+
+Aviao:
+250, G-KELS, A380
+100, PR-XMA, B777
+
+Voo:
+3, 30, 2021/12/19, Aeroporto de Lisboa, Aeroporto Francisco Sa Carneiro, G-KELS, 23:59
+53, 120, 2021/09/23, Aeroporto Francisco Sa Carneiro, Aeroporto de Lisboa, PR-XMA, 9:30
+
+CarrinhoTransporte:
+5, 5,  5, Aeroporto de Lisboa
+5, 5,  5, Aeroporto de Lisboa
+5, 5,  5, Aeroporto de Lisboa
+5, 5,  5, Aeroporto de Lisboa
+5, 5,  5, Aeroporto de Lisboa
+10, 10, 10, Aeroporto Francisco Sa Carneiro
+10, 10, 10, Aeroporto Francisco Sa Carneiro
+10, 10, 10, Aeroporto Francisco Sa Carneiro

@@ -39,9 +39,9 @@ int main() {
     Data d1(2002, 6, 23), d2(2010, 8, 10);
     bool f = d1<d2;
     cout << f << endl;
-    /*
+
     ifstream input;
-    input.open(R"(D:\Importante\FEUP\2 ano\1 semestre\AED\Projeto1\povoar.txt)");
+    input.open(R"(/Users/pedrofonseca/Documents/FEUP/AED/AED1/povoar.txt)");
     if (!input.is_open())
     {
         cout << "File not found" << endl;
@@ -151,6 +151,6 @@ int main() {
                 carrinhosTransporte.emplace_back(CarrinhoTransporte(stoi(arguments[0]), stoi(arguments[1]), stoi(arguments[2]), required));
             }
         }
-    }*/
+    }
     return 0;
 }
