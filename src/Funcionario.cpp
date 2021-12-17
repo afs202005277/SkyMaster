@@ -122,5 +122,14 @@ bool Funcionario::findFunc(std::string nomeFunc) {
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return true;
     }
+    else if (nomeFunc == "getMorada"){
+        cout << morada <<  endl;
+        return true;
+    }
+    else if (nomeFunc == "setMorada"){
+        getline(cin, morada);
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return true;
+    }
 
 }
