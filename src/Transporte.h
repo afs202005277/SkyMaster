@@ -17,6 +17,8 @@ public:
 
     Transporte(int distancia, const std::string &horaChegada, const std::string &horaPartida, const std::string &tipo);
 
+    Transporte();
+
     TipoTransporte getTipo() const;
 
     void setTipo(TipoTransporte tipo);
@@ -27,14 +29,18 @@ public:
 
     const Tempo &getHoraChegada() const;
 
-    Transporte();
-
     void setHoraChegada(const Tempo &horaChegada);
 
     const Tempo &getHoraPartida() const;
 
     void setHoraPartida(const Tempo &horaSaida);
 
+    /**
+     * Verifica se um transporte é menor que outro
+     * @param lhs
+     * @param rhs
+     * @return true se lhs estiver mais perto do que rhs, ou, em caso de empate, se lhs chegar primeiro que rhs
+     */
     friend bool operator<(const Transporte &lhs, const Transporte &rhs);
 };
 

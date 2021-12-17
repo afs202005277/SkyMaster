@@ -129,6 +129,7 @@ void Aviao::viajar()
 {
     carrinhoAssociado->descarregarMalasAviao();
     carrinhoAssociado->setAviao(nullptr);
+    this->carrinhoAssociado = nullptr;
     this->plano.front()->getDestino()->addAviao(this);
     this->plano.front()->getOrigem()->removeAviao(this);
     this->plano.erase(plano.begin());

@@ -129,9 +129,21 @@ public:
      */
     bool removeFromPlanoVoo(Voo &voo);
 
-
+    /**
+     * - Carrega para o aviao as malas que ainda estejam no carrinho
+     * - O carrinho deixa de estar associado ao aviao
+     * - O aviao é adicionado ao aeroporto do destino
+     * - O aviao é removido do aeroporto de origem
+     * - O voo é retirado do plano de voo
+     */
     void viajar();
 
+    /**
+     * Verifica se 2 avioes são iguais
+     * @param lhs
+     * @param rhs
+     * @return true se as matrículas forem iguais
+     */
     friend bool operator==(const Aviao &lhs, const Aviao &rhs);
 };
 
