@@ -128,6 +128,83 @@ std::stack<std::string> CarrinhoTransporte::funcs() {
     return temp;
 }
 
+bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
+    nomeFunc = processString(nomeFunc, '(', 1, false);
+    if (nomeFunc == "getNCarruagens"){
+        cout << getNCarruagens() << endl;
+        return true;
+    }
+    else if (nomeFunc == "setNCarruagens"){
+        cout << "input NCarruagens: ";
+        string temp;
+        cin >> temp;
+        try {
+            setNCarruagens(stoi(temp));
+            return true;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+    else if (nomeFunc == "getNPilhas"){
+        cout << getNPilhas() << endl;
+        return true;
+    }
+    else if (nomeFunc == "setNPilhas"){
+        cout << "input NPilhas: ";
+        string temp;
+        cin >> temp;
+        try {
+            setNPilhas(stoi(temp));
+            return true;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+    else if (nomeFunc == "getNMalas"){
+        cout << getNMalas() << endl;
+        return true;
+    }
+    else if (nomeFunc == "setNMalas"){
+        cout << "input NMalas: ";
+        string temp;
+        cin >> temp;
+        try {
+            setNMalas(stoi(temp));
+            return true;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+    else if (nomeFunc == "addMala"){
+        lal
+    }
+    else if (nomeFunc == "descarregarMalasAviao"){
+        descarregarMalasAviao();
+        return true;
+    }
+    else if (nomeFunc == "descarregarMalasAeroporto"){
+        descarregarMalasAeroporto();
+        return true;
+    }
+    else{
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+
+}
+
 std::vector<Terminal *> *CarrinhoTransporte::getV(std::string nameVector)
 {
     vector<Terminal*> *temp;

@@ -64,7 +64,7 @@ bool Bilhete::findFunc(std::string nomeFunc) {
             cout << "Function failed." << endl;
         }
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        return true;
+        return false;
     }
     else if (nomeFunc == "setPassageiro"){
         cout << "input Passenger's index: ";
@@ -96,7 +96,11 @@ bool Bilhete::findFunc(std::string nomeFunc) {
             cout << "Function failed." << endl;
         }
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        return true;
+        return false;
+    }
+    else{
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
     }
 }
 
