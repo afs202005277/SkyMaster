@@ -9,6 +9,10 @@ class Passageiro;
 class Mala {
 private:
     Passageiro* dono;
+
+    /**
+     * Aviao em que a mala se encontra
+     */
     Aviao *despachada;
     float peso;
 public:

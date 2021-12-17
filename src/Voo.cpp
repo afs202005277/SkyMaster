@@ -5,27 +5,23 @@ Voo::Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aero
         : nVoo(nVoo), duracao(duracao), lotacaoAtual(lotacaoAtual), dataPartida(dataPartida), origem(origem),
           destino(destino), aviao(aviao), horaPartida(partida) {}
 
-int Voo::getNVoo() const {
+unsigned int Voo::getNVoo() const {
     return nVoo;
 }
 
-void Voo::setNVoo(int nVoo) {
-    Voo::nVoo = nVoo;
-}
-
-int Voo::getDuracao() const {
+unsigned int Voo::getDuracao() const {
     return duracao;
 }
 
-void Voo::setDuracao(int duracao) {
+void Voo::setDuracao(unsigned int duracao) {
     Voo::duracao = duracao;
 }
 
-int Voo::getLotacaoAtual() const {
+unsigned int Voo::getLotacaoAtual() const {
     return lotacaoAtual;
 }
 
-void Voo::setLotacaoAtual(int lotacaoAtual) {
+void Voo::setLotacaoAtual(unsigned int lotacaoAtual) {
     Voo::lotacaoAtual = lotacaoAtual;
 }
 
@@ -57,26 +53,25 @@ const list<Passageiro *> & Voo::getPassageiros() const {
     return passageiros;
 }
 
-bool Voo::sellBilhete(bool levaBagagem, Passageiro *p) {
+bool Voo::sellBilhete(bool levaBagagem, Passageiro *passageiro) {
     if (this->lotacaoAtual < this->aviao->getCapacidade())
     {
         Bilhete *temp;
-        temp = new Bilhete(this->nVoo, levaBagagem, p);
+        temp = new Bilhete(this->nVoo, levaBagagem, passageiro);
         this->lotacaoAtual++;
-        p->addBilhete(temp);
+        passageiro->addBilhete(temp);
         return true;
     }
     return false;
 }
 
-bool Voo::sellBilheteGroup(const vector<bool> &checkInAuto, const vector<Passageiro *> &p) {
-    unsigned int nPassageiros = checkInAuto.size();
+bool Voo::sellBilheteGroup(const vector<bool> &levaBagagem, const vector<Passageiro *> &passageiros) {
+    unsigned int nPassageiros = levaBagagem.size();
     if (this->lotacaoAtual + nPassageiros > aviao->getCapacidade())
         return false;
     for (int i=0;i<nPassageiros;i++)
     {
-        this->sellBilhete(checkInAuto[i], p[i]);
-        passageiros.push_back(p[i]);
+        this->sellBilhete(levaBagagem[i], passageiros[i]);
     }
     return true;
 }

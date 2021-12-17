@@ -28,8 +28,6 @@ public:
 
     Bilhete* getNextBilhete();
 
-    friend bool operator==(const Passageiro &lhs, const Passageiro &rhs);
-
     void removeNextBilhete();
 
     const std::string &getNome() const;
@@ -46,9 +44,29 @@ public:
 
     bool hasBilhete(int nVoo) const;
 
-    bool checkIn(bool checkInAutomatico, Voo &v, std::queue<Mala *> &malas) const;
+    /**
+     * Faz o check-in do passageiro e, caso pretenda fazer check-in automtico, envia as suas malas para o carrinho de transporte
+     * @param checkInAutomatico
+     * @param voo
+     * @param malas
+     * @return true se o passageiro tiver bilhete para o voo
+     */
+    bool checkIn(bool checkInAutomatico, Voo &voo, std::queue<Mala *> &malas) const;
 
-    bool getIntoPlane(Voo &v);
+    /**
+     * "Simula" a entrada do passageiro no aviao: adiciona o passageiro à lista de passageiros presentes no voo
+     * @param voo
+     * @return true se o passageiro tiver bilhete para o voo
+     */
+    bool getIntoPlane(Voo &voo);
+
+    /**
+     * Verifica se 2 passageiros são a mesma pessoa
+     * @param lhs
+     * @param rhs
+     * @return true se os 2 objetos tiverem o mesmo valor no atributo ID
+     */
+    friend bool operator==(const Passageiro &lhs, const Passageiro &rhs);
 };
 
 

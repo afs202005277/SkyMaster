@@ -58,15 +58,15 @@ bool Passageiro::hasBilhete(int nVoo) const {
 }
 
 
-bool Passageiro::checkIn(bool checkInAutomatico, Voo &v, std::queue<Mala *> &malas) const {
-    if (!this->hasBilhete(v.getNVoo()))
+bool Passageiro::checkIn(bool checkInAutomatico, Voo &voo, std::queue<Mala *> &malas) const {
+    if (!this->hasBilhete(voo.getNVoo()))
        return false;
    if (!checkInAutomatico)
        return true;
-    std::vector<CarrinhoTransporte *> carrinhos = v.getOrigem()->getCarrinhos();
+    std::vector<CarrinhoTransporte *> carrinhos = voo.getOrigem()->getCarrinhos();
     for (auto &c:carrinhos)
     {
-        if (c->getAviao() == v.getAviao())
+        if (c->getAviao() == voo.getAviao())
         {
             for (int i=0;i<malas.size();i++)
             {
@@ -82,11 +82,11 @@ bool Passageiro::checkIn(bool checkInAutomatico, Voo &v, std::queue<Mala *> &mal
     return true;
 }
 
-bool Passageiro::getIntoPlane(Voo &v) {
+bool Passageiro::getIntoPlane(Voo &voo) {
     std::queue<Mala*> reference;
-    if (!checkIn(0, v, reference))
+    if (!hasBilhete(voo.getNVoo()))
         return false;
-    v.addPassageiro(this);
+    voo.addPassageiro(this);
     return true;
 }
 

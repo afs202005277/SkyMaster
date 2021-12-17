@@ -2,7 +2,6 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
-#include <algorithm>
 #include "Aviao.h"
 
 #include "Tempo.h"
@@ -37,6 +36,10 @@ T* find(list<T> &l, T val){
     cout << "Not found" << endl;
 }
 int main() {
+    Data d1(2002, 6, 23), d2(2010, 8, 10);
+    bool f = d1<d2;
+    cout << f << endl;
+    /*
     ifstream input;
     input.open(R"(D:\Importante\FEUP\2 ano\1 semestre\AED\Projeto1\povoar.txt)");
     if (!input.is_open())
@@ -148,6 +151,6 @@ int main() {
                 carrinhosTransporte.emplace_back(CarrinhoTransporte(stoi(arguments[0]), stoi(arguments[1]), stoi(arguments[2]), required));
             }
         }
-    }
+    }*/
     return 0;
 }

@@ -22,11 +22,28 @@ private:
     list<Aviao*> avioes;
     std::queue<Mala*> storage;
 
+    /**
+     * Funcao auxiliar que compara 2 apontadores de funcionarios
+     * @param f1
+     * @param f2
+     * @return true se f1 e f2 estiverem em ordem alfabetica
+     */
     static bool sorterFuncionarios(const Funcionario * f1, const Funcionario * f2);
+
+    /**
+     * Funcao auxiliar que compara 2 apontadores de avioes
+     * @param a1
+     * @param a2
+     * @return true se a1 descolar primeiro que a2
+     */
     static bool sorterAvioes(const Aviao* a1, const Aviao* a2);
 
 public:
-    friend bool operator==(const Aeroporto &lhs, const Aeroporto &rhs);
+    Aeroporto(string name, string city, string country, const vector<Funcionario *> &funcionarios,
+              const BST<Transporte> &transportes, const vector<CarrinhoTransporte *> &carrinhos,
+              const list<Aviao *> &avioes);
+
+    Aeroporto(std::string name, std::string city, std::string country);
 
     const std::string &getName() const;
 
@@ -43,12 +60,6 @@ public:
     const std::string &getCity() const;
 
     void setCity(const std::string &City);
-
-    Aeroporto(string name, string city, string country, const vector<Funcionario *> &funcionarios,
-              const BST<Transporte> &transportes, const vector<CarrinhoTransporte *> &carrinhos,
-              const list<Aviao *> &avioes);
-
-    Aeroporto(std::string name, std::string city, std::string country);
 
     const list<Aviao *> &getAvioes() const;
 
@@ -74,15 +85,40 @@ public:
 
     Transporte getNextTransport();
 
+    /**
+     * Procura todos os transportes que estão disponíveis entre as horas especificadas
+     * @param min
+     * @param max
+     * @return vector com os transportes cuja hora de chegada está no intervalo [min, max]
+     */
     vector<Transporte> getAvailableTransports(Tempo min, Tempo max);
 
     void addFuncionario(Funcionario *f);
 
     Funcionario* removeFuncionario(const Funcionario &f);
 
+    /**
+     * Adiciona o apontador do aviao à lista de avioes, mantendo a ordem de partida dos avioes
+     * Associa um carrinho de transporte ao aviao que foi adicionado
+     * @param a
+     */
     void addAviao(Aviao * a);
 
+    /**
+     * Remove o aviao da lista de avioes, mantendo a posicao relativa dos restantes
+     * O carrinho de transporte que lhe foi associado, passa a estar disponível para outros avioes
+     * @param a
+     * @return true se o aviao existir no aeroporto
+     */
     bool removeAviao(Aviao * a);
+
+    /**
+     * Funcao que verifica a igualdade de 2 aeroportos
+     * @param Aeroporto lhs
+     * @param Aeroporto rhs
+     * @return true se os 2 aeroportos tiverem o mesmo nome
+     */
+    friend bool operator==(const Aeroporto &lhs, const Aeroporto &rhs);
 
 };
 
