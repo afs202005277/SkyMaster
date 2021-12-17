@@ -110,7 +110,7 @@ bool Funcionario::findFunc(std::string nomeFunc) {
             cout << "Function failed." << endl;
         }
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        return true;
+        return false;
     }
     else if (nomeFunc == "getNome"){
         cout << nome << endl;
@@ -131,5 +131,10 @@ bool Funcionario::findFunc(std::string nomeFunc) {
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return true;
     }
+    else{
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+
 
 }

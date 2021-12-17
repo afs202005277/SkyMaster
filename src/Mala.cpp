@@ -42,3 +42,36 @@ std::stack<std::string> Mala::funcs() {
     temp.push("setPeso()");
     return temp;
 }
+
+bool Mala::findFunc(std::string nomeFunc) {
+    nomeFunc = processString(nomeFunc, '(', 1, false);
+    if (nomeFunc == "setDespachada") {
+        lalal
+    }
+    else if (nomeFunc == "setDono"){
+        lalal
+    }
+    else if (nomeFunc == "getPeso") {
+        cout << peso << endl;
+        return true;
+    }
+    else if (nomeFunc == "setPeso"){
+        cout << "input Peso: ";
+        string temp;
+        cin >> temp;
+        try {
+            peso = stof(temp);
+            return true;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+    else{
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+}

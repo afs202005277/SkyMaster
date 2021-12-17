@@ -147,7 +147,7 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
             cout << "Function failed." << endl;
         }
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        return true;
+        return false;
     }
     else if (nomeFunc == "getNPilhas"){
         cout << getNPilhas() << endl;
@@ -166,7 +166,7 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
             cout << "Function failed." << endl;
         }
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        return true;
+        return false;
     }
     else if (nomeFunc == "getNMalas"){
         cout << getNMalas() << endl;
@@ -185,7 +185,7 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
             cout << "Function failed." << endl;
         }
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        return true;
+        return false;
     }
     else if (nomeFunc == "addMala"){
         lal
@@ -197,6 +197,10 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "descarregarMalasAeroporto"){
         descarregarMalasAeroporto();
         return true;
+    }
+    else{
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
     }
 
 }
