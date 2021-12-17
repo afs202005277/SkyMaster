@@ -41,7 +41,8 @@ Bilhete* Passageiro::getNextBilhete()
 }
 
 void Passageiro::removeNextBilhete() {
-    this->bilhetes.pop();
+    if (!bilhetes.empty())
+        this->bilhetes.pop();
 }
 
 bool Passageiro::hasBilhete(int nVoo) const {
@@ -133,6 +134,72 @@ std::vector<Terminal *> *Passageiro::getV(std::string nameVector) {
         }
     }
     return temp;
+}
+
+bool Passageiro::findFunc(std::string nomeFunc) {
+    nomeFunc = processString(nomeFunc, '(', 1, false);
+    if (nomeFunc == "addBilhete"){
+        lalal
+    }
+    else if (nomeFunc == "getNextBilhete"){
+        lala
+    }
+    else if (nomeFunc == "removeNextBilhete"){
+        removeNextBilhete();
+        return true;
+    }
+    else if (nomeFunc == "getNome"){
+        cout << nome <<  endl;
+        return true;
+    }
+    else if (nomeFunc == "getIdade"){
+        cout << idade << endl;
+        return true;
+    }
+    else if (nomeFunc == "setIdade"){
+        cout << "input Idade: ";
+        string temp;
+        cin >> temp;
+        try {
+            idade = stoi(temp);
+            return true;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+    else if (nomeFunc == "getId"){
+        cout << id << endl;
+        return true;
+    }
+    else if (nomeFunc == "setId"){
+        cout << "input ID: ";
+        string temp;
+        cin >> temp;
+        try {
+            id = stoi(temp);
+            return true;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+    else if (nomeFunc == "hasBilhete"){
+        bool f = hasBilhete(lalal);
+    }
+    else if (nomeFunc == "getIntoPlane"){
+        getIntoPlane(lala);
+    }
+    else{
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
 }
 
 
