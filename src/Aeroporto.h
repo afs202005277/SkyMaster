@@ -85,6 +85,8 @@ public:
 
     bool removeAviao(Aviao * a);
 
+    void addCarrinho(CarrinhoTransporte * c);
+
     std::string getObjectName() override;
     std::string getObjectID() override;
     bool findFunc(std::string nomeFunc) override;

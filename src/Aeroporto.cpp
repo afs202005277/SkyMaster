@@ -219,6 +219,11 @@ bool operator==(const Aeroporto &lhs, const Aeroporto &rhs) {
     return lhs.name == rhs.name;
 }
 
+void Aeroporto::addCarrinho(CarrinhoTransporte *c)
+{
+    carrinhos.push_back(c);
+}
+
 std::string Aeroporto::getObjectName() {
     return "Aeroporto (" + name + ", " + city + ", " + country + ")";
 }
@@ -255,8 +260,6 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         cout << "input name: ";
         string temp;
         cin >> temp;
-        setName(temp);
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
     else if (nomeFunc == "getCity")
         cout << city << endl;
@@ -266,7 +269,6 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         string temp;
         cin >> temp;
         setCity(temp);
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
     else if (nomeFunc == "getCountry")
         cout << country << endl;
@@ -276,7 +278,6 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         string temp;
         cin >> temp;
         setCountry(temp);
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
     else if (nomeFunc == "addTransporte")
     {
@@ -303,11 +304,11 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "removeTransporte")
     {
         cout << "input transporte (index): ";
-        int temp;
+        string temp;
         cin >> temp;
         try {
             BSTItrIn<Transporte> it(transportes);
-            for (int i = 0; i < temp; i++)
+            for (int i = 0; i < stoi(temp); i++)
             {
                 it.advance();
             }
@@ -396,8 +397,10 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
     }
     else
     {
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return false;
     }
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return true;
 }
 
