@@ -3,6 +3,8 @@
 
 
 #include <string>
+#include <ostream>
+#include "Terminal.h"
 
 class Tempo {
 private:
@@ -10,7 +12,7 @@ private:
     int minuto;
     int segundo = 0;
 public:
-    Tempo(int hora, int minuto, int segundo);
+    Tempo(int hora, int minuto, int segundo=0);
 
     Tempo(const std::string &tempo);
 
@@ -26,6 +28,8 @@ public:
 
     void setSegundo(int segundo);
 
+    std::string getTempo();
+
     /**
      * Verifica se um tempo é menor que outro
      * @param lhs
@@ -33,6 +37,7 @@ public:
      * @return true se a hora de lhs for menor que a de rhs. Em caso de empate, recorre-se a comparacao dos minutos.
      * Se empatar de novo, compara-se os segundos
      */
+
     friend bool operator<(const Tempo &lhs, const Tempo &rhs);
 
     friend bool operator>(const Tempo &lhs, const Tempo &rhs);

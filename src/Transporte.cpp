@@ -1,4 +1,7 @@
+#include <limits>
 #include "Transporte.h"
+
+using namespace  std;
 
 TipoTransporte Transporte::getTipo() const {
     return tipo;
@@ -56,4 +59,129 @@ Transporte::Transporte(int distancia, const std::string &horaChegada, const std:
         this->tipo=comboio;
     else
         this->tipo=autocarro;
+}
+
+std::string Transporte::getObjectName() {
+    return "Transporte (" + horaChegada.getTempo() + ", " + horaPartida.getTempo() + ", " + std::to_string(distancia) + ")";
+}
+
+std::string Transporte::getObjectID() {
+    return horaChegada.getTempo();
+}
+
+std::stack<std::string> Transporte::funcs() {
+    std::stack<std::string> temp;
+    temp.push("getTipo()");
+    temp.push("setTipo()");
+    temp.push("getDistancia()");
+    temp.push("setDitancia()");
+    temp.push("getHoraChegada()");
+    temp.push("setHoraChegada()");
+    temp.push("getHoraPartida()");
+    temp.push("setHoraPartida()");
+    return temp;
+}
+
+std::vector<Terminal *> *Transporte::getV(std::string nameVector) {
+    std::vector<Terminal*> *temp;
+    return temp;
+}
+
+bool Transporte::findFunc(std::string nomeFunc) {
+    nomeFunc = processString(nomeFunc, '(', 1, false);
+    if (nomeFunc == "getTipo"){
+       if (tipo == metro)
+           cout << "metro" << endl;
+       else if (tipo == comboio)
+           cout << "comboio" << endl;
+       else if (tipo == autocarro)
+           cout << "autocarro" << endl;
+        return true;
+    }
+    else if (nomeFunc == "setTipo"){
+        string tmp;
+        cin >> tmp;
+        if (tmp == "comboio")
+        {
+            tipo = comboio;
+            return true;
+        }
+        else if (tmp == "metro"){
+            tipo = metro;
+            return true;
+        }
+        else if (tmp == "autocarro") {
+            tipo = autocarro;
+            return true;
+        }
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+    else if (nomeFunc == "getDistancia"){
+        cout << distancia << endl;
+        return true;
+    }
+    else if (nomeFunc == "setDitancia"){
+        cout << "input distancia: ";
+        string temp;
+        cin >> temp;
+        try {
+            distancia = stoi(temp);
+            return true;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+    else if (nomeFunc == "getHoraChegada"){
+        cout << horaChegada << endl;
+        return true;
+    }
+    else if (nomeFunc == "setHoraChegada"){
+        cout << "input hora: ";
+        string temp1;
+        cin >> temp1;
+        cout << "input minuto: ";
+        string temp2;
+        cin >> temp2;
+        try{
+            horaChegada = Tempo(stoi(temp1), stoi(temp2));
+            return true;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+    else if (nomeFunc == "getHoraPartida"){
+        cout << horaPartida << endl;
+        return true;
+    }
+    else if (nomeFunc == "setHoraPartida"){
+        cout << "input hora: ";
+        string temp1;
+        cin >> temp1;
+        cout << "input minuto: ";
+        string temp2;
+        cin >> temp2;
+        try{
+            horaPartida = Tempo(stoi(temp1), stoi(temp2));
+            return true;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+    else{
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
 }

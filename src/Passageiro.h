@@ -7,17 +7,25 @@
 
 #include "Bilhete.h"
 #include "Voo.h"
+#include "Terminal.h"
 
 class Voo;
 class Bilhete;
 class Mala;
 
-class Passageiro {
+class Passageiro : public Terminal {
 private:
     int idade, id;
     std::string nome;
     std::queue<Bilhete *> bilhetes;
+    std::vector<Mala*> malas;
 public:
+    const vector<Mala *> &getMalas() const;
+
+    void setMalas(const vector<Mala *> &malas);
+
+    void addMala(Mala *m);
+
     Passageiro(std::string nome, int idade, int id);
 
     Passageiro(int idade, int id, std::string nome, const std::queue<Bilhete *> &bilhetes);
@@ -67,6 +75,14 @@ public:
      * @return true se os 2 objetos tiverem o mesmo valor no atributo ID
      */
     friend bool operator==(const Passageiro &lhs, const Passageiro &rhs);
+
+    bool getIntoPlane(Voo &v);
+
+    std::string getObjectName() override;
+    std::string getObjectID() override;
+    bool findFunc(std::string nomeFunc) override;
+    std::stack<std::string> funcs() override;
+    std::vector<Terminal*> *getV(std::string nameVector) override;
 };
 
 

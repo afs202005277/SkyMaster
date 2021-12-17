@@ -8,6 +8,7 @@
 #include "Bilhete.h"
 #include "Passageiro.h"
 #include "Aviao.h"
+#include "Terminal.h"
 
 using namespace std;
 
@@ -16,7 +17,7 @@ class Bilhete;
 class Passageiro;
 class Aeroporto;
 
-class Voo {
+class Voo : public Terminal {
 private:
     unsigned int nVoo, duracao, lotacaoAtual;
     Data dataPartida;
@@ -129,6 +130,24 @@ public:
      * @return true se tiverem o mesmo número de voo
      */
     friend bool operator==(const Voo &lhs, const Voo &rhs);
+
+    Aeroporto *getDestino() const;
+
+    void setDestino(Aeroporto *destino);
+
+    const list<Passageiro *> & getPassageiros() const;
+
+    bool sellBilhete(bool levaBagagem, Passageiro *p);
+
+    bool sellBilheteGroup(const vector<bool> &checkInAuto, const vector<Passageiro *> &p);
+
+    void addPassageiro(Passageiro *p);
+
+    std::string getObjectName() override;
+    std::string getObjectID() override;
+    bool findFunc(std::string nomeFunc) override;
+    std::stack<std::string> funcs() override;
+    std::vector<Terminal*> *getV(std::string nameVector) override;
 };
 
 

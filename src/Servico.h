@@ -4,12 +4,13 @@
 #include "Data.h"
 #include "Funcionario.h"
 #include <string>
+#include "Terminal.h"
 
 class Funcionario;
 
 enum Tipo {manutencao, limpeza};
 
-class Servico {
+class Servico : public Terminal {
 private:
     Data data;
     Funcionario * funcionario;
@@ -30,6 +31,12 @@ public:
     const Funcionario * getFuncionario() const;
 
     void setFuncionario(Funcionario *funcionario);
+
+    std::string getObjectName() override;
+    std::string getObjectID() override;
+    bool findFunc(std::string nomeFunc) override;
+    std::stack<std::string> funcs() override;
+    std::vector<Terminal*> *getV(std::string nameVector) override;
 };
 
 

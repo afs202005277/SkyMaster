@@ -64,3 +64,83 @@ void Funcionario::setAeroporto(Aeroporto *aeroporto) {
     aeroporto->removeFuncionario(*this);
     Funcionario::aeroporto = aeroporto;
 }
+
+std::string Funcionario::getObjectName() {
+    return "Funcionario (" + to_string(telemovel) + ", " + nome + ", " + morada + ", " + aeroporto->getName() + ")";
+}
+
+std::string Funcionario::getObjectID() {
+    return to_string(telemovel);
+}
+
+std::stack<std::string> Funcionario::funcs() {
+    stack<string> temp;
+    temp.push("setAeroporto()");
+    temp.push("getTelemovel()");
+    temp.push("setTelemovel()");
+    temp.push("getNome()");
+    temp.push("setNome()");
+    temp.push("getMorada()");
+    temp.push("setMorada()");
+    return temp;
+}
+
+bool Funcionario::findFunc(std::string nomeFunc) {
+    nomeFunc = processString(nomeFunc, '(', 1, false);
+    if (nomeFunc == "setAeroporto"){
+        lalal
+    }
+    else if (nomeFunc == "getTelemovel"){
+        cout << telemovel << endl;
+        return true;
+    }
+    else if (nomeFunc == "setTelemovel") {
+        cout << "input Telemovel: ";
+        string temp;
+        cin >> temp;
+        try {
+            setTelemovel(stoi(temp));
+            return true;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+    else if (nomeFunc == "getNome"){
+        cout << nome << endl;
+    }
+    else if (nomeFunc == "setNome"){
+        cout << "input Nome: ";
+        string temp;
+        getline(cin, nome);
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return true;
+    }
+    else if (nomeFunc == "getMorada"){
+        cout << morada <<  endl;
+        return true;
+    }
+    else if (nomeFunc == "setMorada"){
+        getline(cin, morada);
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return true;
+    }
+    else{
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+
+
+}
+
+std::vector<Terminal *> *Funcionario::getV(std::string nameVector) {
+    vector<Terminal*> *temp;
+    if (nameVector == "aeroporto")
+    {
+        temp->push_back(aeroporto);
+    }
+    return temp;
+}

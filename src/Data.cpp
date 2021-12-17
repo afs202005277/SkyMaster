@@ -69,6 +69,11 @@ bool Data::operator>=(const Data &rhs) const {
     return !(*this < rhs);
 }
 
+std::string Data::getDate()
+{
+    return std::to_string(year) + "/" + std::to_string(month) + "/" + std::to_string(day);
+}
+
 Data::Data(std::string data) {
     year = stoi(data.substr(0, data.find('/')));
     month = stoi(data.substr(data.find('/') + 1, data.find_last_of('/')));

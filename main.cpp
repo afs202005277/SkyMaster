@@ -26,6 +26,26 @@ void processInput(const string &line, vector<string> & arguments){
     arguments[arguments.size()-1] = tmp;
 }
 
+string processString(string &s, char y, int occurence=1, bool after=false)
+{
+    std::string::size_type pos = 0;
+    for (int i = 0; i < occurence; i++) {
+        pos = s.find(y, pos);
+        if (pos != std::string::npos)
+        {
+            if (after)
+                return s.substr(pos+1, s.size()-pos-1);
+            else
+                return s.substr(0, pos);
+        }
+        else
+        {
+            return s;
+        }
+    }
+    return s;
+}
+
 template<class  T>
 T* find(list<T> &l, T val){
     for (auto it = l.begin();it!=l.end();it++)

@@ -73,6 +73,9 @@ public:
      * @return referencia da stream para onde enviou a data
      */
     friend std::ostream &operator<<(std::ostream &os, const Data &data);
+
+    std::string getDate();
+
 };
 
 

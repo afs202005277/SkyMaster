@@ -13,6 +13,7 @@
 #include "Voo.h"
 #include "Mala.h"
 #include "CarrinhoTransporte.h"
+#include "Terminal.h"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ class Servico;
 class Funcionario;
 class Voo;
 
-class Aviao {
+class Aviao : public Terminal {
 private:
     int capacidade;
     std::list<Voo*> plano;
@@ -145,6 +146,14 @@ public:
      * @return true se as matrículas forem iguais
      */
     friend bool operator==(const Aviao &lhs, const Aviao &rhs);
+
+    bool operator==(Aviao &a);
+
+    std::string getObjectName() override;
+    std::string getObjectID() override;
+    bool findFunc(std::string nomeFunc) override;
+    std::stack<std::string> funcs() override;
+    std::vector<Terminal*> *getV(std::string nameVector) override;
 };
 
 

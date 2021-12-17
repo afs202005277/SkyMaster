@@ -227,3 +227,233 @@ void Aeroporto::addMalas(queue<Mala *> &malas) {
     }
 }
 
+void Aeroporto::addCarrinho(CarrinhoTransporte *c)
+{
+    carrinhos.push_back(c);
+}
+
+std::string Aeroporto::getObjectName() {
+    return "Aeroporto (" + name + ", " + city + ", " + country + ")";
+}
+
+std::string Aeroporto::getObjectID() {
+    return name;
+}
+
+std::stack<std::string> Aeroporto::funcs() {
+    stack<string> temp;
+    temp.push("getName()");
+    temp.push("setName()");
+    temp.push("getCity()");
+    temp.push("setCity()");
+    temp.push("getCountry()");
+    temp.push("setCountry()");
+    temp.push("addTransporte()");
+    temp.push("removeTransporte()");
+    temp.push("getNearestTransport()");
+    temp.push("getNextTransport()");
+    temp.push("addFuncionario()");
+    temp.push("removeFuncionario()");
+    temp.push("addAviao()");
+    temp.push("removeAviao()");
+    return temp;
+}
+
+bool Aeroporto::findFunc(std::string nomeFunc) {
+    nomeFunc = processString(nomeFunc, '(', 1, false);
+    if (nomeFunc == "getName")
+        cout << name << endl;
+    else if (nomeFunc == "setName")
+    {
+        cout << "input name: ";
+        string temp;
+        cin >> temp;
+    }
+    else if (nomeFunc == "getCity")
+        cout << city << endl;
+    else if (nomeFunc == "setCity")
+    {
+        cout << "input city: ";
+        string temp;
+        cin >> temp;
+        setCity(temp);
+    }
+    else if (nomeFunc == "getCountry")
+        cout << country << endl;
+    else if (nomeFunc == "setCountry")
+    {
+        cout << "input country: ";
+        string temp;
+        cin >> temp;
+        setCountry(temp);
+    }
+    else if (nomeFunc == "addTransporte")
+    {
+        cout << "input distancia: ";
+        int temp1;
+        cin >> temp1;
+        cout << "input hora chegada (hh:mm:ss): ";
+        string temp2;
+        cin >> temp2;
+        cout << "input hora partida (hh:mm:ss): ";
+        string temp3;
+        cin >> temp3;
+        cout << "input tipo (limpeza/manutencao): ";
+        string temp4;
+        cin >> temp4;
+        try {
+            auto t = new Transporte(temp1, temp2, temp3, temp4);
+            addTransporte(*t);
+        } catch (exception &e)
+        {
+            cout << "Function failed.";
+        }
+    }
+    else if (nomeFunc == "removeTransporte")
+    {
+        cout << "input transporte (index): ";
+        string temp;
+        cin >> temp;
+        try {
+            BSTItrIn<Transporte> it(transportes);
+            for (int i = 0; i < stoi(temp); i++)
+            {
+                it.advance();
+            }
+            transportes.remove(it.retrieve());
+        } catch (exception &e)
+        {
+            cout << "Object doesn't exist.";
+        }
+    }
+    else if (nomeFunc == "getNearestTransport")
+        cout << getNearestTransport().getObjectName() << endl;
+    else if (nomeFunc == "getNextTransport")
+        cout << getNextTransport().getObjectName() << endl;
+    else if (nomeFunc == "addFuncionario")
+    {
+        cout << "input telemovel: ";
+        int temp1;
+        cin >> temp1;
+        cout << "input nome: ";
+        string temp2;
+        cin >> temp2;
+        cout << "input morada: ";
+        string temp3;
+        cin >> temp3;
+        try {
+            auto t = new Funcionario(temp1, temp2, temp3, this);
+            addFuncionario(t);
+        } catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+    }
+    else if (nomeFunc == "removeFuncionario")
+    {
+        cout << "input telemovel: ";
+        int temp;
+        cin >> temp;
+        Funcionario tt(temp, "", "", this);
+        auto t = std::find(funcionarios.begin(), funcionarios.end(), &tt);
+        if (t != funcionarios.end())
+        {
+            removeFuncionario(**t);
+            cout << "Done." << endl;
+        }
+        else
+        {
+            cout << "Function failed." << endl;
+        }
+    }
+    else if (nomeFunc == "addAviao")
+    {
+        cout << "input capacidade: ";
+        int temp1;
+        cin >> temp1;
+        cout << "input matricula (6 letras): ";
+        string temp2;
+        cin >> temp2;
+        cout << "input tipo: ";
+        string temp3;
+        cin >> temp3;
+        try
+        {
+            addAviao(new Aviao(temp1, temp2, temp3));
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+    }
+    else if (nomeFunc == "removeAviao")
+    {
+        cout << "input matricula: ";
+        string temp1;
+        cin >> temp1;
+        Aviao tt(1, temp1, "");
+        auto t = std::find(avioes.begin(), avioes.end(), &tt);
+        if (t != avioes.end())
+        {
+            removeAviao(*t);
+            cout << "Done." << endl;
+        }
+        else
+        {
+            cout << "Function failed." << endl;
+        }
+    }
+    else
+    {
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return false;
+    }
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    return true;
+}
+
+std::vector<Terminal *> *Aeroporto::getV(std::string nameVector)
+{
+    vector<Terminal *> *temp;
+    if (nameVector == "funcionarios")
+    {
+        for (auto f : funcionarios)
+        {
+            temp->push_back(f);
+        }
+    }
+    else if (nameVector == "transportes")
+    {
+        BSTItrIn<Transporte> it(transportes);
+        while (!it.isAtEnd())
+        {
+            auto t = it.retrieve();
+            temp->push_back(&t);
+        }
+    }
+    else if (nameVector == "carrinhos")
+    {
+        for (auto c : carrinhos)
+        {
+            temp->push_back(c);
+        }
+    }
+    else if (nameVector == "avioes")
+    {
+        for (auto a : avioes)
+        {
+            temp->push_back(a);
+        }
+    }
+    else if (nameVector == "storage")
+    {
+        std::queue<Mala*> s = getStorage();
+        while (!s.empty())
+        {
+            temp->push_back(s.front());
+            s.pop();
+        }
+    }
+    return temp;
+}
+

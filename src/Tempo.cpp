@@ -24,6 +24,11 @@ void Tempo::setSegundo(int segundo) {
     Tempo::segundo = segundo;
 }
 
+std::string Tempo::getTempo()
+{
+    return std::to_string(getHora()) + ":" + std::to_string(getMinuto()) + ":" + std::to_string(getSegundo());
+}
+
 bool operator<(const Tempo &lhs, const Tempo &rhs) {
     if (lhs.hora < rhs.hora)
         return true;
@@ -61,5 +66,10 @@ bool operator!=(const Tempo &lhs, const Tempo &rhs) {
 Tempo::Tempo(const std::string &tempo) {
     hora = stoi(tempo.substr(0, tempo.find(':')));
     minuto = stoi(tempo.substr(tempo.find(':') + 1));
+}
+
+std::ostream &operator<<(std::ostream &os, const Tempo &tempo) {
+    os << tempo.hora << ":" << tempo.minuto << ":" << tempo.segundo << std::endl;
+    return os;
 }
 

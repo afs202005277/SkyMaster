@@ -131,3 +131,234 @@ Voo::Voo(int nVoo, int duracao, string dataPartida, Aeroporto *origem, Aeroporto
 bool operator==(const Voo &lhs, const Voo &rhs) {
     return lhs.nVoo == rhs.nVoo;
 }
+
+std::string Voo::getObjectName() {
+    return "Voo (" + std::to_string(nVoo) + ", " + std::to_string(duracao) + ", " + dataPartida.getDate() + ", " + horaPartida.getTempo() + ", " + origem->getName() + ", " + destino->getName() + ", " + aviao->getMatricula() + ")";
+}
+
+std::string Voo::getObjectID() {
+    return to_string(nVoo);
+}
+
+std::stack<std::string> Voo::funcs() {
+    stack<string> temp;
+    temp.push("getHoraPartida()");
+    temp.push("setHoraPartida()");
+    temp.push("setAviao()");
+    temp.push("getNVoo()");
+    temp.push("setNVoo()");
+    temp.push("getDuracao()");
+    temp.push("setDuracao()");
+    temp.push("getLotacoAtual()");
+    temp.push("setLotacaoAtual()");
+    temp.push("getDataPartida()");
+    temp.push("setDataPartida()");
+    temp.push("setOrigem()");
+    temp.push("setDestino()");
+    temp.push("sellBilhete()");
+    temp.push("addPassageiro()");
+    return temp;
+}
+
+bool Voo::findFunc(std::string nomeFunc) {
+    if (nomeFunc == "getHoraPartida")
+        cout << to_string(getHoraPartida().getHora()) + ":" + to_string(getHoraPartida().getMinuto()) + ":" + to_string(getHoraPartida().getSegundo()) << endl;
+    else if (nomeFunc == "setHoraPartida")
+    {
+        cout << "input hora (HH:MM:SS): ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            setHoraPartida(Tempo(temp1));
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+    }
+    else if (nomeFunc == "setAviao")
+    {
+        cout << "input aviao (index): ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            if (stoi(temp1) < origem->getAvioes().size()) {
+                auto t = origem->getAvioes().begin();
+                advance(t, stoi(temp1));
+                setAviao(*t);
+            }
+            else
+            {
+                cout << "Object not found." << endl;
+            }
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+    }
+    else if (nomeFunc == "getNVoo")
+        cout << getNVoo() << endl;
+    else if (nomeFunc == "setNVoo")
+    {
+        cout << "input nVoo: ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            setNVoo(stoi(temp1));
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+    }
+    else if (nomeFunc == "getDuracao")
+        cout << getDuracao() << endl;
+    else if (nomeFunc == "setDuracao")
+    {
+        cout << "input duracao: ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            setDuracao(stoi(temp1));
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+    }
+    else if (nomeFunc == "getLotacaoAtual")
+        cout << getLotacaoAtual() << endl;
+    else if (nomeFunc == "setLotacaoAtual")
+    {
+        cout << "input lotacao atual: ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            setLotacaoAtual(stoi(temp1));
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+    }
+    else if (nomeFunc == "getDataPartida()")
+        cout << getDataPartida() << endl;
+    else if (nomeFunc == "setDataPartida")
+    {
+        cout << "input data partida (YYYY/MM/DD): ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            setDataPartida(Data(temp1));
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+    }
+    else if (nomeFunc == "setOrigem")
+    {
+        cout << "input aeroporto origem (index): ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            ssfoefosetOrigem(stoi(temp1))
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+    }
+    else if (nomeFunc == "setDestino")
+    {
+        cout << "input aeroporto destino (index): ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            ssfoefosetOrigem(stoi(temp1))
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+    }
+    else if (nomeFunc == "sellBilhete")
+    {
+        cout << "input levaBagagem? (y/n): ";
+        string temp1;
+        cin >> temp1;
+        cout << "input passageiro (index): ";
+        string temp2;
+        cin >> temp2;
+        try
+        {
+            if (temp1 == "y")
+            {
+                iwdaidawiuda
+            }
+            else if (temp2 == "n")
+            {
+                iosefjseoifjseoif
+            }
+            else
+            {
+                cout << "Function failed." << endl;
+            }
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+        sellBilhete()
+    }
+    else if (nomeFunc == "addPassageiro")
+    {
+        cout << "input passageiro (index): ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            dadiojdaoidjaoidPassaeigeo(stoi(temp1))
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+    }
+    else
+        return false;
+    return true;
+}
+
+std::vector<Terminal *> *Voo::getV(std::string nameVector) {
+    vector<Terminal*> *temp;
+    if (nameVector == "origem")
+    {
+        temp->push_back(origem);
+    }
+    else if (nameVector == "destino")
+    {
+        temp->push_back(destino);
+    }
+    else if (nameVector == "passageiros")
+    {
+        for (auto p : passageiros)
+        {
+            temp->push_back(p);
+        }
+    }
+    else if (nameVector == "aviao")
+    {
+        temp->push_back(aviao);
+    }
+}
+
