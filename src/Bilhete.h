@@ -7,6 +7,9 @@ class Bilhete
 {
 private:
     unsigned int nVoo;
+    /**
+     * Passageiro a que esta associado
+     */
     Passageiro* passageiro;
     bool levaBagagem;
 public:

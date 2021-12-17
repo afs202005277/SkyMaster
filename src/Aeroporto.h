@@ -51,6 +51,8 @@ public:
 
     void setStorage(const queue<Mala *> &storage);
 
+    void addMalas(queue<Mala *> &malas);
+
     vector<CarrinhoTransporte *> & getCarrinhos();
 
     void setCarrinhos(const vector<CarrinhoTransporte *> &Carrinhos);

@@ -16,10 +16,6 @@ public:
 
     int getHora() const;
 
-    friend bool operator==(const Tempo &lhs, const Tempo &rhs);
-
-    friend bool operator!=(const Tempo &lhs, const Tempo &rhs);
-
     void setHora(int hora);
 
     int getMinuto() const;
@@ -30,6 +26,13 @@ public:
 
     void setSegundo(int segundo);
 
+    /**
+     * Verifica se um tempo é menor que outro
+     * @param lhs
+     * @param rhs
+     * @return true se a hora de lhs for menor que a de rhs. Em caso de empate, recorre-se a comparacao dos minutos.
+     * Se empatar de novo, compara-se os segundos
+     */
     friend bool operator<(const Tempo &lhs, const Tempo &rhs);
 
     friend bool operator>(const Tempo &lhs, const Tempo &rhs);
@@ -37,6 +40,10 @@ public:
     friend bool operator<=(const Tempo &lhs, const Tempo &rhs);
 
     friend bool operator>=(const Tempo &lhs, const Tempo &rhs);
+
+    friend bool operator==(const Tempo &lhs, const Tempo &rhs);
+
+    friend bool operator!=(const Tempo &lhs, const Tempo &rhs);
 };
 
 

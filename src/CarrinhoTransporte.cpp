@@ -102,5 +102,5 @@ void CarrinhoTransporte::descarregarMalasAeroporto() {
             }
         }
     }
-    aeroporto->setStorage(res);
+    aeroporto->addMalas(res);
 }

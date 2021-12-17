@@ -16,6 +16,8 @@ private:
     Aeroporto * aeroporto;
 
 public:
+    CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas, Aeroporto *aeroporto, Aviao *aviao = nullptr);
+
     const vector<vector<stack<Mala *>>> &getCarga() const;
 
     void setCarga(const vector<vector<stack<Mala *>>> &carga);
@@ -23,8 +25,6 @@ public:
     Aviao *getAviao() const;
 
     void setAviao(Aviao *aviao);
-
-    CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas, Aeroporto *aeroporto, Aviao *aviao = nullptr);
 
     int getNCarruagens() const;
 
@@ -40,8 +40,14 @@ public:
 
     bool addMala(Mala *m);
 
+    /**
+     * Descarrega as malas do carrinho no aviao que lhe foi atribuido
+     */
     void descarregarMalasAviao();
 
+    /**
+     * Descarrega as malas do carrinho no aeroporto que lhe foi atribuido
+     */
     void descarregarMalasAeroporto();
 };
 

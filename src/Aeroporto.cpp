@@ -219,3 +219,11 @@ bool operator==(const Aeroporto &lhs, const Aeroporto &rhs) {
     return lhs.name == rhs.name;
 }
 
+void Aeroporto::addMalas(queue<Mala *> &malas) {
+    while(!malas.empty())
+    {
+        storage.push(malas.front());
+        malas.pop();
+    }
+}
+
