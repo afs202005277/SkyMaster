@@ -1,45 +1,33 @@
 //
-// Created by Pedro Fonseca on 16/12/2021.
+// Created by andre on 18/12/2021.
 //
 
-#include <iostream>
-#include <vector>
+#ifndef AEROPORTO_CPP_TERMINAL_H
+#define AEROPORTO_CPP_TERMINAL_H
+
 #include <stack>
 #include <list>
-#include "Aeroporto.h"
-#include "Transporte.h"
-#include "Funcionario.h"
-#include "Passageiro.h"
-#include "Mala.h"
-#include "Aviao.h"
-#include "Voo.h"
-#include "CarrinhoTransporte.h"
+#include <vector>
+#include <string>
 
-#ifndef AED1_TERMINAL_H
-#define AED1_TERMINAL_H
-
-
-class Terminal
-{
+class Aeroporto;
+class Passageiro;
+class Voo;
+class Funcionario;
+class Terminal{
+protected:
+    static std::vector<Aeroporto> aeroportos;
+    static std::vector<Passageiro> passageiros;
+    static std::vector<Voo> voos;
+    static std::vector<Funcionario> funcionarios;
 public:
-    virtual std::string getObjectName() = 0;
-    virtual std::string getObjectID() = 0;
-    virtual bool findFunc(std::string nomeFunc) = 0;
-    virtual std::stack<std::string> funcs() = 0;
-    virtual std::vector<Terminal*> *getV(std::string nameVector) = 0;
-    static std::list<Aeroporto> *aeroportos;
-    static std::list<Transporte> *transportes;
-    static std::list<Funcionario> *funcionarios;
-    static std::list<Servico> *servicos;
-    static std::list<Passageiro> *passageiros;
-    static std::list<Mala> *malas;
-    static std::list<Aviao> *avioes;
-    static std::list<Voo> *voos;
-    static std::list<CarrinhoTransporte> *carrinhosTransporte;
+    virtual std::string getObjectName() {};
+    virtual std::string getObjectID() {};
+    virtual bool findFunc(std::string nomeFunc) {};
+    virtual std::stack<std::string> funcs() {};
+    virtual std::vector<Terminal*> *getV(std::string nameVector) {};
 
-
-
-    static std::string processString(std::string &s, char y, int occurence=1, bool after=false)
+    std::string processString(std::string &s, char y, int occurence=1, bool after=false)
     {
         std::string::size_type pos = 0;
         for (int i = 0; i < occurence; i++) {
@@ -59,6 +47,4 @@ public:
         return s;
     };
 };
-
-
-#endif //AED1_TERMINAL_H
+#endif //AEROPORTO_CPP_TERMINAL_H

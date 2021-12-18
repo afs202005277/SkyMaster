@@ -188,7 +188,7 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         cin >> temp1;
         try
         {
-            cout << hasBilhete(Terminal::voos[stoi(temp1)]) << endl;
+            cout << hasBilhete(Terminal::voos[stoi(temp1)].getNVoo()) << endl;
         }
         catch (exception &e)
         {

@@ -108,7 +108,7 @@ bool Servico::findFunc(std::string nomeFunc) {
         cin >> temp1;
         try
         {
-            setFuncionario(Terminal::funcionarios[stoi(temp1)]);
+            setFuncionario(&Terminal::funcionarios[stoi(temp1)]);
         }
         catch (exception &e)
         {

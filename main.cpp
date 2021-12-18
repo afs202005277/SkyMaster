@@ -48,15 +48,15 @@ int main() {
         cout << "File not found" << endl;
         return 1;
     }
-    list<Terminal> aeroportos;
-    list<Terminal> transportes;
-    list<Terminal> funcionarios;
-    list<Terminal> servicos;
-    list<Terminal> passageiros;
-    list<Terminal> malas;
-    list<Terminal> avioes;
-    list<Terminal> voos;
-    list<Terminal> carrinhosTransporte;
+    list<Aeroporto> aeroportos;
+    list<Transporte> transportes;
+    list<Funcionario> funcionarios;
+    list<Servico> servicos;
+    list<Passageiro> passageiros;
+    list<Mala> malas;
+    list<Aviao> avioes;
+    list<Voo> voos;
+    list<CarrinhoTransporte> carrinhosTransporte;
     string line, object, instruction;
     while(getline(input, line))
     {

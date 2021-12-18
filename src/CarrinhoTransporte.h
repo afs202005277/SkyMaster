@@ -8,6 +8,7 @@
 using namespace std;
 class Mala;
 class Aviao;
+class Terminal;
 
 class CarrinhoTransporte : public Terminal {
 private:

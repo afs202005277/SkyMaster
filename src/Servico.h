@@ -7,6 +7,7 @@
 #include "Terminal.h"
 
 class Funcionario;
+class Terminal;
 
 enum Tipo {manutencao, limpeza};
 

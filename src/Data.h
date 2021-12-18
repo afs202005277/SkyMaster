@@ -4,7 +4,8 @@
 
 #include <ostream>
 #include <iomanip>
-
+#include "Terminal.h"
+class Terminal;
 class Data {
 private:
     int day, month, year;

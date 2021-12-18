@@ -6,6 +6,7 @@
 #include "Terminal.h"
 
 class Passageiro;
+class Terminal;
 
 class Mala : public Terminal {
 private:

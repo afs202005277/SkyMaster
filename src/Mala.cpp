@@ -72,7 +72,7 @@ bool Mala::findFunc(std::string nomeFunc) {
         cin >> temp1;
         try
         {
-            setDono(Terminal::passageiros[stoi(temp1)]);
+            setDono(&Terminal::passageiros[stoi(temp1)]);
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             return true;
         }

@@ -12,7 +12,9 @@
 class Voo;
 class Bilhete;
 class Mala;
+class Terminal;
 
+using namespace std;
 class Passageiro : public Terminal {
 private:
     int idade, id;
@@ -20,7 +22,7 @@ private:
     std::queue<Bilhete *> bilhetes;
     std::vector<Mala*> malas;
 public:
-    const vector<Mala *> &getMalas() const;
+    const std::vector<Mala *> &getMalas() const;
 
     void setMalas(const vector<Mala *> &malas);
 
@@ -75,8 +77,6 @@ public:
      * @return true se os 2 objetos tiverem o mesmo valor no atributo ID
      */
     friend bool operator==(const Passageiro &lhs, const Passageiro &rhs);
-
-    bool getIntoPlane(Voo &v);
 
     std::string getObjectName() override;
     std::string getObjectID() override;

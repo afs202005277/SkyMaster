@@ -22,6 +22,7 @@ class Mala;
 class Servico;
 class Funcionario;
 class Voo;
+class Terminal;
 
 class Aviao : public Terminal {
 private:

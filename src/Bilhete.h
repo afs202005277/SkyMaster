@@ -4,6 +4,7 @@
 #include "Passageiro.h"
 #include "Terminal.h"
 class Passageiro;
+class Terminal;
 class Bilhete : public Terminal {
 private:
     unsigned int nVoo;

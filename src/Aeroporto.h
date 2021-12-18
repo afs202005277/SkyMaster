@@ -9,8 +9,7 @@
 #include "CarrinhoTransporte.h"
 #include "bst.h"
 #include "Aviao.h"
-#include "Terminal.h"
-
+class Terminal;
 class Funcionario;
 class CarrinhoTransporte;
 

@@ -5,7 +5,7 @@
 #include <string>
 #include <ostream>
 #include "Terminal.h"
-
+class Terminal;
 class Tempo {
 private:
     int hora;
@@ -37,7 +37,6 @@ public:
      * @return true se a hora de lhs for menor que a de rhs. Em caso de empate, recorre-se a comparacao dos minutos.
      * Se empatar de novo, compara-se os segundos
      */
-
     friend bool operator<(const Tempo &lhs, const Tempo &rhs);
 
     friend bool operator>(const Tempo &lhs, const Tempo &rhs);

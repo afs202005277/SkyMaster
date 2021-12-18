@@ -5,6 +5,7 @@
 #include <string>
 #include "Terminal.h"
 
+class Terminal;
 class Aeroporto;
 class Servico;
 

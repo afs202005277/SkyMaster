@@ -222,7 +222,7 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
         cin >> temp1;
         try
         {
-            addMalas(Terminal::passageiros[stoi(temp1)].malas);
+            addMalas(Terminal::passageiros[stoi(temp1)].getMalas());
         }
         catch (exception &e)
         {

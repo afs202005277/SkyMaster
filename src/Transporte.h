@@ -2,12 +2,13 @@
 #define PROJETO1_TRANSPORTE_H
 
 #include "Tempo.h"
-#include <string>
 #include "Terminal.h"
+#include <string>
 
 enum TipoTransporte {autocarro, metro, comboio};
-
-class Transporte : public Terminal {
+class Transporte;
+class Terminal;
+class Transporte : public Terminal{
 
 private:
     int distancia;

@@ -92,7 +92,7 @@ bool Funcionario::findFunc(std::string nomeFunc) {
         string temp;
         cin >> temp;
         try {
-            setAeroporto(Terminal::aeroportos[stoi(temp)]);
+            setAeroporto(&Terminal::aeroportos[stoi(temp)]);
             return true;
         }
         catch (exception &e)

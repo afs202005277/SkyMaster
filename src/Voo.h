@@ -16,7 +16,7 @@ class Aviao;
 class Bilhete;
 class Passageiro;
 class Aeroporto;
-
+class Terminal;
 class Voo : public Terminal {
 private:
     unsigned int nVoo, duracao, lotacaoAtual;
@@ -52,8 +52,6 @@ public:
     unsigned int getDuracao() const;
 
     void setDuracao(unsigned int duracao);
-
-    const list<Passageiro *> & getPassageiros() const;
 
     void setPassageiros(const list<Passageiro *> &passageiros);
 
@@ -131,17 +129,7 @@ public:
      */
     friend bool operator==(const Voo &lhs, const Voo &rhs);
 
-    Aeroporto *getDestino() const;
-
-    void setDestino(Aeroporto *destino);
-
     const list<Passageiro *> & getPassageiros() const;
-
-    bool sellBilhete(bool levaBagagem, Passageiro *p);
-
-    bool sellBilheteGroup(const vector<bool> &checkInAuto, const vector<Passageiro *> &p);
-
-    void addPassageiro(Passageiro *p);
 
     std::string getObjectName() override;
     std::string getObjectID() override;
