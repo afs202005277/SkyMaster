@@ -115,8 +115,9 @@ public:
             }
             else
             {
-                auto temp1 = dir.end();
-                advance(temp1, -5);
+                auto temp1 = dir.begin();
+                int step = dir.size() - 5;
+                std::advance(temp1, step);
                 dir.erase(temp1, dir.end());
             }
         }
@@ -128,8 +129,9 @@ public:
             }
             else
             {
-                auto temp1 = dir.end();
-                advance(temp1, -1);
+                auto temp1 = dir.begin();
+                int step = dir.size() - 1;
+                std::advance(temp1, step);
                 dir.erase(temp1, dir.end());
             }
         }
@@ -143,8 +145,9 @@ public:
             }
             else
             {
-                auto temp1 = dir.end();
-                advance(temp1, -3);
+                auto temp1 = dir.begin();
+                int step = dir.size() - 3;
+                std::advance(temp1, step);
                 dir.erase(temp1, dir.end());
             }
         }
@@ -156,8 +159,9 @@ public:
             }
             else
             {
-                auto temp1 = dir.end();
-                advance(temp1, -1);
+                auto temp1 = dir.begin();
+                int step = dir.size() - 1;
+                std::advance(temp1, step);
                 dir.erase(temp1, dir.end());
             }
         }
@@ -170,8 +174,9 @@ public:
             }
             else
             {
-                auto temp1 = dir.end();
-                advance(temp1, -2);
+                auto temp1 = dir.begin();
+                int step = dir.size() - 2;
+                std::advance(temp1, step);
                 dir.erase(temp1, dir.end());
             }
         }
@@ -183,8 +188,9 @@ public:
             }
             else
             {
-                auto temp1 = dir.end();
-                advance(temp1, -1);
+                auto temp1 = dir.begin();
+                int step = dir.size() - 1;
+                std::advance(temp1, step);
                 dir.erase(temp1, dir.end());
             }
         }
@@ -196,8 +202,9 @@ public:
             }
             else
             {
-                auto temp1 = dir.end();
-                advance(temp1, -1);
+                auto temp1 = dir.begin();
+                int step = dir.size() - 1;
+                std::advance(temp1, step);
                 dir.erase(temp1, dir.end());
             }
         }
@@ -215,8 +222,9 @@ public:
             }
             else
             {
-                auto temp1 = dir.end();
-                advance(temp1, -3);
+                auto temp1 = dir.begin();
+                int step = dir.size() - 3;
+                std::advance(temp1, step);
                 dir.erase(temp1, dir.end());
             }
         }
