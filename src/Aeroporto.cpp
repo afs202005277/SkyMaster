@@ -267,7 +267,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
     {
         cout << "input name: ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
     }
     else if (nomeFunc == "getCity")
         cout << city << endl;
@@ -275,7 +275,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
     {
         cout << "input city: ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         setCity(temp);
     }
     else if (nomeFunc == "getCountry")
@@ -284,25 +284,25 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
     {
         cout << "input country: ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         setCountry(temp);
     }
     else if (nomeFunc == "addTransporte")
     {
         cout << "input distancia: ";
-        int temp1;
-        cin >> temp1;
+        string temp1;
+        getline(cin, temp1);
         cout << "input hora chegada (hh:mm:ss): ";
         string temp2;
-        cin >> temp2;
+        getline(cin, temp2);
         cout << "input hora partida (hh:mm:ss): ";
         string temp3;
-        cin >> temp3;
+        getline(cin, temp3);
         cout << "input tipo (limpeza/manutencao): ";
         string temp4;
-        cin >> temp4;
+        getline(cin, temp4);
         try {
-            auto t = new Transporte(temp1, temp2, temp3, temp4);
+            auto t = new Transporte(stoi(temp1), temp2, temp3, temp4);
             addTransporte(*t);
         } catch (exception &e)
         {
@@ -313,7 +313,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
     {
         cout << "input transporte (index): ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         try {
             BSTItrIn<Transporte> it(transportes);
             for (int i = 0; i < stoi(temp); i++)
@@ -333,16 +333,16 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "addFuncionario")
     {
         cout << "input telemovel: ";
-        int temp1;
-        cin >> temp1;
+        string temp1;
+        getline(cin, temp1);
         cout << "input nome: ";
         string temp2;
-        cin >> temp2;
+        getline(cin, temp2);
         cout << "input morada: ";
         string temp3;
-        cin >> temp3;
+        getline(cin, temp3);
         try {
-            auto t = new Funcionario(temp1, temp2, temp3, this);
+            auto t = new Funcionario(stoi(temp1), temp2, temp3, this);
             addFuncionario(t);
         } catch (exception &e)
         {
@@ -351,17 +351,14 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
     }
     else if (nomeFunc == "removeFuncionario")
     {
-        cout << "input telemovel: ";
-        int temp;
-        cin >> temp;
-        Funcionario tt(temp, "", "", this);
-        auto t = std::find(funcionarios.begin(), funcionarios.end(), &tt);
-        if (t != funcionarios.end())
+        cout << "input funcionario (index): ";
+        string temp;
+        getline(cin, temp);
+        try
         {
-            removeFuncionario(**t);
-            cout << "Done." << endl;
+            remove(funcionarios.begin(), funcionarios.end(), funcionarios[stoi(temp)]);
         }
-        else
+        catch (exception &e)
         {
             cout << "Function failed." << endl;
         }
@@ -369,17 +366,17 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "addAviao")
     {
         cout << "input capacidade: ";
-        int temp1;
-        cin >> temp1;
+        string temp1;
+        getline(cin, temp1);
         cout << "input matricula (6 letras): ";
         string temp2;
-        cin >> temp2;
+        getline(cin, temp2);
         cout << "input tipo: ";
         string temp3;
-        cin >> temp3;
+        getline(cin, temp3);
         try
         {
-            addAviao(new Aviao(temp1, temp2, temp3));
+            addAviao(new Aviao(stoi(temp1), temp2, temp3));
         }
         catch (exception &e)
         {
@@ -390,7 +387,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
     {
         cout << "input matricula: ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         Aviao tt(1, temp1, "");
         auto t = std::find(avioes.begin(), avioes.end(), &tt);
         if (t != avioes.end())
@@ -414,7 +411,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
 
 std::vector<Terminal *> *Aeroporto::getV(std::string nameVector)
 {
-    vector<Terminal *> *temp;
+    vector<Terminal *> *temp = new vector<Terminal*>;
     if (nameVector == "funcionarios")
     {
         for (auto f : funcionarios)

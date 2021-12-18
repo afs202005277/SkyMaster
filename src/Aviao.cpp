@@ -230,7 +230,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
     {
         cout << "input tipo (manutencao/limpeza): ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         if (temp == "manutencao" || temp == "limpeza")
             setTipo(temp);
         else
@@ -240,7 +240,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
     {
         cout << "input carrinho (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
             int temp2 = stoi(temp1);
@@ -264,7 +264,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
     {
         cout << "input matricula (6 digitos): ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         if (temp.size() == 6)
         {
             setMatricula(temp);
@@ -280,7 +280,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
     {
         cout << "input capacidade: ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         try
         {
             setCapacidade(stoi(temp));
@@ -294,13 +294,13 @@ bool Aviao::findFunc(std::string nomeFunc) {
     {
         cout << "input data (YYYY/MM/DD): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         cout << "input funcionario (index): ";
         string temp2;
-        cin >> temp2;
+        getline(cin, temp2);
         cout << "input tipo (limpeza/manuntencao): ";
         string temp3;
-        cin >> temp3;
+        getline(cin, temp3);
         try
         {
             addServico(new Servico(temp1, getNextVoo().getOrigem()->getFuncionarios()[stoi(temp2)], temp3));
@@ -314,19 +314,19 @@ bool Aviao::findFunc(std::string nomeFunc) {
     {
         cout << "input nVoo: ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         cout << "input duracao: ";
         string temp2;
-        cin >> temp2;
+        getline(cin, temp2);
         cout << "input data (YYYY/MM/DD): ";
         string temp3;
-        cin >> temp3;
+        getline(cin, temp3);
         cout << "input aeroporto partida (index): ";
         string temp4;
-        cin >> temp4;
+        getline(cin, temp4);
         cout << "input aeroporto destino (index): ";
         string temp5;
-        cin >> temp5;
+        getline(cin, temp5);
         try
         {
             //addToPlanoVoo(new Voo(stoi(temp1), stoi(temp2), temp3, ))
@@ -340,7 +340,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
     {
         cout << "input voo (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
             auto temp2 = plano.begin();
@@ -358,7 +358,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
     {
         cout << "input funcionario (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
             //stoi(temp1)
@@ -372,7 +372,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
     {
         cout << "input funcionario (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
             //stoi(temp1)
@@ -386,7 +386,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
     {
         cout << "input funcionario (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
             //stoi(temp1)
@@ -400,7 +400,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
     {
         cout << "input carrinho transporte (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
             //stoi(temp1)
@@ -422,7 +422,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
 }
 
 std::vector<Terminal *> *Aviao::getV(std::string nameVector) {
-    vector<Terminal *>* temp;
+    vector<Terminal *> *temp = new vector<Terminal*>;
     if (nameVector == "plano")
     {
         for (auto p : plano)

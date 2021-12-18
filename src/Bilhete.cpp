@@ -54,7 +54,7 @@ bool Bilhete::findFunc(std::string nomeFunc) {
     else if(nomeFunc == "setNVoo"){
         cout << "input nVoo: ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         try {
             setNVoo(stoi(temp));
             return true;
@@ -70,7 +70,8 @@ bool Bilhete::findFunc(std::string nomeFunc) {
         cout << "input Passenger's index: ";
         string temp1;
         try {
-            setPassageiro(&(passageiros[stoi(temp1)]));
+            setPassageiro((passageiros[stoi(temp1)]));
+            return true;
         }
         catch (exception &e)
         {
@@ -87,7 +88,7 @@ bool Bilhete::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "setLevaBagagem") {
         cout << "input levaBagagem: ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         try {
             setLevaBagagem(stoi(temp));
             return true;
@@ -102,11 +103,12 @@ bool Bilhete::findFunc(std::string nomeFunc) {
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return false;
     }
+    return false;
 }
 
 vector<Terminal*> *Bilhete::getV(std::string nameVector)
 {
-    vector<Terminal*> *temp;
+    vector<Terminal *> *temp = new vector<Terminal*>;
     if (nameVector == "passageiro")
     {
         temp->push_back(passageiro);

@@ -90,9 +90,9 @@ bool Funcionario::findFunc(std::string nomeFunc) {
     if (nomeFunc == "setAeroporto"){
         cout << "input aeroporto (index): ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         try {
-            setAeroporto(&Terminal::aeroportos[stoi(temp)]);
+            setAeroporto(Terminal::aeroportos[stoi(temp)]);
             return true;
         }
         catch (exception &e)
@@ -107,7 +107,7 @@ bool Funcionario::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "setTelemovel") {
         cout << "input Telemovel: ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         try {
             setTelemovel(stoi(temp));
             return true;
@@ -147,7 +147,7 @@ bool Funcionario::findFunc(std::string nomeFunc) {
 }
 
 std::vector<Terminal *> *Funcionario::getV(std::string nameVector) {
-    vector<Terminal*> *temp;
+    vector<Terminal *> *temp = new vector<Terminal*>;
     if (nameVector == "aeroporto")
     {
         temp->push_back(aeroporto);

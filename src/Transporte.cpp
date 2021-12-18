@@ -84,7 +84,7 @@ std::stack<std::string> Transporte::funcs() {
 }
 
 std::vector<Terminal *> *Transporte::getV(std::string nameVector) {
-    std::vector<Terminal*> *temp;
+    vector<Terminal *> *temp = new vector<Terminal*>;
     return temp;
 }
 
@@ -101,7 +101,7 @@ bool Transporte::findFunc(std::string nomeFunc) {
     }
     else if (nomeFunc == "setTipo"){
         string tmp;
-        cin >> tmp;
+        getline(cin, tmp);
         if (tmp == "comboio")
         {
             tipo = comboio;
@@ -125,7 +125,7 @@ bool Transporte::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "setDitancia"){
         cout << "input distancia: ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         try {
             distancia = stoi(temp);
             return true;
@@ -144,10 +144,10 @@ bool Transporte::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "setHoraChegada"){
         cout << "input hora: ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         cout << "input minuto: ";
         string temp2;
-        cin >> temp2;
+        getline(cin, temp2);
         try{
             horaChegada = Tempo(stoi(temp1), stoi(temp2));
             return true;
@@ -166,10 +166,10 @@ bool Transporte::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "setHoraPartida"){
         cout << "input hora: ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         cout << "input minuto: ";
         string temp2;
-        cin >> temp2;
+        getline(cin, temp2);
         try{
             horaPartida = Tempo(stoi(temp1), stoi(temp2));
             return true;
