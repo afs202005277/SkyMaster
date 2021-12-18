@@ -4,6 +4,7 @@
 
 #include <string>
 #include <sstream>
+#include <iomanip>
 #include "Terminal.h"
 class Terminal;
 class Tempo {

@@ -75,7 +75,7 @@ std::stack<std::string> Transporte::funcs() {
     temp.push("getTipo()");
     temp.push("setTipo()");
     temp.push("getDistancia()");
-    temp.push("setDitancia()");
+    temp.push("setDistancia()");
     temp.push("getHoraChegada()");
     temp.push("setHoraChegada()");
     temp.push("getHoraPartida()");
@@ -100,6 +100,7 @@ bool Transporte::findFunc(std::string nomeFunc) {
         return true;
     }
     else if (nomeFunc == "setTipo"){
+        cout << "Input tipo: ";
         string tmp;
         getline(cin, tmp);
         if (tmp == "comboio")
