@@ -2,8 +2,8 @@
 #define PROJETO1_DATA_H
 
 
-#include <ostream>
 #include <iomanip>
+#include <sstream>
 #include "Terminal.h"
 class Terminal;
 class Data {

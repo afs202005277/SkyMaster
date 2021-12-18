@@ -52,7 +52,6 @@ public:
      */
     virtual std::vector<Terminal*> *getV(std::string nameVector) = 0;
 
-    static std::string processString(std::string &s, char y, int occurence=1, bool after=false)
     /**
      *
      * @param s
