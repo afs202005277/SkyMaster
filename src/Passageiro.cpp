@@ -209,7 +209,6 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         }
     }
     else{
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return false;
     }
 }

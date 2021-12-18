@@ -61,11 +61,9 @@ public:
             }
             else
             {
-                dir.erase("FUNCIONARIOS[list]");
-                dir.erase("TRANSPORTES[list]");
-                dir.erase("CARRINHOS[list]");
-                dir.erase("AVIOES[list]");
-                dir.erase("STORAGE[list]");
+                auto temp1 = dir.end();
+                advance(temp1, -5);
+                dir.erase(temp1, dir.end());
             }
         }
         else if (new_dir == "AVIAO")
@@ -80,11 +78,9 @@ public:
             }
             else
             {
-                dir.erase("PLANO[list]");
-                dir.erase("SERVICO[list]");
-                dir.erase("SERVICOPROC[list]");
-                dir.erase("CARGA[list]");
-                dir.erase("CARRINHO");
+                auto temp1 = dir.end();
+                advance(temp1, -5);
+                dir.erase(temp1, dir.end());
             }
         }
         else if (new_dir == "BILHETE")
@@ -95,7 +91,9 @@ public:
             }
             else
             {
-                dir.erase("PASSAGEIRO");
+                auto temp1 = dir.end();
+                advance(temp1, -1);
+                dir.erase(temp1, dir.end());
             }
         }
         else if (new_dir == "CARRINHO")
@@ -108,9 +106,9 @@ public:
             }
             else
             {
-                dir.erase("CARGA[list]");
-                dir.erase("AVIAO");
-                dir.erase("AEROPORTO");
+                auto temp1 = dir.end();
+                advance(temp1, -3);
+                dir.erase(temp1, dir.end());
             }
         }
         else if (new_dir == "FUNCIONARIO")
@@ -121,7 +119,9 @@ public:
             }
             else
             {
-                dir.erase("AEROPORTO");
+                auto temp1 = dir.end();
+                advance(temp1, -1);
+                dir.erase(temp1, dir.end());
             }
         }
         else if (new_dir == "MALA")
@@ -133,8 +133,9 @@ public:
             }
             else
             {
-                dir.erase("PASSAGEIRO");
-                dir.erase("AVIAO");
+                auto temp1 = dir.end();
+                advance(temp1, -2);
+                dir.erase(temp1, dir.end());
             }
         }
         else if (new_dir == "PASSAGEIRO")
@@ -145,7 +146,9 @@ public:
             }
             else
             {
-                dir.erase("BILHETE[list]");
+                auto temp1 = dir.end();
+                advance(temp1, -1);
+                dir.erase(temp1, dir.end());
             }
         }
         else if (new_dir == "SERVICO")
@@ -156,7 +159,9 @@ public:
             }
             else
             {
-                dir.erase("FUNCIONARIO");
+                auto temp1 = dir.end();
+                advance(temp1, -1);
+                dir.erase(temp1, dir.end());
             }
         }
         else if (new_dir == "TRANSPORTE")
@@ -173,9 +178,9 @@ public:
             }
             else
             {
-                dir.erase("AEROPORTO[list]");
-                dir.erase("PASSAGEIRO[list]");
-                dir.erase("AVIAO");
+                auto temp1 = dir.end();
+                advance(temp1, -3);
+                dir.erase(temp1, dir.end());
             }
         }
     }
