@@ -197,9 +197,6 @@ int main() {
         it.getPlano().front()->getOrigem()->addAviao(&it);
     }
 
-    for (auto &t:servicos){
-        avioes.front().getServicos();
-    }
     // TERMINAL STUFF
     for (auto &a: aeroportos)
     {

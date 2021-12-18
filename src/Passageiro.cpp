@@ -111,6 +111,7 @@ std::stack<std::string> Passageiro::funcs() {
     stack<string> temp;
     temp.push("removeNextBilhete()");
     temp.push("getNome()");
+    temp.push("setNome()");
     temp.push("getIdade()");
     temp.push("setIdade()");
     temp.push("getId()");
@@ -138,10 +139,16 @@ bool Passageiro::findFunc(std::string nomeFunc) {
     nomeFunc = processString(nomeFunc, '(', 1, false);
     if (nomeFunc == "removeNextBilhete"){
         removeNextBilhete();
+        Terminal::updateVec();
         return true;
     }
     else if (nomeFunc == "getNome"){
         cout << nome <<  endl;
+        return true;
+    }
+    else if (nomeFunc == "setNome"){
+        cout << "Input nome: ";
+        getline(cin, nome);
         return true;
     }
     else if (nomeFunc == "getIdade"){
@@ -159,9 +166,8 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        return false;
     }
     else if (nomeFunc == "getId"){
         cout << id << endl;
@@ -188,7 +194,11 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            cout << hasBilhete(Terminal::voos[stoi(temp1)]->getNVoo()) << endl;
+            bool f = hasBilhete(Terminal::voos[stoi(temp1)]->getNVoo());
+            if (f)
+                cout << true << endl;
+            else
+                cout << false << endl;
         }
         catch (exception &e)
         {
@@ -201,11 +211,12 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            cout << (getIntoPlane(*Terminal::voos[stoi(temp1)]) ? "Done." : "Not done.") << endl;
+            cout << (getIntoPlane(*Terminal::voos[stoi(temp1)]) ? "Done." : "You don't have a ticket for that flight.") << endl;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return false;
         }
     }
     else{

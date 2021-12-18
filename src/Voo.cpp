@@ -305,7 +305,7 @@ bool Voo::findFunc(std::string nomeFunc) {
             {
                 cout << (sellBilhete(true, Terminal::passageiros[stoi(temp2)]) ? "Sold." : "Not sold.") << endl;
             }
-            else if (temp2 == "n")
+            else if (temp1 == "n")
             {
                 cout << (sellBilhete(false, Terminal::passageiros[stoi(temp2)]) ? "Sold." : "Not sold.") << endl;
             }
