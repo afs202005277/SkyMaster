@@ -22,6 +22,10 @@ public:
     static std::vector<Passageiro*> passageiros;
     static std::vector<Voo*> voos;
     static std::vector<Funcionario*> funcionarios;
+    static std::stack<std::string> cur_dir;
+    static std::stack<Terminal*> cur_obj;
+    static std::unordered_map<std::string, std::tuple<std::string, std::vector<Terminal*>*>> dir;
+
 public:
     /**
      * @return string com toda a informacao relativa ao objeto
@@ -81,10 +85,10 @@ public:
     };
     static void handleListDir(std::string new_dir, Terminal* cur_obj, std::unordered_map<std::string, std::tuple<std::string, std::vector<Terminal*>*>> &dir, bool in)
     {
-        if (new_dir == "AEROPORTO")
+        if (new_dir == "AEROPORTO" || new_dir == "AEROPORTO_VOO")
         {
             if (in) {
-                dir.insert({"FUNCIONARIO[list]", {"AEROPORTO", cur_obj->getV("funcionarios")}});
+                dir.insert({"FUNCIONARIO_AEROPORTO[list]", {"AEROPORTO", cur_obj->getV("funcionarios")}});
                 dir.insert({"TRANSPORTE[list]", {"AEROPORTO", cur_obj->getV("transportes")}});
                 dir.insert({"CARRINHO[list]", {"AEROPORTO", cur_obj->getV("carrinhos")}});
                 dir.insert({"AVIAO[list]", {"AEROPORTO", cur_obj->getV("avioes")}});
@@ -92,9 +96,11 @@ public:
             }
             else
             {
-                auto temp1 = dir.end();
-                advance(temp1, -5);
-                dir.erase(temp1, dir.end());
+                dir.erase("FUNCIONARIO_AEROPORTO[list]");
+                dir.erase("TRANSPORTE[list]");
+                dir.erase("CARRINHO[list]");
+                dir.erase("AVIAO[list]");
+                dir.erase("STORAGE[list]");
             }
         }
         else if (new_dir == "AVIAO")
@@ -142,7 +148,7 @@ public:
                 dir.erase(temp1, dir.end());
             }
         }
-        else if (new_dir == "FUNCIONARIO")
+        else if (new_dir == "FUNCIONARIO" || new_dir == "FUNCIONARIO_AEROPORTO")
         {
             if (in)
             {
@@ -169,7 +175,7 @@ public:
                 dir.erase(temp1, dir.end());
             }
         }
-        else if (new_dir == "PASSAGEIRO")
+        else if (new_dir == "PASSAGEIRO" || new_dir == "PASSAGEIRO_VOO")
         {
             if (in)
             {
@@ -203,8 +209,8 @@ public:
         {
             if (in)
             {
-                dir.insert({"AEROPORTO[list]", {"VOO", cur_obj->getV("viagem")}});
-                dir.insert({"PASSAGEIRO[list]", {"VOO", cur_obj->getV("passageiros")}});
+                dir.insert({"AEROPORTO_VOO[list]", {"VOO", cur_obj->getV("viagem")}});
+                dir.insert({"PASSAGEIRO_VOO[list]", {"VOO", cur_obj->getV("passageiros")}});
                 dir.insert({"AVIAO", {"VOO", cur_obj->getV("aviao")}});
             }
             else
@@ -214,6 +220,12 @@ public:
                 dir.erase(temp1, dir.end());
             }
         }
+    }
+
+    static void updateVec()
+    {
+        Terminal::handleListDir(Terminal::cur_dir.top(), Terminal::cur_obj.top(), Terminal::dir, false);
+        Terminal::handleListDir(Terminal::cur_dir.top(), Terminal::cur_obj.top(), Terminal::dir, true);
     }
 
 

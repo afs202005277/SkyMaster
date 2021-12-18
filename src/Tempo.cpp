@@ -61,6 +61,7 @@ bool operator!=(const Tempo &lhs, const Tempo &rhs) {
 Tempo::Tempo(const std::string &tempo) {
     hora = stoi(tempo.substr(0, tempo.find(':')));
     minuto = stoi(tempo.substr(tempo.find(':') + 1));
+    segundo = 0;
 }
 
 std::ostream &operator<<(std::ostream &os, const Tempo &tempo) {

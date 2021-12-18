@@ -294,10 +294,10 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         cout << "input distancia: ";
         string temp1;
         getline(cin, temp1);
-        cout << "input hora chegada (hh:mm:ss): ";
+        cout << "input hora chegada (hh:mm): ";
         string temp2;
         getline(cin, temp2);
-        cout << "input hora partida (hh:mm:ss): ";
+        cout << "input hora partida (hh:mm): ";
         string temp3;
         getline(cin, temp3);
         cout << "input tipo (autocarro/metro/comboio): ";
@@ -306,6 +306,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         try {
             auto temp5 = Transporte(stoi(temp1), temp2, temp3, temp4);
             addTransporte(temp5);
+            Terminal::updateVec();
         } catch (exception &e)
         {
             cout << "Function failed.";
@@ -329,9 +330,29 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         }
     }
     else if (nomeFunc == "getNearestTransport")
-        cout << getNearestTransport().getObjectName() << endl;
+    {
+        auto temp1 = getNearestTransport();
+        if (temp1.getHoraChegada().getHora() == -1)
+        {
+            cout << "Not found." << endl;
+        }
+        else
+        {
+            cout << temp1.getObjectName() << endl;
+        }
+    }
     else if (nomeFunc == "getNextTransport")
-        cout << getNextTransport().getObjectName() << endl;
+    {
+        auto temp1 = getNextTransport();
+        if (temp1.getHoraChegada().getHora() == -1)
+        {
+            cout << "Not found." << endl;
+        }
+        else
+        {
+            cout << temp1.getObjectName() << endl;
+        }
+    }
     else if (nomeFunc == "addFuncionario")
     {
         cout << "input telemovel: ";
@@ -346,6 +367,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         try {
             auto t = new Funcionario(stoi(temp1), temp2, temp3, this);
             addFuncionario(t);
+            Terminal::updateVec();
         } catch (exception &e)
         {
             cout << "Function failed." << endl;
@@ -424,8 +446,9 @@ std::vector<Terminal *> *Aeroporto::getV(std::string nameVector)
         BSTItrIn<Transporte> it(transportes);
         while (!it.isAtEnd())
         {
-            auto t = it.retrieve();
+            auto t = it.retrieve(); // ELE DESAPARECE AQUI
             temp->push_back(&t);
+            it.advance();
         }
     }
     else if (nameVector == "carrinhos")

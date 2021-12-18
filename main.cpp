@@ -55,7 +55,9 @@ vector<Aeroporto*> Terminal::aeroportos;
 vector<Passageiro*> Terminal::passageiros;
 vector<Voo*> Terminal::voos;
 vector<Funcionario*> Terminal::funcionarios;
-
+stack<string> Terminal::Terminal::cur_dir;
+stack<Terminal*> Terminal::Terminal::cur_obj;
+std::unordered_map<string, tuple<string, vector<Terminal*>*>> Terminal::Terminal::dir;
 
 int main() {
     ifstream input;
@@ -209,19 +211,16 @@ int main() {
 
     bool run = true;
     string command;
-    stack<string> cur_dir;
-    cur_dir.push("main");
-    stack<Terminal*> cur_obj;
-    cur_obj.push(nullptr);
-    std::unordered_map<string, tuple<string, vector<Terminal*>*>> dir;
-    dir.insert({"AEROPORTO[list]", {"main", &term_aero}});
-    dir.insert({"PASSAGEIRO[list]", {"main", &term_pass}});
-    dir.insert({"VOO[list]", {"main", &term_voos}});
-    dir.insert({"FUNCIONARIO[list]", {"main", &term_func}});
+    Terminal::cur_dir.push("main");
+    Terminal::cur_obj.push(nullptr);
+    Terminal::dir.insert({"AEROPORTO[list]", {"main", &term_aero}});
+    Terminal::dir.insert({"PASSAGEIRO[list]", {"main", &term_pass}});
+    Terminal::dir.insert({"VOO[list]", {"main", &term_voos}});
+    Terminal::dir.insert({"FUNCIONARIO[list]", {"main", &term_func}});
 
     cout << "Welcome to Airport Management Terminal\n";
     cout << "Type 'help' to get started.\n";
-    cout << "[" + cur_dir.top() + "] ";
+    cout << "[" + Terminal::cur_dir.top() + "] ";
     while (getline(cin, command) && run)
     {
         auto command_temp = command.find(" ");
@@ -246,16 +245,16 @@ int main() {
         else if (command == "LS")
         {
             vector<string> t;
-            for (auto d : dir)
+            for (auto d : Terminal::dir)
             {
-                if (get<0>(d.second) == cur_dir.top())
+                if (get<0>(d.second) == Terminal::cur_dir.top())
                 {
                     cout << d.first << endl;
                 }
             }
-            if (cur_obj.top() != nullptr)
+            if (Terminal::cur_obj.top() != nullptr)
             {
-                stack<string> temp = cur_obj.top()->funcs();
+                stack<string> temp = Terminal::cur_obj.top()->funcs();
                 while (!temp.empty())
                 {
                     cout << temp.top() << endl;
@@ -276,8 +275,8 @@ int main() {
         }
         else if (Terminal::processString(command, ' ') == "LIST")
         {
-            auto t= dir.find(Terminal::processString(command, ' ', 1, true)+"[list]");
-            if (t == dir.end() || get<0>(t->second) != cur_dir.top())
+            auto t= Terminal::dir.find(Terminal::processString(command, ' ', 1, true)+"[list]");
+            if (t == Terminal::dir.end() || get<0>(t->second) != Terminal::cur_dir.top())
             {
                 cout << "List \"" << Terminal::processString(command, ' ', 1, true) << "\" not found. Please try again.\n";
             }
@@ -298,10 +297,10 @@ int main() {
         else if (Terminal::processString(command, ' ') == "ACCESS")
         {
             string arguments = Terminal::processString(command, ' ', 1, true);
-            auto t= dir.find(Terminal::processString(arguments, ' ', 1, false));
-            if (t == dir.end())
-                t = dir.find(Terminal::processString(arguments, ' ', 1, false)+"[list]");
-            if (t == dir.end() || get<0>(t->second) != cur_dir.top())
+            auto t= Terminal::dir.find(Terminal::processString(arguments, ' ', 1, false));
+            if (t == Terminal::dir.end())
+                t = Terminal::dir.find(Terminal::processString(arguments, ' ', 1, false)+"[list]");
+            if (t == Terminal::dir.end() || get<0>(t->second) != Terminal::cur_dir.top())
             {
                 cout << "Object \"" << Terminal::processString(arguments, ' ', 1, false) << "\" not found. Please try again.\n";
             }
@@ -313,9 +312,9 @@ int main() {
                     {
                         auto ttt = t->first;
                         ttt = Terminal::processString(ttt, '[', 1, false);
-                        cur_dir.push(ttt);
-                        cur_obj.push(get<1>(t->second)->back());
-                        Terminal::handleListDir(cur_dir.top(), cur_obj.top(), dir, true);
+                        Terminal::cur_dir.push(ttt);
+                        Terminal::cur_obj.push(get<1>(t->second)->back());
+                        Terminal::handleListDir(Terminal::cur_dir.top(), Terminal::cur_obj.top(), Terminal::dir, true);
                     }
                 }
                 else
@@ -324,14 +323,14 @@ int main() {
                     if (tt == get<1>(t->second)->end())
                     {
                         try {
-                            if (stoi(Terminal::processString(arguments, ' ', 1, true)) < get<1>(t->second)->size() || get<0>(t->second) == cur_dir.top())
+                            if (stoi(Terminal::processString(arguments, ' ', 1, true)) < get<1>(t->second)->size() || get<0>(t->second) == Terminal::cur_dir.top())
                             {
                                 auto tt = get<1>(t->second)->at(stoi(Terminal::processString(arguments, ' ', 1, true)));
                                 auto ttt = t->first;
                                 ttt = Terminal::processString(ttt, '[', 1, false);
-                                cur_dir.push(ttt);
-                                cur_obj.push(tt);
-                                Terminal::handleListDir(cur_dir.top(), cur_obj.top(), dir, true);
+                                Terminal::cur_dir.push(ttt);
+                                Terminal::cur_obj.push(tt);
+                                Terminal::handleListDir(Terminal::cur_dir.top(), Terminal::cur_obj.top(), Terminal::dir, true);
                             }
                             else
                             {
@@ -347,9 +346,9 @@ int main() {
                     {
                         auto ttt = t->first;
                         ttt = Terminal::processString(ttt, '[', 1, false);
-                        cur_dir.push(ttt);
-                        cur_obj.push(*tt);
-                        Terminal::handleListDir(cur_dir.top(), cur_obj.top(), dir, true);
+                        Terminal::cur_dir.push(ttt);
+                        Terminal::cur_obj.push(*tt);
+                        Terminal::handleListDir(Terminal::cur_dir.top(), Terminal::cur_obj.top(), Terminal::dir, true);
                     }
                 }
             }
@@ -357,9 +356,9 @@ int main() {
         else if (Terminal::processString(command, ' ') == "FUNC")
         {
             auto nameFunc = Terminal::processString(command, ' ', 1, true);
-            if (cur_obj.top() != nullptr)
+            if (Terminal::cur_obj.top() != nullptr)
             {
-                if (!cur_obj.top()->findFunc(nameFunc))
+                if (!Terminal::cur_obj.top()->findFunc(nameFunc))
                 {
                     cout << "Function not found. Please try again.\n";
                 }
@@ -549,11 +548,11 @@ int main() {
         }
         else if (command == "BACK")
         {
-            if (cur_dir.top() != "main")
+            if (Terminal::cur_dir.top() != "main")
             {
-                Terminal::handleListDir(cur_dir.top(), cur_obj.top(), dir, false);
-                cur_dir.pop();
-                cur_obj.pop();
+                Terminal::handleListDir(Terminal::cur_dir.top(), Terminal::cur_obj.top(), Terminal::dir, false);
+                Terminal::cur_dir.pop();
+                Terminal::cur_obj.pop();
             }
             else
             {
@@ -564,7 +563,7 @@ int main() {
         {
             cout << "Unavailable command. Please try again.\n";
         }
-        cout << "[" + cur_dir.top() + "] ";
+        cout << "[" + Terminal::cur_dir.top() + "] ";
     }
 
     return 0;
