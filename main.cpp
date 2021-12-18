@@ -186,9 +186,20 @@ int main() {
             }
         }
     }
+    // ADICIONA TRANSPORTES AO 1º AEROPORTO
     for (auto it = transportes.begin();it!=transportes.end();it++)
         aeroportos.front().addTransporte(*it);
 
+    //ASSOCIA 1 AEROPORTO A CADA AVIAO
+    for (auto &it : avioes){
+        if (it.getPlano().empty())
+            continue;
+        it.getPlano().front()->getOrigem()->addAviao(&it);
+    }
+
+    for (auto &t:servicos){
+        avioes.front().getServicos();
+    }
     // TERMINAL STUFF
     for (auto &a: aeroportos)
     {
