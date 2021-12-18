@@ -269,6 +269,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         cout << "input name: ";
         string temp;
         getline(cin, temp);
+        setName(temp);
     }
     else if (nomeFunc == "getCity")
         cout << city << endl;
@@ -299,12 +300,12 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         cout << "input hora partida (hh:mm:ss): ";
         string temp3;
         getline(cin, temp3);
-        cout << "input tipo (limpeza/manutencao): ";
+        cout << "input tipo (autocarro/metro/comboio): ";
         string temp4;
         getline(cin, temp4);
         try {
-            auto t = new Transporte(stoi(temp1), temp2, temp3, temp4);
-            addTransporte(*t);
+            auto temp5 = Transporte(stoi(temp1), temp2, temp3, temp4);
+            addTransporte(temp5);
         } catch (exception &e)
         {
             cout << "Function failed.";
@@ -403,10 +404,8 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
     }
     else
     {
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return false;
     }
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return true;
 }
 

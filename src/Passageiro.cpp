@@ -211,6 +211,7 @@ bool Passageiro::findFunc(std::string nomeFunc) {
     else{
         return false;
     }
+    return true;
 }
 
 const vector<Mala *> &Passageiro::getMalas() const {
