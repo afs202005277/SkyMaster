@@ -137,7 +137,7 @@ bool Transporte::findFunc(std::string nomeFunc) {
         return false;
     }
     else if (nomeFunc == "getHoraChegada"){
-        cout << horaChegada << endl;
+        cout << horaChegada.getTempo() << endl;
         return true;
     }
     else if (nomeFunc == "setHoraChegada"){
@@ -159,7 +159,7 @@ bool Transporte::findFunc(std::string nomeFunc) {
         return false;
     }
     else if (nomeFunc == "getHoraPartida"){
-        cout << horaPartida << endl;
+        cout << horaPartida.getTempo() << endl;
         return true;
     }
     else if (nomeFunc == "setHoraPartida"){

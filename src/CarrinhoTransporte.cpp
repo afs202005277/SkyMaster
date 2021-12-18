@@ -155,6 +155,7 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
     nomeFunc = processString(nomeFunc, '(', 1, false);
     if (nomeFunc == "getNCarruagens"){
         cout << getNCarruagens() << endl;
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return true;
     }
     else if (nomeFunc == "setNCarruagens"){
@@ -163,6 +164,7 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
         cin >> temp;
         try {
             setNCarruagens(stoi(temp));
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             return true;
         }
         catch (exception &e)
@@ -174,6 +176,7 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
     }
     else if (nomeFunc == "getNPilhas"){
         cout << getNPilhas() << endl;
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return true;
     }
     else if (nomeFunc == "setNPilhas"){
@@ -182,6 +185,7 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
         cin >> temp;
         try {
             setNPilhas(stoi(temp));
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             return true;
         }
         catch (exception &e)
@@ -193,6 +197,7 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
     }
     else if (nomeFunc == "getNMalas"){
         cout << getNMalas() << endl;
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return true;
     }
     else if (nomeFunc == "setNMalas"){
@@ -201,6 +206,7 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
         cin >> temp;
         try {
             setNMalas(stoi(temp));
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             return true;
         }
         catch (exception &e)
@@ -216,19 +222,23 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
         cin >> temp1;
         try
         {
-            anfenfsenfosfno;
+            addMalas(Terminal::passageiros[stoi(temp1)].malas);
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
         }
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        return true;
     }
     else if (nomeFunc == "descarregarMalasAviao"){
         descarregarMalasAviao();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return true;
     }
     else if (nomeFunc == "descarregarMalasAeroporto"){
         descarregarMalasAeroporto();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return true;
     }
     else{

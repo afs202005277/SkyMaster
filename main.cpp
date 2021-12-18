@@ -3,8 +3,9 @@
 #include <fstream>
 #include <sstream>
 #include "Aviao.h"
-
 #include "Tempo.h"
+#include "Terminal.h"
+
 using namespace std;
 
 void processInput(const string &line, vector<string> & arguments){
@@ -24,26 +25,6 @@ void processInput(const string &line, vector<string> & arguments){
     string tmp = arguments[arguments.size()-1];
     tmp = tmp.substr(0, tmp.find_last_of(' '));
     arguments[arguments.size()-1] = tmp;
-}
-
-string processString(string &s, char y, int occurence=1, bool after=false)
-{
-    std::string::size_type pos = 0;
-    for (int i = 0; i < occurence; i++) {
-        pos = s.find(y, pos);
-        if (pos != std::string::npos)
-        {
-            if (after)
-                return s.substr(pos+1, s.size()-pos-1);
-            else
-                return s.substr(0, pos);
-        }
-        else
-        {
-            return s;
-        }
-    }
-    return s;
 }
 
 template<class  T>
@@ -67,15 +48,15 @@ int main() {
         cout << "File not found" << endl;
         return 1;
     }
-    list<Aeroporto> aeroportos;
-    list<Transporte> transportes;
-    list<Funcionario> funcionarios;
-    list<Servico> servicos;
-    list<Passageiro> passageiros;
-    list<Mala> malas;
-    list<Aviao> avioes;
-    list<Voo> voos;
-    list<CarrinhoTransporte> carrinhosTransporte;
+    list<Terminal> aeroportos;
+    list<Terminal> transportes;
+    list<Terminal> funcionarios;
+    list<Terminal> servicos;
+    list<Terminal> passageiros;
+    list<Terminal> malas;
+    list<Terminal> avioes;
+    list<Terminal> voos;
+    list<Terminal> carrinhosTransporte;
     string line, object, instruction;
     while(getline(input, line))
     {

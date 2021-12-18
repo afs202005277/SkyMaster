@@ -164,7 +164,7 @@ void Aeroporto::addAviao(Aviao *a) {
     if (!assigned)
     {
         CarrinhoTransporte ref = *carrinhos.front();
-        auto* c = new CarrinhoTransporte(ref.getNCarruagens(), ref.getNPilhas(), ref.getNMalas(), nullptr, a);
+        auto* c = new CarrinhoTransporte(ref.getNCarruagens(), ref.getNPilhas(), ref.getNMalas(), this, a);
         carrinhos.push_back(c);
     }
 }

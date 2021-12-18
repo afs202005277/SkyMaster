@@ -270,7 +270,7 @@ bool Voo::findFunc(std::string nomeFunc) {
         cin >> temp1;
         try
         {
-            ssfoefosetOrigem(stoi(temp1))
+            setOrigem(Terminal::aeroportos[stoi(temp1)]);
         }
         catch (exception &e)
         {
@@ -284,7 +284,7 @@ bool Voo::findFunc(std::string nomeFunc) {
         cin >> temp1;
         try
         {
-            ssfoefosetOrigem(stoi(temp1))
+            setDestino(Terminal::aeroportos[stoi(temp1)]);
         }
         catch (exception &e)
         {
@@ -303,11 +303,11 @@ bool Voo::findFunc(std::string nomeFunc) {
         {
             if (temp1 == "y")
             {
-                iwdaidawiuda
+                cout << (sellBilhete(true, Terminal::passageiros[stoi(temp2)]) ? "Sold." : "Not sold.") << endl;
             }
             else if (temp2 == "n")
             {
-                iosefjseoifjseoif
+                cout << (sellBilhete(false, Terminal::passageiros[stoi(temp2)]) ? "Sold." : "Not sold.") << endl;
             }
             else
             {
@@ -318,7 +318,6 @@ bool Voo::findFunc(std::string nomeFunc) {
         {
             cout << "Function failed." << endl;
         }
-        sellBilhete()
     }
     else if (nomeFunc == "addPassageiro")
     {
@@ -327,7 +326,7 @@ bool Voo::findFunc(std::string nomeFunc) {
         cin >> temp1;
         try
         {
-            dadiojdaoidjaoidPassaeigeo(stoi(temp1))
+            addPassageiro(Terminal::passageiros[stoi(temp1)]);
         }
         catch (exception &e)
         {

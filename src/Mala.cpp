@@ -58,6 +58,8 @@ bool Mala::findFunc(std::string nomeFunc) {
                 advance(temp2, stoi(temp1));
                 setDespachada(*temp2);
             }
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            return true;
         }
         catch (exception &e)
         {
@@ -70,7 +72,9 @@ bool Mala::findFunc(std::string nomeFunc) {
         cin >> temp1;
         try
         {
-            odwdnaoidnaiodn;
+            setDono(Terminal::passageiros[stoi(temp1)]);
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            return true;
         }
         catch (exception &e)
         {
@@ -79,6 +83,7 @@ bool Mala::findFunc(std::string nomeFunc) {
     }
     else if (nomeFunc == "getPeso") {
         cout << peso << endl;
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return true;
     }
     else if (nomeFunc == "setPeso"){
@@ -87,6 +92,7 @@ bool Mala::findFunc(std::string nomeFunc) {
         cin >> temp;
         try {
             peso = stof(temp);
+            cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             return true;
         }
         catch (exception &e)

@@ -109,8 +109,6 @@ std::string Passageiro::getObjectID() {
 
 std::stack<std::string> Passageiro::funcs() {
     stack<string> temp;
-    temp.push("addBilhete()");
-    temp.push("getNextBilhete()");
     temp.push("removeNextBilhete()");
     temp.push("getNome()");
     temp.push("getIdade()");
@@ -138,13 +136,7 @@ std::vector<Terminal *> *Passageiro::getV(std::string nameVector) {
 
 bool Passageiro::findFunc(std::string nomeFunc) {
     nomeFunc = processString(nomeFunc, '(', 1, false);
-    if (nomeFunc == "addBilhete"){
-        lalal
-    }
-    else if (nomeFunc == "getNextBilhete"){
-        lala
-    }
-    else if (nomeFunc == "removeNextBilhete"){
+    if (nomeFunc == "removeNextBilhete"){
         removeNextBilhete();
         return true;
     }
@@ -191,10 +183,30 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         return false;
     }
     else if (nomeFunc == "hasBilhete"){
-        bool f = hasBilhete(lalal);
+        cout << "input voo (index): ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            cout << hasBilhete(Terminal::voos[stoi(temp1)]) << endl;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
     }
     else if (nomeFunc == "getIntoPlane"){
-        getIntoPlane(lala);
+        cout << "input voo (index): ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            cout << (getIntoPlane(Terminal::voos[stoi(temp1)]) ? "Done." : "Not done.") << endl;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
     }
     else{
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

@@ -69,7 +69,7 @@ Tempo::Tempo(const std::string &tempo) {
 }
 
 std::ostream &operator<<(std::ostream &os, const Tempo &tempo) {
-    os << tempo.hora << ":" << tempo.minuto << ":" << tempo.segundo << std::endl;
+    os << tempo.getHora() << ":" << tempo.getMinuto() << ":" << tempo.getSegundo() << std::endl;
     return os;
 }
 

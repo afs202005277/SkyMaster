@@ -103,7 +103,17 @@ bool Servico::findFunc(std::string nomeFunc) {
         }
     }
     else if (nomeFunc == "setFuncionario"){
-        lalal
+        cout << "input funcionario (index): ";
+        string temp1;
+        cin >> temp1;
+        try
+        {
+            setFuncionario(Terminal::funcionarios[stoi(temp1)]);
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
     }
     else{
         cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

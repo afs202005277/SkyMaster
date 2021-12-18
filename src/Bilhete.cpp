@@ -70,9 +70,9 @@ bool Bilhete::findFunc(std::string nomeFunc) {
         cout << "input Passenger's index: ";
         string temp1;
         try {
-            auto tmp = (*getV("passageiros"))[stoi(temp1)];
-            t->addBilhete(this);
-        } catch (exception &e)
+            setPassageiro(Terminal::passageiros[stoi(temp1)]);
+        }
+        catch (exception &e)
         {
             cout << "Function failed.";
         }

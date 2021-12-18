@@ -88,7 +88,17 @@ std::stack<std::string> Funcionario::funcs() {
 bool Funcionario::findFunc(std::string nomeFunc) {
     nomeFunc = processString(nomeFunc, '(', 1, false);
     if (nomeFunc == "setAeroporto"){
-        lalal
+        cout << "input aeroporto (index): ";
+        string temp;
+        cin >> temp;
+        try {
+            setAeroporto(Terminal::aeroportos[stoi(temp)]);
+            return true;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
     }
     else if (nomeFunc == "getTelemovel"){
         cout << telemovel << endl;

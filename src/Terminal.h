@@ -5,7 +5,15 @@
 #include <iostream>
 #include <vector>
 #include <stack>
-
+#include <list>
+#include "Aeroporto.h"
+#include "Transporte.h"
+#include "Funcionario.h"
+#include "Passageiro.h"
+#include "Mala.h"
+#include "Aviao.h"
+#include "Voo.h"
+#include "CarrinhoTransporte.h"
 
 #ifndef AED1_TERMINAL_H
 #define AED1_TERMINAL_H
@@ -19,6 +27,17 @@ public:
     virtual bool findFunc(std::string nomeFunc) = 0;
     virtual std::stack<std::string> funcs() = 0;
     virtual std::vector<Terminal*> *getV(std::string nameVector) = 0;
+    static std::list<Aeroporto> *aeroportos;
+    static std::list<Transporte> *transportes;
+    static std::list<Funcionario> *funcionarios;
+    static std::list<Servico> *servicos;
+    static std::list<Passageiro> *passageiros;
+    static std::list<Mala> *malas;
+    static std::list<Aviao> *avioes;
+    static std::list<Voo> *voos;
+    static std::list<CarrinhoTransporte> *carrinhosTransporte;
+
+
 
     static std::string processString(std::string &s, char y, int occurence=1, bool after=false)
     {

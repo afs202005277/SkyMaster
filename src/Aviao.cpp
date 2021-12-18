@@ -413,7 +413,11 @@ bool Aviao::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "viajar")
         viajar();
     else
+    {
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return false;
+    }
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return true;
 }
 
@@ -437,7 +441,7 @@ std::vector<Terminal *> *Aviao::getV(std::string nameVector) {
     }
     else if (nameVector == "pastServices")
     {
-        auto temp2 = getPastServices();
+        auto temp2 = getServicosProcessados();
         while (!temp2.empty())
         {
             temp->push_back(temp2.top());
