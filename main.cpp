@@ -185,19 +185,19 @@ int main() {
     }
 
     // TERMINAL STUFF
-    for (auto a: aeroportos)
+    for (auto &a: aeroportos)
     {
         Terminal::aeroportos.push_back(&a);
     }
-    for (auto p : passageiros)
+    for (auto &p : passageiros)
     {
         Terminal::passageiros.push_back(&p);
     }
-    for (auto v : voos)
+    for (auto &v : voos)
     {
         Terminal::voos.push_back(&v);
     }
-    for (auto f : funcionarios)
+    for (auto &f : funcionarios)
     {
         Terminal::funcionarios.push_back(&f);
     }
