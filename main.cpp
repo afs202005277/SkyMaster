@@ -185,6 +185,8 @@ int main() {
             }
         }
     }
+    for (auto it = transportes.begin();it!=transportes.end();it++)
+        aeroportos.front().addTransporte(*it);
 
     // TERMINAL STUFF
     for (auto &a: aeroportos)
