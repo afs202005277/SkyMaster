@@ -9,6 +9,7 @@
 #include "Passageiro.h"
 #include "Aviao.h"
 #include "Terminal.h"
+#include "Tempo.h"
 
 using namespace std;
 

@@ -5,6 +5,8 @@
 #include "Mala.h"
 #include <stack>
 #include "Terminal.h"
+#include "Aeroporto.h"
+
 using namespace std;
 class Mala;
 class Aviao;

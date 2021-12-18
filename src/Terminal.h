@@ -21,11 +21,11 @@ protected:
     static std::vector<Voo> voos;
     static std::vector<Funcionario> funcionarios;
 public:
-    virtual std::string getObjectName() {};
-    virtual std::string getObjectID() {};
-    virtual bool findFunc(std::string nomeFunc) {};
-    virtual std::stack<std::string> funcs() {};
-    virtual std::vector<Terminal*> *getV(std::string nameVector) {};
+    virtual std::string getObjectName() = 0;
+    virtual std::string getObjectID() = 0;
+    virtual bool findFunc(std::string nomeFunc) = 0;
+    virtual std::stack<std::string> funcs() = 0;
+    virtual std::vector<Terminal*> *getV(std::string nameVector) = 0;
 
     std::string processString(std::string &s, char y, int occurence=1, bool after=false)
     {

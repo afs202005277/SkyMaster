@@ -36,6 +36,13 @@ T* find(list<T> &l, T val){
     }
     cout << "Not found" << endl;
 }
+
+vector<Aeroporto> Terminal::aeroportos;
+vector<Passageiro> Terminal::passageiros;
+vector<Voo> Terminal::voos;
+vector<Funcionario> Terminal::funcionarios;
+
+
 int main() {
     Data d1(2002, 6, 23), d2(2010, 8, 10);
     bool f = d1<d2;
