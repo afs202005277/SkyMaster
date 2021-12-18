@@ -318,16 +318,23 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         string temp;
         getline(cin, temp);
         try {
-            BSTItrIn<Transporte> it(transportes);
-            for (int i = 0; i < stoi(temp); i++)
+            if (stoi(temp) < getV("transportes")->size())
             {
-                it.advance();
+                BSTItrIn<Transporte> it(transportes);
+                for (int i = 0; i < stoi(temp); i++)
+                {
+                    it.advance();
+                }
+                transportes.remove(it.retrieve());
+                Terminal::updateVec();
             }
-            transportes.remove(it.retrieve());
-            Terminal::updateVec();
+            else
+            {
+                cout << "Object not found." << endl;
+            }
         } catch (exception &e)
         {
-            cout << "Object doesn't exist.";
+            cout << "Function failed.";
         }
     }
     else if (nomeFunc == "getNearestTransport")
@@ -381,8 +388,15 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         getline(cin, temp);
         try
         {
-            removeFuncionario(*funcionarios[stoi(temp)]);
-            Terminal::updateVec();
+            if (stoi(temp) < funcionarios.size())
+            {
+                removeFuncionario(*funcionarios[stoi(temp)]);
+                Terminal::updateVec();
+            }
+            else
+            {
+                cout << "Object not found." << endl;
+            }
         }
         catch (exception &e)
         {
@@ -417,10 +431,17 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         getline(cin, temp);
         try
         {
-            auto temp2 = avioes.begin();
-            advance(temp2, stoi(temp));
-            removeAviao(*temp2);
-            Terminal::updateVec();
+            if (stoi(temp) < avioes.size())
+            {
+                auto temp2 = avioes.begin();
+                advance(temp2, stoi(temp));
+                removeAviao(*temp2);
+                Terminal::updateVec();
+            }
+            else
+            {
+                cout << "Object not found." << endl;
+            }
         }
         catch (exception &e)
         {

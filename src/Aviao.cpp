@@ -230,13 +230,17 @@ bool Aviao::findFunc(std::string nomeFunc) {
         cout << getTipo() << endl;
     else if (nomeFunc == "setTipo")
     {
-        cout << "input tipo (manutencao/limpeza): ";
+        cout << "input tipo: ";
         string temp;
         getline(cin, temp);
-        if (temp == "manutencao" || temp == "limpeza")
+        try
+        {
             setTipo(temp);
-        else
+        }
+        catch (exception &e)
+        {
             cout << "Function failed." << endl;
+        }
     }
     else if (nomeFunc == "setCarrinhoAssociado")
     {
@@ -245,14 +249,13 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            int temp2 = stoi(temp1);
-            if (temp2 < getNextVoo().getOrigem()->getCarrinhos().size()) {
-                auto temp3 = getNextVoo().getOrigem()->getCarrinhos();
-                setCarrinhoAssociado(temp3[temp2]);
+            if (stoi(temp1) < plano.front()->getOrigem()->getCarrinhos().size()) {
+                auto temp3 = plano.front()->getOrigem()->getCarrinhos();
+                setCarrinhoAssociado(temp3[stoi(temp1)]);
             }
             else
             {
-                cout << "Function failed." << endl;
+                cout << "Object not found." << endl;
             }
         }
         catch (exception &e)
@@ -305,7 +308,15 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp3);
         try
         {
-            addServico(new Servico(temp1, getNextVoo().getOrigem()->getFuncionarios()[stoi(temp2)], temp3));
+            if (!plano.empty() && stoi(temp2) < plano.front()->getOrigem()->getFuncionarios().size())
+            {
+                addServico(new Servico(temp1, plano.front()->getOrigem()->getFuncionarios()[stoi(temp2)], temp3));
+                Terminal::updateVec();
+            }
+            else
+            {
+                cout << "Object not found." << endl;
+            }
         }
         catch (exception &e)
         {
@@ -323,15 +334,23 @@ bool Aviao::findFunc(std::string nomeFunc) {
         cout << "input data (YYYY/MM/DD): ";
         string temp3;
         getline(cin, temp3);
-        cout << "input aeroporto partida (index): ";
-        string temp4;
-        getline(cin, temp4);
         cout << "input aeroporto destino (index): ";
         string temp5;
         getline(cin, temp5);
+        cout << "input hora partida (HH:MM): ";
+        string temp6;
+        getline(cin, temp6);
         try
         {
-            //addToPlanoVoo(new Voo(stoi(temp1), stoi(temp2), temp3, ))
+            if (stoi(temp5) << Terminal::aeroportos.size())
+            {
+                addToPlanoVoo(new Voo(stoi(temp1), stoi(temp2), temp3, plano.front()->getOrigem(), Terminal::aeroportos[stoi(temp5)], this, temp6));
+                Terminal::updateVec();
+            }
+            else
+            {
+                cout << "Object not found." << endl;
+            }
         }
         catch (exception &e)
         {
@@ -363,7 +382,11 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            //stoi(temp1)
+            auto temp2 = getPastServicesBy(*Terminal::funcionarios[stoi(temp1)]);
+            for (auto temp3 : temp2)
+            {
+                cout << temp3->getObjectName() << endl;
+            }
         }
         catch (exception &e)
         {
@@ -377,7 +400,11 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            //stoi(temp1)
+            auto temp2 = getFutureServicesBy(*Terminal::funcionarios[stoi(temp1)]);
+            for (auto temp3 : temp2)
+            {
+                cout << temp3->getObjectName() << endl;
+            }
         }
         catch (exception &e)
         {
@@ -391,7 +418,15 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            //stoi(temp1)
+            auto temp2 = getAllServicesBy(*Terminal::funcionarios[stoi(temp1)]);
+            for (auto temp3 : temp2[0])
+            {
+                cout << temp3->getObjectName() << endl;
+            }
+            for (auto temp3 : temp2[1])
+            {
+                cout << temp3->getObjectName() << endl;
+            }
         }
         catch (exception &e)
         {
@@ -416,10 +451,8 @@ bool Aviao::findFunc(std::string nomeFunc) {
         viajar();
     else
     {
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return false;
     }
-    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     return true;
 }
 
