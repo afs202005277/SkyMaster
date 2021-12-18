@@ -324,6 +324,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
                 it.advance();
             }
             transportes.remove(it.retrieve());
+            Terminal::updateVec();
         } catch (exception &e)
         {
             cout << "Object doesn't exist.";
@@ -381,6 +382,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         try
         {
             remove(funcionarios.begin(), funcionarios.end(), funcionarios[stoi(temp)]);
+            Terminal::updateVec();
         }
         catch (exception &e)
         {
@@ -447,7 +449,8 @@ std::vector<Terminal *> *Aeroporto::getV(std::string nameVector)
         while (!it.isAtEnd())
         {
             auto t = it.retrieve(); // ELE DESAPARECE AQUI
-            temp->push_back(&t);
+            Transporte *hello = new Transporte(t.getDistancia(), t.getHoraChegada(), t.getHoraPartida(), t.getTipo());
+            temp->push_back(hello);
             it.advance();
         }
     }

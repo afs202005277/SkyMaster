@@ -115,10 +115,11 @@ public:
             }
             else
             {
-                auto temp1 = dir.begin();
-                int step = dir.size() - 5;
-                std::advance(temp1, step);
-                dir.erase(temp1, dir.end());
+                dir.erase("PLANO[list]");
+                dir.erase("SERVICO[list]");
+                dir.erase("SERVICOPROC[list]");
+                dir.erase("CARGA[list]");
+                dir.erase("CARRINHO");
             }
         }
         else if (new_dir == "BILHETE")
@@ -129,10 +130,7 @@ public:
             }
             else
             {
-                auto temp1 = dir.begin();
-                int step = dir.size() - 1;
-                std::advance(temp1, step);
-                dir.erase(temp1, dir.end());
+                dir.erase("PASSAGEIRO");
             }
         }
         else if (new_dir == "CARRINHO")
@@ -145,10 +143,9 @@ public:
             }
             else
             {
-                auto temp1 = dir.begin();
-                int step = dir.size() - 3;
-                std::advance(temp1, step);
-                dir.erase(temp1, dir.end());
+                dir.erase("CARGA[list]");
+                dir.erase("AVIAO");
+                dir.erase("AEROPORTO");
             }
         }
         else if (new_dir == "FUNCIONARIO" || new_dir == "FUNCIONARIO_AEROPORTO")
@@ -159,10 +156,7 @@ public:
             }
             else
             {
-                auto temp1 = dir.begin();
-                int step = dir.size() - 1;
-                std::advance(temp1, step);
-                dir.erase(temp1, dir.end());
+                dir.erase("AEROPORTO");
             }
         }
         else if (new_dir == "MALA")
@@ -174,10 +168,8 @@ public:
             }
             else
             {
-                auto temp1 = dir.begin();
-                int step = dir.size() - 2;
-                std::advance(temp1, step);
-                dir.erase(temp1, dir.end());
+                dir.erase("PASSAGEIRO");
+                dir.erase("AVIAO");
             }
         }
         else if (new_dir == "PASSAGEIRO" || new_dir == "PASSAGEIRO_VOO")
@@ -188,10 +180,7 @@ public:
             }
             else
             {
-                auto temp1 = dir.begin();
-                int step = dir.size() - 1;
-                std::advance(temp1, step);
-                dir.erase(temp1, dir.end());
+                dir.erase("BILHETE[list]");
             }
         }
         else if (new_dir == "SERVICO")
@@ -202,10 +191,7 @@ public:
             }
             else
             {
-                auto temp1 = dir.begin();
-                int step = dir.size() - 1;
-                std::advance(temp1, step);
-                dir.erase(temp1, dir.end());
+                dir.erase("FUNCIONARIO");
             }
         }
         else if (new_dir == "TRANSPORTE")
@@ -222,10 +208,9 @@ public:
             }
             else
             {
-                auto temp1 = dir.begin();
-                int step = dir.size() - 3;
-                std::advance(temp1, step);
-                dir.erase(temp1, dir.end());
+                dir.erase("AEROPORTO_VOO[list]");
+                dir.erase("PASSAGEIRO_VOO[list]");
+                dir.erase("AVIAO");
             }
         }
     }
