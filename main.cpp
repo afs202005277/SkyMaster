@@ -308,7 +308,7 @@ int main() {
             }
             else
             {
-                if (get<1>(t->second)->size() == 1)
+                if (get<1>(t->second)->size() == 1 && Terminal::processString(const_cast<string &>(t->first), '[', 1, true) != "list]")
                 {
                     if (Terminal::processString(arguments, ' ', 1, true) == arguments)
                     {

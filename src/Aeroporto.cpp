@@ -381,7 +381,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         getline(cin, temp);
         try
         {
-            remove(funcionarios.begin(), funcionarios.end(), funcionarios[stoi(temp)]);
+            removeFuncionario(*funcionarios[stoi(temp)]);
             Terminal::updateVec();
         }
         catch (exception &e)
@@ -403,6 +403,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         try
         {
             addAviao(new Aviao(stoi(temp1), temp2, temp3));
+            Terminal::updateVec();
         }
         catch (exception &e)
         {
@@ -411,17 +412,17 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
     }
     else if (nomeFunc == "removeAviao")
     {
-        cout << "input matricula: ";
-        string temp1;
-        getline(cin, temp1);
-        Aviao tt(1, temp1, "");
-        auto t = std::find(avioes.begin(), avioes.end(), &tt);
-        if (t != avioes.end())
+        cout << "input aviao (index): ";
+        string temp;
+        getline(cin, temp);
+        try
         {
-            removeAviao(*t);
-            cout << "Done." << endl;
+            auto temp2 = avioes.begin();
+            advance(temp2, stoi(temp));
+            removeAviao(*temp2);
+            Terminal::updateVec();
         }
-        else
+        catch (exception &e)
         {
             cout << "Function failed." << endl;
         }
