@@ -59,7 +59,7 @@ vector<Funcionario*> Terminal::funcionarios;
 
 int main() {
     ifstream input;
-    input.open("/Users/pedrofonseca/Documents/FEUP/AED/AED1/povoar.txt");
+    input.open("D:\\Importante\\FEUP\\2 ano\\1 semestre\\AED\\Projeto1\\povoar.txt");
     if (!input.is_open())
     {
         cout << "File not found" << endl;
