@@ -164,7 +164,7 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "setNCarruagens"){
         cout << "input NCarruagens: ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         try {
             setNCarruagens(stoi(temp));
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -185,7 +185,7 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "setNPilhas"){
         cout << "input NPilhas: ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         try {
             setNPilhas(stoi(temp));
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -206,7 +206,7 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "setNMalas"){
         cout << "input NMalas: ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         try {
             setNMalas(stoi(temp));
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -222,10 +222,10 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "addMalas"){
         cout << "input passageiro (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
-            addMalas(Terminal::passageiros[stoi(temp1)].getMalas());
+            addMalas(Terminal::passageiros[stoi(temp1)]->getMalas());
         }
         catch (exception &e)
         {
@@ -253,7 +253,7 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
 
 std::vector<Terminal *> *CarrinhoTransporte::getV(std::string nameVector)
 {
-    vector<Terminal*> *temp;
+    vector<Terminal *> *temp = new vector<Terminal*>;
     if (nameVector == "carga")
     {
         for (auto c : carga)

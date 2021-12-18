@@ -53,7 +53,7 @@ std::stack<std::string> Servico::funcs() {
 }
 
 std::vector<Terminal *> *Servico::getV(std::string nameVector) {
-    vector<Terminal *> *temp;
+    vector<Terminal *> *temp = new vector<Terminal*>;
     if (nameVector == "funcionario")
     {
         temp->push_back(funcionario);
@@ -72,7 +72,7 @@ bool Servico::findFunc(std::string nomeFunc) {
     }
     else if (nomeFunc == "setTipo"){
         string tmp;
-        cin >> tmp;
+        getline(cin, tmp);
         if (tmp == "manutencao")
         {
             tipo = manutencao;
@@ -92,7 +92,7 @@ bool Servico::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "setData"){
         cout << "input data (YYYY/MM/DD): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
             setData(Data(temp1));
@@ -105,10 +105,10 @@ bool Servico::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "setFuncionario"){
         cout << "input funcionario (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
-            setFuncionario(&Terminal::funcionarios[stoi(temp1)]);
+            setFuncionario(Terminal::funcionarios[stoi(temp1)]);
         }
         catch (exception &e)
         {

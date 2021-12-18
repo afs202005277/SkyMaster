@@ -49,7 +49,7 @@ bool Mala::findFunc(std::string nomeFunc) {
     if (nomeFunc == "setDespachada") {
         cout << "input aviao (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
             if (stoi(temp1) < despachada->getNextVoo().getOrigem()->getAvioes().size())
@@ -69,10 +69,10 @@ bool Mala::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "setDono"){
         cout << "input passageiro (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
-            setDono(&Terminal::passageiros[stoi(temp1)]);
+            setDono(Terminal::passageiros[stoi(temp1)]);
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             return true;
         }
@@ -89,7 +89,7 @@ bool Mala::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "setPeso"){
         cout << "input Peso: ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         try {
             peso = stof(temp);
             cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -109,7 +109,7 @@ bool Mala::findFunc(std::string nomeFunc) {
 }
 
 std::vector<Terminal *> *Mala::getV(std::string nameVector) {
-    vector<Terminal*> *temp;
+    vector<Terminal *> *temp = new vector<Terminal*>;
     if (nameVector == "dono")
     {
         temp->push_back(dono);

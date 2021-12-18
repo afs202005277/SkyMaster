@@ -167,7 +167,7 @@ bool Voo::findFunc(std::string nomeFunc) {
     {
         cout << "input hora (HH:MM:SS): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
             setHoraPartida(Tempo(temp1));
@@ -181,7 +181,7 @@ bool Voo::findFunc(std::string nomeFunc) {
     {
         cout << "input aviao (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
             if (stoi(temp1) < origem->getAvioes().size()) {
@@ -205,7 +205,7 @@ bool Voo::findFunc(std::string nomeFunc) {
     {
         cout << "input nVoo: ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
             setNVoo(stoi(temp1));
@@ -221,7 +221,7 @@ bool Voo::findFunc(std::string nomeFunc) {
     {
         cout << "input duracao: ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
             setDuracao(stoi(temp1));
@@ -237,7 +237,7 @@ bool Voo::findFunc(std::string nomeFunc) {
     {
         cout << "input lotacao atual: ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
             setLotacaoAtual(stoi(temp1));
@@ -253,7 +253,7 @@ bool Voo::findFunc(std::string nomeFunc) {
     {
         cout << "input data partida (YYYY/MM/DD): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
             setDataPartida(Data(temp1));
@@ -267,10 +267,10 @@ bool Voo::findFunc(std::string nomeFunc) {
     {
         cout << "input aeroporto origem (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
-            setOrigem(&Terminal::aeroportos[stoi(temp1)]);
+            setOrigem(Terminal::aeroportos[stoi(temp1)]);
         }
         catch (exception &e)
         {
@@ -281,10 +281,10 @@ bool Voo::findFunc(std::string nomeFunc) {
     {
         cout << "input aeroporto destino (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
-            setDestino(&Terminal::aeroportos[stoi(temp1)]);
+            setDestino(Terminal::aeroportos[stoi(temp1)]);
         }
         catch (exception &e)
         {
@@ -295,19 +295,19 @@ bool Voo::findFunc(std::string nomeFunc) {
     {
         cout << "input levaBagagem? (y/n): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         cout << "input passageiro (index): ";
         string temp2;
-        cin >> temp2;
+        getline(cin, temp2);
         try
         {
             if (temp1 == "y")
             {
-                cout << (sellBilhete(true, &Terminal::passageiros[stoi(temp2)]) ? "Sold." : "Not sold.") << endl;
+                cout << (sellBilhete(true, Terminal::passageiros[stoi(temp2)]) ? "Sold." : "Not sold.") << endl;
             }
             else if (temp2 == "n")
             {
-                cout << (sellBilhete(false, &Terminal::passageiros[stoi(temp2)]) ? "Sold." : "Not sold.") << endl;
+                cout << (sellBilhete(false, Terminal::passageiros[stoi(temp2)]) ? "Sold." : "Not sold.") << endl;
             }
             else
             {
@@ -323,10 +323,10 @@ bool Voo::findFunc(std::string nomeFunc) {
     {
         cout << "input passageiro (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
-            addPassageiro(&Terminal::passageiros[stoi(temp1)]);
+            addPassageiro(Terminal::passageiros[stoi(temp1)]);
         }
         catch (exception &e)
         {
@@ -339,13 +339,10 @@ bool Voo::findFunc(std::string nomeFunc) {
 }
 
 std::vector<Terminal *> *Voo::getV(std::string nameVector) {
-    vector<Terminal*> *temp;
-    if (nameVector == "origem")
+    vector<Terminal *> *temp = new vector<Terminal*>;
+    if (nameVector == "viagem")
     {
         temp->push_back(origem);
-    }
-    else if (nameVector == "destino")
-    {
         temp->push_back(destino);
     }
     else if (nameVector == "passageiros")

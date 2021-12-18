@@ -121,7 +121,7 @@ std::stack<std::string> Passageiro::funcs() {
 }
 
 std::vector<Terminal *> *Passageiro::getV(std::string nameVector) {
-    vector<Terminal*> *temp;
+    vector<Terminal *> *temp = new vector<Terminal*>;
     if (nameVector == "bilhetes")
     {
         auto temp1 = getBilhetes();
@@ -151,7 +151,7 @@ bool Passageiro::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "setIdade"){
         cout << "input Idade: ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         try {
             idade = stoi(temp);
             return true;
@@ -170,7 +170,7 @@ bool Passageiro::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "setId"){
         cout << "input ID: ";
         string temp;
-        cin >> temp;
+        getline(cin, temp);
         try {
             id = stoi(temp);
             return true;
@@ -185,10 +185,10 @@ bool Passageiro::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "hasBilhete"){
         cout << "input voo (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
-            cout << hasBilhete(Terminal::voos[stoi(temp1)].getNVoo()) << endl;
+            cout << hasBilhete(Terminal::voos[stoi(temp1)]->getNVoo()) << endl;
         }
         catch (exception &e)
         {
@@ -198,10 +198,10 @@ bool Passageiro::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "getIntoPlane"){
         cout << "input voo (index): ";
         string temp1;
-        cin >> temp1;
+        getline(cin, temp1);
         try
         {
-            cout << (getIntoPlane(Terminal::voos[stoi(temp1)]) ? "Done." : "Not done.") << endl;
+            cout << (getIntoPlane(*Terminal::voos[stoi(temp1)]) ? "Done." : "Not done.") << endl;
         }
         catch (exception &e)
         {
@@ -209,7 +209,6 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         }
     }
     else{
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         return false;
     }
 }
