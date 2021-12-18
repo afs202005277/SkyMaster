@@ -36,6 +36,12 @@ public:
     void setDay(int day);
 
     /**
+     * Converte a data numa string
+     * @return string no formato dd/mm/yyyy
+     */
+    std::string getDate();
+
+    /**
      * Verifica se uma data é menor que outra
      * @param rhs
      * @return true se a data da esquerda (*this) for anterior à da direita (rhs)
@@ -74,8 +80,6 @@ public:
      * @return referencia da stream para onde enviou a data
      */
     friend std::ostream &operator<<(std::ostream &os, const Data &data);
-
-    std::string getDate();
 
 };
 

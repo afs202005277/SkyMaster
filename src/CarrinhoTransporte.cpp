@@ -4,13 +4,16 @@ CarrinhoTransporte::CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas,
     this->nCarruagens = nCarruagens;
     this->nPilhas = nPilhas;
     this->nMalas = nMalas;
-    this->carga = vector<vector<stack<Mala*>>>(this->nCarruagens);
+    vector<vector<stack<Mala*>>> a(this->nCarruagens);
+    this->carga = a;
     for (auto &temp : this->carga)
     {
-        temp = vector<stack<Mala*>>(this->nPilhas);
+        vector<stack<Mala*>> t(this->nPilhas);
+        temp = t;
     }
     this->aviao=aviao;
     this->aeroporto = aeroporto;
+    aeroporto->addCarrinho(this);
 }
 
 int CarrinhoTransporte::getNCarruagens() const {

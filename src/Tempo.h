@@ -3,14 +3,14 @@
 
 
 #include <string>
-#include <ostream>
+#include <sstream>
 #include "Terminal.h"
 class Terminal;
 class Tempo {
 private:
     int hora;
     int minuto;
-    int segundo = 0;
+    int segundo;
 public:
     Tempo(int hora, int minuto, int segundo=0);
 

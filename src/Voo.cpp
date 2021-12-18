@@ -126,7 +126,7 @@ bool operator>=(const Voo &lhs, const Voo &rhs) {
 
 Voo::Voo(int nVoo, int duracao, string dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao,
          string partida) : nVoo(nVoo), duracao(duracao), dataPartida(Data(dataPartida)), origem(origem),
-                           destino(destino), aviao(aviao), horaPartida(partida){}
+                           destino(destino), aviao(aviao), horaPartida(partida), lotacaoAtual(0) {aviao->addToPlanoVoo(this);}
 
 bool operator==(const Voo &lhs, const Voo &rhs) {
     return lhs.nVoo == rhs.nVoo;

@@ -59,7 +59,7 @@ bool Passageiro::hasBilhete(int nVoo) const {
 }
 
 
-bool Passageiro::checkIn(bool checkInAutomatico, Voo &voo, std::queue<Mala *> &malas) const {
+bool Passageiro::checkIn(bool checkInAutomatico, Voo &voo, std::queue<Mala *> malas) const {
     if (!this->hasBilhete(voo.getNVoo()))
        return false;
    if (!checkInAutomatico)
@@ -69,7 +69,7 @@ bool Passageiro::checkIn(bool checkInAutomatico, Voo &voo, std::queue<Mala *> &m
     {
         if (c->getAviao() == voo.getAviao())
         {
-            for (int i=0;i<malas.size();i++)
+            while(!malas.empty())
             {
                 bool flag = c->addMala(malas.front());
                 if (!flag){

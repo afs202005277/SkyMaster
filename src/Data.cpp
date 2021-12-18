@@ -71,7 +71,9 @@ bool Data::operator>=(const Data &rhs) const {
 
 std::string Data::getDate()
 {
-    return std::to_string(year) + "/" + std::to_string(month) + "/" + std::to_string(day);
+    std::ostringstream stream;
+    stream << *this;
+    return stream.str();
 }
 
 Data::Data(std::string data) {

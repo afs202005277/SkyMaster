@@ -70,7 +70,7 @@ bool Bilhete::findFunc(std::string nomeFunc) {
         cout << "input Passenger's index: ";
         string temp1;
         try {
-            setPassageiro(&(passageiros[stoi(temp1)]));
+            setPassageiro(&(Terminal::passageiros[stoi(temp1)]));
         }
         catch (exception &e)
         {

@@ -14,6 +14,7 @@ class Aeroporto;
 class Passageiro;
 class Voo;
 class Funcionario;
+
 class Terminal{
 protected:
     static std::vector<Aeroporto> aeroportos;
@@ -21,16 +22,47 @@ protected:
     static std::vector<Voo> voos;
     static std::vector<Funcionario> funcionarios;
 public:
+    /**
+     * @return string com toda a informacao relativa ao objeto
+     */
     virtual std::string getObjectName() = 0;
+
+    /**
+     * @return string com o identificador do objeto
+     */
     virtual std::string getObjectID() = 0;
+
+    /**
+     * Executa o metodo cujo nome recebeu como argumento
+     * @param nomeFunc
+     * @return true se encontrar um metodo com o nome referido e se o input pedido estiver correto
+     */
     virtual bool findFunc(std::string nomeFunc) = 0;
+
+    /**
+     * @return stack de strings contendo os nomes de todos os metodos do respetivo objeto
+     */
     virtual std::stack<std::string> funcs() = 0;
+
+    /**
+     * Retorna a estrutura de dados com nome nameVector da classe respetiva
+     * @param nameVector
+     * @return apontador para um vetor de apontadores de terminais com a informacao requerida
+     */
     virtual std::vector<Terminal*> *getV(std::string nameVector) = 0;
 
-    std::string processString(std::string &s, char y, int occurence=1, bool after=false)
+    /**
+     *
+     * @param s
+     * @param y
+     * @param occurence
+     * @param after
+     * @return
+     */
+    static std::string processString(std::string &s, char y, int occurence=1, bool after=false)
     {
         std::string::size_type pos = 0;
-        for (int i = 0; i < occurence; i++) {
+        for (int i=0;i<occurence;i++) {
             pos = s.find(y, pos);
             if (pos != std::string::npos)
             {

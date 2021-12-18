@@ -159,6 +159,7 @@ void Aeroporto::addAviao(Aviao *a) {
             c->setAviao(a);
             a->setCarrinhoAssociado(c);
             assigned = true;
+            break;
         }
     }
     if (!assigned)

@@ -22,15 +22,15 @@ private:
     std::queue<Bilhete *> bilhetes;
     std::vector<Mala*> malas;
 public:
+    Passageiro(std::string nome, int idade, int id);
+
+    Passageiro(int idade, int id, std::string nome, const std::queue<Bilhete *> &bilhetes);
+
     const std::vector<Mala *> &getMalas() const;
 
     void setMalas(const vector<Mala *> &malas);
 
     void addMala(Mala *m);
-
-    Passageiro(std::string nome, int idade, int id);
-
-    Passageiro(int idade, int id, std::string nome, const std::queue<Bilhete *> &bilhetes);
 
     const std::queue<Bilhete *> & getBilhetes() const;
 
@@ -52,6 +52,11 @@ public:
 
     void setId(int id);
 
+    /**
+     * Verifica se o passageiro tem bilhete para o voo recebido como argumento
+     * @param nVoo
+     * @return true se tiver bilhete
+     */
     bool hasBilhete(int nVoo) const;
 
     /**
@@ -61,7 +66,7 @@ public:
      * @param malas
      * @return true se o passageiro tiver bilhete para o voo
      */
-    bool checkIn(bool checkInAutomatico, Voo &voo, std::queue<Mala *> &malas) const;
+    bool checkIn(bool checkInAutomatico, Voo &voo, std::queue<Mala *> malas) const;
 
     /**
      * "Simula" a entrada do passageiro no aviao: adiciona o passageiro à lista de passageiros presentes no voo

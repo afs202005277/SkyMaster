@@ -2,14 +2,19 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <list>
 #include "Aviao.h"
-#include "Tempo.h"
 #include "Terminal.h"
 
 using namespace std;
 
-void processInput(const string &line, vector<string> & arguments){
-    istringstream stream(line);
+/**
+ * Breaks an instruction to create an object in the different arguments
+ * @param instruction
+ * @param arguments : a vector to store the resulting arguments
+ */
+void processInput(const string &instruction, vector<string> & arguments){
+    istringstream stream(instruction);
     string argument;
     int index=0;
     while(stream >> argument)
@@ -27,14 +32,22 @@ void processInput(const string &line, vector<string> & arguments){
     arguments[arguments.size()-1] = tmp;
 }
 
+/**
+ * Encontra o elemento val na lista l
+ * @tparam T
+ * @param l
+ * @param val
+ * @return apontador para o elemento encontrado
+ */
 template<class  T>
-T* find(list<T> &l, T val){
+T* find(list <T> &l, T val){
     for (auto it = l.begin();it!=l.end();it++)
     {
         if (*it == val)
             return &(*it);
     }
     cout << "Not found" << endl;
+    return nullptr;
 }
 
 vector<Aeroporto> Terminal::aeroportos;
@@ -44,12 +57,8 @@ vector<Funcionario> Terminal::funcionarios;
 
 
 int main() {
-    Data d1(2002, 6, 23), d2(2010, 8, 10);
-    bool f = d1<d2;
-    cout << f << endl;
-
     ifstream input;
-    input.open(R"(/Users/pedrofonseca/Documents/FEUP/AED/AED1/povoar.txt)");
+    input.open(R"(D:\Importante\FEUP\2 ano\1 semestre\AED\Projeto1\povoar.txt)");
     if (!input.is_open())
     {
         cout << "File not found" << endl;
@@ -73,7 +82,8 @@ int main() {
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 vector<string> arguments(3);
                 processInput(instruction, arguments);
-                aeroportos.emplace_back(Aeroporto(arguments[0], arguments[1], arguments[2]));
+                Aeroporto* a = new Aeroporto(arguments[0], arguments[1], arguments[2]);
+                aeroportos.push_back(*a);
             }
         }
         else if (object == "Transporte")
@@ -82,7 +92,8 @@ int main() {
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 vector<string> arguments(4);
                 processInput(instruction, arguments);
-                transportes.emplace_back(Transporte(stoi(arguments[0]), arguments[1], arguments[2], arguments[3]));
+                Transporte* t = new Transporte(stoi(arguments[0]), arguments[1], arguments[2], arguments[3]);
+                transportes.push_back(*t);
             }
         }
         else if (object == "Funcionario")
@@ -93,7 +104,8 @@ int main() {
                 processInput(instruction, arguments);
                 Aeroporto tmp(arguments[3], "", "");
                 auto required = find(aeroportos, tmp);
-                funcionarios.emplace_back(Funcionario(stoi(arguments[0]), arguments[1], arguments[2], required));
+                Funcionario* f = new Funcionario(stoi(arguments[0]), arguments[1], arguments[2], required);
+                funcionarios.push_back(*f);
             }
         }
         else if (object == "Servico")
@@ -103,7 +115,8 @@ int main() {
                 processInput(instruction, arguments);
                 Funcionario tmp(stoi(arguments[1]), "", "", nullptr);
                 auto required = find(funcionarios, tmp);
-                servicos.emplace_back(Servico(arguments[0], required, arguments[2]));
+                Servico* s = new Servico(arguments[0], required, arguments[2]);
+                servicos.push_back(*s);
             }
         }
         else if (object == "Passageiro")
@@ -112,7 +125,8 @@ int main() {
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 vector<string> arguments(3);
                 processInput(instruction, arguments);
-                passageiros.emplace_back(Passageiro(arguments[0], stoi(arguments[1]), stoi(arguments[2])));
+                Passageiro* p = new Passageiro(arguments[0], stoi(arguments[1]), stoi(arguments[2]));
+                passageiros.push_back(*p);
             }
         }
         else if (object == "Mala")
@@ -123,7 +137,12 @@ int main() {
                 processInput(instruction, arguments);
                 Passageiro tmp(Passageiro("", 0, stoi(arguments[0])));
                 auto required = find(passageiros,tmp);
-                malas.emplace_back(Mala(required, stof(arguments[1])));
+                Mala* m = new Mala(required, stof(arguments[1]));
+                malas.push_back(*m);
+            }
+            for (auto &elem:malas)
+            {
+                elem.getDono()->addMala(&elem);
             }
         }
         else if (object == "Aviao")
@@ -132,7 +151,8 @@ int main() {
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 vector<string> arguments(3);
                 processInput(instruction, arguments);
-                avioes.emplace_back(Aviao(stoi(arguments[0]), arguments[1], arguments[2]));
+                Aviao* a = new Aviao(stoi(arguments[0]), arguments[1], arguments[2]);
+                avioes.push_back(*a);
             }
         }
         else if (object == "Voo")
@@ -146,7 +166,8 @@ int main() {
                 auto destino = find(aeroportos, tmp);
                 Aviao tmp_aviao(0, arguments[5], "");
                 auto aviao = find(avioes, tmp_aviao);
-                voos.emplace_back(Voo(stoi(arguments[0]), stoi(arguments[1]), arguments[2], origem, destino, aviao, arguments[6]));
+                Voo* v = new Voo(stoi(arguments[0]), stoi(arguments[1]), arguments[2], origem, destino, aviao, arguments[6]);
+                voos.push_back(*v);
             }
         }
         else if (object == "CarrinhoTransporte")
@@ -156,9 +177,30 @@ int main() {
                 processInput(instruction, arguments);
                 Aeroporto tmp(arguments[3], "", "");
                 auto required = find(aeroportos, tmp);
-                carrinhosTransporte.emplace_back(CarrinhoTransporte(stoi(arguments[0]), stoi(arguments[1]), stoi(arguments[2]), required));
+                CarrinhoTransporte* c = new CarrinhoTransporte(stoi(arguments[0]), stoi(arguments[1]), stoi(arguments[2]), required);
+                carrinhosTransporte.push_back(*c);
             }
         }
     }
+    // setting up:
+    Aviao* airplane = &avioes.front();
+    voos.back().setAviao(airplane);
+    list<Voo*> plano;
+    plano.push_back(&voos.front());
+    plano.push_back(&voos.back());
+    airplane->setPlano(plano);
+    aeroportos.back().addAviao(airplane);
+
+    cout << airplane->getNextVoo().getDestino()->getName() << endl;
+    auto tmp = servicos;
+    for (list<Servico>::iterator it = servicos.begin();it!=servicos.end();it++)
+    {
+        airplane->addServico(&(*it));
+    }
+    auto lala = airplane->getServicos();
+    auto teste = *(lala.front());
+    auto func = *(teste.getFuncionario());
+    auto abc = airplane->getPastServicesBy(funcionarios.front());
+    auto bcf = airplane->getFutureServicesBy(funcionarios.front());
     return 0;
 }
