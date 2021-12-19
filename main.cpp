@@ -9,6 +9,14 @@
 
 using namespace std;
 
+vector<Aeroporto*> Terminal::aeroportos;
+vector<Passageiro*> Terminal::passageiros;
+vector<Voo*> Terminal::voos;
+vector<Funcionario*> Terminal::funcionarios;
+stack<string> Terminal::Terminal::cur_dir;
+stack<Terminal*> Terminal::Terminal::cur_obj;
+std::multimap<string, tuple<string, vector<Terminal*>*>> Terminal::Terminal::dir;
+
 /**
  * Breaks an instruction to create an object in the different arguments
  * @param instruction
@@ -50,33 +58,16 @@ T* find(list <T> &l, T val){
     cout << "Not found" << endl;
     return nullptr;
 }
-
-vector<Aeroporto*> Terminal::aeroportos;
-vector<Passageiro*> Terminal::passageiros;
-vector<Voo*> Terminal::voos;
-vector<Funcionario*> Terminal::funcionarios;
-stack<string> Terminal::Terminal::cur_dir;
-stack<Terminal*> Terminal::Terminal::cur_obj;
-std::multimap<string, tuple<string, vector<Terminal*>*>> Terminal::Terminal::dir;
-
-int main() {
+void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte> &transportes, list<Funcionario> &funcionarios
+                  ,list<Servico> &servicos, list<Passageiro> &passageiros, list<Mala> &malas, list<Aviao> &avioes,
+                  list<Voo> &voos,list<CarrinhoTransporte> &carrinhosTransporte){
     ifstream input;
-    //input.open("/Users/pedrofonseca/Documents/FEUP/AED/AED1/povoar.txt");
-    input.open("D:\\Importante\\FEUP\\2 ano\\1 semestre\\AED\\Projeto1\\povoar.txt");
+    input.open((fileName));
     if (!input.is_open())
     {
         cout << "File not found" << endl;
-        return 1;
+        exit(1);
     }
-    list<Aeroporto> aeroportos;
-    list<Transporte> transportes;
-    list<Funcionario> funcionarios;
-    list<Servico> servicos;
-    list<Passageiro> passageiros;
-    list<Mala> malas;
-    list<Aviao> avioes;
-    list<Voo> voos;
-    list<CarrinhoTransporte> carrinhosTransporte;
     string line, object, instruction;
     while(getline(input, line))
     {
@@ -186,6 +177,20 @@ int main() {
             }
         }
     }
+
+}
+int main() {
+    list<Aeroporto> aeroportos;
+    list<Transporte> transportes;
+    list<Funcionario> funcionarios;
+    list<Servico> servicos;
+    list<Passageiro> passageiros;
+    list<Mala> malas;
+    list<Aviao> avioes;
+    list<Voo> voos;
+    list<CarrinhoTransporte> carrinhosTransporte;
+
+    readFromFile("../povoar.txt", aeroportos, transportes, funcionarios, servicos, passageiros, malas, avioes, voos, carrinhosTransporte);
     // ADICIONA TRANSPORTES AO 1º AEROPORTO
     for (auto it = transportes.begin();it!=transportes.end();it++)
         aeroportos.front().addTransporte(*it);
@@ -393,13 +398,13 @@ int main() {
                 nameFunc = Terminal::processString(nameFunc, '(', 1, false);
                 if (nameFunc == "addAeroporto")
                 {
-                    cout << "input aeroporto name: ";
+                    cout << "input name: ";
                     string temp1;
                     getline(cin, temp1);
-                    cout << "input cidade name: ";
+                    cout << "input cidade: ";
                     string temp2;
                     getline(cin, temp2);
-                    cout << "input país name: ";
+                    cout << "input pais: ";
                     string temp3;
                     getline(cin, temp3);
                     try
@@ -419,6 +424,8 @@ int main() {
                     getline(cin, temp1);
                     try
                     {
+                        if (stoi(temp1) < 0 || stoi(temp1) >= Terminal::aeroportos.size())
+                            throw exception();
                         auto temp2 = Terminal::aeroportos.begin();
                         auto temp3 = term_aero.begin();
                         advance(temp2, stoi(temp1));
@@ -459,6 +466,8 @@ int main() {
                     getline(cin, temp1);
                     try
                     {
+                        if (stoi(temp1) < 0 || stoi(temp1) >= Terminal::passageiros.size())
+                            throw exception();
                         auto temp2 = Terminal::passageiros.begin();
                         auto temp3 = term_pass.begin();
                         advance(temp2, stoi(temp1));
@@ -496,6 +505,8 @@ int main() {
                     getline(cin, temp7);
                     try
                     {
+                        if (stoi(temp4) < 0 || stoi(temp4) > Terminal::aeroportos.size() || stoi(temp5) < 0 || stoi(temp5) >= Terminal::aeroportos.size())
+                            throw exception();
                         auto temp8 = Terminal::aeroportos[stoi(temp4)]->getAvioes().begin();
                         advance(temp8, stoi(temp6));
                         Terminal::voos.push_back(new Voo(stoi(temp1), stoi(temp2), temp3, Terminal::aeroportos[stoi(temp4)], Terminal::aeroportos[stoi(temp5)], *temp8, temp7));
@@ -513,6 +524,8 @@ int main() {
                     getline(cin, temp1);
                     try
                     {
+                        if (stoi(temp1) < 0 || stoi(temp1) >= Terminal::voos.size())
+                            throw exception();
                         auto temp2 = Terminal::voos.begin();
                         auto temp3 = term_voos.begin();
                         advance(temp2, stoi(temp1));
@@ -541,6 +554,8 @@ int main() {
                     getline(cin, temp4);
                     try
                     {
+                        if (stoi(temp4) < 0 || stoi(temp4) >= Terminal::aeroportos.size())
+                            throw exception();
                         Terminal::funcionarios.push_back(new Funcionario(stoi(temp1), temp2, temp3, Terminal::aeroportos[stoi(temp4)]));
                         term_func.push_back(Terminal::funcionarios.back());
                     }
@@ -556,6 +571,8 @@ int main() {
                     getline(cin, temp1);
                     try
                     {
+                        if (stoi(temp1) < 0 || stoi(temp1) >= Terminal::funcionarios.size())
+                            throw exception();
                         auto temp2 = Terminal::funcionarios.begin();
                         auto temp3 = term_func.begin();
                         advance(temp2, stoi(temp1));
