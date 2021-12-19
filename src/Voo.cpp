@@ -161,6 +161,7 @@ std::stack<std::string> Voo::funcs() {
 }
 
 bool Voo::findFunc(std::string nomeFunc) {
+    nomeFunc = processString(nomeFunc, '(', 1, false);
     if (nomeFunc == "getHoraPartida")
         cout << to_string(getHoraPartida().getHora()) + ":" + to_string(getHoraPartida().getMinuto()) + ":" + to_string(getHoraPartida().getSegundo()) << endl;
     else if (nomeFunc == "setHoraPartida")

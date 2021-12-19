@@ -229,6 +229,7 @@ bool Aviao::operator==(Aviao &a) {
 }
 
 bool Aviao::findFunc(std::string nomeFunc) {
+    nomeFunc = processString(nomeFunc, '(', 1, false);
     if (nomeFunc == "getTipo")
         cout << getTipo() << endl;
     else if (nomeFunc == "setTipo")
@@ -472,6 +473,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
             if (carrinhoAssociado != nullptr)
             {
                 descarregarMalas();
+                Terminal::updateVec();
                 cout << "Done." << endl;
             }
             else

@@ -92,7 +92,9 @@ void CarrinhoTransporte::descarregarMalasAviao()
         {
             while (!carrinho.empty())
             {
-                aviao->addMala(carrinho.top());
+                auto temp1 = carrinho.top();
+                auto *temp2 = new Mala(temp1->getDono(), temp1->getPeso(), aviao);
+                aviao->addMala(temp2);
                 carrinho.pop();
             }
         }
@@ -171,8 +173,6 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
     nomeFunc = processString(nomeFunc, '(', 1, false);
     if (nomeFunc == "getNCarruagens"){
         cout << getNCarruagens() << endl;
-        
-        return true;
     }
     else if (nomeFunc == "setNCarruagens"){
         cout << "input NCarruagens: ";
@@ -180,20 +180,14 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
         getline(cin, temp);
         try {
             setNCarruagens(stoi(temp));
-            
-            return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
         }
-        
-        return false;
     }
     else if (nomeFunc == "getNPilhas"){
         cout << getNPilhas() << endl;
-        
-        return true;
     }
     else if (nomeFunc == "setNPilhas"){
         cout << "input NPilhas: ";
@@ -201,20 +195,14 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
         getline(cin, temp);
         try {
             setNPilhas(stoi(temp));
-            
-            return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
         }
-        
-        return false;
     }
     else if (nomeFunc == "getNMalas"){
         cout << getNMalas() << endl;
-        
-        return true;
     }
     else if (nomeFunc == "setNMalas"){
         cout << "input NMalas: ";
@@ -222,15 +210,11 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
         getline(cin, temp);
         try {
             setNMalas(stoi(temp));
-            
-            return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
         }
-        
-        return false;
     }
     else if (nomeFunc == "addMalas"){
         cout << "input passageiro (index): ";
@@ -239,29 +223,25 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
         try
         {
             addMalas(Terminal::passageiros[stoi(temp1)]->getMalas());
+            Terminal::updateVec();
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
         }
-        
-        return true;
     }
     else if (nomeFunc == "descarregarMalasAviao"){
         descarregarMalasAviao();
-        
-        return true;
+        Terminal::updateVec();
     }
     else if (nomeFunc == "descarregarMalasAeroporto"){
         descarregarMalasAeroporto();
-        
-        return true;
+        Terminal::updateVec();
     }
-    else{
-        
+    else {
         return false;
     }
-
+    return true;
 }
 
 std::vector<Terminal *> *CarrinhoTransporte::getV(std::string nameVector)

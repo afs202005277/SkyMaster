@@ -9,7 +9,7 @@
 #include <list>
 #include <vector>
 #include <string>
-#include <unordered_map>
+#include <map>
 
 class Aeroporto;
 class Passageiro;
@@ -24,7 +24,7 @@ public:
     static std::vector<Funcionario*> funcionarios;
     static std::stack<std::string> cur_dir;
     static std::stack<Terminal*> cur_obj;
-    static std::unordered_map<std::string, std::tuple<std::string, std::vector<Terminal*>*>> dir;
+    static std::multimap<std::string, std::tuple<std::string, std::vector<Terminal*>*>> dir;
 
 public:
     /**
@@ -83,16 +83,16 @@ public:
         }
         return s;
     };
-    static void handleListDir(std::string new_dir, Terminal* cur_obj, std::unordered_map<std::string, std::tuple<std::string, std::vector<Terminal*>*>> &dir, bool in)
+    static void handleListDir(std::string new_dir, Terminal* cur_obj, std::multimap<std::string, std::tuple<std::string, std::vector<Terminal*>*>> &dir, bool in)
     {
         if (new_dir == "AEROPORTO" || new_dir == "AEROPORTO_VOO")
         {
             if (in) {
-                dir.insert({"FUNCIONARIO_AEROPORTO[list]", {"AEROPORTO", cur_obj->getV("funcionarios")}});
-                dir.insert({"TRANSPORTE[list]", {"AEROPORTO", cur_obj->getV("transportes")}});
-                dir.insert({"CARRINHO[list]", {"AEROPORTO", cur_obj->getV("carrinhos")}});
-                dir.insert({"AVIAO[list]", {"AEROPORTO", cur_obj->getV("avioes")}});
-                dir.insert({"STORAGE[list]", {"AEROPORTO", cur_obj->getV("storage")}});
+                dir.insert({"FUNCIONARIO_AEROPORTO[list]", {new_dir, cur_obj->getV("funcionarios")}});
+                dir.insert({"TRANSPORTE[list]", {new_dir, cur_obj->getV("transportes")}});
+                dir.insert({"CARRINHO[list]", {new_dir, cur_obj->getV("carrinhos")}});
+                dir.insert({"AVIAO[list]", {new_dir, cur_obj->getV("avioes")}});
+                dir.insert({"STORAGE[list]", {new_dir, cur_obj->getV("storage")}});
             }
             else
             {
@@ -107,11 +107,11 @@ public:
         {
             if (in)
             {
-                dir.insert({"PLANO[list]", {"AVIAO", cur_obj->getV("plano")}});
-                dir.insert({"SERVICO[list]", {"AVIAO", cur_obj->getV("servicos")}});
-                dir.insert({"SERVICOPROC[list]", {"AVIAO", cur_obj->getV("pastServices")}});
-                dir.insert({"CARGA[list]", {"AVIAO", cur_obj->getV("carga")}});
-                dir.insert({"CARRINHO", {"AVIAO", cur_obj->getV("carrinhoAssociado")}});
+                dir.insert({"PLANO[list]", {new_dir, cur_obj->getV("plano")}});
+                dir.insert({"SERVICO[list]", {new_dir, cur_obj->getV("servicos")}});
+                dir.insert({"SERVICOPROC[list]", {new_dir, cur_obj->getV("pastServices")}});
+                dir.insert({"CARGA_AVIAO[list]", {new_dir, cur_obj->getV("carga")}});
+                dir.insert({"CARRINHO", {new_dir, cur_obj->getV("carrinhoAssociado")}});
             }
             else
             {
@@ -126,7 +126,7 @@ public:
         {
             if (in)
             {
-                dir.insert({"PASSAGEIRO", {"BILHETE", cur_obj->getV("passageiro")}});
+                dir.insert({"PASSAGEIRO", {new_dir, cur_obj->getV("passageiro")}});
             }
             else
             {
@@ -137,9 +137,9 @@ public:
         {
             if (in)
             {
-                dir.insert({"CARGA[list]", {"CARRINHO", cur_obj->getV("carga")}});
-                dir.insert({"AVIAO", {"CARRINHO", cur_obj->getV("aviao")}});
-                dir.insert({"AEROPORTO", {"CARRINHO", cur_obj->getV("aeroporto")}});
+                dir.insert({"CARGA[list]", {new_dir, cur_obj->getV("carga")}});
+                dir.insert({"AVIAO", {new_dir, cur_obj->getV("aviao")}});
+                dir.insert({"AEROPORTO", {new_dir, cur_obj->getV("aeroporto")}});
             }
             else
             {
@@ -152,19 +152,19 @@ public:
         {
             if (in)
             {
-                dir.insert({"AEROPORTO", {"FUNCIONARIO", cur_obj->getV("aeroporto")}});
+                dir.insert({"AEROPORTO", {new_dir, cur_obj->getV("aeroporto")}});
             }
             else
             {
                 dir.erase("AEROPORTO");
             }
         }
-        else if (new_dir == "MALA")
+        else if (new_dir == "MALA" || new_dir == "CARGA_AVIAO")
         {
             if (in)
             {
-                dir.insert({"PASSAGEIRO", {"MALA", cur_obj->getV("dono")}});
-                dir.insert({"AVIAO", {"MALA", cur_obj->getV("despachada")}});
+                dir.insert({"PASSAGEIRO", {new_dir, cur_obj->getV("dono")}});
+                dir.insert({"AVIAO", {new_dir, cur_obj->getV("despachada")}});
             }
             else
             {
@@ -176,8 +176,8 @@ public:
         {
             if (in)
             {
-                dir.insert({"BILHETE[list]", {"PASSAGEIRO", cur_obj->getV("bilhetes")}});
-                dir.insert({"MALA[list]", {"PASSAGEIRO", cur_obj->getV("malas")}});
+                dir.insert({"BILHETE[list]", {new_dir, cur_obj->getV("bilhetes")}});
+                dir.insert({"MALA[list]", {new_dir, cur_obj->getV("malas")}});
             }
             else
             {
@@ -189,7 +189,7 @@ public:
         {
             if (in)
             {
-                dir.insert({"FUNCIONARIO", {"SERVICO", cur_obj->getV("funcionario")}});
+                dir.insert({"FUNCIONARIO", {new_dir, cur_obj->getV("funcionario")}});
             }
             else
             {
@@ -204,9 +204,9 @@ public:
         {
             if (in)
             {
-                dir.insert({"AEROPORTO_VOO[list]", {"VOO", cur_obj->getV("viagem")}});
-                dir.insert({"PASSAGEIRO_VOO[list]", {"VOO", cur_obj->getV("passageiros")}});
-                dir.insert({"AVIAO", {"VOO", cur_obj->getV("aviao")}});
+                dir.insert({"AEROPORTO_VOO[list]", {new_dir, cur_obj->getV("viagem")}});
+                dir.insert({"PASSAGEIRO_VOO[list]", {new_dir, cur_obj->getV("passageiros")}});
+                dir.insert({"AVIAO", {new_dir, cur_obj->getV("aviao")}});
             }
             else
             {

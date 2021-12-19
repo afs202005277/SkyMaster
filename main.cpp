@@ -57,7 +57,7 @@ vector<Voo*> Terminal::voos;
 vector<Funcionario*> Terminal::funcionarios;
 stack<string> Terminal::Terminal::cur_dir;
 stack<Terminal*> Terminal::Terminal::cur_obj;
-std::unordered_map<string, tuple<string, vector<Terminal*>*>> Terminal::Terminal::dir;
+std::multimap<string, tuple<string, vector<Terminal*>*>> Terminal::Terminal::dir;
 
 int main() {
     ifstream input;
