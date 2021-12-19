@@ -3,7 +3,7 @@
 Voo::Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao,
          Tempo &partida, int lotacaoAtual)
         : nVoo(nVoo), duracao(duracao), lotacaoAtual(lotacaoAtual), dataPartida(dataPartida), origem(origem),
-          destino(destino), aviao(aviao), horaPartida(partida) {}
+          destino(destino), aviao(aviao), horaPartida(partida) {aviao->addToPlanoVoo(this);}
 
 unsigned int Voo::getNVoo() const {
     return nVoo;
@@ -154,7 +154,9 @@ std::stack<std::string> Voo::funcs() {
     temp.push("getDataPartida()");
     temp.push("setDataPartida()");
     temp.push("setOrigem()");
+    temp.push("getOrigem()");
     temp.push("setDestino()");
+    temp.push("getDestino");
     temp.push("sellBilhete()");
     temp.push("addPassageiro()");
     return temp;
@@ -349,6 +351,7 @@ bool Voo::findFunc(std::string nomeFunc) {
         try
         {
             addPassageiro(Terminal::passageiros[stoi(temp1)]);
+            Terminal::updateVec();
             return true;
         }
         catch (exception &e)
@@ -356,6 +359,16 @@ bool Voo::findFunc(std::string nomeFunc) {
             cout << "Function failed." << endl;
             return true;
         }
+    }
+    else if (nomeFunc == "getOrigem")
+    {
+        cout << "Aeroporto (" + origem->getName() << ", " << origem->getCity() << ", " << origem->getCountry() + ")" << endl;
+        return true;
+    }
+    else if (nomeFunc == "getDestino")
+    {
+        cout << "Aeroporto (" + destino->getName() << ", " << destino->getCity() << ", " << destino->getCountry() + ")" << endl;
+        return true;
     }
     else
         return false;
