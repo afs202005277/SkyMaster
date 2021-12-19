@@ -323,3 +323,11 @@ void Passageiro::removeBilhete(int index)
     }
     bilhetes = temp;
 }
+
+void Passageiro::removeMala(Mala m) {
+    for (vector<Mala*>::iterator it = malas.begin();it!=malas.end();it++)
+    {
+        if (*(*it)==m)
+            malas.erase(it);
+    }
+}

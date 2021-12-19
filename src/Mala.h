@@ -32,6 +32,8 @@ public:
 
     void setPeso(float peso);
 
+    friend bool operator==(const Mala &lhs, const Mala &rhs);
+
     std::string getObjectName() override;
     std::string getObjectID() override;
     bool findFunc(std::string nomeFunc) override;

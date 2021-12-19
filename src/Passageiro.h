@@ -32,6 +32,8 @@ public:
 
     void addMala(Mala *m);
 
+    void removeMala(Mala m);
+
     const std::queue<Bilhete *> & getBilhetes() const;
 
     void addBilhete(Bilhete *bilhete);
