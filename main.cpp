@@ -1,11 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
-#include <sstream>
 #include <list>
 #include "Aviao.h"
 #include "Terminal.h"
-#include <unordered_map>
 #include <set>
 
 using namespace std;
@@ -221,6 +219,10 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
     }
 
 }
+
+/**
+ * Reads 'povoar.txt' which contains saved objects and creates vectors with said objects. Afterwards, the program runs the Terminal.
+ */
 int main() {
     list<Aeroporto> aeroportos;
     list<Transporte> transportes;
@@ -236,8 +238,8 @@ int main() {
 
     readFromFile(fileName, aeroportos, transportes, funcionarios, servicos, passageiros, malas, avioes, voos, carrinhosTransporte);
     // ADICIONA TRANSPORTES AO 1º AEROPORTO
-    for (auto it = transportes.begin();it!=transportes.end();it++)
-        aeroportos.front().addTransporte(*it);
+    for (auto & transporte : transportes)
+        aeroportos.front().addTransporte(transporte);
 
     //ASSOCIA 1 AEROPORTO A CADA AVIAO
     for (auto &it : avioes){
@@ -270,6 +272,9 @@ int main() {
     vector<Terminal*> term_voos(Terminal::voos.begin(), Terminal::voos.end());
     vector<Terminal*> term_func(Terminal::funcionarios.begin(), Terminal::funcionarios.end());
 
+    /**
+    * Creates 'main' directory
+    */
     bool run = true;
     string command;
     Terminal::cur_dir.push("main");
@@ -279,6 +284,9 @@ int main() {
     Terminal::dir.insert({"VOO[list]", {"main", &term_voos}});
     Terminal::dir.insert({"FUNCIONARIO[list]", {"main", &term_func}});
 
+    /**
+     * Starts running the Terminal.
+     */
     cout << "Welcome to Airport Management Terminal\n";
     cout << "Type 'help' to get started.\n";
     cout << "[" + Terminal::cur_dir.top() + "] ";
@@ -289,14 +297,20 @@ int main() {
             std::transform(command.begin(), command.end(), command.begin(), ::toupper);
         else
             std::transform(command.begin(), command.end()-command.size()+command_temp, command.begin(), ::toupper);
+        /**
+         * Ends program.
+         */
         if (command == "QUIT")
         {
             return 0;
         }
+        /**
+         * Prints the available commands on the Terminal.
+         */
         else if (command == "HELP")
         {
             int field_size = 40;
-            cout << "These are the available commands in various situations\n\n";
+            cout << "These are the available commands for various situations\n\n";
             cout << left << setw(field_size) << setfill(' ') << "list <object> " << right << setw(field_size) << setfill(' ') << "Prints elements of object list";
             cout<<endl;
             cout << left << setw(field_size) << setfill(' ') << "ls" << right << setw(field_size) << setfill(' ') << "Lists available objects/methods";
@@ -312,6 +326,9 @@ int main() {
             cout << left << setw(field_size) << setfill(' ') << "quit" << right << setw(field_size) << setfill(' ') << "Quits Airport Management Terminal";
             cout<<endl;
         }
+        /**
+         * Prints existing objects and functions inside the directory on the Terminal.
+         */
         else if (command == "LS")
         {
             vector<string> t;
@@ -343,6 +360,9 @@ int main() {
                 cout << "removeFuncionario()" << endl;
             }
         }
+        /**
+         * Prints the vectors getObjectName on the Terminal of given list. If list is empty prints 'empty.'.
+         */
         else if (Terminal::processString(command, ' ') == "LIST")
         {
             auto t= Terminal::dir.find(Terminal::processString(command, ' ', 1, true)+"[list]");
@@ -364,6 +384,9 @@ int main() {
                 }
             }
         }
+        /**
+         * Accesses inside given object if found.
+         */
         else if (Terminal::processString(command, ' ') == "ACCESS")
         {
             string arguments = Terminal::processString(command, ' ', 1, true);
@@ -430,6 +453,9 @@ int main() {
                 }
             }
         }
+        /**
+         * Runs given function if found.
+         */
         else if (Terminal::processString(command, ' ') == "FUNC")
         {
             auto nameFunc = Terminal::processString(command, ' ', 1, true);
@@ -635,6 +661,9 @@ int main() {
                 else { cout << "Function not found. Please try again." << endl; }
             }
         }
+        /**
+         * Saves given object/list to 'povoar.txt' for later use.
+         */
         else if (Terminal::processString(command, ' ') == "SAVE")
         {
             auto arguments = Terminal::processString(command, ' ', 1, true);
@@ -651,23 +680,62 @@ int main() {
                 {
                     ofstream output;
                     output.open(fileName, ios_base::app);
-                    if (!output.is_open())
-                    {
+                    if (!output.is_open()) {
                         cout << "File not found" << endl;
                         return 1;
                     }
-                    auto temp1 = (*get<1>(t->second)->begin())->getObjectName();
-                    output << endl;
-                    output << endl;
-                    output << Terminal::processString(temp1, ' ', 1, false) << ":" << endl;
-                    for (auto p : *get<1>(t->second))
-                    {
-                        auto temp3 = p->getObjectName();
-                        string temp2 = Terminal::processString(temp3, '(', 1, true);
-                        string arguments = Terminal::processString(temp2, ')', 1, false);
-                        output << arguments << endl;
+                    if (Terminal::processString(arguments, ' ', 1, true) == arguments) {
+
+                        auto temp1 = (*get<1>(t->second)->begin())->getObjectName();
+                        output << endl;
+                        output << endl;
+                        output << Terminal::processString(temp1, ' ', 1, false) << ":" << endl;
+                        for (auto p: *get<1>(t->second)) {
+                            auto temp3 = p->getObjectName();
+                            string temp2 = Terminal::processString(temp3, '(', 1, true);
+                            string arguments = Terminal::processString(temp2, ')', 1, false);
+                            output << arguments << endl;
+                        }
+                        cout << "Saved." << endl;
                     }
-                    cout << "Saved." << endl;
+                    else
+                    {
+                        auto tt = find_if(get<1>(t->second)->begin(), get<1>(t->second)->end(), [&arguments] (Terminal* item) { if (item == nullptr) {return false;} return item->getObjectID() == Terminal::processString(arguments, ' ', 1, true);});
+                        if (tt == get<1>(t->second)->end())
+                        {
+                            try {
+                                if (stoi(Terminal::processString(arguments, ' ', 1, true)) < get<1>(t->second)->size() || get<0>(t->second) == Terminal::cur_dir.top())
+                                {
+                                    auto temp3 = get<1>(t->second)->at(stoi(Terminal::processString(arguments, ' ', 1, true)));
+                                    output << endl;
+                                    output << endl;
+                                    auto temp1 = temp3->getObjectName();
+                                    output << Terminal::processString(temp1, ' ', 1, false) << ":" << endl;
+                                    string temp2 = Terminal::processString(temp1, '(', 1, true);
+                                    string args = Terminal::processString(temp2, ')', 1, false);
+                                    output << args << endl;
+                                    cout << "Saved." << endl;
+                                }
+                                else
+                                {
+                                    cout << "Object found. Attribute \"" << Terminal::processString(arguments, ' ', 1, true) << "\" not found. Please try again.\n";
+                                }
+                            }
+                            catch (exception &e)
+                            {
+                                cout << "Object found. Attribute \"" << Terminal::processString(arguments, ' ', 1, true) << "\" not found. Please try again.\n";
+                            }
+                        }
+                        else
+                        {
+                            auto temp1 = (*tt)->getObjectName();
+                            output << Terminal::processString(temp1, ' ', 1, false) << ":" << endl;
+                            string temp2 = Terminal::processString(temp1, '(', 1, true);
+                            string args = Terminal::processString(temp2, ')', 1, false);
+                            output << args << endl;
+                            cout << "Saved." << endl;
+                        }
+                    }
                 }
                 else
                 {
@@ -675,6 +743,9 @@ int main() {
                 }
             }
         }
+        /**
+         * Goes back to previous directory. If in 'main' prints 'Nothing to go back to'.
+         */
         else if (command == "BACK")
         {
             if (Terminal::cur_dir.top() != "main")

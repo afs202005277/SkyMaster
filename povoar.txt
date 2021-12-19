@@ -41,8 +41,3 @@ CarrinhoTransporte:
 10, 10, 10, Aeroporto Francisco Sa Carneiro
 10, 10, 10, Aeroporto Francisco Sa Carneiro
 10, 10, 10, Aeroporto Francisco Sa Carneiro
-
-
-Aeroporto:
-Aeroporto Francisco Sa Carneiro, Porto, Portugal
-Aeroporto de Lisboa, Lisboa, Portugal
