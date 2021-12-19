@@ -134,9 +134,8 @@ bool Transporte::findFunc(std::string nomeFunc) {
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
-        
-        return false;
     }
     else if (nomeFunc == "getHoraChegada"){
         cout << horaChegada.getTempo() << endl;
@@ -156,9 +155,8 @@ bool Transporte::findFunc(std::string nomeFunc) {
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
-        
-        return false;
     }
     else if (nomeFunc == "getHoraPartida"){
         cout << horaPartida.getTempo() << endl;
@@ -178,12 +176,10 @@ bool Transporte::findFunc(std::string nomeFunc) {
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
-        
-        return false;
     }
     else{
-        
         return false;
     }
 }

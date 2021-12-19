@@ -92,12 +92,15 @@ bool Funcionario::findFunc(std::string nomeFunc) {
         string temp;
         getline(cin, temp);
         try {
+            if (stoi(temp) >= Terminal::aeroportos.size())
+                throw exception();
             setAeroporto(Terminal::aeroportos[stoi(temp)]);
             return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "getTelemovel"){
@@ -115,12 +118,12 @@ bool Funcionario::findFunc(std::string nomeFunc) {
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
-        
-        return false;
     }
     else if (nomeFunc == "getNome"){
         cout << nome << endl;
+        return true;
     }
     else if (nomeFunc == "setNome"){
         cout << "input Nome: ";
@@ -134,12 +137,11 @@ bool Funcionario::findFunc(std::string nomeFunc) {
         return true;
     }
     else if (nomeFunc == "setMorada"){
+        cout << "Input morada: ";
         getline(cin, morada);
-        
         return true;
     }
     else{
-        
         return false;
     }
 
