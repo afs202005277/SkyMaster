@@ -58,6 +58,7 @@ T* find(list <T> &l, T val){
     cout << "Not found" << endl;
     return nullptr;
 }
+
 void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte> &transportes, list<Funcionario> &funcionarios
                   ,list<Servico> &servicos, list<Passageiro> &passageiros, list<Mala> &malas, list<Aviao> &avioes,
                   list<Voo> &voos,list<CarrinhoTransporte> &carrinhosTransporte){
@@ -189,7 +190,9 @@ int main() {
     list<Aviao> avioes;
     list<Voo> voos;
     list<CarrinhoTransporte> carrinhosTransporte;
+
     string fileName = "../povoar.txt";
+
     readFromFile(fileName, aeroportos, transportes, funcionarios, servicos, passageiros, malas, avioes, voos, carrinhosTransporte);
     // ADICIONA TRANSPORTES AO 1º AEROPORTO
     for (auto it = transportes.begin();it!=transportes.end();it++)
@@ -602,10 +605,25 @@ int main() {
             {
                 if (get<1>(t->second)->size() != 0)
                 {
+                    ofstream input;
+                    input.open(fileName);
+                    if (!input.is_open())
+                    {
+                        cout << "File not found" << endl;
+                        return 1;
+                    }
+                    auto temp1 = (*get<1>(t->second)->begin())->getObjectName();
+                    input << Terminal::processString(temp1, ' ', 1, false) << ":" << endl;
                     for (auto p : *get<1>(t->second))
                     {
-                        cout << p->getObjectName() << endl;
+                        string temp2 = Terminal::processString(temp1, '(', 1, true);
+                        string arguments = Terminal::processString(temp2, ')', 1, false);
+                        input << arguments << endl;
                     }
+                }
+                else
+                {
+                    cout << "Nothing to save." << endl;
                 }
             }
         }
