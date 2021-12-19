@@ -245,13 +245,20 @@ int main() {
         }
         else if (command == "HELP")
         {
+            int field_size = 40;
             cout << "These are the available commands in various situations\n\n";
-            cout << "list <object>\t\t\t\t\t\t\t\t\t\t Prints elements of object list\n";
-            cout << "ls\t\t\t\t\t\t\t\t\t\t\t\t\t Lists available objects/methods\n";
-            cout << "access <object> <first attribute>\t\t\t\t\t Accesses object\n";
-            cout << "back\t\t\t\t\t\t\t\t\t\t\t\t Go back to previous directory\n";
-            cout << "func <method>\t\t\t\t\t\t\t\t\t\t Runs method\n";
-            cout << "quit\t\t\t\t\t\t\t\t\t\t\t\t Quits Airport Management Terminal\n";
+            cout << left << setw(field_size) << setfill(' ') << "list <object> " << right << setw(field_size) << setfill(' ') << "Prints elements of object list";
+            cout<<endl;
+            cout << left << setw(field_size) << setfill(' ') << "ls" << right << setw(field_size) << setfill(' ') << "Lists available objects/methods";
+            cout<<endl;
+            cout << left << setw(field_size) << setfill(' ') << "access <object> <first attribute>" << right << setw(field_size) << setfill(' ') << "Accesses object";
+            cout<<endl;
+            cout << left << setw(field_size) << setfill(' ') << "back" << right << setw(field_size) << setfill(' ') << "Go back to previous directory";
+            cout<<endl;
+            cout << left << setw(field_size) << setfill(' ') << "func <method>" << right << setw(field_size) << setfill(' ') << "Runs method";
+            cout<<endl;
+            cout << left << setw(field_size) << setfill(' ') << "quit" << right << setw(field_size) << setfill(' ') << "Quits Airport Management Terminal";
+            cout<<endl;
         }
         else if (command == "LS")
         {
