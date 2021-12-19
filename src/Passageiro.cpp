@@ -121,6 +121,7 @@ std::stack<std::string> Passageiro::funcs() {
     temp.push("setId()");
     temp.push("hasBilhete()");
     temp.push("getIntoPlane()");
+    temp.push("checkIn()");
     return temp;
 }
 
@@ -138,9 +139,10 @@ std::vector<Terminal *> *Passageiro::getV(std::string nameVector) {
     else if (nameVector == "malas")
     {
         auto temp1 = getMalas();
-        for (auto &m : temp1)
+        while (!temp1.empty())
         {
-            temp->push_back(m);
+            temp->push_back(temp1.front());
+            temp1.pop();
         }
     }
     return temp;
@@ -226,10 +228,8 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         {
             if (stoi(temp1) < malas.size())
             {
-                auto temp2 = malas.begin();
-                advance(temp2, stoi(temp1));
-                malas.erase(temp2);
-                return true;
+                auto temp2 = getMalas();
+
             }
         }
         catch (exception &e)
@@ -290,23 +290,44 @@ bool Passageiro::findFunc(std::string nomeFunc) {
             return true;
         }
     }
-    else{
+    else if (nomeFunc == "checkIn")
+    {
+        cout << "input checkInAutomatico? (y/n): ";
+        string temp1;
+        getline(cin, temp1);
+        cout << "input voo (index): ";
+        string temp2;
+        getline(cin, temp2);
+        try
+        {
+            if ((temp1 == "y" || temp1 == "n") && stoi(temp2) < Terminal::voos.size())
+            {
+                checkIn(temp1=="y", *Terminal::voos[stoi(temp2)], malas);
+            }
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+    }
+    else
+    {
         return false;
     }
     return true;
 }
 
-const vector<Mala *> &Passageiro::getMalas() const {
+const queue<Mala *> &Passageiro::getMalas() const {
     return malas;
 }
 
-void Passageiro::setMalas(const vector<Mala *> &malas) {
+void Passageiro::setMalas(const queue<Mala *> &malas) {
     Passageiro::malas = malas;
 }
 
 void Passageiro::addMala(Mala *m)
 {
-    malas.push_back(m);
+    malas.push(m);
 }
 
 void Passageiro::removeBilhete(int index)
@@ -324,10 +345,15 @@ void Passageiro::removeBilhete(int index)
     bilhetes = temp;
 }
 
-void Passageiro::removeMala(Mala m) {
-    for (vector<Mala*>::iterator it = malas.begin();it!=malas.end();it++)
+void Passageiro::removeMala(Mala *m) {
+    queue<Mala*> temp;
+    while (!malas.empty())
     {
-        if (*(*it)==m)
-            malas.erase(it);
+        if (malas.front() != m)
+        {
+            temp.push(malas.front());
+        }
+        malas.pop();
     }
+    malas = temp;
 }

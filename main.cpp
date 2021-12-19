@@ -61,8 +61,8 @@ std::multimap<string, tuple<string, vector<Terminal*>*>> Terminal::Terminal::dir
 
 int main() {
     ifstream input;
-    //input.open("/Users/pedrofonseca/Documents/FEUP/AED/AED1/povoar.txt");
-    input.open("D:\\Importante\\FEUP\\2 ano\\1 semestre\\AED\\Projeto1\\povoar.txt");
+    input.open("/Users/pedrofonseca/Documents/FEUP/AED/AED1/povoar.txt");
+    //input.open("D:\\Importante\\FEUP\\2 ano\\1 semestre\\AED\\Projeto1\\povoar.txt");
     if (!input.is_open())
     {
         cout << "File not found" << endl;
@@ -562,6 +562,27 @@ int main() {
                     }
                 }
                 else { cout << "Function not found. Please try again." << endl; }
+            }
+        }
+        else if (command == "SAVE")
+        {
+            auto t= Terminal::dir.find(Terminal::processString(command, ' ', 1, true)+"[list]");
+            if (t == Terminal::dir.end() || get<0>(t->second) != Terminal::cur_dir.top())
+            {
+                cout << "List \"" << Terminal::processString(command, ' ', 1, true) << "\" not found. Please try again.\n";
+            }
+            else
+            {
+                if (get<1>(t->second)->size() == 0)
+                {
+                    cout << "empty." << endl;
+                }
+                else {
+                    for (auto p : *get<1>(t->second))
+                    {
+                        cout << p->getObjectName() << endl;
+                    }
+                }
             }
         }
         else if (command == "BACK")

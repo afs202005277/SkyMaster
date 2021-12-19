@@ -86,16 +86,15 @@ bool CarrinhoTransporte::addMala(Mala *&pMala) {
 
 void CarrinhoTransporte::descarregarMalasAviao()
 {
-    for (vector<stack<Mala*>> &carruagem : this->carga)
-    {
-        for (stack<Mala*> &carrinho : carruagem)
-        {
-            while (!carrinho.empty())
-            {
-                auto temp1 = carrinho.top();
-                auto *temp2 = new Mala(temp1->getDono(), temp1->getPeso(), aviao);
-                aviao->addMala(temp2);
-                carrinho.pop();
+    if (aviao != nullptr) {
+        for (vector<stack<Mala *>> &carruagem: this->carga) {
+            for (stack<Mala *> &carrinho: carruagem) {
+                while (!carrinho.empty()) {
+                    auto temp1 = carrinho.top();
+                    auto *temp2 = new Mala(temp1->getDono(), temp1->getPeso(), aviao);
+                    aviao->addMala(temp2);
+                    carrinho.pop();
+                }
             }
         }
     }
@@ -222,7 +221,14 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            addMalas(Terminal::passageiros[stoi(temp1)]->getMalas());
+            auto temp2 = Terminal::passageiros[stoi(temp1)]->getMalas();
+            vector<Mala*> temp3;
+            while (!temp2.empty())
+            {
+                temp3.push_back(temp2.front());
+                temp2.pop();
+            }
+            addMalas(temp3);
             Terminal::updateVec();
         }
         catch (exception &e)

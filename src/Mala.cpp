@@ -5,7 +5,7 @@ Passageiro * Mala::getDono() const {
 }
 
 void Mala::setDono(Passageiro* dono) {
-    dono->removeMala(*this);
+    dono->removeMala(this);
     Terminal::updateVec();
     this->dono = dono;
     dono->addMala(this);
