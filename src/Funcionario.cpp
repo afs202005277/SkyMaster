@@ -92,7 +92,7 @@ bool Funcionario::findFunc(std::string nomeFunc) {
         string temp;
         getline(cin, temp);
         try {
-            if (stoi(temp) >= Terminal::aeroportos.size())
+            if (stoi(temp) >= Terminal::aeroportos.size() || stoi(temp) < 0)
                 throw exception();
             setAeroporto(Terminal::aeroportos[stoi(temp)]);
             return true;

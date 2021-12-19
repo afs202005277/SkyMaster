@@ -186,7 +186,7 @@ bool Voo::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            if (stoi(temp1) < origem->getAvioes().size()) {
+            if (stoi(temp1) < origem->getAvioes().size() && stoi(temp1) >= 0) {
                 auto t = origem->getAvioes().begin();
                 advance(t, stoi(temp1));
                 setAviao(*t);
@@ -273,6 +273,8 @@ bool Voo::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
+            if (stoi(temp1) < 0 || stoi(temp1) >= Terminal::aeroportos.size())
+                throw exception();
             setOrigem(Terminal::aeroportos[stoi(temp1)]);
         }
         catch (exception &e)
@@ -287,6 +289,8 @@ bool Voo::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
+            if (stoi(temp1) < 0 || stoi(temp1) >= Terminal::aeroportos.size())
+                throw exception();
             setDestino(Terminal::aeroportos[stoi(temp1)]);
         }
         catch (exception &e)
@@ -304,6 +308,8 @@ bool Voo::findFunc(std::string nomeFunc) {
         getline(cin, temp2);
         try
         {
+            if (stoi(temp2) < 0 || stoi(temp2) >=Terminal::passageiros.size())
+                throw exception();
             if (temp1 == "y")
             {
                 cout << (sellBilhete(true, Terminal::passageiros[stoi(temp2)]) ? "Sold." : "Not sold.") << endl;

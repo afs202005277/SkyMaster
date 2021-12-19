@@ -114,6 +114,8 @@ bool Servico::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
+            if (stoi(temp1) < 0 || stoi(temp1) >= Terminal::funcionarios.size())
+                throw exception();
             setFuncionario(Terminal::funcionarios[stoi(temp1)]);
             return true;
         }

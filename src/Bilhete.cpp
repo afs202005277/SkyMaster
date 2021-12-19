@@ -69,7 +69,7 @@ bool Bilhete::findFunc(std::string nomeFunc) {
         string temp1;
         getline(cin, temp1);
         try {
-            if (stoi(temp1) < Terminal::passageiros.size()) {
+            if (stoi(temp1) < Terminal::passageiros.size() && stoi(temp1) >= 0) {
                 setPassageiro((Terminal::passageiros[stoi(temp1)]));
                 Terminal::updateVec();
             }
