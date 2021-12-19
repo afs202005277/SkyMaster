@@ -321,11 +321,18 @@ int main() {
                 {
                     if (Terminal::processString(arguments, ' ', 1, true) == arguments)
                     {
-                        auto ttt = t->first;
-                        ttt = Terminal::processString(ttt, '[', 1, false);
-                        Terminal::cur_dir.push(ttt);
-                        Terminal::cur_obj.push(get<1>(t->second)->back());
-                        Terminal::handleListDir(Terminal::cur_dir.top(), Terminal::cur_obj.top(), Terminal::dir, true);
+                        if (get<1>(t->second)->back() == nullptr)
+                        {
+                            cout << "Object not found." << endl;
+                        }
+                        else
+                        {
+                            auto ttt = t->first;
+                            ttt = Terminal::processString(ttt, '[', 1, false);
+                            Terminal::cur_dir.push(ttt);
+                            Terminal::cur_obj.push(get<1>(t->second)->back());
+                            Terminal::handleListDir(Terminal::cur_dir.top(), Terminal::cur_obj.top(), Terminal::dir,true);
+                        }
                     }
                 }
                 else
