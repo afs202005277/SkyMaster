@@ -240,12 +240,12 @@ int main() {
         aeroportos.front().addTransporte(*it);
 
     //ASSOCIA 1 AEROPORTO A CADA AVIAO
-    for (list<Aviao>::iterator it=avioes.begin();it!=avioes.end();it++){
-        if (it->getPlano().empty())
+    for (auto &a:avioes){
+        if (a.getPlano().empty())
             continue;
         else
         {
-            it->getPlano().front()->getOrigem()->addAviao(&(*it));
+            a.getPlano().front()->getOrigem()->addAviao(&a);
         }
 
     }
