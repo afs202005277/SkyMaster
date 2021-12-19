@@ -114,7 +114,6 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Aeroporto* a = new Aeroporto(arguments[0], arguments[1], arguments[2]);
                 aeroportos.push_back(*a);
             }
-            removeDuplicates(aeroportos);
         }
         else if (object == "Transporte")
         {
@@ -128,7 +127,6 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 required->addTransporte(*t);
                 transportes.push_back(*t);
             }
-            removeDuplicates(transportes);
         }
         else if (object == "Funcionario")
         {
@@ -141,7 +139,6 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Funcionario* f = new Funcionario(stoi(arguments[0]), arguments[1], arguments[2], required);
                 funcionarios.push_back(*f);
             }
-            removeDuplicates(funcionarios);
         }
         else if (object == "Servico")
         {
@@ -153,7 +150,6 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Servico* s = new Servico(arguments[0], required, arguments[2]);
                 servicos.push_back(*s);
             }
-            removeDuplicates(servicos);
         }
         else if (object == "Passageiro")
         {
@@ -164,7 +160,6 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Passageiro* p = new Passageiro(arguments[0], stoi(arguments[1]), stoi(arguments[2]));
                 passageiros.push_back(*p);
             }
-            removeDuplicates(passageiros);
         }
         else if (object == "Mala")
         {
@@ -176,11 +171,6 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Mala* m = new Mala(required, stof(arguments[1]));
                 malas.push_back(*m);
             }
-            removeDuplicates(malas);
-            for (auto &elem:malas)
-            {
-                elem.getDono()->addMala(&elem);
-            }
         }
         else if (object == "Aviao")
         {
@@ -191,7 +181,6 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Aviao* a = new Aviao(stoi(arguments[0]), arguments[1], arguments[2]);
                 avioes.push_back(*a);
             }
-            removeDuplicates(avioes);
         }
         else if (object == "Voo")
         {
@@ -207,7 +196,6 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Voo* v = new Voo(stoi(arguments[0]), stoi(arguments[1]), arguments[2], origem, destino, aviao, arguments[6]);
                 voos.push_back(*v);
             }
-            removeDuplicates(voos);
         }
         else if (object == "CarrinhoTransporte")
         {
@@ -221,6 +209,18 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
             }
         }
     }
+    removeDuplicates(aeroportos);
+    removeDuplicates(transportes);
+    removeDuplicates(funcionarios);
+    removeDuplicates(servicos);
+    removeDuplicates(passageiros);
+    removeDuplicates(malas);
+    for (auto &elem:malas)
+    {
+        elem.getDono()->addMala(&elem);
+    }
+    removeDuplicates(avioes);
+    removeDuplicates(voos);
 }
 
 /**

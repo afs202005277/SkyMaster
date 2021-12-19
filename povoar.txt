@@ -44,3 +44,8 @@ CarrinhoTransporte:
 
 Transporte:
 55, 12:02, 12:10, comboio, Aeroporto Francisco Sa Carneiro
+
+
+Aeroporto:
+Aeroporto Francisco Sa Carneiro, Porto, Portugal
+Aeroporto de Lisboa, Lisboa, Portugal
