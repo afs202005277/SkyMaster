@@ -122,6 +122,12 @@ public:
      */
     friend bool operator==(const Aeroporto &lhs, const Aeroporto &rhs);
 
+    /**
+     * Funcao que verifica se lhs é inferior que rhs
+     * @param Aeroporto lhs
+     * @param Aeroporto rhs
+     * @return false se os 2 aeroportos tiverem o mesmo nome
+     */
     friend bool operator<(const Aeroporto &lhs, const Aeroporto &rhs);
 
     void addCarrinho(CarrinhoTransporte * c);
