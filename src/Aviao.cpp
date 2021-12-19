@@ -494,7 +494,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
 }
 
 std::vector<Terminal *> *Aviao::getV(std::string nameVector) {
-    vector<Terminal *> *temp = new vector<Terminal*>;
+    auto *temp = new vector<Terminal*>;
     if (nameVector == "plano")
     {
         for (auto p : plano)

@@ -10,6 +10,7 @@
 #include "Aviao.h"
 #include "Terminal.h"
 #include "Tempo.h"
+#include <set>
 
 using namespace std;
 

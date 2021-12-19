@@ -639,13 +639,17 @@ int main() {
                         return 1;
                     }
                     auto temp1 = (*get<1>(t->second)->begin())->getObjectName();
+                    output << endl;
+                    output << endl;
                     output << Terminal::processString(temp1, ' ', 1, false) << ":" << endl;
                     for (auto p : *get<1>(t->second))
                     {
-                        string temp2 = Terminal::processString(temp1, '(', 1, true);
+                        auto temp3 = p->getObjectName();
+                        string temp2 = Terminal::processString(temp3, '(', 1, true);
                         string arguments = Terminal::processString(temp2, ')', 1, false);
                         output << arguments << endl;
                     }
+                    cout << "Saved." << endl;
                 }
                 else
                 {

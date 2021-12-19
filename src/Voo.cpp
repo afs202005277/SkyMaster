@@ -158,6 +158,7 @@ std::stack<std::string> Voo::funcs() {
     temp.push("setDestino()");
     temp.push("getDestino");
     temp.push("sellBilhete()");
+    temp.push("sellBilheteGroup()");
     return temp;
 }
 
@@ -337,6 +338,64 @@ bool Voo::findFunc(std::string nomeFunc) {
     {
         cout << "Aeroporto (" + destino->getName() << ", " << destino->getCity() << ", " << destino->getCountry() + ")" << endl;
         return true;
+    }
+    else if (nomeFunc == "sellBilheteGroup")
+    {
+        cout << "input passageiro (index): ";
+        string temp1;
+        getline(cin, temp1);
+        cout << "input levaBagagem? (y/n): ";
+        string temp2;
+        getline(cin, temp2);
+        vector<bool> lb;
+        set<Passageiro*> p;
+        try
+        {
+            if ((temp2 == "y" || temp2 == "n") && stoi(temp1) < Terminal::passageiros.size() && stoi(temp1) >= 0)
+            {
+                lb.push_back(temp2=="y");
+                p.insert(Terminal::passageiros[stoi(temp1)]);
+                bool c = true;
+                while (c) {
+                    cout << "input passageiro (index) or any letter to exit: ";
+                    getline(cin, temp1);
+                    try {
+                        stoi(temp1);
+                        cout << "input levaBagagem? (y/n): ";
+                        getline(cin, temp2);
+                        if ((temp2 == "y" || temp2 == "n") && stoi(temp1) < Terminal::passageiros.size() && stoi(temp1) >= 0)
+                        {
+                            int temp4 = p.size();
+                            p.insert(Terminal::passageiros[stoi(temp1)]);
+                            if (p.size() != temp4)
+                                lb.push_back(temp2 == "y");
+                        }
+                        else
+                        {
+                            throw exception();
+                        }
+                    }
+                    catch (exception &e) {
+                        cout << "Finishing." << endl;
+                        vector<Passageiro *> temp3;
+                        for (auto s: p) {
+                            temp3.push_back(s);
+                        }
+                        sellBilheteGroup(lb, temp3);
+                        c = false;
+                    }
+                }
+                Terminal::updateVec();
+            }
+            else
+            {
+                cout << "Function failed." << endl;
+            }
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
     }
     else
         return false;
