@@ -181,7 +181,9 @@ Voo& Aviao::getNextVoo() const {
     return *(*next(it));
 }
 
-Aviao::Aviao(int capacidade, std::string matricula, std::string tipo) : capacidade(capacidade), matricula(matricula), tipo(tipo){}
+Aviao::Aviao(int capacidade, std::string matricula, std::string tipo) : capacidade(capacidade), matricula(matricula), tipo(tipo){
+    carrinhoAssociado = nullptr;
+}
 
 bool operator==(const Aviao &lhs, const Aviao &rhs) {
     return lhs.matricula == rhs.matricula;

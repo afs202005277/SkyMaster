@@ -198,3 +198,11 @@ const string &Transporte::getNomeAeroporto() const {
 void Transporte::setNomeAeroporto(const string &nomeAeroporto) {
     Transporte::nomeAeroporto = nomeAeroporto;
 }
+
+bool operator==(const Transporte &lhs, const Transporte &rhs) {
+           return lhs.distancia == rhs.distancia &&
+           lhs.horaChegada == rhs.horaChegada &&
+           lhs.horaPartida == rhs.horaPartida &&
+           lhs.tipo == rhs.tipo &&
+           lhs.nomeAeroporto == rhs.nomeAeroporto;
+}

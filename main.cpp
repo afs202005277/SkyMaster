@@ -5,6 +5,7 @@
 #include "Aviao.h"
 #include "Terminal.h"
 #include <set>
+#include <algorithm>
 
 using namespace std;
 
@@ -47,16 +48,15 @@ void processInput(const string &instruction, vector<string> & arguments){
 template <class T>
 void removeDuplicates(list<T> &temp)
 {
-    set<T> temp2;
-    for (auto t : temp)
+    list<T> nova;
+    set<T> s;
+    for (typename list<T>::iterator it=temp.begin();it!=temp.end();it++)
     {
-        temp2.insert(t);
+        if (s.insert(*it).second) {
+            nova.push_back(*it);
+        }
     }
-    temp.clear();
-    for (auto t : temp2)
-    {
-        temp.push_back(t);
-    }
+    temp = nova;
 }
 
 /**
@@ -114,10 +114,10 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Aeroporto* a = new Aeroporto(arguments[0], arguments[1], arguments[2]);
                 aeroportos.push_back(*a);
             }
+            removeDuplicates(aeroportos);
         }
         else if (object == "Transporte")
         {
-
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 vector<string> arguments(5);
                 processInput(instruction, arguments);
@@ -127,10 +127,10 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 required->addTransporte(*t);
                 transportes.push_back(*t);
             }
+            removeDuplicates(transportes);
         }
         else if (object == "Funcionario")
         {
-
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 vector<string> arguments(4);
                 processInput(instruction, arguments);
@@ -139,6 +139,7 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Funcionario* f = new Funcionario(stoi(arguments[0]), arguments[1], arguments[2], required);
                 funcionarios.push_back(*f);
             }
+            removeDuplicates(funcionarios);
         }
         else if (object == "Servico")
         {
@@ -150,16 +151,17 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Servico* s = new Servico(arguments[0], required, arguments[2]);
                 servicos.push_back(*s);
             }
+            removeDuplicates(servicos);
         }
         else if (object == "Passageiro")
         {
-
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 vector<string> arguments(3);
                 processInput(instruction, arguments);
                 Passageiro* p = new Passageiro(arguments[0], stoi(arguments[1]), stoi(arguments[2]));
                 passageiros.push_back(*p);
             }
+            removeDuplicates(passageiros);
         }
         else if (object == "Mala")
         {
@@ -171,6 +173,7 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Mala* m = new Mala(required, stof(arguments[1]));
                 malas.push_back(*m);
             }
+            removeDuplicates(malas);
         }
         else if (object == "Aviao")
         {
@@ -181,6 +184,7 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Aviao* a = new Aviao(stoi(arguments[0]), arguments[1], arguments[2]);
                 avioes.push_back(*a);
             }
+            removeDuplicates(avioes);
         }
         else if (object == "Voo")
         {
@@ -193,9 +197,12 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 auto destino = find(aeroportos, tmp);
                 Aviao tmp_aviao(0, arguments[5], "");
                 auto aviao = find(avioes, tmp_aviao);
+                auto a1 = &aeroportos.front();
+                auto a2 =&aeroportos.back();
                 Voo* v = new Voo(stoi(arguments[0]), stoi(arguments[1]), arguments[2], origem, destino, aviao, arguments[6]);
                 voos.push_back(*v);
             }
+            removeDuplicates(voos);
         }
         else if (object == "CarrinhoTransporte")
         {
@@ -209,18 +216,10 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
             }
         }
     }
-    removeDuplicates(aeroportos);
-    removeDuplicates(transportes);
-    removeDuplicates(funcionarios);
-    removeDuplicates(servicos);
-    removeDuplicates(passageiros);
-    removeDuplicates(malas);
     for (auto &elem:malas)
     {
         elem.getDono()->addMala(&elem);
     }
-    removeDuplicates(avioes);
-    removeDuplicates(voos);
 }
 
 /**
@@ -242,6 +241,8 @@ int main() {
     readFromFile(fileName, aeroportos, transportes, funcionarios, servicos, passageiros, malas, avioes, voos, carrinhosTransporte);
 
     //ASSOCIA 1 AEROPORTO A CADA AVIAO
+    auto a1 = &aeroportos.front();
+    auto a2 = &aeroportos.back();
     for (auto &a:avioes){
         if (a.getPlano().empty())
             continue;
@@ -249,7 +250,6 @@ int main() {
         {
             a.getPlano().front()->getOrigem()->addAviao(&a);
         }
-
     }
 
     // TERMINAL STUFF

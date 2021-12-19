@@ -53,6 +53,8 @@ public:
      */
     friend bool operator<(const Transporte &lhs, const Transporte &rhs);
 
+    friend bool operator==(const Transporte &lhs, const Transporte &rhs);
+
     std::string getObjectName() override;
     std::string getObjectID() override;
     bool findFunc(std::string nomeFunc) override;
