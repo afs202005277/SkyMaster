@@ -52,6 +52,8 @@ public:
 
     void setId(int id);
 
+    void removeBilhete(int index);
+
     /**
      * Verifica se o passageiro tem bilhete para o voo recebido como argumento
      * @param nVoo

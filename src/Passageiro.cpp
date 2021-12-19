@@ -109,6 +109,7 @@ std::string Passageiro::getObjectID() {
 
 std::stack<std::string> Passageiro::funcs() {
     stack<string> temp;
+    temp.push("removeBilhete()");
     temp.push("removeNextBilhete()");
     temp.push("getNome()");
     temp.push("setNome()");
@@ -147,7 +148,28 @@ std::vector<Terminal *> *Passageiro::getV(std::string nameVector) {
 
 bool Passageiro::findFunc(std::string nomeFunc) {
     nomeFunc = processString(nomeFunc, '(', 1, false);
-    if (nomeFunc == "removeNextBilhete"){
+    if (nomeFunc == "removeBilhete")
+    {
+        cout << "input bilhete (index): ";
+        string temp1;
+        getline(cin, temp1);
+        try
+        {
+            if (stoi(temp1) < bilhetes.size())
+            {
+                removeBilhete(stoi(temp1));
+            }
+            else
+            {
+                cout << "Object not found." << endl;
+            }
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed.";
+        }
+    }
+    else if (nomeFunc == "removeNextBilhete"){
         removeNextBilhete();
         Terminal::updateVec();
         return true;
@@ -281,4 +303,17 @@ void Passageiro::addMala(Mala *m)
     malas.push_back(m);
 }
 
-
+void Passageiro::removeBilhete(int index)
+{
+    queue<Bilhete*> temp;
+    while (!bilhetes.empty())
+    {
+        if (index != 0)
+        {
+            temp.push(bilhetes.front());
+        }
+        bilhetes.pop();
+        index--;
+    }
+    bilhetes = temp;
+}

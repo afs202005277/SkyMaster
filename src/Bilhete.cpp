@@ -24,7 +24,9 @@ Passageiro *Bilhete::getPassageiro() const {
 }
 
 void Bilhete::setPassageiro(Passageiro *passageiro) {
+    this->passageiro->removeBilhete(std::find(Terminal::passageiros.begin(), Terminal::passageiros.end(), this->passageiro) - Terminal::passageiros.begin());
     Bilhete::passageiro = passageiro;
+    passageiro->addBilhete(this);
 }
 
 std::string Bilhete::getObjectName() {
@@ -49,7 +51,6 @@ bool Bilhete::findFunc(std::string nomeFunc) {
     nomeFunc = processString(nomeFunc, '(', 1, false);
     if(nomeFunc == "getNVoo"){
         cout << getNVoo() << endl;
-        return true;
     }
     else if(nomeFunc == "setNVoo"){
         cout << "input nVoo: ";
@@ -57,21 +58,25 @@ bool Bilhete::findFunc(std::string nomeFunc) {
         getline(cin, temp);
         try {
             setNVoo(stoi(temp));
-            return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
         }
-        
-        return false;
     }
     else if (nomeFunc == "setPassageiro"){
         cout << "input Passenger's index: ";
         string temp1;
+        getline(cin, temp1);
         try {
-            setPassageiro((passageiros[stoi(temp1)]));
-            return true;
+            if (stoi(temp1) < Terminal::passageiros.size()) {
+                setPassageiro((Terminal::passageiros[stoi(temp1)]));
+                Terminal::updateVec();
+            }
+            else
+            {
+                cout << "Object not found." << endl;
+            }
         }
         catch (exception &e)
         {
@@ -83,27 +88,33 @@ bool Bilhete::findFunc(std::string nomeFunc) {
             cout << "True" << endl;
         else
             cout << "False" << endl;
-        return true;
     }
     else if (nomeFunc == "setLevaBagagem") {
-        cout << "input levaBagagem: ";
+        cout << "input levaBagagem (y/n): ";
         string temp;
         getline(cin, temp);
         try {
-            setLevaBagagem(stoi(temp));
-            return true;
+            if (temp == "y")
+            {
+                setLevaBagagem(true);
+            }
+            else if (temp == "n")
+            {
+                setLevaBagagem(false);
+            }
+            else
+            {
+                cout << "Function failed." << endl;
+            }
         }
         catch (exception &e) {
             cout << "Function failed." << endl;
         }
-        
-        return false;
     }
     else{
-        
         return false;
     }
-    return false;
+    return true;
 }
 
 vector<Terminal*> *Bilhete::getV(std::string nameVector)
