@@ -129,12 +129,15 @@ bool Aviao::removeFromPlanoVoo(Voo &voo) {
 
 void Aviao::viajar()
 {
-    carrinhoAssociado->descarregarMalasAviao();
-    carrinhoAssociado->setAviao(nullptr);
-    this->carrinhoAssociado = nullptr;
-    this->plano.front()->getDestino()->addAviao(this);
-    this->plano.front()->getOrigem()->removeAviao(this);
-    this->plano.erase(plano.begin());
+    if (!plano.empty())
+    {
+        carrinhoAssociado->descarregarMalasAviao();
+        carrinhoAssociado->setAviao(nullptr);
+        this->carrinhoAssociado = nullptr;
+        this->plano.front()->getDestino()->addAviao(this);
+        this->plano.front()->getOrigem()->removeAviao(this);
+        this->plano.erase(plano.begin());
+    }
 }
 
 const stack<Servico *> &Aviao::getServicosProcessados() const {
@@ -344,7 +347,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
         {
             if (stoi(temp5) << Terminal::aeroportos.size())
             {
-                addToPlanoVoo(new Voo(stoi(temp1), stoi(temp2), temp3, plano.front()->getOrigem(), Terminal::aeroportos[stoi(temp5)], this, temp6));
+                new Voo(stoi(temp1), stoi(temp2), temp3, plano.front()->getOrigem(), Terminal::aeroportos[stoi(temp5)], this, temp6);
                 Terminal::updateVec();
             }
             else
@@ -364,9 +367,17 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            auto temp2 = plano.begin();
-            advance(temp2, stoi(temp1));
-            plano.erase(temp2);
+            if (stoi(temp1) < plano.size())
+            {
+                auto temp2 = plano.begin();
+                advance(temp2, stoi(temp1));
+                plano.erase(temp2);
+                Terminal::updateVec();
+            }
+            else
+            {
+                cout << "Object not found." << endl;
+            }
         }
         catch (exception &e)
         {
@@ -374,7 +385,10 @@ bool Aviao::findFunc(std::string nomeFunc) {
         }
     }
     else if (nomeFunc == "processService")
+    {
         cout << (processService() ? "Done." : "Not done.") << endl;
+        Terminal::updateVec();
+    }
     else if (nomeFunc == "getPastServicesBy")
     {
         cout << "input funcionario (index): ";
@@ -382,10 +396,17 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            auto temp2 = getPastServicesBy(*Terminal::funcionarios[stoi(temp1)]);
-            for (auto temp3 : temp2)
+            if (stoi(temp1) < Terminal::funcionarios.size())
             {
-                cout << temp3->getObjectName() << endl;
+                auto temp2 = getPastServicesBy(*Terminal::funcionarios[stoi(temp1)]);
+                for (auto temp3 : temp2)
+                {
+                    cout << temp3->getObjectName() << endl;
+                }
+            }
+            else
+            {
+                cout << "Object not found." << endl;
             }
         }
         catch (exception &e)
@@ -400,10 +421,15 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            auto temp2 = getFutureServicesBy(*Terminal::funcionarios[stoi(temp1)]);
-            for (auto temp3 : temp2)
+            if (stoi(temp1) < Terminal::funcionarios.size()) {
+                auto temp2 = getFutureServicesBy(*Terminal::funcionarios[stoi(temp1)]);
+                for (auto temp3: temp2) {
+                    cout << temp3->getObjectName() << endl;
+                }
+            }
+            else
             {
-                cout << temp3->getObjectName() << endl;
+                cout << "Object not found." << endl;
             }
         }
         catch (exception &e)
@@ -418,14 +444,18 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            auto temp2 = getAllServicesBy(*Terminal::funcionarios[stoi(temp1)]);
-            for (auto temp3 : temp2[0])
-            {
-                cout << temp3->getObjectName() << endl;
+            if (stoi(temp1) < Terminal::funcionarios.size()) {
+                auto temp2 = getAllServicesBy(*Terminal::funcionarios[stoi(temp1)]);
+                for (auto temp3: temp2[0]) {
+                    cout << temp3->getObjectName() << endl;
+                }
+                for (auto temp3: temp2[1]) {
+                    cout << temp3->getObjectName() << endl;
+                }
             }
-            for (auto temp3 : temp2[1])
+            else
             {
-                cout << temp3->getObjectName() << endl;
+                cout << "Object not found." << endl;
             }
         }
         catch (exception &e)
@@ -435,12 +465,19 @@ bool Aviao::findFunc(std::string nomeFunc) {
     }
     else if (nomeFunc == "descarregarMalas")
     {
-        cout << "input carrinho transporte (index): ";
         string temp1;
         getline(cin, temp1);
         try
         {
-            //stoi(temp1)
+            if (carrinhoAssociado != nullptr)
+            {
+                descarregarMalas();
+                cout << "Done." << endl;
+            }
+            else
+            {
+                cout << "No transport car." << endl;
+            }
         }
         catch (exception &e)
         {
@@ -448,7 +485,10 @@ bool Aviao::findFunc(std::string nomeFunc) {
         }
     }
     else if (nomeFunc == "viajar")
+    {
         viajar();
+        Terminal::updateVec();
+    }
     else
     {
         return false;

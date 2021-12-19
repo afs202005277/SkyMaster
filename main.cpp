@@ -61,8 +61,8 @@ std::unordered_map<string, tuple<string, vector<Terminal*>*>> Terminal::Terminal
 
 int main() {
     ifstream input;
-    //input.open("/Users/pedrofonseca/Documents/FEUP/AED/AED1/povoar.txt");
-    input.open("D:\\Importante\\FEUP\\2 ano\\1 semestre\\AED\\Projeto1\\povoar.txt");
+    input.open("/Users/pedrofonseca/Documents/FEUP/AED/AED1/povoar.txt");
+    //input.open("D:\\Importante\\FEUP\\2 ano\\1 semestre\\AED\\Projeto1\\povoar.txt");
     if (!input.is_open())
     {
         cout << "File not found" << endl;
@@ -564,6 +564,7 @@ int main() {
                 Terminal::handleListDir(Terminal::cur_dir.top(), Terminal::cur_obj.top(), Terminal::dir, false);
                 Terminal::cur_dir.pop();
                 Terminal::cur_obj.pop();
+                Terminal::updateVec();
             }
             else
             {

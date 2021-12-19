@@ -114,6 +114,8 @@ std::stack<std::string> Passageiro::funcs() {
     temp.push("setNome()");
     temp.push("getIdade()");
     temp.push("setIdade()");
+    temp.push("addMala()");
+    temp.push("removeMala()");
     temp.push("getId()");
     temp.push("setId()");
     temp.push("hasBilhete()");
@@ -130,6 +132,14 @@ std::vector<Terminal *> *Passageiro::getV(std::string nameVector) {
         {
             temp->push_back(temp1.front());
             temp1.pop();
+        }
+    }
+    else if (nameVector == "malas")
+    {
+        auto temp1 = getMalas();
+        for (auto m : temp1)
+        {
+            temp->push_back(m);
         }
     }
     return temp;
@@ -167,6 +177,39 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         {
             cout << "Function failed." << endl;
             return true;
+        }
+    }
+    else if (nomeFunc == "addMala")
+    {
+        cout << "input peso: ";
+        string temp1;
+        getline(cin, temp1);
+        try
+        {
+            addMala(new Mala(this, stoi(temp1), nullptr));
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+        }
+    }
+    else if (nomeFunc == "removeMala")
+    {
+        cout << "input mala (index): ";
+        string temp1;
+        getline(cin, temp1);
+        try
+        {
+            if (stoi(temp1) < malas.size())
+            {
+                auto temp2 = malas.begin();
+                advance(temp2, stoi(temp1));
+                malas.erase(temp2);
+            }
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
         }
     }
     else if (nomeFunc == "getId"){

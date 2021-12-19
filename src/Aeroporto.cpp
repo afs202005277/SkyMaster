@@ -145,12 +145,8 @@ bool Aeroporto::sorterFuncionarios(const Funcionario *f1, const Funcionario *f2)
 }
 
 void Aeroporto::addAviao(Aviao *a) {
-    for (auto it=avioes.begin();it!=avioes.end();it++)
-    {
-        if (a->getNextVoo() < (*next(it))->getNextVoo() && a->getNextVoo() > (*it)->getNextVoo())
-            avioes.insert(it, a);
-    }
     avioes.push_back(a);
+    avioes.sort(sorterAvioes);
     bool assigned=false;
     for (auto &c:carrinhos)
     {
@@ -205,7 +201,15 @@ Aeroporto::Aeroporto(string name, string city, string country,
 }
 
 bool Aeroporto::sorterAvioes(const Aviao* a1, const Aviao* a2) {
-    return a1->getNextVoo() < a2->getNextVoo();
+    if (a1->getPlano().size() > 1 && a2->getPlano().size() > 1)
+    {
+        return a1->getNextVoo() < a2->getNextVoo();
+    }
+    else if (a2->getPlano().size() > 1)
+    {
+        return true;
+    }
+    return false;
 }
 
 const queue<Mala *> &Aeroporto::getStorage() const {

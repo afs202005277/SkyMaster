@@ -163,8 +163,8 @@ public:
         {
             if (in)
             {
-            dir.insert({"PASSAGEIRO", {"MALA", cur_obj->getV("dono")}});
-            dir.insert({"AVIAO", {"MALA", cur_obj->getV("despachada")}});
+                dir.insert({"PASSAGEIRO", {"MALA", cur_obj->getV("dono")}});
+                dir.insert({"AVIAO", {"MALA", cur_obj->getV("despachada")}});
             }
             else
             {
@@ -177,10 +177,12 @@ public:
             if (in)
             {
                 dir.insert({"BILHETE[list]", {"PASSAGEIRO", cur_obj->getV("bilhetes")}});
+                dir.insert({"MALA[list]", {"MALA", cur_obj->getV("malas")}});
             }
             else
             {
                 dir.erase("BILHETE[list]");
+                dir.erase("MALA[list]");
             }
         }
         else if (new_dir == "SERVICO")
