@@ -42,6 +42,10 @@ void processInput(const string &instruction, vector<string> & arguments){
     arguments[arguments.size()-1] = tmp;
 }
 
+/**
+     * Removes duplicates from list objects
+     * @tparam T : changes the given list directly
+     */
 template <class T>
 void removeDuplicates(list<T> &temp)
 {
@@ -75,6 +79,19 @@ T* find(list <T> &l, T val){
     return nullptr;
 }
 
+/**
+     * Funcao que lê de um ficheiro fileName os diferentes atributos das diferentes classes e cria objetos que são quardados nos seus respetivos vetores dados
+     * @param string fileName
+     * @param list aeroportos
+     * @param list transportes
+     * @param list funcionarios
+     * @param list servicos
+     * @param list passageiros
+     * @param list malas
+     * @param list avioes
+     * @param list voos
+     * @param list carrinhosTransporte
+     */
 void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte> &transportes, list<Funcionario> &funcionarios
                   ,list<Servico> &servicos, list<Passageiro> &passageiros, list<Mala> &malas, list<Aviao> &avioes,
                   list<Voo> &voos,list<CarrinhoTransporte> &carrinhosTransporte){
