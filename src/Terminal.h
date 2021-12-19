@@ -57,11 +57,11 @@ public:
     virtual std::vector<Terminal*> *getV(std::string nameVector) = 0;
 
     /**
-     *
+     * Recebe string e retorna string até ou depois da 'occurence' de 'y'
      * @param s
      * @param y
      * @param occurence
-     * @param after
+     * @param after : se falso, retorna até 'y'. se verdadeiro, retorna depois de 'y'.
      * @return
      */
     static std::string processString(std::string &s, char y, int occurence=1, bool after=false)
@@ -83,6 +83,15 @@ public:
         }
         return s;
     };
+
+
+    /**
+     * Trata de acrescentar e retirar as diretorias acessiveis dependendo de onde estamos acessando no momento
+     * @param new_dir
+     * @param cur_obj
+     * @param dir
+     * @param in : Verifica se estamos a entrar ou a sair da diretoria
+     */
     static void handleListDir(std::string new_dir, Terminal* cur_obj, std::multimap<std::string, std::tuple<std::string, std::vector<Terminal*>*>> &dir, bool in)
     {
         if (new_dir == "AEROPORTO" || new_dir == "AEROPORTO_VOO")
@@ -217,6 +226,9 @@ public:
         }
     }
 
+    /**
+     * Updates directory vectors with the new changes
+     */
     static void updateVec()
     {
         Terminal::handleListDir(Terminal::cur_dir.top(), Terminal::cur_obj.top(), Terminal::dir, false);
