@@ -5,7 +5,10 @@ Passageiro * Mala::getDono() const {
 }
 
 void Mala::setDono(Passageiro* dono) {
-    Mala::dono = dono;
+    dono->removeMala(*this);
+    Terminal::updateVec();
+    this->dono = dono;
+    dono->addMala(this);
 }
 
 float Mala::getPeso() const {
@@ -71,6 +74,7 @@ bool Mala::findFunc(std::string nomeFunc) {
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "setDono"){
@@ -80,17 +84,17 @@ bool Mala::findFunc(std::string nomeFunc) {
         try
         {
             setDono(Terminal::passageiros[stoi(temp1)]);
-            
+            Terminal::updateVec();
             return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "getPeso") {
         cout << peso << endl;
-        
         return true;
     }
     else if (nomeFunc == "setPeso"){
@@ -99,18 +103,15 @@ bool Mala::findFunc(std::string nomeFunc) {
         getline(cin, temp);
         try {
             peso = stof(temp);
-            
             return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
-        
-        return false;
     }
     else{
-        
         return false;
     }
 }
@@ -126,4 +127,8 @@ std::vector<Terminal *> *Mala::getV(std::string nameVector) {
         temp->push_back(despachada);
     }
     return temp;
+}
+
+bool operator==(const Mala &lhs, const Mala &rhs) {
+           return lhs.dono == rhs.dono && lhs.peso == rhs.peso;
 }
