@@ -187,10 +187,12 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         try
         {
             addMala(new Mala(this, stoi(temp1), nullptr));
+            return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "removeMala")
@@ -205,11 +207,13 @@ bool Passageiro::findFunc(std::string nomeFunc) {
                 auto temp2 = malas.begin();
                 advance(temp2, stoi(temp1));
                 malas.erase(temp2);
+                return true;
             }
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "getId"){
@@ -241,6 +245,7 @@ bool Passageiro::findFunc(std::string nomeFunc) {
                 cout << true << endl;
             else
                 cout << false << endl;
+            return true;
         }
         catch (exception &e)
         {
@@ -255,6 +260,7 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         try
         {
             cout << (getIntoPlane(*Terminal::voos[stoi(temp1)]) ? "Done." : "You don't have a ticket for that flight.") << endl;
+            return true;
         }
         catch (exception &e)
         {

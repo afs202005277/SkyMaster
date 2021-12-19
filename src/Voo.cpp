@@ -171,10 +171,12 @@ bool Voo::findFunc(std::string nomeFunc) {
         try
         {
             setHoraPartida(Tempo(temp1));
+            return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "setAviao")
@@ -188,15 +190,18 @@ bool Voo::findFunc(std::string nomeFunc) {
                 auto t = origem->getAvioes().begin();
                 advance(t, stoi(temp1));
                 setAviao(*t);
+                return true;
             }
             else
             {
                 cout << "Object not found." << endl;
+                return true;
             }
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "getNVoo")
@@ -209,10 +214,12 @@ bool Voo::findFunc(std::string nomeFunc) {
         try
         {
             setNVoo(stoi(temp1));
+            return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "getDuracao")
@@ -225,10 +232,12 @@ bool Voo::findFunc(std::string nomeFunc) {
         try
         {
             setDuracao(stoi(temp1));
+            return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "getLotacaoAtual")
@@ -241,10 +250,12 @@ bool Voo::findFunc(std::string nomeFunc) {
         try
         {
             setLotacaoAtual(stoi(temp1));
+            return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "getDataPartida()")
@@ -257,10 +268,12 @@ bool Voo::findFunc(std::string nomeFunc) {
         try
         {
             setDataPartida(Data(temp1));
+            return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "setOrigem")
@@ -271,10 +284,12 @@ bool Voo::findFunc(std::string nomeFunc) {
         try
         {
             setOrigem(Terminal::aeroportos[stoi(temp1)]);
+            return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "setDestino")
@@ -285,10 +300,12 @@ bool Voo::findFunc(std::string nomeFunc) {
         try
         {
             setDestino(Terminal::aeroportos[stoi(temp1)]);
+            return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "sellBilhete")
@@ -304,19 +321,23 @@ bool Voo::findFunc(std::string nomeFunc) {
             if (temp1 == "y")
             {
                 cout << (sellBilhete(true, Terminal::passageiros[stoi(temp2)]) ? "Sold." : "Not sold.") << endl;
+                return true;
             }
             else if (temp1 == "n")
             {
                 cout << (sellBilhete(false, Terminal::passageiros[stoi(temp2)]) ? "Sold." : "Not sold.") << endl;
+                return true;
             }
             else
             {
                 cout << "Function failed." << endl;
+                return true;
             }
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "addPassageiro")
@@ -327,10 +348,12 @@ bool Voo::findFunc(std::string nomeFunc) {
         try
         {
             addPassageiro(Terminal::passageiros[stoi(temp1)]);
+            return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else

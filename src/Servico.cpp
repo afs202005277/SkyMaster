@@ -105,6 +105,7 @@ bool Servico::findFunc(std::string nomeFunc) {
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "setFuncionario"){
@@ -123,7 +124,6 @@ bool Servico::findFunc(std::string nomeFunc) {
         }
     }
     else{
-        
         return false;
     }
 }
