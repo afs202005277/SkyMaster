@@ -138,7 +138,7 @@ std::vector<Terminal *> *Passageiro::getV(std::string nameVector) {
     else if (nameVector == "malas")
     {
         auto temp1 = getMalas();
-        for (auto m : temp1)
+        for (auto &m : temp1)
         {
             temp->push_back(m);
         }

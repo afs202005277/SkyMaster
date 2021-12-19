@@ -28,7 +28,14 @@ void Mala::setDespachada(Aviao *despachada) {
 Mala::Mala(Passageiro *dono, float peso, Aviao *despachada) : dono(dono), despachada(despachada), peso(peso) {}
 
 std::string Mala::getObjectName() {
-    return "Mala (" + to_string(dono->getId()) + ", " + to_string(peso) + ", " + despachada->getMatricula() + ")";
+    if (despachada != nullptr)
+    {
+        return "Mala (" + to_string(dono->getId()) + ", " + to_string(peso) + ", " + despachada->getMatricula() + ")";
+    }
+    else
+    {
+        return "Mala (" + to_string(dono->getId()) + ", " + to_string(peso) + ")";
+    }
 }
 
 std::string Mala::getObjectID() {
