@@ -3,7 +3,11 @@
 #include "Aeroporto.h"
 
 
-Aeroporto::Aeroporto(std::string name, std::string city, std::string country) : transportes(Transporte(-1, Tempo {-1, -1, -1},Tempo {-1, -1, -1}, metro)), name(std::move(name)), city(std::move(city)),
+Aeroporto::Aeroporto(std::string name, std::string city, std::string country) : transportes(Transporte(-1, Tempo{-1, -1,
+                                                                                                                 -1},
+                                                                                                       Tempo{-1, -1,
+                                                                                                             -1}, metro,
+                                                                                                       "")), name(std::move(name)), city(std::move(city)),
                                                                                 country(std::move(country)) {}
 
 const std::string &Aeroporto::getName() const {
@@ -308,7 +312,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         string temp4;
         getline(cin, temp4);
         try {
-            auto temp5 = Transporte(stoi(temp1), temp2, temp3, temp4);
+            auto temp5 = Transporte(stoi(temp1), temp2, temp3, temp4, std::__cxx11::string());
             addTransporte(temp5);
             Terminal::updateVec();
         } catch (exception &e)
@@ -475,7 +479,7 @@ std::vector<Terminal *> *Aeroporto::getV(std::string nameVector)
         while (!it.isAtEnd())
         {
             auto t = it.retrieve();
-            Transporte *tmp = new Transporte(t.getDistancia(), t.getHoraChegada(), t.getHoraPartida(), t.getTipo());
+            Transporte *tmp = new Transporte(t.getDistancia(), t.getHoraChegada(), t.getHoraPartida(), t.getTipo(),t.getNomeAeroporto());
             temp->push_back(tmp);
             it.advance();
         }

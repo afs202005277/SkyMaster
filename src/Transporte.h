@@ -5,6 +5,7 @@
 #include "Terminal.h"
 #include <string>
 
+
 enum TipoTransporte {autocarro, metro, comboio};
 class Aeroporto;
 class Terminal;
@@ -14,12 +15,19 @@ private:
     int distancia;
     Tempo horaChegada, horaPartida;
     TipoTransporte tipo;
+    std::string nomeAeroporto;
 public:
-    Transporte(int distancia, const Tempo &horaChegada, const Tempo &horaPartida, TipoTransporte tipo);
+    Transporte(int distancia, const Tempo &horaChegada, const Tempo &horaPartida, TipoTransporte tipo,
+               std::string nomeAeroporto);
 
-    Transporte(int distancia, const std::string &horaChegada, const std::string &horaPartida, const std::string &tipo);
+    Transporte(int distancia, const std::string &horaChegada, const std::string &horaPartida, const std::string &tipo,
+               std::string nomeAeroporto);
 
     Transporte();
+
+    const std::string &getNomeAeroporto() const;
+
+    void setNomeAeroporto(const std::string &nomeAeroporto);
 
     TipoTransporte getTipo() const;
 

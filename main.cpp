@@ -124,7 +124,7 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 processInput(instruction, arguments);
                 Aeroporto tmp(arguments[4], "", "");
                 auto required = find(aeroportos, tmp);
-                Transporte* t = new Transporte(stoi(arguments[0]), arguments[1], arguments[2], arguments[3]);
+                Transporte* t = new Transporte(stoi(arguments[0]), arguments[1], arguments[2], arguments[3], required->getName());
                 required->addTransporte(*t);
                 transportes.push_back(*t);
             }

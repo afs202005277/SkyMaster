@@ -36,10 +36,11 @@ void Transporte::setHoraPartida(const Tempo &horaSaida) {
     Transporte::horaPartida = horaSaida;
 }
 
-Transporte::Transporte(int distancia, const Tempo &horaChegada, const Tempo &horaPartida, TipoTransporte tipo) : distancia(distancia),
+Transporte::Transporte(int distancia, const Tempo &horaChegada, const Tempo &horaPartida, TipoTransporte tipo,
+                       std::string nomeAeroporto) : distancia(distancia),
                                                                                        horaChegada(horaChegada),
                                                                                        horaPartida(horaPartida),
-                                                                                       tipo(tipo) {}
+                                                                                       tipo(tipo), nomeAeroporto(nomeAeroporto) {}
 
 bool operator<(const Transporte &lhs, const Transporte &rhs) {
     if (lhs.distancia < rhs.distancia)
@@ -52,8 +53,9 @@ bool operator<(const Transporte &lhs, const Transporte &rhs) {
 Transporte::Transporte() : horaChegada(-1, -1, -1), horaPartida (-1, -1, -1) {}
 
 Transporte::Transporte(int distancia, const std::string &horaChegada, const std::string &horaPartida,
-                       const std::string &tipo) : distancia(distancia), horaChegada(Tempo(horaChegada)),
-                                             horaPartida(Tempo(horaPartida)){
+                       const std::string &tipo,
+                       std::string nomeAeroporto) : distancia(distancia), horaChegada(Tempo(horaChegada)),
+                                             horaPartida(Tempo(horaPartida)), nomeAeroporto(nomeAeroporto){
     if (tipo=="metro")
         this->tipo=metro;
     else if (tipo=="comboio")
@@ -64,11 +66,11 @@ Transporte::Transporte(int distancia, const std::string &horaChegada, const std:
 
 std::string Transporte::getObjectName() {
     if (tipo == metro)
-        return "Transporte (" + std::to_string(distancia) + ", " + horaChegada.getTempo() + ", " + horaPartida.getTempo() + ", metro, " + aeroporto.getName() + ")";
+        return "Transporte (" + std::to_string(distancia) + ", " + horaChegada.getTempo() + ", " + horaPartida.getTempo() + ", metro, " + nomeAeroporto + ")";
     else if (tipo == comboio)
-        return "Transporte (" + std::to_string(distancia) + ", " + horaChegada.getTempo() + ", " + horaPartida.getTempo() + ", comboio, " + aeroporto.getName() + ")";
+        return "Transporte (" + std::to_string(distancia) + ", " + horaChegada.getTempo() + ", " + horaPartida.getTempo() + ", comboio, " + nomeAeroporto + ")";
     else
-        return "Transporte (" + std::to_string(distancia) + ", " + horaChegada.getTempo() + ", " + horaPartida.getTempo() + ", autocarro, " + aeroporto.getName() + ")";
+        return "Transporte (" + std::to_string(distancia) + ", " + horaChegada.getTempo() + ", " + horaPartida.getTempo() + ", autocarro, " + nomeAeroporto + ")";
 }
 
 std::string Transporte::getObjectID() {
@@ -187,4 +189,12 @@ bool Transporte::findFunc(std::string nomeFunc) {
     else{
         return false;
     }
+}
+
+const string &Transporte::getNomeAeroporto() const {
+    return nomeAeroporto;
+}
+
+void Transporte::setNomeAeroporto(const string &nomeAeroporto) {
+    Transporte::nomeAeroporto = nomeAeroporto;
 }

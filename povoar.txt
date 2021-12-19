@@ -41,3 +41,6 @@ CarrinhoTransporte:
 10, 10, 10, Aeroporto Francisco Sa Carneiro
 10, 10, 10, Aeroporto Francisco Sa Carneiro
 10, 10, 10, Aeroporto Francisco Sa Carneiro
+
+Transporte:
+55, 12:02, 12:10, comboio, Aeroporto Francisco Sa Carneiro
