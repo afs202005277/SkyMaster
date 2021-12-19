@@ -177,7 +177,7 @@ public:
             if (in)
             {
                 dir.insert({"BILHETE[list]", {"PASSAGEIRO", cur_obj->getV("bilhetes")}});
-                dir.insert({"MALA[list]", {"MALA", cur_obj->getV("malas")}});
+                dir.insert({"MALA[list]", {"PASSAGEIRO", cur_obj->getV("malas")}});
             }
             else
             {
