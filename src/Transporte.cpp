@@ -63,11 +63,16 @@ Transporte::Transporte(int distancia, const std::string &horaChegada, const std:
 }
 
 std::string Transporte::getObjectName() {
-    return "Transporte (" + horaChegada.getTempo() + ", " + horaPartida.getTempo() + ", " + std::to_string(distancia) + ")";
+    if (tipo == metro)
+        return "Transporte (" + std::to_string(distancia) + ", " + horaChegada.getTempo() + ", " + horaPartida.getTempo() + ", " + "metro)";
+    else if (tipo == comboio)
+        return "Transporte (" + std::to_string(distancia) + ", " + horaChegada.getTempo() + ", " + horaPartida.getTempo() + ", " + "comboio)";
+    else
+        return "Transporte (" + std::to_string(distancia) + ", " + horaChegada.getTempo() + ", " + horaPartida.getTempo() + ", " + "autocarro)";
 }
 
 std::string Transporte::getObjectID() {
-    return horaChegada.getTempo();
+    return std::to_string(distancia);
 }
 
 std::stack<std::string> Transporte::funcs() {

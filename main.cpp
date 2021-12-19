@@ -588,6 +588,27 @@ int main() {
                 else { cout << "Function not found. Please try again." << endl; }
             }
         }
+        else if (command == "SAVE")
+        {
+            auto arguments = Terminal::processString(command, ' ', 1, true);
+            auto t= Terminal::dir.find(Terminal::processString(arguments, ' ', 1, false));
+            if (t == Terminal::dir.end())
+                t = Terminal::dir.find(Terminal::processString(arguments, ' ', 1, false)+"[list]");
+            if (t == Terminal::dir.end() || get<0>(t->second) != Terminal::cur_dir.top())
+            {
+                cout << "Object \"" << Terminal::processString(command, ' ', 1, true) << "\" not found. Please try again.\n";
+            }
+            else
+            {
+                if (get<1>(t->second)->size() != 0)
+                {
+                    for (auto p : *get<1>(t->second))
+                    {
+                        cout << p->getObjectName() << endl;
+                    }
+                }
+            }
+        }
         else if (command == "BACK")
         {
             if (Terminal::cur_dir.top() != "main")

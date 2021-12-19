@@ -86,16 +86,15 @@ bool CarrinhoTransporte::addMala(Mala *&pMala) {
 
 void CarrinhoTransporte::descarregarMalasAviao()
 {
-    for (vector<stack<Mala*>> &carruagem : this->carga)
-    {
-        for (stack<Mala*> &carrinho : carruagem)
-        {
-            while (!carrinho.empty())
-            {
-                auto temp1 = carrinho.top();
-                auto *temp2 = new Mala(temp1->getDono(), temp1->getPeso(), aviao);
-                aviao->addMala(temp2);
-                carrinho.pop();
+    if (aviao != nullptr) {
+        for (vector<stack<Mala *>> &carruagem: this->carga) {
+            for (stack<Mala *> &carrinho: carruagem) {
+                while (!carrinho.empty()) {
+                    auto temp1 = carrinho.top();
+                    auto *temp2 = new Mala(temp1->getDono(), temp1->getPeso(), aviao);
+                    aviao->addMala(temp2);
+                    carrinho.pop();
+                }
             }
         }
     }
@@ -134,25 +133,11 @@ void CarrinhoTransporte::descarregarMalasAeroporto() {
 }
 
 std::string CarrinhoTransporte::getObjectName() {
-    if (aviao != nullptr) {
-        return "CarrinhoTransporte (" + aviao->getMatricula() + ", " + aeroporto->getName() + ", " +
-               to_string(nCarruagens) + ", " +
-               to_string(nPilhas) + ", " + to_string(nMalas) + ")";
-    }
-    else
-    {
-        return "CarrinhoTransporte (" + aeroporto->getName() + ", " +
-               to_string(nCarruagens) + ", " +
-               to_string(nPilhas) + ", " + to_string(nMalas) + ")";
-    }
+    return "CarrinhoTransporte (" + to_string(nCarruagens) + ", " + to_string(nPilhas) + ", " + to_string(nMalas) + ", " + aeroporto->getName() + ")";
 }
 
 std::string CarrinhoTransporte::getObjectID() {
-    if (aviao != nullptr)
-    {
-        return aviao->getMatricula();
-    }
-    return "";
+    return to_string(nCarruagens);
 }
 
 std::stack<std::string> CarrinhoTransporte::funcs() {
@@ -222,7 +207,14 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            addMalas(Terminal::passageiros[stoi(temp1)]->getMalas());
+            auto temp2 = Terminal::passageiros[stoi(temp1)]->getMalas();
+            vector<Mala*> temp3;
+            while (!temp2.empty())
+            {
+                temp3.push_back(temp2.front());
+                temp2.pop();
+            }
+            addMalas(temp3);
             Terminal::updateVec();
         }
         catch (exception &e)

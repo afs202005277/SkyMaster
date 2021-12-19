@@ -20,19 +20,19 @@ private:
     int idade, id;
     std::string nome;
     std::queue<Bilhete *> bilhetes;
-    std::vector<Mala*> malas;
+    std::queue<Mala*> malas;
 public:
     Passageiro(std::string nome, int idade, int id);
 
     Passageiro(int idade, int id, std::string nome, const std::queue<Bilhete *> &bilhetes);
 
-    const std::vector<Mala *> &getMalas() const;
+    const std::queue<Mala *> &getMalas() const;
 
-    void setMalas(const vector<Mala *> &malas);
+    void setMalas(const queue<Mala *> &malas);
 
     void addMala(Mala *m);
 
-    void removeMala(Mala m);
+    void removeMala(Mala *m);
 
     const std::queue<Bilhete *> & getBilhetes() const;
 

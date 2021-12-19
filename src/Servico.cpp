@@ -36,13 +36,13 @@ Servico::Servico(const string &data, Funcionario *funcionario, const string &tip
 
 std::string Servico::getObjectName() {
     if (tipo==limpeza)
-        return "Servico (" + to_string(funcionario->getTelemovel()) + ", " + data.getDate() + ", " + "limpeza)";
+        return "Servico (" + data.getDate() + ", " + to_string(funcionario->getTelemovel()) + ", " + "limpeza)";
     else
-        return "Servico (" + to_string(funcionario->getTelemovel()) + ", " + data.getDate() + ", " + "manutencao)";
+        return "Servico (" + data.getDate() + ", " + to_string(funcionario->getTelemovel()) + ", " + "manutencao)";
 }
 
 std::string Servico::getObjectID() {
-    return to_string(funcionario->getTelemovel());
+    return data.getDate();
 }
 
 std::stack<std::string> Servico::funcs() {

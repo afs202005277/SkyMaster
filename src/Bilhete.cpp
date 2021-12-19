@@ -30,7 +30,7 @@ void Bilhete::setPassageiro(Passageiro *passageiro) {
 }
 
 std::string Bilhete::getObjectName() {
-    return "Bilhete (" + passageiro->getNome() + ", " + to_string(nVoo) + ", " + to_string(levaBagagem) + ")";
+    return "Bilhete (" + to_string(nVoo) + ", " + to_string(levaBagagem) + ", " + passageiro->getNome() + ")";
 }
 
 std::string Bilhete::getObjectID() {

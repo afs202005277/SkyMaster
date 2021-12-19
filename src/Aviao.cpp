@@ -196,7 +196,7 @@ void Aviao::setTipo(const string &tipo) {
 }
 
 std::string Aviao::getObjectName() {
-    return "Aviao (" + matricula + ", " + to_string(capacidade) + ", " + tipo + ")";
+    return "Aviao (" + to_string(capacidade) + ", " + matricula + ", " + tipo + ")";
 }
 
 std::string Aviao::getObjectID() {
@@ -466,24 +466,15 @@ bool Aviao::findFunc(std::string nomeFunc) {
     }
     else if (nomeFunc == "descarregarMalas")
     {
-        string temp1;
-        getline(cin, temp1);
-        try
+        if (carrinhoAssociado != nullptr)
         {
-            if (carrinhoAssociado != nullptr)
-            {
-                descarregarMalas();
-                Terminal::updateVec();
-                cout << "Done." << endl;
-            }
-            else
-            {
-                cout << "No transport car." << endl;
-            }
+            descarregarMalas();
+            Terminal::updateVec();
+            cout << "Done." << endl;
         }
-        catch (exception &e)
+        else
         {
-            cout << "Function failed." << endl;
+            cout << "No transport car." << endl;
         }
     }
     else if (nomeFunc == "viajar")
