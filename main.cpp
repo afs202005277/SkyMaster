@@ -223,11 +223,14 @@ int main() {
         aeroportos.front().addTransporte(*it);
 
     //ASSOCIA 1 AEROPORTO A CADA AVIAO
-    for (auto &it : avioes){
-        if (it.getPlano().empty())
+    for (list<Aviao>::iterator it=avioes.begin();it!=avioes.end();it++){
+        if (it->getPlano().empty())
             continue;
         else
-            it.getPlano().front()->getOrigem()->addAviao(&it);
+        {
+            it->getPlano().front()->getOrigem()->addAviao(&(*it));
+        }
+
     }
 
     // TERMINAL STUFF
