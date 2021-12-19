@@ -122,6 +122,8 @@ public:
      */
     friend bool operator==(const Aeroporto &lhs, const Aeroporto &rhs);
 
+    friend bool operator<(const Aeroporto &lhs, const Aeroporto &rhs);
+
     void addCarrinho(CarrinhoTransporte * c);
 
     std::string getObjectName() override;

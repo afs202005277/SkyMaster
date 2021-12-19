@@ -34,6 +34,8 @@ public:
 
     void removeMala(Mala *m);
 
+    friend bool operator<(const Passageiro &lhs, const Passageiro &rhs);
+
     const std::queue<Bilhete *> & getBilhetes() const;
 
     void addBilhete(Bilhete *bilhete);

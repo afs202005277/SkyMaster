@@ -203,6 +203,10 @@ std::string Aviao::getObjectID() {
     return matricula;
 }
 
+bool operator<(const Aviao &lhs, const Aviao &rhs) {
+    return lhs.matricula < rhs.matricula;
+}
+
 std::stack<std::string> Aviao::funcs() {
     stack<string> temp;
     temp.push("getTipo()");

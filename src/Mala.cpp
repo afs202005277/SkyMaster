@@ -125,3 +125,11 @@ std::vector<Terminal *> *Mala::getV(std::string nameVector) {
 bool operator==(const Mala &lhs, const Mala &rhs) {
            return lhs.dono == rhs.dono && lhs.peso == rhs.peso;
 }
+
+bool operator<(const Mala &lhs, const Mala &rhs) {
+    if (lhs.dono < rhs.dono)
+        return true;
+    if (lhs.dono < rhs.dono && lhs.peso < rhs.peso)
+        return true;
+    return lhs.peso < rhs.peso;
+}

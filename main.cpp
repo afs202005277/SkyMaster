@@ -6,6 +6,7 @@
 #include "Aviao.h"
 #include "Terminal.h"
 #include <unordered_map>
+#include <set>
 
 using namespace std;
 
@@ -39,6 +40,21 @@ void processInput(const string &instruction, vector<string> & arguments){
     string tmp = arguments[arguments.size()-1];
     tmp = tmp.substr(0, tmp.find_last_of(' '));
     arguments[arguments.size()-1] = tmp;
+}
+
+template <class T>
+void removeDuplicates(list<T> &temp)
+{
+    set<T> temp2;
+    for (auto t : temp)
+    {
+        temp2.insert(t);
+    }
+    temp.clear();
+    for (auto t : temp2)
+    {
+        temp.push_back(t);
+    }
 }
 
 /**
@@ -81,6 +97,7 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Aeroporto* a = new Aeroporto(arguments[0], arguments[1], arguments[2]);
                 aeroportos.push_back(*a);
             }
+            removeDuplicates(aeroportos);
         }
         else if (object == "Transporte")
         {
@@ -91,6 +108,7 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Transporte* t = new Transporte(stoi(arguments[0]), arguments[1], arguments[2], arguments[3]);
                 transportes.push_back(*t);
             }
+            removeDuplicates(transportes);
         }
         else if (object == "Funcionario")
         {
@@ -103,6 +121,7 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Funcionario* f = new Funcionario(stoi(arguments[0]), arguments[1], arguments[2], required);
                 funcionarios.push_back(*f);
             }
+            removeDuplicates(funcionarios);
         }
         else if (object == "Servico")
         {
@@ -114,6 +133,7 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Servico* s = new Servico(arguments[0], required, arguments[2]);
                 servicos.push_back(*s);
             }
+            removeDuplicates(servicos);
         }
         else if (object == "Passageiro")
         {
@@ -124,6 +144,7 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Passageiro* p = new Passageiro(arguments[0], stoi(arguments[1]), stoi(arguments[2]));
                 passageiros.push_back(*p);
             }
+            removeDuplicates(passageiros);
         }
         else if (object == "Mala")
         {
@@ -136,6 +157,7 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Mala* m = new Mala(required, stof(arguments[1]));
                 malas.push_back(*m);
             }
+            removeDuplicates(malas);
             for (auto &elem:malas)
             {
                 elem.getDono()->addMala(&elem);
@@ -150,6 +172,7 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Aviao* a = new Aviao(stoi(arguments[0]), arguments[1], arguments[2]);
                 avioes.push_back(*a);
             }
+            removeDuplicates(avioes);
         }
         else if (object == "Voo")
         {
@@ -165,6 +188,7 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 Voo* v = new Voo(stoi(arguments[0]), stoi(arguments[1]), arguments[2], origem, destino, aviao, arguments[6]);
                 voos.push_back(*v);
             }
+            removeDuplicates(voos);
         }
         else if (object == "CarrinhoTransporte")
         {
@@ -260,6 +284,8 @@ int main() {
             cout << left << setw(field_size) << setfill(' ') << "ls" << right << setw(field_size) << setfill(' ') << "Lists available objects/methods";
             cout<<endl;
             cout << left << setw(field_size) << setfill(' ') << "access <object> <first attribute>" << right << setw(field_size) << setfill(' ') << "Accesses object";
+            cout<<endl;
+            cout << left << setw(field_size) << setfill(' ') << "save <object> " << right << setw(field_size) << setfill(' ') << "Saves elements for later use";
             cout<<endl;
             cout << left << setw(field_size) << setfill(' ') << "back" << right << setw(field_size) << setfill(' ') << "Go back to previous directory";
             cout<<endl;
@@ -591,7 +617,7 @@ int main() {
                 else { cout << "Function not found. Please try again." << endl; }
             }
         }
-        else if (command == "SAVE")
+        else if (Terminal::processString(command, ' ') == "SAVE")
         {
             auto arguments = Terminal::processString(command, ' ', 1, true);
             auto t= Terminal::dir.find(Terminal::processString(arguments, ' ', 1, false));
@@ -603,22 +629,22 @@ int main() {
             }
             else
             {
-                if (get<1>(t->second)->size() != 0)
+                if (!get<1>(t->second)->empty())
                 {
-                    ofstream input;
-                    input.open(fileName);
-                    if (!input.is_open())
+                    ofstream output;
+                    output.open(fileName, ios_base::app);
+                    if (!output.is_open())
                     {
                         cout << "File not found" << endl;
                         return 1;
                     }
                     auto temp1 = (*get<1>(t->second)->begin())->getObjectName();
-                    input << Terminal::processString(temp1, ' ', 1, false) << ":" << endl;
+                    output << Terminal::processString(temp1, ' ', 1, false) << ":" << endl;
                     for (auto p : *get<1>(t->second))
                     {
                         string temp2 = Terminal::processString(temp1, '(', 1, true);
                         string arguments = Terminal::processString(temp2, ')', 1, false);
-                        input << arguments << endl;
+                        output << arguments << endl;
                     }
                 }
                 else

@@ -61,6 +61,8 @@ public:
     std::vector<Terminal*> *getV(std::string nameVector) override;
 
     bool addMala(Mala *&pMala);
+
+    friend bool operator<(const CarrinhoTransporte &lhs, const CarrinhoTransporte &rhs);
 };
 
 

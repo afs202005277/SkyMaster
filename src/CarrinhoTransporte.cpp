@@ -140,6 +140,18 @@ std::string CarrinhoTransporte::getObjectID() {
     return to_string(nCarruagens);
 }
 
+bool operator<(const CarrinhoTransporte &lhs, const CarrinhoTransporte &rhs) {
+    if (lhs.nCarruagens < rhs.nCarruagens)
+        return true;
+    if (lhs.nCarruagens == rhs.nCarruagens && lhs.nPilhas < rhs.nPilhas)
+        return true;
+    if (lhs.nCarruagens == rhs.nCarruagens && lhs.nPilhas == rhs.nPilhas && lhs.nMalas < rhs.nMalas)
+        return true;
+    if (lhs.nCarruagens == rhs.nCarruagens && lhs.nPilhas == rhs.nPilhas && lhs.nMalas == rhs.nMalas && lhs.aeroporto < rhs.aeroporto)
+        return true;
+    return false;
+}
+
 std::stack<std::string> CarrinhoTransporte::funcs() {
     stack<string> temp;
     temp.push("getNCarruagens()");

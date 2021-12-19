@@ -36,6 +36,9 @@ public:
 
     std::string getObjectName() override;
     std::string getObjectID() override;
+
+    friend bool operator<(const Mala &lhs, const Mala &rhs);
+
     bool findFunc(std::string nomeFunc) override;
     std::stack<std::string> funcs() override;
     std::vector<Terminal*> *getV(std::string nameVector) override;

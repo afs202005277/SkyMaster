@@ -33,6 +33,8 @@ public:
 
     void setFuncionario(Funcionario *funcionario);
 
+    friend bool operator<(const Servico &lhs, const Servico &rhs);
+
     std::string getObjectName() override;
     std::string getObjectID() override;
     bool findFunc(std::string nomeFunc) override;

@@ -357,3 +357,13 @@ void Passageiro::removeMala(Mala *m) {
     }
     malas = temp;
 }
+
+bool operator<(const Passageiro &lhs, const Passageiro &rhs) {
+    if (lhs.idade < rhs.idade)
+        return true;
+    if (lhs.idade == rhs.idade && lhs.id < rhs.id)
+        return true;
+    if (lhs.idade == rhs.idade && lhs.id == rhs.id && lhs.nome < rhs.nome)
+        return true;
+    return false;
+}

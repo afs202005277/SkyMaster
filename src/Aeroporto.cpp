@@ -506,3 +506,13 @@ std::vector<Terminal *> *Aeroporto::getV(std::string nameVector)
     return temp;
 }
 
+bool operator<(const Aeroporto &lhs, const Aeroporto &rhs) {
+    if (lhs.name < rhs.name)
+        return true;
+    if (lhs.name == rhs.name && lhs.city < rhs.city)
+        return true;
+    if (lhs.name == rhs.name && lhs.city == rhs.city && lhs.country < rhs.country)
+        return true;
+    return false;
+}
+
