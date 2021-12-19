@@ -184,9 +184,8 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
-        
-        return false;
     }
     else if (nomeFunc == "hasBilhete"){
         cout << "input voo (index): ";
@@ -203,6 +202,7 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else if (nomeFunc == "getIntoPlane"){
@@ -216,7 +216,7 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         catch (exception &e)
         {
             cout << "Function failed." << endl;
-            return false;
+            return true;
         }
     }
     else{
