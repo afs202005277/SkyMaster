@@ -35,7 +35,10 @@ Servico::Servico(const string &data, Funcionario *funcionario, const string &tip
 }
 
 std::string Servico::getObjectName() {
-    return "Servico (" + to_string(funcionario->getTelemovel()) + ", " + data.getDate() + ", " + to_string(tipo) + ")";
+    if (tipo==limpeza)
+        return "Servico (" + to_string(funcionario->getTelemovel()) + ", " + data.getDate() + ", " + "limpeza)";
+    else
+        return "Servico (" + to_string(funcionario->getTelemovel()) + ", " + data.getDate() + ", " + "manutencao)";
 }
 
 std::string Servico::getObjectID() {
@@ -71,6 +74,7 @@ bool Servico::findFunc(std::string nomeFunc) {
         return true;
     }
     else if (nomeFunc == "setTipo"){
+        cout << "Input tipo: ";
         string tmp;
         getline(cin, tmp);
         if (tmp == "manutencao")
@@ -82,11 +86,11 @@ bool Servico::findFunc(std::string nomeFunc) {
             tipo = limpeza;
             return true;
         }
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
         return false;
     }
     else if (nomeFunc == "getData"){
-        cout << data << endl;
+        cout << data;
         return true;
     }
     else if (nomeFunc == "setData"){
@@ -96,6 +100,7 @@ bool Servico::findFunc(std::string nomeFunc) {
         try
         {
             setData(Data(temp1));
+            return true;
         }
         catch (exception &e)
         {
@@ -109,14 +114,16 @@ bool Servico::findFunc(std::string nomeFunc) {
         try
         {
             setFuncionario(Terminal::funcionarios[stoi(temp1)]);
+            return true;
         }
         catch (exception &e)
         {
             cout << "Function failed." << endl;
+            return true;
         }
     }
     else{
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
         return false;
     }
 }

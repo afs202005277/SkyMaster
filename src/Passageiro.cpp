@@ -185,7 +185,7 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         {
             cout << "Function failed." << endl;
         }
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
         return false;
     }
     else if (nomeFunc == "hasBilhete"){

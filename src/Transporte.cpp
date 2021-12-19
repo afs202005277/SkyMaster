@@ -116,7 +116,7 @@ bool Transporte::findFunc(std::string nomeFunc) {
             tipo = autocarro;
             return true;
         }
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
         return false;
     }
     else if (nomeFunc == "getDistancia"){
@@ -135,7 +135,7 @@ bool Transporte::findFunc(std::string nomeFunc) {
         {
             cout << "Function failed." << endl;
         }
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
         return false;
     }
     else if (nomeFunc == "getHoraChegada"){
@@ -157,7 +157,7 @@ bool Transporte::findFunc(std::string nomeFunc) {
         {
             cout << "Function failed." << endl;
         }
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
         return false;
     }
     else if (nomeFunc == "getHoraPartida"){
@@ -179,11 +179,11 @@ bool Transporte::findFunc(std::string nomeFunc) {
         {
             cout << "Function failed." << endl;
         }
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
         return false;
     }
     else{
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
         return false;
     }
 }

@@ -116,7 +116,7 @@ bool Funcionario::findFunc(std::string nomeFunc) {
         {
             cout << "Function failed." << endl;
         }
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
         return false;
     }
     else if (nomeFunc == "getNome"){
@@ -126,7 +126,7 @@ bool Funcionario::findFunc(std::string nomeFunc) {
         cout << "input Nome: ";
         string temp;
         getline(cin, nome);
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
         return true;
     }
     else if (nomeFunc == "getMorada"){
@@ -135,11 +135,11 @@ bool Funcionario::findFunc(std::string nomeFunc) {
     }
     else if (nomeFunc == "setMorada"){
         getline(cin, morada);
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
         return true;
     }
     else{
-        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        
         return false;
     }
 
