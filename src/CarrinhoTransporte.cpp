@@ -133,25 +133,11 @@ void CarrinhoTransporte::descarregarMalasAeroporto() {
 }
 
 std::string CarrinhoTransporte::getObjectName() {
-    if (aviao != nullptr) {
-        return "CarrinhoTransporte (" + aviao->getMatricula() + ", " + aeroporto->getName() + ", " +
-               to_string(nCarruagens) + ", " +
-               to_string(nPilhas) + ", " + to_string(nMalas) + ")";
-    }
-    else
-    {
-        return "CarrinhoTransporte (" + aeroporto->getName() + ", " +
-               to_string(nCarruagens) + ", " +
-               to_string(nPilhas) + ", " + to_string(nMalas) + ")";
-    }
+    return "CarrinhoTransporte (" + to_string(nCarruagens) + ", " + to_string(nPilhas) + ", " + to_string(nMalas) + ", " + aeroporto->getName() + ")";
 }
 
 std::string CarrinhoTransporte::getObjectID() {
-    if (aviao != nullptr)
-    {
-        return aviao->getMatricula();
-    }
-    return "";
+    return to_string(nCarruagens);
 }
 
 std::stack<std::string> CarrinhoTransporte::funcs() {

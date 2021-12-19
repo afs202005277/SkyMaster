@@ -133,7 +133,7 @@ bool operator==(const Voo &lhs, const Voo &rhs) {
 }
 
 std::string Voo::getObjectName() {
-    return "Voo (" + std::to_string(nVoo) + ", " + std::to_string(duracao) + ", " + dataPartida.getDate() + ", " + horaPartida.getTempo() + ", " + origem->getName() + ", " + destino->getName() + ", " + aviao->getMatricula() + ")";
+    return "Voo (" + std::to_string(nVoo) + ", " + std::to_string(duracao) + ", " + dataPartida.getDate() + ", " + origem->getName() + ", " + destino->getName() + ", " + aviao->getMatricula() + ", " + horaPartida.getTempo() + ")";
 }
 
 std::string Voo::getObjectID() {

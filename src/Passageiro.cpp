@@ -100,11 +100,11 @@ bool operator==(const Passageiro &lhs, const Passageiro &rhs) {
 }
 
 std::string Passageiro::getObjectName() {
-    return "Passageiro (" + to_string(id) + ", " + nome + ", " + to_string(idade) + ")";
+    return "Passageiro (" + nome + ", " + to_string(idade) + ", " + to_string(id) + ")";
 }
 
 std::string Passageiro::getObjectID() {
-    return to_string(id);
+    return nome;
 }
 
 std::stack<std::string> Passageiro::funcs() {
