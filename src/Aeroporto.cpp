@@ -322,7 +322,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         string temp;
         getline(cin, temp);
         try {
-            if (stoi(temp) < getV("transportes")->size())
+            if (stoi(temp) < getV("transportes")->size() && stoi(temp) >= 0)
             {
                 BSTItrIn<Transporte> it(transportes);
                 for (int i = 0; i < stoi(temp); i++)
@@ -392,7 +392,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         getline(cin, temp);
         try
         {
-            if (stoi(temp) < funcionarios.size())
+            if (stoi(temp) < funcionarios.size() && stoi(temp) >= 0)
             {
                 removeFuncionario(*funcionarios[stoi(temp)]);
                 Terminal::updateVec();
@@ -435,7 +435,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         getline(cin, temp);
         try
         {
-            if (stoi(temp) < avioes.size())
+            if (stoi(temp) < avioes.size() && stoi(temp) >=0)
             {
                 auto temp2 = avioes.begin();
                 advance(temp2, stoi(temp));

@@ -253,7 +253,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            if (stoi(temp1) < plano.front()->getOrigem()->getCarrinhos().size()) {
+            if (stoi(temp1) < plano.front()->getOrigem()->getCarrinhos().size() && stoi(temp1) < plano.front()->getOrigem()->getCarrinhos().size() >= 0) {
                 auto temp3 = plano.front()->getOrigem()->getCarrinhos();
                 setCarrinhoAssociado(temp3[stoi(temp1)]);
             }
@@ -312,7 +312,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp3);
         try
         {
-            if (!plano.empty() && stoi(temp2) < plano.front()->getOrigem()->getFuncionarios().size())
+            if (!plano.empty() && stoi(temp2) < plano.front()->getOrigem()->getFuncionarios().size() && stoi(temp2) >= 0)
             {
                 addServico(new Servico(temp1, plano.front()->getOrigem()->getFuncionarios()[stoi(temp2)], temp3));
                 Terminal::updateVec();
@@ -346,7 +346,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp6);
         try
         {
-            if (stoi(temp5) << Terminal::aeroportos.size())
+            if (stoi(temp5) << Terminal::aeroportos.size() && stoi(temp5) >= 0)
             {
                 new Voo(stoi(temp1), stoi(temp2), temp3, plano.front()->getOrigem(), Terminal::aeroportos[stoi(temp5)], this, temp6);
                 Terminal::updateVec();
@@ -368,7 +368,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            if (stoi(temp1) < plano.size())
+            if (stoi(temp1) < plano.size() && stoi(temp1) >= 0)
             {
                 auto temp2 = plano.begin();
                 advance(temp2, stoi(temp1));
@@ -397,7 +397,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            if (stoi(temp1) < Terminal::funcionarios.size())
+            if (stoi(temp1) < Terminal::funcionarios.size() && stoi(temp1) >=0)
             {
                 auto temp2 = getPastServicesBy(*Terminal::funcionarios[stoi(temp1)]);
                 for (auto temp3 : temp2)
@@ -422,7 +422,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            if (stoi(temp1) < Terminal::funcionarios.size()) {
+            if (stoi(temp1) < Terminal::funcionarios.size() && stoi(temp1) >= 0) {
                 auto temp2 = getFutureServicesBy(*Terminal::funcionarios[stoi(temp1)]);
                 for (auto temp3: temp2) {
                     cout << temp3->getObjectName() << endl;
@@ -445,7 +445,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            if (stoi(temp1) < Terminal::funcionarios.size()) {
+            if (stoi(temp1) < Terminal::funcionarios.size() && stoi(temp1) >= 0) {
                 auto temp2 = getAllServicesBy(*Terminal::funcionarios[stoi(temp1)]);
                 for (auto temp3: temp2[0]) {
                     cout << temp3->getObjectName() << endl;

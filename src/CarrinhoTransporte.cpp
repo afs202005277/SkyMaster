@@ -207,6 +207,8 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
+            if (stoi(temp1) < 0 || stoi(temp1) >= Terminal::passageiros.size())
+                throw exception();
             auto temp2 = Terminal::passageiros[stoi(temp1)]->getMalas();
             vector<Mala*> temp3;
             while (!temp2.empty())

@@ -189,8 +189,8 @@ int main() {
     list<Aviao> avioes;
     list<Voo> voos;
     list<CarrinhoTransporte> carrinhosTransporte;
-
-    readFromFile("../povoar.txt", aeroportos, transportes, funcionarios, servicos, passageiros, malas, avioes, voos, carrinhosTransporte);
+    string fileName = "../povoar.txt";
+    readFromFile(fileName, aeroportos, transportes, funcionarios, servicos, passageiros, malas, avioes, voos, carrinhosTransporte);
     // ADICIONA TRANSPORTES AO 1º AEROPORTO
     for (auto it = transportes.begin();it!=transportes.end();it++)
         aeroportos.front().addTransporte(*it);

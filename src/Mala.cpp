@@ -55,7 +55,7 @@ bool Mala::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            if (stoi(temp1) < despachada->getNextVoo().getOrigem()->getAvioes().size())
+            if (stoi(temp1) < despachada->getNextVoo().getOrigem()->getAvioes().size() && stoi(temp1) >= 0)
             {
                 auto temp2 = despachada->getNextVoo().getOrigem()->getAvioes().begin();
                 advance(temp2, stoi(temp1));
@@ -76,6 +76,8 @@ bool Mala::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
+            if (stoi(temp1) < 0 || stoi(temp1) >= Terminal::passageiros.size())
+                throw exception();
             setDono(Terminal::passageiros[stoi(temp1)]);
             Terminal::updateVec();
             return true;

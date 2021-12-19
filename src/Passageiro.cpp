@@ -157,7 +157,7 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            if (stoi(temp1) < bilhetes.size())
+            if (stoi(temp1) < bilhetes.size() && stoi(temp1) >= 0)
             {
                 removeBilhete(stoi(temp1));
             }
@@ -226,7 +226,7 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            if (stoi(temp1) < malas.size())
+            if (stoi(temp1) < malas.size()  && stoi(temp1) >= 0)
             {
                 auto temp2 = getMalas();
 
@@ -262,6 +262,8 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
+            if (stoi(temp1) < 0 || stoi(temp1) >= Terminal::voos.size())
+                throw exception();
             bool f = hasBilhete(Terminal::voos[stoi(temp1)]->getNVoo());
             if (f)
                 cout << true << endl;
@@ -281,6 +283,8 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
+            if (stoi(temp1) < 0 || stoi(temp1) >= Terminal::voos.size())
+                throw exception();
             cout << (getIntoPlane(*Terminal::voos[stoi(temp1)]) ? "Done." : "You don't have a ticket for that flight.") << endl;
             return true;
         }
@@ -300,6 +304,8 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         getline(cin, temp2);
         try
         {
+            if (stoi(temp1) < 0 || stoi(temp1) >= Terminal::voos.size())
+                throw exception();
             if ((temp1 == "y" || temp1 == "n") && stoi(temp2) < Terminal::voos.size())
             {
                 checkIn(temp1=="y", *Terminal::voos[stoi(temp2)], malas);
