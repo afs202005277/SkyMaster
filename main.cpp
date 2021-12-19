@@ -247,8 +247,7 @@ int main() {
             continue;
         else
         {
-            Aeroporto * airport = a.getPlano().front()->getOrigem();
-            airport->addAviao(&a);
+            a.getPlano().front()->getOrigem()->addAviao(&a);
         }
 
     }
