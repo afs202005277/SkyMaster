@@ -259,7 +259,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
         getline(cin, temp1);
         try
         {
-            if (stoi(temp1) < plano.front()->getOrigem()->getCarrinhos().size() && stoi(temp1) < plano.front()->getOrigem()->getCarrinhos().size() >= 0) {
+            if (stoi(temp1) < plano.front()->getOrigem()->getCarrinhos().size() && stoi(temp1) >= 0 && stoi(temp1) < plano.front()->getOrigem()->getCarrinhos().size()) {
                 auto temp3 = plano.front()->getOrigem()->getCarrinhos();
                 setCarrinhoAssociado(temp3[stoi(temp1)]);
             }

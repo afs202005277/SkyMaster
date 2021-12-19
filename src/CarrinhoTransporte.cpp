@@ -132,6 +132,14 @@ void CarrinhoTransporte::descarregarMalasAeroporto() {
     aeroporto->addMalas(res);
 }
 
+Aeroporto *CarrinhoTransporte::getAeroporto() const {
+    return aeroporto;
+}
+
+void CarrinhoTransporte::setAeroporto(Aeroporto *aeroporto) {
+    CarrinhoTransporte::aeroporto = aeroporto;
+}
+
 std::string CarrinhoTransporte::getObjectName() {
     return "CarrinhoTransporte (" + to_string(nCarruagens) + ", " + to_string(nPilhas) + ", " + to_string(nMalas) + ", " + aeroporto->getName() + ")";
 }

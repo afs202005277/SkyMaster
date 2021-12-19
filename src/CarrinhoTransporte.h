@@ -63,6 +63,10 @@ public:
     bool addMala(Mala *&pMala);
 
     friend bool operator<(const CarrinhoTransporte &lhs, const CarrinhoTransporte &rhs);
+
+    Aeroporto *getAeroporto() const;
+
+    void setAeroporto(Aeroporto *aeroporto);
 };
 
 

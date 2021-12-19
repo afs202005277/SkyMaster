@@ -364,6 +364,10 @@ void Passageiro::removeMala(Mala *m) {
     malas = temp;
 }
 
+void Passageiro::setBilhetes(const queue<Bilhete *> &bilhetes) {
+    Passageiro::bilhetes = bilhetes;
+}
+
 bool operator<(const Passageiro &lhs, const Passageiro &rhs) {
     if (lhs.idade < rhs.idade)
         return true;
