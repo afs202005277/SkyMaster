@@ -6,7 +6,7 @@
 #include <string>
 
 enum TipoTransporte {autocarro, metro, comboio};
-class Transporte;
+class Aeroporto;
 class Terminal;
 class Transporte : public Terminal{
 

@@ -9,10 +9,10 @@
 #include "CarrinhoTransporte.h"
 #include "bst.h"
 #include "Aviao.h"
+
 class Terminal;
 class Funcionario;
 class CarrinhoTransporte;
-
 class Aeroporto : public Terminal {
 private:
     std::string name, city, country;
@@ -94,6 +94,8 @@ public:
      * @return vector com os transportes cuja hora de chegada está no intervalo [min, max]
      */
     vector<Transporte> getAvailableTransports(Tempo min, Tempo max);
+
+    bool existsTransport(Transporte t) const;
 
     void addFuncionario(Funcionario *f);
 

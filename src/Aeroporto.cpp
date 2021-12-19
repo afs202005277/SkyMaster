@@ -474,9 +474,9 @@ std::vector<Terminal *> *Aeroporto::getV(std::string nameVector)
         BSTItrIn<Transporte> it(transportes);
         while (!it.isAtEnd())
         {
-            auto t = it.retrieve(); // ELE DESAPARECE AQUI
-            Transporte *hello = new Transporte(t.getDistancia(), t.getHoraChegada(), t.getHoraPartida(), t.getTipo());
-            temp->push_back(hello);
+            auto t = it.retrieve();
+            Transporte *tmp = new Transporte(t.getDistancia(), t.getHoraChegada(), t.getHoraPartida(), t.getTipo());
+            temp->push_back(tmp);
             it.advance();
         }
     }
@@ -514,5 +514,12 @@ bool operator<(const Aeroporto &lhs, const Aeroporto &rhs) {
     if (lhs.name == rhs.name && lhs.city == rhs.city && lhs.country < rhs.country)
         return true;
     return false;
+}
+
+bool Aeroporto::existsTransport(Transporte t) const {
+    Transporte f = transportes.find(t);
+    if (f.getDistancia() == -1)
+        return false;
+    return true;
 }
 

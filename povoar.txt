@@ -3,8 +3,8 @@ Aeroporto Francisco Sa Carneiro, Porto, Portugal
 Aeroporto de Lisboa, Lisboa, Portugal
 
 Transporte:
-55, 12:02, 12:10, comboio
-5, 9:02, 9:03, metro
+55, 12:02, 12:10, comboio, Aeroporto Francisco Sa Carneiro
+5, 9:02, 9:03, metro, Aeroporto de Lisboa
 
 Funcionario:
 913762445, Andre Sousa, avenida feup 503, Aeroporto Francisco Sa Carneiro

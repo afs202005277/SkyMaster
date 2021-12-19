@@ -40,7 +40,7 @@ void processInput(const string &instruction, vector<string> & arguments){
     arguments[arguments.size()-1] = tmp;
 }
 
-/**
+     /**
      * Removes duplicates from list objects
      * @tparam T : changes the given list directly
      */
@@ -77,8 +77,9 @@ T* find(list <T> &l, T val){
     return nullptr;
 }
 
-/**
-     * Funcao que lê de um ficheiro fileName os diferentes atributos das diferentes classes e cria objetos que são quardados nos seus respetivos vetores dados
+    /**
+     * Funcao que lê de um ficheiro fileName os diferentes atributos das diferentes classes e
+     * cria objetos que são guardados nos seus respetivos vetores dados
      * @param string fileName
      * @param list aeroportos
      * @param list transportes
@@ -101,12 +102,13 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
         exit(1);
     }
     string line, object, instruction;
-    while(getline(input, line))
+    while(getline(input, line)) // line -> o "cabecalho" que antecede cada conjunto de instrucoes de criacao de atributos
     {
-        object = line.substr(0, line.find(':'));
+        object = line.substr(0, line.find(':')); // remove o simbolo ":"
         if (object == "Aeroporto")
         {
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
+                // instruction -> instrucao de criacao do objeto referido no cabecalho
                 vector<string> arguments(3);
                 processInput(instruction, arguments);
                 Aeroporto* a = new Aeroporto(arguments[0], arguments[1], arguments[2]);
@@ -118,9 +120,12 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
         {
 
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
-                vector<string> arguments(4);
+                vector<string> arguments(5);
                 processInput(instruction, arguments);
+                Aeroporto tmp(arguments[4], "", "");
+                auto required = find(aeroportos, tmp);
                 Transporte* t = new Transporte(stoi(arguments[0]), arguments[1], arguments[2], arguments[3]);
+                required->addTransporte(*t);
                 transportes.push_back(*t);
             }
             removeDuplicates(transportes);
@@ -163,7 +168,6 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
         }
         else if (object == "Mala")
         {
-
             while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
                 vector<string> arguments(2);
                 processInput(instruction, arguments);
@@ -217,7 +221,6 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
             }
         }
     }
-
 }
 
 /**
@@ -237,9 +240,6 @@ int main() {
     string fileName = "../povoar.txt";
 
     readFromFile(fileName, aeroportos, transportes, funcionarios, servicos, passageiros, malas, avioes, voos, carrinhosTransporte);
-    // ADICIONA TRANSPORTES AO 1º AEROPORTO
-    for (auto & transporte : transportes)
-        aeroportos.front().addTransporte(transporte);
 
     //ASSOCIA 1 AEROPORTO A CADA AVIAO
     for (auto &a:avioes){
@@ -769,6 +769,5 @@ int main() {
         }
         cout << "[" + Terminal::cur_dir.top() + "] ";
     }
-
     return 0;
 }
