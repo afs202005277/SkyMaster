@@ -37,7 +37,7 @@ bool Data::operator!=(const Data &rhs) const {
 }
 
 std::ostream &operator<<(std::ostream &os, const Data &data) {
-    os << std::setw(2) << std::setfill('0') << data.day << '/' << std::setw(2) << std::setfill('0') << data.month << '/' << std::setw(4) << std::setfill('0') << data.year << std::endl;
+    os << std::setw(2) << std::setfill('0') << data.day << '/' << std::setw(2) << std::setfill('0') << data.month << '/' << std::setw(4) << std::setfill('0') << data.year;
     return os;
 }
 
