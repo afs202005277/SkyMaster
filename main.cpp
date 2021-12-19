@@ -564,6 +564,7 @@ int main() {
                 Terminal::handleListDir(Terminal::cur_dir.top(), Terminal::cur_obj.top(), Terminal::dir, false);
                 Terminal::cur_dir.pop();
                 Terminal::cur_obj.pop();
+                Terminal::updateVec();
             }
             else
             {
