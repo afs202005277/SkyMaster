@@ -312,7 +312,7 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
         string temp4;
         getline(cin, temp4);
         try {
-            auto temp5 = Transporte(stoi(temp1), temp2, temp3, temp4, std::__cxx11::string());
+            auto temp5 = Transporte(stoi(temp1), temp2, temp3, temp4, name);
             addTransporte(temp5);
             Terminal::updateVec();
         } catch (exception &e)
