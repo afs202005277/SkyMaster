@@ -226,7 +226,8 @@ int main() {
     for (auto &it : avioes){
         if (it.getPlano().empty())
             continue;
-        it.getPlano().front()->getOrigem()->addAviao(&it);
+        else
+            it.getPlano().front()->getOrigem()->addAviao(&it);
     }
 
     // TERMINAL STUFF
