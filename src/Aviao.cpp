@@ -198,7 +198,7 @@ void Aviao::setTipo(const string &tipo) {
 }
 
 std::string Aviao::getObjectName() {
-    return "Aviao (" + to_string(capacidade) + ", " + matricula + ", " + tipo + ")";
+    return "Aviao (" + matricula + ", " + to_string(capacidade) + ", " + tipo + ")";
 }
 
 std::string Aviao::getObjectID() {
@@ -313,7 +313,7 @@ bool Aviao::findFunc(std::string nomeFunc) {
         cout << "input funcionario (index): ";
         string temp2;
         getline(cin, temp2);
-        cout << "input tipo (limpeza/manuntencao): ";
+        cout << "input tipo (limpeza/manutencao): ";
         string temp3;
         getline(cin, temp3);
         try
