@@ -22,6 +22,33 @@ std::multimap<string, tuple<string, vector<Terminal*>*>> Terminal::Terminal::dir
  * @param instruction
  * @param arguments : a vector to store the resulting arguments
  */
+
+void addToFile(fstream & stream, queue<string> &to_add){
+    string line;
+    queue<string> contents;
+    while(getline(stream, line))
+    {
+        contents.push(line);
+    }
+    remove("../povoar.txt");
+    ofstream ostream;
+    ostream.open("../povoar.txt");
+    while(!contents.empty())
+    {
+        if (!to_add.empty() && contents.front() == to_add.front()){
+            to_add.pop();
+            ostream << contents.front() << endl;
+            contents.pop();
+            while(!to_add.empty())
+            {
+                ostream << to_add.front();
+                to_add.pop();
+            }
+        }
+        ostream << contents.front() << endl;
+        contents.pop();
+    }
+}
 void processInput(const string &instruction, vector<string> & arguments){
     istringstream stream(instruction);
     string argument;
@@ -695,24 +722,23 @@ int main() {
             {
                 if (!get<1>(t->second)->empty())
                 {
-                    ofstream output;
-                    output.open(fileName, ios_base::app);
+                    fstream output;
+                    queue<string> to_add;
+                    output.open(fileName);
                     if (!output.is_open()) {
                         cout << "File not found" << endl;
                         return 1;
                     }
                     if (Terminal::processString(arguments, ' ', 1, true) == arguments) {
-
                         auto temp1 = (*get<1>(t->second)->begin())->getObjectName();
-                        output << endl;
-                        output << endl;
-                        output << Terminal::processString(temp1, ' ', 1, false) << ":" << endl;
+                        to_add.push(Terminal::processString(temp1, ' ', 1, false) + ":");
                         for (auto p: *get<1>(t->second)) {
                             auto temp3 = p->getObjectName();
                             string temp2 = Terminal::processString(temp3, '(', 1, true);
                             string arguments = Terminal::processString(temp2, ')', 1, false);
-                            output << arguments << endl;
+                            to_add.push(arguments + "\n");
                         }
+                        addToFile(output, to_add);
                         cout << "Saved." << endl;
                     }
                     else
@@ -724,13 +750,12 @@ int main() {
                                 if (stoi(Terminal::processString(arguments, ' ', 1, true)) < get<1>(t->second)->size() || get<0>(t->second) == Terminal::cur_dir.top())
                                 {
                                     auto temp3 = get<1>(t->second)->at(stoi(Terminal::processString(arguments, ' ', 1, true)));
-                                    output << endl;
-                                    output << endl;
                                     auto temp1 = temp3->getObjectName();
-                                    output << Terminal::processString(temp1, ' ', 1, false) << ":" << endl;
+                                    to_add.push(Terminal::processString(temp1, ' ', 1, false) + ":");
                                     string temp2 = Terminal::processString(temp1, '(', 1, true);
                                     string args = Terminal::processString(temp2, ')', 1, false);
-                                    output << args << endl;
+                                    to_add.push(args + "\n");
+                                    addToFile(output, to_add);
                                     cout << "Saved." << endl;
                                 }
                                 else
@@ -746,10 +771,11 @@ int main() {
                         else
                         {
                             auto temp1 = (*tt)->getObjectName();
-                            output << Terminal::processString(temp1, ' ', 1, false) << ":" << endl;
+                            to_add.push(Terminal::processString(temp1, ' ', 1, false) + ":");
                             string temp2 = Terminal::processString(temp1, '(', 1, true);
                             string args = Terminal::processString(temp2, ')', 1, false);
-                            output << args << endl;
+                            to_add.push(args + "\n");
+                            addToFile(output, to_add);
                             cout << "Saved." << endl;
                         }
                     }
