@@ -104,7 +104,7 @@ std::string Passageiro::getObjectName() {
 }
 
 std::string Passageiro::getObjectID() {
-    return nome;
+    return to_string(id);
 }
 
 std::stack<std::string> Passageiro::funcs() {

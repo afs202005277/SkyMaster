@@ -24,7 +24,7 @@
 \DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{class_terminal}{Terminal}};}
 \DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_voo}{Voo}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terminal}{Terminal}} \{}
 \DoxyCodeLine{22 \textcolor{keyword}{private}:}
-\DoxyCodeLine{23     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} nVoo, duracao, lotacaoAtual;}
+\DoxyCodeLine{23     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} nVoo, duracao, bilhetesVendidos;}
 \DoxyCodeLine{24     \mbox{\hyperlink{class_data}{Data}} dataPartida;}
 \DoxyCodeLine{25     \mbox{\hyperlink{class_tempo}{Tempo}} horaPartida;}
 \DoxyCodeLine{26     \mbox{\hyperlink{class_aeroporto}{Aeroporto}} * origem;}
@@ -34,7 +34,7 @@
 \DoxyCodeLine{33 }
 \DoxyCodeLine{34 \textcolor{keyword}{public}:}
 \DoxyCodeLine{35     \mbox{\hyperlink{class_voo_ab072a2c845b8dc6e3b3f41dd2d50b9d0}{Voo}}(\textcolor{keywordtype}{int} nVoo, \textcolor{keywordtype}{int} duracao, \textcolor{keyword}{const} \mbox{\hyperlink{class_data}{Data}} \&dataPartida, \mbox{\hyperlink{class_aeroporto}{Aeroporto}} *origem, \mbox{\hyperlink{class_aeroporto}{Aeroporto}} *destino, \mbox{\hyperlink{class_aviao}{Aviao}} *aviao,}
-\DoxyCodeLine{36         \mbox{\hyperlink{class_tempo}{Tempo}} \&partida, \textcolor{keywordtype}{int} lotacaoAtual = 0);}
+\DoxyCodeLine{36         \mbox{\hyperlink{class_tempo}{Tempo}} \&partida, \textcolor{keywordtype}{int} bilhetesVendidos = 0);}
 \DoxyCodeLine{37 }
 \DoxyCodeLine{38     \mbox{\hyperlink{class_voo_ab072a2c845b8dc6e3b3f41dd2d50b9d0}{Voo}}(\textcolor{keywordtype}{int} nVoo, \textcolor{keywordtype}{int} duracao, \textcolor{keywordtype}{string} dataPartida, \mbox{\hyperlink{class_aeroporto}{Aeroporto}} *origem, \mbox{\hyperlink{class_aeroporto}{Aeroporto}} *destino, \mbox{\hyperlink{class_aviao}{Aviao}} *aviao,}
 \DoxyCodeLine{39         \textcolor{keywordtype}{string} partida);}
@@ -59,7 +59,7 @@
 \DoxyCodeLine{58 }
 \DoxyCodeLine{59     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_voo_a863d8c02cd6c67b9aa96113ee5cc85cb}{getLotacaoAtual}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{60 }
-\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_voo_a99374df6130ef64dbfcbb543fad5e8ef}{setLotacaoAtual}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} lotacaoAtual);}
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_voo_a99374df6130ef64dbfcbb543fad5e8ef}{setLotacaoAtual}}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} bilhetesVendidos);}
 \DoxyCodeLine{62 }
 \DoxyCodeLine{63     \textcolor{keyword}{const} \mbox{\hyperlink{class_data}{Data}} \&\mbox{\hyperlink{class_voo_a26364c7cfd158541d1a4113a49cd3d80}{getDataPartida}}() \textcolor{keyword}{const};}
 \DoxyCodeLine{64 }

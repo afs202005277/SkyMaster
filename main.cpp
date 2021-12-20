@@ -215,6 +215,20 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
                 carrinhosTransporte.push_back(*c);
             }
         }
+        else if (object == "Bilhete")
+        {
+            while(getline(input, instruction) && !instruction.empty() && instruction.find(',') != string::npos) {
+                vector<string> arguments(3);
+                processInput(instruction, arguments);
+                Passageiro tmp("", 0, stoi(arguments[2]));
+                auto required = find(passageiros, tmp);
+                Bilhete* b = new Bilhete(stoi(arguments[0]), stoi(arguments[1]), required);
+                for (auto &v:voos)
+                    if (v.getNVoo() == stoi(arguments[0]))
+                        v.setbilhetesVendidos(v.getbilhetesVendidos() + 1);
+                required->addBilhete(b);
+            }
+        }
     }
     for (auto &elem:malas)
     {

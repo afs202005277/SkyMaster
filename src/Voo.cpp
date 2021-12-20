@@ -1,8 +1,8 @@
 #include "Voo.h"
 
 Voo::Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao,
-         Tempo &partida, int lotacaoAtual)
-        : nVoo(nVoo), duracao(duracao), lotacaoAtual(lotacaoAtual), dataPartida(dataPartida), origem(origem),
+         Tempo &partida, int bilhetesVendidos)
+        : nVoo(nVoo), duracao(duracao), bilhetesVendidos(bilhetesVendidos), dataPartida(dataPartida), origem(origem),
           destino(destino), aviao(aviao), horaPartida(partida) {aviao->addToPlanoVoo(this);}
 
 unsigned int Voo::getNVoo() const {
@@ -17,12 +17,12 @@ void Voo::setDuracao(unsigned int duracao) {
     Voo::duracao = duracao;
 }
 
-unsigned int Voo::getLotacaoAtual() const {
-    return lotacaoAtual;
+unsigned int Voo::getbilhetesVendidos() const {
+    return bilhetesVendidos;
 }
 
-void Voo::setLotacaoAtual(unsigned int lotacaoAtual) {
-    Voo::lotacaoAtual = lotacaoAtual;
+void Voo::setbilhetesVendidos(unsigned int bilhetesVendidos) {
+    Voo::bilhetesVendidos = bilhetesVendidos;
 }
 
 const Data &Voo::getDataPartida() const {
@@ -54,11 +54,11 @@ const list<Passageiro *> & Voo::getPassageiros() const {
 }
 
 bool Voo::sellBilhete(bool levaBagagem, Passageiro *passageiro) {
-    if (this->lotacaoAtual < this->aviao->getCapacidade())
+    if (this->bilhetesVendidos < this->aviao->getCapacidade())
     {
         Bilhete *temp;
         temp = new Bilhete(this->nVoo, levaBagagem, passageiro);
-        this->lotacaoAtual++;
+        this->bilhetesVendidos++;
         passageiro->addBilhete(temp);
         return true;
     }
@@ -67,7 +67,7 @@ bool Voo::sellBilhete(bool levaBagagem, Passageiro *passageiro) {
 
 bool Voo::sellBilheteGroup(const vector<bool> &levaBagagem, const vector<Passageiro *> &passageiros) {
     unsigned int nPassageiros = levaBagagem.size();
-    if (this->lotacaoAtual + nPassageiros > aviao->getCapacidade())
+    if (this->bilhetesVendidos + nPassageiros > aviao->getCapacidade())
         return false;
     for (int i=0;i<nPassageiros;i++)
     {
@@ -126,7 +126,7 @@ bool operator>=(const Voo &lhs, const Voo &rhs) {
 
 Voo::Voo(int nVoo, int duracao, string dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao,
          string partida) : nVoo(nVoo), duracao(duracao), dataPartida(Data(dataPartida)), origem(origem),
-                           destino(destino), aviao(aviao), horaPartida(partida), lotacaoAtual(0) {aviao->addToPlanoVoo(this);}
+                           destino(destino), aviao(aviao), horaPartida(partida), bilhetesVendidos(0) {aviao->addToPlanoVoo(this);}
 
 bool operator==(const Voo &lhs, const Voo &rhs) {
     return lhs.nVoo == rhs.nVoo;
@@ -150,7 +150,7 @@ std::stack<std::string> Voo::funcs() {
     temp.push("getDuracao()");
     temp.push("setDuracao()");
     temp.push("getLotacoAtual()");
-    temp.push("setLotacaoAtual()");
+    temp.push("setbilhetesVendidos()");
     temp.push("getDataPartida()");
     temp.push("setDataPartida()");
     temp.push("setOrigem()");
@@ -235,16 +235,16 @@ bool Voo::findFunc(std::string nomeFunc) {
             cout << "Function failed." << endl;
         }
     }
-    else if (nomeFunc == "getLotacaoAtual")
-        cout << getLotacaoAtual() << endl;
-    else if (nomeFunc == "setLotacaoAtual")
+    else if (nomeFunc == "getbilhetesVendidos")
+        cout << getbilhetesVendidos() << endl;
+    else if (nomeFunc == "setbilhetesVendidos")
     {
         cout << "input lotacao atual: ";
         string temp1;
         getline(cin, temp1);
         try
         {
-            setLotacaoAtual(stoi(temp1));
+            setbilhetesVendidos(stoi(temp1));
         }
         catch (exception &e)
         {

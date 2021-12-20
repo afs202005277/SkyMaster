@@ -21,7 +21,7 @@ class Aeroporto;
 class Terminal;
 class Voo : public Terminal {
 private:
-    unsigned int nVoo, duracao, lotacaoAtual;
+    unsigned int nVoo, duracao, bilhetesVendidos;
     Data dataPartida;
     Tempo horaPartida;
     Aeroporto * origem;
@@ -34,7 +34,7 @@ private:
 
 public:
     Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao,
-        Tempo &partida, int lotacaoAtual = 0);
+        Tempo &partida, int bilhetesVendidos = 0);
 
     Voo(int nVoo, int duracao, string dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao,
         string partida);
@@ -57,9 +57,9 @@ public:
 
     void setPassageiros(const list<Passageiro *> &passageiros);
 
-    unsigned int getLotacaoAtual() const;
+    unsigned int getbilhetesVendidos() const;
 
-    void setLotacaoAtual(unsigned int lotacaoAtual);
+    void setbilhetesVendidos(unsigned int bilhetesVendidos);
 
     const Data &getDataPartida() const;
 
