@@ -1,0 +1,392 @@
+\hypertarget{class_aeroporto}{}\doxysection{Aeroporto Class Reference}
+\label{class_aeroporto}\index{Aeroporto@{Aeroporto}}
+
+
+{\ttfamily \#include $<$Aeroporto.\+h$>$}
+
+Inheritance diagram for Aeroporto\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_aeroporto}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_aeroporto_a1de509d8ca44b254a7a4d758eae8e69a}{Aeroporto}} (string name, string city, string country, const vector$<$ \mbox{\hyperlink{class_funcionario}{Funcionario}} $\ast$ $>$ \&funcionarios, const \mbox{\hyperlink{class_b_s_t}{BST}}$<$ \mbox{\hyperlink{class_transporte}{Transporte}} $>$ \&transportes, const vector$<$ \mbox{\hyperlink{class_carrinho_transporte}{Carrinho\+Transporte}} $\ast$ $>$ \&carrinhos, const list$<$ \mbox{\hyperlink{class_aviao}{Aviao}} $\ast$ $>$ \&avioes)
+\item 
+\mbox{\hyperlink{class_aeroporto_a885d5ba7cd97d9a895781bc7b09df72d}{Aeroporto}} (std\+::string name, std\+::string city, std\+::string country)
+\item 
+const std\+::string \& \mbox{\hyperlink{class_aeroporto_a4405ca595971e88de8ab2d124c4a29ea}{get\+Name}} () const
+\item 
+const queue$<$ \mbox{\hyperlink{class_mala}{Mala}} $\ast$ $>$ \& \mbox{\hyperlink{class_aeroporto_abe53aa684566b52a5bcd605323a9ea7a}{get\+Storage}} () const
+\item 
+void \mbox{\hyperlink{class_aeroporto_af3dd24678f6a1acfc98ec9a2bc1e09b0}{set\+Storage}} (const queue$<$ \mbox{\hyperlink{class_mala}{Mala}} $\ast$ $>$ \&storage)
+\item 
+void \mbox{\hyperlink{class_aeroporto_aaa3e98c1b1ec65fa0b24797c6211d10a}{add\+Malas}} (queue$<$ \mbox{\hyperlink{class_mala}{Mala}} $\ast$ $>$ \&malas)
+\item 
+vector$<$ \mbox{\hyperlink{class_carrinho_transporte}{Carrinho\+Transporte}} $\ast$ $>$ \& \mbox{\hyperlink{class_aeroporto_a1213efe291f020e9fbdb2add80e230ad}{get\+Carrinhos}} ()
+\item 
+void \mbox{\hyperlink{class_aeroporto_aa0f968bf2d2c138ac7d539de38e3fd58}{set\+Carrinhos}} (const vector$<$ \mbox{\hyperlink{class_carrinho_transporte}{Carrinho\+Transporte}} $\ast$ $>$ \&Carrinhos)
+\item 
+void \mbox{\hyperlink{class_aeroporto_a49dc0f10391c7c1704377d55a8b5e74f}{set\+Name}} (const std\+::string \&Name)
+\item 
+const std\+::string \& \mbox{\hyperlink{class_aeroporto_a0350f5f940565131cc64d91e4a9d767a}{get\+City}} () const
+\item 
+void \mbox{\hyperlink{class_aeroporto_a232372146e981da9355461dfe3fea157}{set\+City}} (const std\+::string \&City)
+\item 
+const list$<$ \mbox{\hyperlink{class_aviao}{Aviao}} $\ast$ $>$ \& \mbox{\hyperlink{class_aeroporto_a48bf87a713e7603eda8f496fedfe1249}{get\+Avioes}} () const
+\item 
+void \mbox{\hyperlink{class_aeroporto_a58c2be192a92f131a1fe540adfdf2f49}{set\+Avioes}} (const list$<$ \mbox{\hyperlink{class_aviao}{Aviao}} $\ast$ $>$ \&Avioes)
+\item 
+const std\+::string \& \mbox{\hyperlink{class_aeroporto_ab3ebf8fe5337156d5247b1c35c8c8c84}{get\+Country}} () const
+\item 
+void \mbox{\hyperlink{class_aeroporto_a8f070b0ae3bb99f56aad449f902344a4}{set\+Country}} (const std\+::string \&Country)
+\item 
+void \mbox{\hyperlink{class_aeroporto_aee2a24e4b02d20d9f09b8a60e5348ad1}{set\+Transportes}} (\mbox{\hyperlink{class_b_s_t}{BST}}$<$ \mbox{\hyperlink{class_transporte}{Transporte}} $>$ \&t)
+\item 
+const vector$<$ \mbox{\hyperlink{class_funcionario}{Funcionario}} $\ast$ $>$ \& \mbox{\hyperlink{class_aeroporto_abf129c3b9440a50b4c126786b247e950}{get\+Funcionarios}} () const
+\item 
+void \mbox{\hyperlink{class_aeroporto_a59c4d2b51315ccb1cac9054078ee2f21}{set\+Funcionarios}} (vector$<$ \mbox{\hyperlink{class_funcionario}{Funcionario}} $\ast$ $>$ \&funcionarios\+New)
+\item 
+\mbox{\hyperlink{class_b_s_t}{BST}}$<$ \mbox{\hyperlink{class_transporte}{Transporte}} $>$ \mbox{\hyperlink{class_aeroporto_ad9760a0c80c2d0ba1ec6965601e6790a}{get\+Transportes}} ()
+\item 
+void \mbox{\hyperlink{class_aeroporto_aeba310dccb79ccb54f7a5598f665acb3}{add\+Transporte}} (\mbox{\hyperlink{class_transporte}{Transporte}} \&t)
+\item 
+bool \mbox{\hyperlink{class_aeroporto_a5954a1af0095dd74094f507139b2fb51}{remove\+Transporte}} (\mbox{\hyperlink{class_transporte}{Transporte}} \&t)
+\item 
+\mbox{\hyperlink{class_transporte}{Transporte}} \mbox{\hyperlink{class_aeroporto_af5f92e6411291faf8a9c88311f7ab560}{get\+Nearest\+Transport}} ()
+\item 
+\mbox{\hyperlink{class_transporte}{Transporte}} \mbox{\hyperlink{class_aeroporto_ad8771118d1473f09caacb403957ac688}{get\+Next\+Transport}} ()
+\item 
+vector$<$ \mbox{\hyperlink{class_transporte}{Transporte}} $>$ \mbox{\hyperlink{class_aeroporto_a6ea0dce6395bb0197156be3014a70794}{get\+Available\+Transports}} (\mbox{\hyperlink{class_tempo}{Tempo}} min, \mbox{\hyperlink{class_tempo}{Tempo}} max)
+\item 
+void \mbox{\hyperlink{class_aeroporto_af350e008a406607e5c2be137b0cf7645}{add\+Funcionario}} (\mbox{\hyperlink{class_funcionario}{Funcionario}} $\ast$f)
+\item 
+\mbox{\hyperlink{class_funcionario}{Funcionario}} $\ast$ \mbox{\hyperlink{class_aeroporto_ad39021c60d3465a9d615134f2c9cc6ab}{remove\+Funcionario}} (const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&f)
+\item 
+void \mbox{\hyperlink{class_aeroporto_a99127133c274b739bd3a3ec677476acc}{add\+Aviao}} (\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$a)
+\item 
+bool \mbox{\hyperlink{class_aeroporto_aa0f21adcd3587e804de13f092ac9b69b}{remove\+Aviao}} (\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$a)
+\item 
+void \mbox{\hyperlink{class_aeroporto_a98b5cc8b50c28caff6f8ba9591ac8ad2}{add\+Carrinho}} (\mbox{\hyperlink{class_carrinho_transporte}{Carrinho\+Transporte}} $\ast$c)
+\item 
+std\+::string \mbox{\hyperlink{class_aeroporto_a7d0140170dd809c3db2b304625c47c72}{get\+Object\+Name}} () override
+\item 
+std\+::string \mbox{\hyperlink{class_aeroporto_ae986841a1ec1c98213f5d0b20e48bab6}{get\+Object\+ID}} () override
+\item 
+bool \mbox{\hyperlink{class_aeroporto_ad996d4c8b0ec4eb79c0bce5165d7a859}{find\+Func}} (std\+::string nome\+Func) override
+\item 
+std\+::stack$<$ std\+::string $>$ \mbox{\hyperlink{class_aeroporto_a33c037a0c10e73d6a42c42708dd7f661}{funcs}} () override
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{class_aeroporto_a5c8f4080d1210b1b6dbbdd2192c35fdb}{getV}} (std\+::string name\+Vector) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_aeroporto_ada783ed7f86679b2f0716f153f92d5bd}{operator==}} (const \mbox{\hyperlink{class_aeroporto}{Aeroporto}} \&lhs, const \mbox{\hyperlink{class_aeroporto}{Aeroporto}} \&rhs)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_aeroporto_a1de509d8ca44b254a7a4d758eae8e69a}\label{class_aeroporto_a1de509d8ca44b254a7a4d758eae8e69a}} 
+\index{Aeroporto@{Aeroporto}!Aeroporto@{Aeroporto}}
+\index{Aeroporto@{Aeroporto}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{Aeroporto()}{Aeroporto()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Aeroporto\+::\+Aeroporto (\begin{DoxyParamCaption}\item[{string}]{name,  }\item[{string}]{city,  }\item[{string}]{country,  }\item[{const vector$<$ \mbox{\hyperlink{class_funcionario}{Funcionario}} $\ast$ $>$ \&}]{funcionarios,  }\item[{const \mbox{\hyperlink{class_b_s_t}{BST}}$<$ \mbox{\hyperlink{class_transporte}{Transporte}} $>$ \&}]{transportes,  }\item[{const vector$<$ \mbox{\hyperlink{class_carrinho_transporte}{Carrinho\+Transporte}} $\ast$ $>$ \&}]{carrinhos,  }\item[{const list$<$ \mbox{\hyperlink{class_aviao}{Aviao}} $\ast$ $>$ \&}]{avioes }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_a885d5ba7cd97d9a895781bc7b09df72d}\label{class_aeroporto_a885d5ba7cd97d9a895781bc7b09df72d}} 
+\index{Aeroporto@{Aeroporto}!Aeroporto@{Aeroporto}}
+\index{Aeroporto@{Aeroporto}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{Aeroporto()}{Aeroporto()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Aeroporto\+::\+Aeroporto (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{city,  }\item[{std\+::string}]{country }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_aeroporto_a99127133c274b739bd3a3ec677476acc}\label{class_aeroporto_a99127133c274b739bd3a3ec677476acc}} 
+\index{Aeroporto@{Aeroporto}!addAviao@{addAviao}}
+\index{addAviao@{addAviao}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{addAviao()}{addAviao()}}
+{\footnotesize\ttfamily void Aeroporto\+::add\+Aviao (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$}]{a }\end{DoxyParamCaption})}
+
+Adiciona o apontador do aviao à lista de avioes, mantendo a ordem de partida dos avioes Associa um carrinho de transporte ao aviao que foi adicionado 
+\begin{DoxyParams}{Parameters}
+{\em a} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_aeroporto_a98b5cc8b50c28caff6f8ba9591ac8ad2}\label{class_aeroporto_a98b5cc8b50c28caff6f8ba9591ac8ad2}} 
+\index{Aeroporto@{Aeroporto}!addCarrinho@{addCarrinho}}
+\index{addCarrinho@{addCarrinho}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{addCarrinho()}{addCarrinho()}}
+{\footnotesize\ttfamily void Aeroporto\+::add\+Carrinho (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_carrinho_transporte}{Carrinho\+Transporte}} $\ast$}]{c }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_af350e008a406607e5c2be137b0cf7645}\label{class_aeroporto_af350e008a406607e5c2be137b0cf7645}} 
+\index{Aeroporto@{Aeroporto}!addFuncionario@{addFuncionario}}
+\index{addFuncionario@{addFuncionario}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{addFuncionario()}{addFuncionario()}}
+{\footnotesize\ttfamily void Aeroporto\+::add\+Funcionario (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_funcionario}{Funcionario}} $\ast$}]{f }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_aaa3e98c1b1ec65fa0b24797c6211d10a}\label{class_aeroporto_aaa3e98c1b1ec65fa0b24797c6211d10a}} 
+\index{Aeroporto@{Aeroporto}!addMalas@{addMalas}}
+\index{addMalas@{addMalas}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{addMalas()}{addMalas()}}
+{\footnotesize\ttfamily void Aeroporto\+::add\+Malas (\begin{DoxyParamCaption}\item[{queue$<$ \mbox{\hyperlink{class_mala}{Mala}} $\ast$ $>$ \&}]{malas }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_aeba310dccb79ccb54f7a5598f665acb3}\label{class_aeroporto_aeba310dccb79ccb54f7a5598f665acb3}} 
+\index{Aeroporto@{Aeroporto}!addTransporte@{addTransporte}}
+\index{addTransporte@{addTransporte}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{addTransporte()}{addTransporte()}}
+{\footnotesize\ttfamily void Aeroporto\+::add\+Transporte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_transporte}{Transporte}} \&}]{t }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_ad996d4c8b0ec4eb79c0bce5165d7a859}\label{class_aeroporto_ad996d4c8b0ec4eb79c0bce5165d7a859}} 
+\index{Aeroporto@{Aeroporto}!findFunc@{findFunc}}
+\index{findFunc@{findFunc}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{findFunc()}{findFunc()}}
+{\footnotesize\ttfamily bool Aeroporto\+::find\+Func (\begin{DoxyParamCaption}\item[{std\+::string}]{nome\+Func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Executa o metodo cujo nome recebeu como argumento 
+\begin{DoxyParams}{Parameters}
+{\em nome\+Func} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se encontrar um metodo com o nome referido e se o input pedido estiver correto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a8a1e4d1e1b65529614f9eb85067e8e42}{Terminal}}.
+
+\mbox{\Hypertarget{class_aeroporto_a33c037a0c10e73d6a42c42708dd7f661}\label{class_aeroporto_a33c037a0c10e73d6a42c42708dd7f661}} 
+\index{Aeroporto@{Aeroporto}!funcs@{funcs}}
+\index{funcs@{funcs}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{funcs()}{funcs()}}
+{\footnotesize\ttfamily std\+::stack$<$ std\+::string $>$ Aeroporto\+::funcs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+stack de strings contendo os nomes de todos os metodos do respetivo objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a1a0f6a32ab54a19f7d800fac1f2fb3ad}{Terminal}}.
+
+\mbox{\Hypertarget{class_aeroporto_a6ea0dce6395bb0197156be3014a70794}\label{class_aeroporto_a6ea0dce6395bb0197156be3014a70794}} 
+\index{Aeroporto@{Aeroporto}!getAvailableTransports@{getAvailableTransports}}
+\index{getAvailableTransports@{getAvailableTransports}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{getAvailableTransports()}{getAvailableTransports()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_transporte}{Transporte}} $>$ Aeroporto\+::get\+Available\+Transports (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_tempo}{Tempo}}}]{min,  }\item[{\mbox{\hyperlink{class_tempo}{Tempo}}}]{max }\end{DoxyParamCaption})}
+
+Procura todos os transportes que estão disponíveis entre as horas especificadas 
+\begin{DoxyParams}{Parameters}
+{\em min} & \\
+\hline
+{\em max} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector com os transportes cuja hora de chegada está no intervalo \mbox{[}min, max\mbox{]} 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_aeroporto_a48bf87a713e7603eda8f496fedfe1249}\label{class_aeroporto_a48bf87a713e7603eda8f496fedfe1249}} 
+\index{Aeroporto@{Aeroporto}!getAvioes@{getAvioes}}
+\index{getAvioes@{getAvioes}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{getAvioes()}{getAvioes()}}
+{\footnotesize\ttfamily const list$<$ \mbox{\hyperlink{class_aviao}{Aviao}} $\ast$ $>$ \& Aeroporto\+::get\+Avioes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_aeroporto_a1213efe291f020e9fbdb2add80e230ad}\label{class_aeroporto_a1213efe291f020e9fbdb2add80e230ad}} 
+\index{Aeroporto@{Aeroporto}!getCarrinhos@{getCarrinhos}}
+\index{getCarrinhos@{getCarrinhos}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{getCarrinhos()}{getCarrinhos()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_carrinho_transporte}{Carrinho\+Transporte}} $\ast$ $>$ \& Aeroporto\+::get\+Carrinhos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_a0350f5f940565131cc64d91e4a9d767a}\label{class_aeroporto_a0350f5f940565131cc64d91e4a9d767a}} 
+\index{Aeroporto@{Aeroporto}!getCity@{getCity}}
+\index{getCity@{getCity}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{getCity()}{getCity()}}
+{\footnotesize\ttfamily const std\+::string \& Aeroporto\+::get\+City (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_aeroporto_ab3ebf8fe5337156d5247b1c35c8c8c84}\label{class_aeroporto_ab3ebf8fe5337156d5247b1c35c8c8c84}} 
+\index{Aeroporto@{Aeroporto}!getCountry@{getCountry}}
+\index{getCountry@{getCountry}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{getCountry()}{getCountry()}}
+{\footnotesize\ttfamily const std\+::string \& Aeroporto\+::get\+Country (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_aeroporto_abf129c3b9440a50b4c126786b247e950}\label{class_aeroporto_abf129c3b9440a50b4c126786b247e950}} 
+\index{Aeroporto@{Aeroporto}!getFuncionarios@{getFuncionarios}}
+\index{getFuncionarios@{getFuncionarios}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{getFuncionarios()}{getFuncionarios()}}
+{\footnotesize\ttfamily const vector$<$ \mbox{\hyperlink{class_funcionario}{Funcionario}} $\ast$ $>$ \& Aeroporto\+::get\+Funcionarios (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_aeroporto_a4405ca595971e88de8ab2d124c4a29ea}\label{class_aeroporto_a4405ca595971e88de8ab2d124c4a29ea}} 
+\index{Aeroporto@{Aeroporto}!getName@{getName}}
+\index{getName@{getName}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily const std\+::string \& Aeroporto\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_aeroporto_af5f92e6411291faf8a9c88311f7ab560}\label{class_aeroporto_af5f92e6411291faf8a9c88311f7ab560}} 
+\index{Aeroporto@{Aeroporto}!getNearestTransport@{getNearestTransport}}
+\index{getNearestTransport@{getNearestTransport}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{getNearestTransport()}{getNearestTransport()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_transporte}{Transporte}} Aeroporto\+::get\+Nearest\+Transport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_ad8771118d1473f09caacb403957ac688}\label{class_aeroporto_ad8771118d1473f09caacb403957ac688}} 
+\index{Aeroporto@{Aeroporto}!getNextTransport@{getNextTransport}}
+\index{getNextTransport@{getNextTransport}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{getNextTransport()}{getNextTransport()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_transporte}{Transporte}} Aeroporto\+::get\+Next\+Transport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_ae986841a1ec1c98213f5d0b20e48bab6}\label{class_aeroporto_ae986841a1ec1c98213f5d0b20e48bab6}} 
+\index{Aeroporto@{Aeroporto}!getObjectID@{getObjectID}}
+\index{getObjectID@{getObjectID}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{getObjectID()}{getObjectID()}}
+{\footnotesize\ttfamily std\+::string Aeroporto\+::get\+Object\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+string com o identificador do objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a08c2842d197fe3eb4d0a92aed94cf704}{Terminal}}.
+
+\mbox{\Hypertarget{class_aeroporto_a7d0140170dd809c3db2b304625c47c72}\label{class_aeroporto_a7d0140170dd809c3db2b304625c47c72}} 
+\index{Aeroporto@{Aeroporto}!getObjectName@{getObjectName}}
+\index{getObjectName@{getObjectName}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{getObjectName()}{getObjectName()}}
+{\footnotesize\ttfamily std\+::string Aeroporto\+::get\+Object\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+string com toda a informacao relativa ao objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a1b9939ed1d6c2155704ac8b91d79e3ca}{Terminal}}.
+
+\mbox{\Hypertarget{class_aeroporto_abe53aa684566b52a5bcd605323a9ea7a}\label{class_aeroporto_abe53aa684566b52a5bcd605323a9ea7a}} 
+\index{Aeroporto@{Aeroporto}!getStorage@{getStorage}}
+\index{getStorage@{getStorage}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{getStorage()}{getStorage()}}
+{\footnotesize\ttfamily const queue$<$ \mbox{\hyperlink{class_mala}{Mala}} $\ast$ $>$ \& Aeroporto\+::get\+Storage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_aeroporto_ad9760a0c80c2d0ba1ec6965601e6790a}\label{class_aeroporto_ad9760a0c80c2d0ba1ec6965601e6790a}} 
+\index{Aeroporto@{Aeroporto}!getTransportes@{getTransportes}}
+\index{getTransportes@{getTransportes}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{getTransportes()}{getTransportes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_b_s_t}{BST}}$<$ \mbox{\hyperlink{class_transporte}{Transporte}} $>$ Aeroporto\+::get\+Transportes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_a5c8f4080d1210b1b6dbbdd2192c35fdb}\label{class_aeroporto_a5c8f4080d1210b1b6dbbdd2192c35fdb}} 
+\index{Aeroporto@{Aeroporto}!getV@{getV}}
+\index{getV@{getV}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{getV()}{getV()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ Aeroporto\+::getV (\begin{DoxyParamCaption}\item[{std\+::string}]{name\+Vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Retorna a estrutura de dados com nome name\+Vector da classe respetiva 
+\begin{DoxyParams}{Parameters}
+{\em name\+Vector} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+apontador para um vetor de apontadores de terminais com a informacao requerida 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_aab50b800bcbe1e86ee982b3c8504a5be}{Terminal}}.
+
+\mbox{\Hypertarget{class_aeroporto_aa0f21adcd3587e804de13f092ac9b69b}\label{class_aeroporto_aa0f21adcd3587e804de13f092ac9b69b}} 
+\index{Aeroporto@{Aeroporto}!removeAviao@{removeAviao}}
+\index{removeAviao@{removeAviao}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{removeAviao()}{removeAviao()}}
+{\footnotesize\ttfamily bool Aeroporto\+::remove\+Aviao (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$}]{a }\end{DoxyParamCaption})}
+
+Remove o aviao da lista de avioes, mantendo a posicao relativa dos restantes O carrinho de transporte que lhe foi associado, passa a estar disponível para outros avioes 
+\begin{DoxyParams}{Parameters}
+{\em a} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o aviao existir no aeroporto 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_aeroporto_ad39021c60d3465a9d615134f2c9cc6ab}\label{class_aeroporto_ad39021c60d3465a9d615134f2c9cc6ab}} 
+\index{Aeroporto@{Aeroporto}!removeFuncionario@{removeFuncionario}}
+\index{removeFuncionario@{removeFuncionario}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{removeFuncionario()}{removeFuncionario()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_funcionario}{Funcionario}} $\ast$ Aeroporto\+::remove\+Funcionario (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&}]{f }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_a5954a1af0095dd74094f507139b2fb51}\label{class_aeroporto_a5954a1af0095dd74094f507139b2fb51}} 
+\index{Aeroporto@{Aeroporto}!removeTransporte@{removeTransporte}}
+\index{removeTransporte@{removeTransporte}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{removeTransporte()}{removeTransporte()}}
+{\footnotesize\ttfamily bool Aeroporto\+::remove\+Transporte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_transporte}{Transporte}} \&}]{t }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_a58c2be192a92f131a1fe540adfdf2f49}\label{class_aeroporto_a58c2be192a92f131a1fe540adfdf2f49}} 
+\index{Aeroporto@{Aeroporto}!setAvioes@{setAvioes}}
+\index{setAvioes@{setAvioes}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{setAvioes()}{setAvioes()}}
+{\footnotesize\ttfamily void Aeroporto\+::set\+Avioes (\begin{DoxyParamCaption}\item[{const list$<$ \mbox{\hyperlink{class_aviao}{Aviao}} $\ast$ $>$ \&}]{Avioes }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_aa0f968bf2d2c138ac7d539de38e3fd58}\label{class_aeroporto_aa0f968bf2d2c138ac7d539de38e3fd58}} 
+\index{Aeroporto@{Aeroporto}!setCarrinhos@{setCarrinhos}}
+\index{setCarrinhos@{setCarrinhos}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{setCarrinhos()}{setCarrinhos()}}
+{\footnotesize\ttfamily void Aeroporto\+::set\+Carrinhos (\begin{DoxyParamCaption}\item[{const vector$<$ \mbox{\hyperlink{class_carrinho_transporte}{Carrinho\+Transporte}} $\ast$ $>$ \&}]{Carrinhos }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_a232372146e981da9355461dfe3fea157}\label{class_aeroporto_a232372146e981da9355461dfe3fea157}} 
+\index{Aeroporto@{Aeroporto}!setCity@{setCity}}
+\index{setCity@{setCity}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{setCity()}{setCity()}}
+{\footnotesize\ttfamily void Aeroporto\+::set\+City (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{City }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_a8f070b0ae3bb99f56aad449f902344a4}\label{class_aeroporto_a8f070b0ae3bb99f56aad449f902344a4}} 
+\index{Aeroporto@{Aeroporto}!setCountry@{setCountry}}
+\index{setCountry@{setCountry}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{setCountry()}{setCountry()}}
+{\footnotesize\ttfamily void Aeroporto\+::set\+Country (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Country }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_a59c4d2b51315ccb1cac9054078ee2f21}\label{class_aeroporto_a59c4d2b51315ccb1cac9054078ee2f21}} 
+\index{Aeroporto@{Aeroporto}!setFuncionarios@{setFuncionarios}}
+\index{setFuncionarios@{setFuncionarios}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{setFuncionarios()}{setFuncionarios()}}
+{\footnotesize\ttfamily void Aeroporto\+::set\+Funcionarios (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{class_funcionario}{Funcionario}} $\ast$ $>$ \&}]{funcionarios\+New }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_a49dc0f10391c7c1704377d55a8b5e74f}\label{class_aeroporto_a49dc0f10391c7c1704377d55a8b5e74f}} 
+\index{Aeroporto@{Aeroporto}!setName@{setName}}
+\index{setName@{setName}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily void Aeroporto\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_af3dd24678f6a1acfc98ec9a2bc1e09b0}\label{class_aeroporto_af3dd24678f6a1acfc98ec9a2bc1e09b0}} 
+\index{Aeroporto@{Aeroporto}!setStorage@{setStorage}}
+\index{setStorage@{setStorage}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{setStorage()}{setStorage()}}
+{\footnotesize\ttfamily void Aeroporto\+::set\+Storage (\begin{DoxyParamCaption}\item[{const queue$<$ \mbox{\hyperlink{class_mala}{Mala}} $\ast$ $>$ \&}]{storage }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_aeroporto_aee2a24e4b02d20d9f09b8a60e5348ad1}\label{class_aeroporto_aee2a24e4b02d20d9f09b8a60e5348ad1}} 
+\index{Aeroporto@{Aeroporto}!setTransportes@{setTransportes}}
+\index{setTransportes@{setTransportes}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{setTransportes()}{setTransportes()}}
+{\footnotesize\ttfamily void Aeroporto\+::set\+Transportes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_b_s_t}{BST}}$<$ \mbox{\hyperlink{class_transporte}{Transporte}} $>$ \&}]{t }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_aeroporto_ada783ed7f86679b2f0716f153f92d5bd}\label{class_aeroporto_ada783ed7f86679b2f0716f153f92d5bd}} 
+\index{Aeroporto@{Aeroporto}!operator==@{operator==}}
+\index{operator==@{operator==}!Aeroporto@{Aeroporto}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_aeroporto}{Aeroporto}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_aeroporto}{Aeroporto}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Funcao que verifica a igualdade de 2 aeroportos 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_aeroporto}{Aeroporto}}} & lhs \\
+\hline
+{\em \mbox{\hyperlink{class_aeroporto}{Aeroporto}}} & rhs \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se os 2 aeroportos tiverem o mesmo nome 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_aeroporto_8h}{Aeroporto.\+h}}\item 
+src/\mbox{\hyperlink{_aeroporto_8cpp}{Aeroporto.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,56 @@
+\hypertarget{_transporte_8h_source}{}\doxysection{Transporte.\+h}
+\label{_transporte_8h_source}\index{src/Transporte.h@{src/Transporte.h}}
+\mbox{\hyperlink{_transporte_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJETO1\_TRANSPORTE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJETO1\_TRANSPORTE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_tempo_8h}{Tempo.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_terminal_8h}{Terminal.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{enum} \mbox{\hyperlink{_transporte_8h_ab57838a4b81abc99a94efd2e17034916}{TipoTransporte}} \{\mbox{\hyperlink{_transporte_8h_ab57838a4b81abc99a94efd2e17034916a7baf710611c017df7ebe3b478f92aad9}{autocarro}}, \mbox{\hyperlink{_transporte_8h_ab57838a4b81abc99a94efd2e17034916a633ac353837efa469a34a7da945d922f}{metro}}, \mbox{\hyperlink{_transporte_8h_ab57838a4b81abc99a94efd2e17034916a451dbe9886a814eafec255c27ac95ad5}{comboio}}\};}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_transporte}{Transporte}};}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_terminal}{Terminal}};}
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_transporte}{Transporte}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terminal}{Terminal}}\{}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{private}:}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} distancia;}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_tempo}{Tempo}} horaChegada, horaPartida;}
+\DoxyCodeLine{16     \mbox{\hyperlink{_transporte_8h_ab57838a4b81abc99a94efd2e17034916}{TipoTransporte}} tipo;}
+\DoxyCodeLine{17 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_transporte_a0cbb4b20eea36e3011b8b3208a812778}{Transporte}}(\textcolor{keywordtype}{int} distancia, \textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&horaChegada, \textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&horaPartida, \mbox{\hyperlink{_transporte_8h_ab57838a4b81abc99a94efd2e17034916}{TipoTransporte}} tipo);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \mbox{\hyperlink{class_transporte_a0cbb4b20eea36e3011b8b3208a812778}{Transporte}}(\textcolor{keywordtype}{int} distancia, \textcolor{keyword}{const} std::string \&horaChegada, \textcolor{keyword}{const} std::string \&horaPartida, \textcolor{keyword}{const} std::string \&tipo);}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \mbox{\hyperlink{class_transporte_a0cbb4b20eea36e3011b8b3208a812778}{Transporte}}();}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{_transporte_8h_ab57838a4b81abc99a94efd2e17034916}{TipoTransporte}} \mbox{\hyperlink{class_transporte_aecdfd28a10ce8704bce25deeaccd1c39}{getTipo}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_transporte_a117576bb0aad7350882f6c56e2c7ea51}{setTipo}}(\mbox{\hyperlink{_transporte_8h_ab57838a4b81abc99a94efd2e17034916}{TipoTransporte}} tipo);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_transporte_a9523227b8ef88a6152735db3051cfcde}{getDistancia}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_transporte_ad88a59c5e69084b537a15e7127086f33}{setDistancia}}(\textcolor{keywordtype}{int} distancia);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&\mbox{\hyperlink{class_transporte_ae09f896055f1589f570dbcc7a5050f51}{getHoraChegada}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_transporte_a61e03eb9f7e0d680218486fd5439f3d4}{setHoraChegada}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&horaChegada);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&\mbox{\hyperlink{class_transporte_a4a60cce6eaef8d8a00491c0474ba132b}{getHoraPartida}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_transporte_ab4464eb8afb0b61c2051468627e1ec38}{setHoraPartida}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&horaSaida);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{46     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_transporte_a00d39924887e98cd36cc0a5e15019ecd}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_transporte}{Transporte}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_transporte}{Transporte}} \&rhs);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     std::string \mbox{\hyperlink{class_transporte_adf76088441dab1669b96b849b88d4e12}{getObjectName}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{49     std::string \mbox{\hyperlink{class_transporte_a9b2b5aee1938440aead93e7420b52e55}{getObjectID}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{50     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_transporte_a00f351041b1b3fcaff81fc35976263fb}{findFunc}}(std::string nomeFunc) \textcolor{keyword}{override};}
+\DoxyCodeLine{51     std::stack<std::string> \mbox{\hyperlink{class_transporte_a48c182e3a76cb76b28fc00ea66d9674d}{funcs}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{52     std::vector<Terminal*> *\mbox{\hyperlink{class_transporte_a6eae7b9961b6da2cb1a893c55d3fcb66}{getV}}(std::string nameVector) \textcolor{keyword}{override};}
+\DoxyCodeLine{53 \};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO1\_TRANSPORTE\_H}}
+
+\end{DoxyCode}

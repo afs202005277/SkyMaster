@@ -1,0 +1,61 @@
+\hypertarget{_terminal_8h_source}{}\doxysection{Terminal.\+h}
+\label{_terminal_8h_source}\index{src/Terminal.h@{src/Terminal.h}}
+\mbox{\hyperlink{_terminal_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by andre on 18/12/2021.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef AEROPORTO\_CPP\_TERMINAL\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define AEROPORTO\_CPP\_TERMINAL\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <stack>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_aeroporto}{Aeroporto}};}
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_passageiro}{Passageiro}};}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_voo}{Voo}};}
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_funcionario}{Funcionario}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_terminal}{Terminal}}\{}
+\DoxyCodeLine{19 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{20     \textcolor{keyword}{static} std::vector<Aeroporto> \mbox{\hyperlink{class_terminal_a089fdcc99714663db5286e0b15498da9}{aeroportos}};}
+\DoxyCodeLine{21     \textcolor{keyword}{static} std::vector<Passageiro> \mbox{\hyperlink{class_terminal_a11e2c5a0db5dadcec2616f6e9dac0bac}{passageiros}};}
+\DoxyCodeLine{22     \textcolor{keyword}{static} std::vector<Voo> \mbox{\hyperlink{class_terminal_afd0ec15b45405228343c15f1d25e33af}{voos}};}
+\DoxyCodeLine{23     \textcolor{keyword}{static} std::vector<Funcionario> \mbox{\hyperlink{class_terminal_a1998550fbcd1250661d6aaf3ad08d216}{funcionarios}};}
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{class_terminal_a1b9939ed1d6c2155704ac8b91d79e3ca}{getObjectName}}() = 0;}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{33     \textcolor{keyword}{virtual} std::string \mbox{\hyperlink{class_terminal_a08c2842d197fe3eb4d0a92aed94cf704}{getObjectID}}() = 0;}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{40     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_terminal_a8a1e4d1e1b65529614f9eb85067e8e42}{findFunc}}(std::string nomeFunc) = 0;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{45     \textcolor{keyword}{virtual} std::stack<std::string> \mbox{\hyperlink{class_terminal_a1a0f6a32ab54a19f7d800fac1f2fb3ad}{funcs}}() = 0;}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{52     \textcolor{keyword}{virtual} std::vector<Terminal*> *\mbox{\hyperlink{class_terminal_aab50b800bcbe1e86ee982b3c8504a5be}{getV}}(std::string nameVector) = 0;}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{62     \textcolor{keyword}{static} std::string \mbox{\hyperlink{class_terminal_afd4bed5b75fc9c2ee6e785cf38b22f52}{processString}}(std::string \&s, \textcolor{keywordtype}{char} y, \textcolor{keywordtype}{int} occurence=1, \textcolor{keywordtype}{bool} after=\textcolor{keyword}{false})}
+\DoxyCodeLine{63     \{}
+\DoxyCodeLine{64         std::string::size\_type pos = 0;}
+\DoxyCodeLine{65         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i=0;i<occurence;i++) \{}
+\DoxyCodeLine{66             pos = s.find(y, pos);}
+\DoxyCodeLine{67             \textcolor{keywordflow}{if} (pos != std::string::npos)}
+\DoxyCodeLine{68             \{}
+\DoxyCodeLine{69                 \textcolor{keywordflow}{if} (after)}
+\DoxyCodeLine{70                     \textcolor{keywordflow}{return} s.substr(pos+1, s.size()-\/pos-\/1);}
+\DoxyCodeLine{71                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{72                     \textcolor{keywordflow}{return} s.substr(0, pos);}
+\DoxyCodeLine{73             \}}
+\DoxyCodeLine{74             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{75             \{}
+\DoxyCodeLine{76                 \textcolor{keywordflow}{return} s;}
+\DoxyCodeLine{77             \}}
+\DoxyCodeLine{78         \}}
+\DoxyCodeLine{79         \textcolor{keywordflow}{return} s;}
+\DoxyCodeLine{80     \};}
+\DoxyCodeLine{81 \};}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//AEROPORTO\_CPP\_TERMINAL\_H}}
+
+\end{DoxyCode}

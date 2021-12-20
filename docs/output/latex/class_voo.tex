@@ -1,0 +1,413 @@
+\hypertarget{class_voo}{}\doxysection{Voo Class Reference}
+\label{class_voo}\index{Voo@{Voo}}
+
+
+{\ttfamily \#include $<$Voo.\+h$>$}
+
+Inheritance diagram for Voo\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_voo}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_voo_ab072a2c845b8dc6e3b3f41dd2d50b9d0}{Voo}} (int n\+Voo, int duracao, const \mbox{\hyperlink{class_data}{Data}} \&data\+Partida, \mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$origem, \mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$destino, \mbox{\hyperlink{class_aviao}{Aviao}} $\ast$aviao, \mbox{\hyperlink{class_tempo}{Tempo}} \&partida, int lotacao\+Atual=0)
+\item 
+\mbox{\hyperlink{class_voo_a20e17cd98ccd3c1e6cfceafa5083e003}{Voo}} (int n\+Voo, int duracao, string data\+Partida, \mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$origem, \mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$destino, \mbox{\hyperlink{class_aviao}{Aviao}} $\ast$aviao, string partida)
+\item 
+const \mbox{\hyperlink{class_tempo}{Tempo}} \& \mbox{\hyperlink{class_voo_a0db8978d6dd980ea3c1d33606719ef4b}{get\+Hora\+Partida}} () const
+\item 
+void \mbox{\hyperlink{class_voo_a1619fd69b0ace86b72de1032dba79a88}{set\+Hora\+Partida}} (const \mbox{\hyperlink{class_tempo}{Tempo}} \&hora\+Partida)
+\item 
+\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$ \mbox{\hyperlink{class_voo_a486e0eef908fb30a1206cef6bddd9dd0}{get\+Aviao}} () const
+\item 
+void \mbox{\hyperlink{class_voo_aea13b1826623b5f63622f4bc623dc446}{set\+Aviao}} (\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$aviao)
+\item 
+unsigned int \mbox{\hyperlink{class_voo_a62edb419f96cad3b359516eb050ec471}{get\+NVoo}} () const
+\item 
+void \mbox{\hyperlink{class_voo_ad40e4129de1024a6054811a6e3aee8f3}{set\+NVoo}} (unsigned int n\+Voo)
+\item 
+unsigned int \mbox{\hyperlink{class_voo_a94095b0505197c53ac810fdeba51c91b}{get\+Duracao}} () const
+\item 
+void \mbox{\hyperlink{class_voo_ae61db9bea0621dc5e9f59a9185dd4621}{set\+Duracao}} (unsigned int duracao)
+\item 
+void \mbox{\hyperlink{class_voo_ab8c7d757490d0641614428bd12f3d5b0}{set\+Passageiros}} (const list$<$ \mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$ $>$ \&passageiros)
+\item 
+unsigned int \mbox{\hyperlink{class_voo_a863d8c02cd6c67b9aa96113ee5cc85cb}{get\+Lotacao\+Atual}} () const
+\item 
+void \mbox{\hyperlink{class_voo_a99374df6130ef64dbfcbb543fad5e8ef}{set\+Lotacao\+Atual}} (unsigned int lotacao\+Atual)
+\item 
+const \mbox{\hyperlink{class_data}{Data}} \& \mbox{\hyperlink{class_voo_a26364c7cfd158541d1a4113a49cd3d80}{get\+Data\+Partida}} () const
+\item 
+void \mbox{\hyperlink{class_voo_a726917c16c151f6f64cbc00f6ad34555}{set\+Data\+Partida}} (const \mbox{\hyperlink{class_data}{Data}} \&data\+Partida)
+\item 
+\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$ \mbox{\hyperlink{class_voo_a0e62689ee26cb7ce87f0fe7612f8da5c}{get\+Origem}} () const
+\item 
+void \mbox{\hyperlink{class_voo_a4212113794f4bbea05f1f7c3c82d832a}{set\+Origem}} (\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$origem)
+\item 
+\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$ \mbox{\hyperlink{class_voo_a4661218b31c48ac9cfbf5d2ef34822df}{get\+Destino}} () const
+\item 
+void \mbox{\hyperlink{class_voo_a4c4e37755c9456fb7c3852584fc7917b}{set\+Destino}} (\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$destino)
+\item 
+bool \mbox{\hyperlink{class_voo_a2f1343c20b6b0f54fce179ff3f3e5801}{sell\+Bilhete}} (bool leva\+Bagagem, \mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$passageiro)
+\item 
+bool \mbox{\hyperlink{class_voo_abea69cb7a2b34e2c1e0daf2b16d9750e}{sell\+Bilhete\+Group}} (const vector$<$ bool $>$ \&leva\+Bagagem, const vector$<$ \mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$ $>$ \&passageiros)
+\item 
+void \mbox{\hyperlink{class_voo_a46b3d1bcaff52193a0a09efe636e30e3}{add\+Passageiro}} (\mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$p)
+\item 
+const list$<$ \mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$ $>$ \& \mbox{\hyperlink{class_voo_ae4558ea5f7e8d05d382032edd5aa13fe}{get\+Passageiros}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_voo_a2fcdc06812906fcabebf72f3bd4a1f2f}{get\+Object\+Name}} () override
+\item 
+std\+::string \mbox{\hyperlink{class_voo_a6f2fe8c01f87efec9f4423f282a30658}{get\+Object\+ID}} () override
+\item 
+bool \mbox{\hyperlink{class_voo_a94c87b6a590ce039618b359d4a4e0f1f}{find\+Func}} (std\+::string nome\+Func) override
+\item 
+std\+::stack$<$ std\+::string $>$ \mbox{\hyperlink{class_voo_afeb7a9598123829a6afe19b2c5909312}{funcs}} () override
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{class_voo_a02085fda442f6dda4abc86656d4fd4a8}{getV}} (std\+::string name\+Vector) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_voo_afdaa5d1d8865d1a8c865f848fedd7356}{operator$<$}} (const \mbox{\hyperlink{class_voo}{Voo}} \&lhs, const \mbox{\hyperlink{class_voo}{Voo}} \&rhs)
+\item 
+bool \mbox{\hyperlink{class_voo_a5e2823300678f9833f7c2063e34235cf}{operator$>$}} (const \mbox{\hyperlink{class_voo}{Voo}} \&lhs, const \mbox{\hyperlink{class_voo}{Voo}} \&rhs)
+\item 
+bool \mbox{\hyperlink{class_voo_a74a82200f1ea0824e5e792ef06c861b7}{operator$<$=}} (const \mbox{\hyperlink{class_voo}{Voo}} \&lhs, const \mbox{\hyperlink{class_voo}{Voo}} \&rhs)
+\item 
+bool \mbox{\hyperlink{class_voo_a9270c8fc602182a6f8a145a20f01a711}{operator$>$=}} (const \mbox{\hyperlink{class_voo}{Voo}} \&lhs, const \mbox{\hyperlink{class_voo}{Voo}} \&rhs)
+\item 
+bool \mbox{\hyperlink{class_voo_a4aad0aa1bc6429fd6dba15caacf63d41}{operator==}} (const \mbox{\hyperlink{class_voo}{Voo}} \&lhs, const \mbox{\hyperlink{class_voo}{Voo}} \&rhs)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_voo_ab072a2c845b8dc6e3b3f41dd2d50b9d0}\label{class_voo_ab072a2c845b8dc6e3b3f41dd2d50b9d0}} 
+\index{Voo@{Voo}!Voo@{Voo}}
+\index{Voo@{Voo}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{Voo()}{Voo()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Voo\+::\+Voo (\begin{DoxyParamCaption}\item[{int}]{n\+Voo,  }\item[{int}]{duracao,  }\item[{const \mbox{\hyperlink{class_data}{Data}} \&}]{data\+Partida,  }\item[{\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$}]{origem,  }\item[{\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$}]{destino,  }\item[{\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$}]{aviao,  }\item[{\mbox{\hyperlink{class_tempo}{Tempo}} \&}]{partida,  }\item[{int}]{lotacao\+Atual = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_voo_a20e17cd98ccd3c1e6cfceafa5083e003}\label{class_voo_a20e17cd98ccd3c1e6cfceafa5083e003}} 
+\index{Voo@{Voo}!Voo@{Voo}}
+\index{Voo@{Voo}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{Voo()}{Voo()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Voo\+::\+Voo (\begin{DoxyParamCaption}\item[{int}]{n\+Voo,  }\item[{int}]{duracao,  }\item[{string}]{data\+Partida,  }\item[{\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$}]{origem,  }\item[{\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$}]{destino,  }\item[{\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$}]{aviao,  }\item[{string}]{partida }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_voo_a46b3d1bcaff52193a0a09efe636e30e3}\label{class_voo_a46b3d1bcaff52193a0a09efe636e30e3}} 
+\index{Voo@{Voo}!addPassageiro@{addPassageiro}}
+\index{addPassageiro@{addPassageiro}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{addPassageiro()}{addPassageiro()}}
+{\footnotesize\ttfamily void Voo\+::add\+Passageiro (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_voo_a94c87b6a590ce039618b359d4a4e0f1f}\label{class_voo_a94c87b6a590ce039618b359d4a4e0f1f}} 
+\index{Voo@{Voo}!findFunc@{findFunc}}
+\index{findFunc@{findFunc}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{findFunc()}{findFunc()}}
+{\footnotesize\ttfamily bool Voo\+::find\+Func (\begin{DoxyParamCaption}\item[{std\+::string}]{nome\+Func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Executa o metodo cujo nome recebeu como argumento 
+\begin{DoxyParams}{Parameters}
+{\em nome\+Func} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se encontrar um metodo com o nome referido e se o input pedido estiver correto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a8a1e4d1e1b65529614f9eb85067e8e42}{Terminal}}.
+
+\mbox{\Hypertarget{class_voo_afeb7a9598123829a6afe19b2c5909312}\label{class_voo_afeb7a9598123829a6afe19b2c5909312}} 
+\index{Voo@{Voo}!funcs@{funcs}}
+\index{funcs@{funcs}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{funcs()}{funcs()}}
+{\footnotesize\ttfamily std\+::stack$<$ std\+::string $>$ Voo\+::funcs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+stack de strings contendo os nomes de todos os metodos do respetivo objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a1a0f6a32ab54a19f7d800fac1f2fb3ad}{Terminal}}.
+
+\mbox{\Hypertarget{class_voo_a486e0eef908fb30a1206cef6bddd9dd0}\label{class_voo_a486e0eef908fb30a1206cef6bddd9dd0}} 
+\index{Voo@{Voo}!getAviao@{getAviao}}
+\index{getAviao@{getAviao}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{getAviao()}{getAviao()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aviao}{Aviao}} $\ast$ Voo\+::get\+Aviao (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_voo_a26364c7cfd158541d1a4113a49cd3d80}\label{class_voo_a26364c7cfd158541d1a4113a49cd3d80}} 
+\index{Voo@{Voo}!getDataPartida@{getDataPartida}}
+\index{getDataPartida@{getDataPartida}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{getDataPartida()}{getDataPartida()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_data}{Data}} \& Voo\+::get\+Data\+Partida (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_voo_a4661218b31c48ac9cfbf5d2ef34822df}\label{class_voo_a4661218b31c48ac9cfbf5d2ef34822df}} 
+\index{Voo@{Voo}!getDestino@{getDestino}}
+\index{getDestino@{getDestino}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{getDestino()}{getDestino()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$ Voo\+::get\+Destino (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_voo_a94095b0505197c53ac810fdeba51c91b}\label{class_voo_a94095b0505197c53ac810fdeba51c91b}} 
+\index{Voo@{Voo}!getDuracao@{getDuracao}}
+\index{getDuracao@{getDuracao}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{getDuracao()}{getDuracao()}}
+{\footnotesize\ttfamily unsigned int Voo\+::get\+Duracao (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_voo_a0db8978d6dd980ea3c1d33606719ef4b}\label{class_voo_a0db8978d6dd980ea3c1d33606719ef4b}} 
+\index{Voo@{Voo}!getHoraPartida@{getHoraPartida}}
+\index{getHoraPartida@{getHoraPartida}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{getHoraPartida()}{getHoraPartida()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_tempo}{Tempo}} \& Voo\+::get\+Hora\+Partida (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_voo_a863d8c02cd6c67b9aa96113ee5cc85cb}\label{class_voo_a863d8c02cd6c67b9aa96113ee5cc85cb}} 
+\index{Voo@{Voo}!getLotacaoAtual@{getLotacaoAtual}}
+\index{getLotacaoAtual@{getLotacaoAtual}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{getLotacaoAtual()}{getLotacaoAtual()}}
+{\footnotesize\ttfamily unsigned int Voo\+::get\+Lotacao\+Atual (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_voo_a62edb419f96cad3b359516eb050ec471}\label{class_voo_a62edb419f96cad3b359516eb050ec471}} 
+\index{Voo@{Voo}!getNVoo@{getNVoo}}
+\index{getNVoo@{getNVoo}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{getNVoo()}{getNVoo()}}
+{\footnotesize\ttfamily unsigned int Voo\+::get\+NVoo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_voo_a6f2fe8c01f87efec9f4423f282a30658}\label{class_voo_a6f2fe8c01f87efec9f4423f282a30658}} 
+\index{Voo@{Voo}!getObjectID@{getObjectID}}
+\index{getObjectID@{getObjectID}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{getObjectID()}{getObjectID()}}
+{\footnotesize\ttfamily std\+::string Voo\+::get\+Object\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+string com o identificador do objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a08c2842d197fe3eb4d0a92aed94cf704}{Terminal}}.
+
+\mbox{\Hypertarget{class_voo_a2fcdc06812906fcabebf72f3bd4a1f2f}\label{class_voo_a2fcdc06812906fcabebf72f3bd4a1f2f}} 
+\index{Voo@{Voo}!getObjectName@{getObjectName}}
+\index{getObjectName@{getObjectName}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{getObjectName()}{getObjectName()}}
+{\footnotesize\ttfamily std\+::string Voo\+::get\+Object\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+string com toda a informacao relativa ao objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a1b9939ed1d6c2155704ac8b91d79e3ca}{Terminal}}.
+
+\mbox{\Hypertarget{class_voo_a0e62689ee26cb7ce87f0fe7612f8da5c}\label{class_voo_a0e62689ee26cb7ce87f0fe7612f8da5c}} 
+\index{Voo@{Voo}!getOrigem@{getOrigem}}
+\index{getOrigem@{getOrigem}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{getOrigem()}{getOrigem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$ Voo\+::get\+Origem (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_voo_ae4558ea5f7e8d05d382032edd5aa13fe}\label{class_voo_ae4558ea5f7e8d05d382032edd5aa13fe}} 
+\index{Voo@{Voo}!getPassageiros@{getPassageiros}}
+\index{getPassageiros@{getPassageiros}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{getPassageiros()}{getPassageiros()}}
+{\footnotesize\ttfamily const list$<$ \mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$ $>$ \& Voo\+::get\+Passageiros (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_voo_a02085fda442f6dda4abc86656d4fd4a8}\label{class_voo_a02085fda442f6dda4abc86656d4fd4a8}} 
+\index{Voo@{Voo}!getV@{getV}}
+\index{getV@{getV}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{getV()}{getV()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ Voo\+::getV (\begin{DoxyParamCaption}\item[{std\+::string}]{name\+Vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Retorna a estrutura de dados com nome name\+Vector da classe respetiva 
+\begin{DoxyParams}{Parameters}
+{\em name\+Vector} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+apontador para um vetor de apontadores de terminais com a informacao requerida 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_aab50b800bcbe1e86ee982b3c8504a5be}{Terminal}}.
+
+\mbox{\Hypertarget{class_voo_a2f1343c20b6b0f54fce179ff3f3e5801}\label{class_voo_a2f1343c20b6b0f54fce179ff3f3e5801}} 
+\index{Voo@{Voo}!sellBilhete@{sellBilhete}}
+\index{sellBilhete@{sellBilhete}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{sellBilhete()}{sellBilhete()}}
+{\footnotesize\ttfamily bool Voo\+::sell\+Bilhete (\begin{DoxyParamCaption}\item[{bool}]{leva\+Bagagem,  }\item[{\mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$}]{passageiro }\end{DoxyParamCaption})}
+
+Adiciona um bilhete para o voo à fila de bilhetes do passageiro, se existirem lugares disponiveis 
+\begin{DoxyParams}{Parameters}
+{\em leva\+Bagagem} & \\
+\hline
+{\em passageiro} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se ainda existirem lugares disponiveis 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_voo_abea69cb7a2b34e2c1e0daf2b16d9750e}\label{class_voo_abea69cb7a2b34e2c1e0daf2b16d9750e}} 
+\index{Voo@{Voo}!sellBilheteGroup@{sellBilheteGroup}}
+\index{sellBilheteGroup@{sellBilheteGroup}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{sellBilheteGroup()}{sellBilheteGroup()}}
+{\footnotesize\ttfamily bool Voo\+::sell\+Bilhete\+Group (\begin{DoxyParamCaption}\item[{const vector$<$ bool $>$ \&}]{leva\+Bagagem,  }\item[{const vector$<$ \mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$ $>$ \&}]{passageiros }\end{DoxyParamCaption})}
+
+Adiciona um bilhete à fila de bilhetes de cada passageiro 
+\begin{DoxyParams}{Parameters}
+{\em leva\+Bagagem} & (cada posição do índice corresponde \\
+\hline
+{\em passageiros} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se existirem lugares disponiveis para todas as pessoas do grupo 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_voo_aea13b1826623b5f63622f4bc623dc446}\label{class_voo_aea13b1826623b5f63622f4bc623dc446}} 
+\index{Voo@{Voo}!setAviao@{setAviao}}
+\index{setAviao@{setAviao}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{setAviao()}{setAviao()}}
+{\footnotesize\ttfamily void Voo\+::set\+Aviao (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$}]{aviao }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_voo_a726917c16c151f6f64cbc00f6ad34555}\label{class_voo_a726917c16c151f6f64cbc00f6ad34555}} 
+\index{Voo@{Voo}!setDataPartida@{setDataPartida}}
+\index{setDataPartida@{setDataPartida}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{setDataPartida()}{setDataPartida()}}
+{\footnotesize\ttfamily void Voo\+::set\+Data\+Partida (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_data}{Data}} \&}]{data\+Partida }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_voo_a4c4e37755c9456fb7c3852584fc7917b}\label{class_voo_a4c4e37755c9456fb7c3852584fc7917b}} 
+\index{Voo@{Voo}!setDestino@{setDestino}}
+\index{setDestino@{setDestino}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{setDestino()}{setDestino()}}
+{\footnotesize\ttfamily void Voo\+::set\+Destino (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$}]{destino }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_voo_ae61db9bea0621dc5e9f59a9185dd4621}\label{class_voo_ae61db9bea0621dc5e9f59a9185dd4621}} 
+\index{Voo@{Voo}!setDuracao@{setDuracao}}
+\index{setDuracao@{setDuracao}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{setDuracao()}{setDuracao()}}
+{\footnotesize\ttfamily void Voo\+::set\+Duracao (\begin{DoxyParamCaption}\item[{unsigned int}]{duracao }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_voo_a1619fd69b0ace86b72de1032dba79a88}\label{class_voo_a1619fd69b0ace86b72de1032dba79a88}} 
+\index{Voo@{Voo}!setHoraPartida@{setHoraPartida}}
+\index{setHoraPartida@{setHoraPartida}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{setHoraPartida()}{setHoraPartida()}}
+{\footnotesize\ttfamily void Voo\+::set\+Hora\+Partida (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tempo}{Tempo}} \&}]{hora\+Partida }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_voo_a99374df6130ef64dbfcbb543fad5e8ef}\label{class_voo_a99374df6130ef64dbfcbb543fad5e8ef}} 
+\index{Voo@{Voo}!setLotacaoAtual@{setLotacaoAtual}}
+\index{setLotacaoAtual@{setLotacaoAtual}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{setLotacaoAtual()}{setLotacaoAtual()}}
+{\footnotesize\ttfamily void Voo\+::set\+Lotacao\+Atual (\begin{DoxyParamCaption}\item[{unsigned int}]{lotacao\+Atual }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_voo_ad40e4129de1024a6054811a6e3aee8f3}\label{class_voo_ad40e4129de1024a6054811a6e3aee8f3}} 
+\index{Voo@{Voo}!setNVoo@{setNVoo}}
+\index{setNVoo@{setNVoo}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{setNVoo()}{setNVoo()}}
+{\footnotesize\ttfamily void Voo\+::set\+NVoo (\begin{DoxyParamCaption}\item[{unsigned int}]{n\+Voo }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_voo_a4212113794f4bbea05f1f7c3c82d832a}\label{class_voo_a4212113794f4bbea05f1f7c3c82d832a}} 
+\index{Voo@{Voo}!setOrigem@{setOrigem}}
+\index{setOrigem@{setOrigem}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{setOrigem()}{setOrigem()}}
+{\footnotesize\ttfamily void Voo\+::set\+Origem (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$}]{origem }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_voo_ab8c7d757490d0641614428bd12f3d5b0}\label{class_voo_ab8c7d757490d0641614428bd12f3d5b0}} 
+\index{Voo@{Voo}!setPassageiros@{setPassageiros}}
+\index{setPassageiros@{setPassageiros}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{setPassageiros()}{setPassageiros()}}
+{\footnotesize\ttfamily void Voo\+::set\+Passageiros (\begin{DoxyParamCaption}\item[{const list$<$ \mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$ $>$ \&}]{passageiros }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_voo_afdaa5d1d8865d1a8c865f848fedd7356}\label{class_voo_afdaa5d1d8865d1a8c865f848fedd7356}} 
+\index{Voo@{Voo}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{operator$<$}{operator<}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Verifica se lhs é menor que rhs 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a data de partida de lhs for menor que a de rhs. Em caso de empate, aplica-\/se a mesma lógica às horas de partida 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_voo_a74a82200f1ea0824e5e792ef06c861b7}\label{class_voo_a74a82200f1ea0824e5e792ef06c861b7}} 
+\index{Voo@{Voo}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{operator$<$=}{operator<=}}
+{\footnotesize\ttfamily bool operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Verifica se lhs é menor ou igual que rhs 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+!(rhs \texorpdfstring{$<$}{<} lhs) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_voo_a4aad0aa1bc6429fd6dba15caacf63d41}\label{class_voo_a4aad0aa1bc6429fd6dba15caacf63d41}} 
+\index{Voo@{Voo}!operator==@{operator==}}
+\index{operator==@{operator==}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Verifica se os 2 números de voo são iguais 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se tiverem o mesmo número de voo 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_voo_a5e2823300678f9833f7c2063e34235cf}\label{class_voo_a5e2823300678f9833f7c2063e34235cf}} 
+\index{Voo@{Voo}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{operator$>$}{operator>}}
+{\footnotesize\ttfamily bool operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Verifica se lhs é maior que rhs 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+rhs \texorpdfstring{$<$}{<} lhs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_voo_a9270c8fc602182a6f8a145a20f01a711}\label{class_voo_a9270c8fc602182a6f8a145a20f01a711}} 
+\index{Voo@{Voo}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Voo@{Voo}}
+\doxysubsubsection{\texorpdfstring{operator$>$=}{operator>=}}
+{\footnotesize\ttfamily bool operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Verifica se lhs é maior ou igual que rhs 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+!(lhs \texorpdfstring{$<$}{<} rhs) 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_voo_8h}{Voo.\+h}}\item 
+src/\mbox{\hyperlink{_voo_8cpp}{Voo.\+cpp}}\end{DoxyCompactItemize}

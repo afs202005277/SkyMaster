@@ -1,0 +1,99 @@
+\hypertarget{_voo_8cpp}{}\doxysection{src/\+Voo.cpp File Reference}
+\label{_voo_8cpp}\index{src/Voo.cpp@{src/Voo.cpp}}
+{\ttfamily \#include \char`\"{}Voo.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_voo_8cpp_afdaa5d1d8865d1a8c865f848fedd7356}{operator$<$}} (const \mbox{\hyperlink{class_voo}{Voo}} \&lhs, const \mbox{\hyperlink{class_voo}{Voo}} \&rhs)
+\item 
+bool \mbox{\hyperlink{_voo_8cpp_a5e2823300678f9833f7c2063e34235cf}{operator$>$}} (const \mbox{\hyperlink{class_voo}{Voo}} \&lhs, const \mbox{\hyperlink{class_voo}{Voo}} \&rhs)
+\item 
+bool \mbox{\hyperlink{_voo_8cpp_a74a82200f1ea0824e5e792ef06c861b7}{operator$<$=}} (const \mbox{\hyperlink{class_voo}{Voo}} \&lhs, const \mbox{\hyperlink{class_voo}{Voo}} \&rhs)
+\item 
+bool \mbox{\hyperlink{_voo_8cpp_a9270c8fc602182a6f8a145a20f01a711}{operator$>$=}} (const \mbox{\hyperlink{class_voo}{Voo}} \&lhs, const \mbox{\hyperlink{class_voo}{Voo}} \&rhs)
+\item 
+bool \mbox{\hyperlink{_voo_8cpp_a4aad0aa1bc6429fd6dba15caacf63d41}{operator==}} (const \mbox{\hyperlink{class_voo}{Voo}} \&lhs, const \mbox{\hyperlink{class_voo}{Voo}} \&rhs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_voo_8cpp_afdaa5d1d8865d1a8c865f848fedd7356}\label{_voo_8cpp_afdaa5d1d8865d1a8c865f848fedd7356}} 
+\index{Voo.cpp@{Voo.cpp}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Voo.cpp@{Voo.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{rhs }\end{DoxyParamCaption})}
+
+Verifica se lhs é menor que rhs 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se a data de partida de lhs for menor que a de rhs. Em caso de empate, aplica-\/se a mesma lógica às horas de partida 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_voo_8cpp_a74a82200f1ea0824e5e792ef06c861b7}\label{_voo_8cpp_a74a82200f1ea0824e5e792ef06c861b7}} 
+\index{Voo.cpp@{Voo.cpp}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Voo.cpp@{Voo.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{rhs }\end{DoxyParamCaption})}
+
+Verifica se lhs é menor ou igual que rhs 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+!(rhs \texorpdfstring{$<$}{<} lhs) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_voo_8cpp_a4aad0aa1bc6429fd6dba15caacf63d41}\label{_voo_8cpp_a4aad0aa1bc6429fd6dba15caacf63d41}} 
+\index{Voo.cpp@{Voo.cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!Voo.cpp@{Voo.cpp}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{rhs }\end{DoxyParamCaption})}
+
+Verifica se os 2 números de voo são iguais 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se tiverem o mesmo número de voo 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_voo_8cpp_a5e2823300678f9833f7c2063e34235cf}\label{_voo_8cpp_a5e2823300678f9833f7c2063e34235cf}} 
+\index{Voo.cpp@{Voo.cpp}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Voo.cpp@{Voo.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{rhs }\end{DoxyParamCaption})}
+
+Verifica se lhs é maior que rhs 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+rhs \texorpdfstring{$<$}{<} lhs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_voo_8cpp_a9270c8fc602182a6f8a145a20f01a711}\label{_voo_8cpp_a9270c8fc602182a6f8a145a20f01a711}} 
+\index{Voo.cpp@{Voo.cpp}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Voo.cpp@{Voo.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_voo}{Voo}} \&}]{rhs }\end{DoxyParamCaption})}
+
+Verifica se lhs é maior ou igual que rhs 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+!(lhs \texorpdfstring{$<$}{<} rhs) 
+\end{DoxyReturn}

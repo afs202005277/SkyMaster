@@ -1,0 +1,169 @@
+\hypertarget{class_mala}{}\doxysection{Mala Class Reference}
+\label{class_mala}\index{Mala@{Mala}}
+
+
+{\ttfamily \#include $<$Mala.\+h$>$}
+
+Inheritance diagram for Mala\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mala}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mala_a763c5e20fd36fc649e3a59beb7fff41b}{Mala}} (\mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$dono, float peso, \mbox{\hyperlink{class_aviao}{Aviao}} $\ast$despachada=nullptr)
+\item 
+\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$ \mbox{\hyperlink{class_mala_a36166ec18557caea38c222841b4e8eb7}{get\+Despachada}} () const
+\item 
+void \mbox{\hyperlink{class_mala_a469daebd5271be131015aad0b7f04994}{set\+Despachada}} (\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$despachada)
+\item 
+\mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$ \mbox{\hyperlink{class_mala_ae00006b8480cb25a09205074c46cd463}{get\+Dono}} () const
+\item 
+void \mbox{\hyperlink{class_mala_a707b76e8e941864ae7a9cabbca3cb0af}{set\+Dono}} (\mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$dono)
+\item 
+float \mbox{\hyperlink{class_mala_a3d0d87d056c2f77b0f2d2631f846e044}{get\+Peso}} () const
+\item 
+void \mbox{\hyperlink{class_mala_a165196c7621f70e6530a05f611f4514b}{set\+Peso}} (float peso)
+\item 
+std\+::string \mbox{\hyperlink{class_mala_a3ddad0aa0354484764f7d3d6b9e765a3}{get\+Object\+Name}} () override
+\item 
+std\+::string \mbox{\hyperlink{class_mala_a076518ba550645793398f39b1e624d0d}{get\+Object\+ID}} () override
+\item 
+bool \mbox{\hyperlink{class_mala_a5395c95db37f13c42b6c18e292e28fd9}{find\+Func}} (std\+::string nome\+Func) override
+\item 
+std\+::stack$<$ std\+::string $>$ \mbox{\hyperlink{class_mala_a80f17ce1450c318398abcc559795a4fb}{funcs}} () override
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{class_mala_af972bff0f15a687562bef454d547b623}{getV}} (std\+::string name\+Vector) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_mala_a763c5e20fd36fc649e3a59beb7fff41b}\label{class_mala_a763c5e20fd36fc649e3a59beb7fff41b}} 
+\index{Mala@{Mala}!Mala@{Mala}}
+\index{Mala@{Mala}!Mala@{Mala}}
+\doxysubsubsection{\texorpdfstring{Mala()}{Mala()}}
+{\footnotesize\ttfamily Mala\+::\+Mala (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$}]{dono,  }\item[{float}]{peso,  }\item[{\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$}]{despachada = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mala_a5395c95db37f13c42b6c18e292e28fd9}\label{class_mala_a5395c95db37f13c42b6c18e292e28fd9}} 
+\index{Mala@{Mala}!findFunc@{findFunc}}
+\index{findFunc@{findFunc}!Mala@{Mala}}
+\doxysubsubsection{\texorpdfstring{findFunc()}{findFunc()}}
+{\footnotesize\ttfamily bool Mala\+::find\+Func (\begin{DoxyParamCaption}\item[{std\+::string}]{nome\+Func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Executa o metodo cujo nome recebeu como argumento 
+\begin{DoxyParams}{Parameters}
+{\em nome\+Func} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se encontrar um metodo com o nome referido e se o input pedido estiver correto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a8a1e4d1e1b65529614f9eb85067e8e42}{Terminal}}.
+
+\mbox{\Hypertarget{class_mala_a80f17ce1450c318398abcc559795a4fb}\label{class_mala_a80f17ce1450c318398abcc559795a4fb}} 
+\index{Mala@{Mala}!funcs@{funcs}}
+\index{funcs@{funcs}!Mala@{Mala}}
+\doxysubsubsection{\texorpdfstring{funcs()}{funcs()}}
+{\footnotesize\ttfamily std\+::stack$<$ std\+::string $>$ Mala\+::funcs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+stack de strings contendo os nomes de todos os metodos do respetivo objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a1a0f6a32ab54a19f7d800fac1f2fb3ad}{Terminal}}.
+
+\mbox{\Hypertarget{class_mala_a36166ec18557caea38c222841b4e8eb7}\label{class_mala_a36166ec18557caea38c222841b4e8eb7}} 
+\index{Mala@{Mala}!getDespachada@{getDespachada}}
+\index{getDespachada@{getDespachada}!Mala@{Mala}}
+\doxysubsubsection{\texorpdfstring{getDespachada()}{getDespachada()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aviao}{Aviao}} $\ast$ Mala\+::get\+Despachada (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_mala_ae00006b8480cb25a09205074c46cd463}\label{class_mala_ae00006b8480cb25a09205074c46cd463}} 
+\index{Mala@{Mala}!getDono@{getDono}}
+\index{getDono@{getDono}!Mala@{Mala}}
+\doxysubsubsection{\texorpdfstring{getDono()}{getDono()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$ Mala\+::get\+Dono (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_mala_a076518ba550645793398f39b1e624d0d}\label{class_mala_a076518ba550645793398f39b1e624d0d}} 
+\index{Mala@{Mala}!getObjectID@{getObjectID}}
+\index{getObjectID@{getObjectID}!Mala@{Mala}}
+\doxysubsubsection{\texorpdfstring{getObjectID()}{getObjectID()}}
+{\footnotesize\ttfamily std\+::string Mala\+::get\+Object\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+string com o identificador do objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a08c2842d197fe3eb4d0a92aed94cf704}{Terminal}}.
+
+\mbox{\Hypertarget{class_mala_a3ddad0aa0354484764f7d3d6b9e765a3}\label{class_mala_a3ddad0aa0354484764f7d3d6b9e765a3}} 
+\index{Mala@{Mala}!getObjectName@{getObjectName}}
+\index{getObjectName@{getObjectName}!Mala@{Mala}}
+\doxysubsubsection{\texorpdfstring{getObjectName()}{getObjectName()}}
+{\footnotesize\ttfamily std\+::string Mala\+::get\+Object\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+string com toda a informacao relativa ao objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a1b9939ed1d6c2155704ac8b91d79e3ca}{Terminal}}.
+
+\mbox{\Hypertarget{class_mala_a3d0d87d056c2f77b0f2d2631f846e044}\label{class_mala_a3d0d87d056c2f77b0f2d2631f846e044}} 
+\index{Mala@{Mala}!getPeso@{getPeso}}
+\index{getPeso@{getPeso}!Mala@{Mala}}
+\doxysubsubsection{\texorpdfstring{getPeso()}{getPeso()}}
+{\footnotesize\ttfamily float Mala\+::get\+Peso (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_mala_af972bff0f15a687562bef454d547b623}\label{class_mala_af972bff0f15a687562bef454d547b623}} 
+\index{Mala@{Mala}!getV@{getV}}
+\index{getV@{getV}!Mala@{Mala}}
+\doxysubsubsection{\texorpdfstring{getV()}{getV()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ Mala\+::getV (\begin{DoxyParamCaption}\item[{std\+::string}]{name\+Vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Retorna a estrutura de dados com nome name\+Vector da classe respetiva 
+\begin{DoxyParams}{Parameters}
+{\em name\+Vector} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+apontador para um vetor de apontadores de terminais com a informacao requerida 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_aab50b800bcbe1e86ee982b3c8504a5be}{Terminal}}.
+
+\mbox{\Hypertarget{class_mala_a469daebd5271be131015aad0b7f04994}\label{class_mala_a469daebd5271be131015aad0b7f04994}} 
+\index{Mala@{Mala}!setDespachada@{setDespachada}}
+\index{setDespachada@{setDespachada}!Mala@{Mala}}
+\doxysubsubsection{\texorpdfstring{setDespachada()}{setDespachada()}}
+{\footnotesize\ttfamily void Mala\+::set\+Despachada (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$}]{despachada }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_mala_a707b76e8e941864ae7a9cabbca3cb0af}\label{class_mala_a707b76e8e941864ae7a9cabbca3cb0af}} 
+\index{Mala@{Mala}!setDono@{setDono}}
+\index{setDono@{setDono}!Mala@{Mala}}
+\doxysubsubsection{\texorpdfstring{setDono()}{setDono()}}
+{\footnotesize\ttfamily void Mala\+::set\+Dono (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$}]{dono }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_mala_a165196c7621f70e6530a05f611f4514b}\label{class_mala_a165196c7621f70e6530a05f611f4514b}} 
+\index{Mala@{Mala}!setPeso@{setPeso}}
+\index{setPeso@{setPeso}!Mala@{Mala}}
+\doxysubsubsection{\texorpdfstring{setPeso()}{setPeso()}}
+{\footnotesize\ttfamily void Mala\+::set\+Peso (\begin{DoxyParamCaption}\item[{float}]{peso }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_mala_8h}{Mala.\+h}}\item 
+src/\mbox{\hyperlink{_mala_8cpp}{Mala.\+cpp}}\end{DoxyCompactItemize}

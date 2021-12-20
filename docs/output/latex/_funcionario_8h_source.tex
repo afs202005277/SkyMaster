@@ -1,0 +1,62 @@
+\hypertarget{_funcionario_8h_source}{}\doxysection{Funcionario.\+h}
+\label{_funcionario_8h_source}\index{src/Funcionario.h@{src/Funcionario.h}}
+\mbox{\hyperlink{_funcionario_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJETO1\_FUNCIONARIO\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJETO1\_FUNCIONARIO\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_aeroporto_8h}{Aeroporto.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_terminal_8h}{Terminal.h}}"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_terminal}{Terminal}};}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_aeroporto}{Aeroporto}};}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_servico}{Servico}};}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_funcionario}{Funcionario}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terminal}{Terminal}} \{}
+\DoxyCodeLine{13 \textcolor{keyword}{private}:}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} telemovel;}
+\DoxyCodeLine{15     std::string nome, morada;}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_aeroporto}{Aeroporto}} *aeroporto;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{public}:}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_funcionario_a6011355ca676d4eb6fed45ece798e19a}{Funcionario}}(\textcolor{keywordtype}{int} telemovel, std::string nome, std::string morada, \mbox{\hyperlink{class_aeroporto}{Aeroporto}} *aeroporto);}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \mbox{\hyperlink{class_aeroporto}{Aeroporto}} *\mbox{\hyperlink{class_funcionario_ac20eb20735ead33db0c0ed3d140ae0c5}{getAeroporto}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_funcionario_a3edd698bce3c1b46a0997861e90f4f6e}{setAeroporto}}(\mbox{\hyperlink{class_aeroporto}{Aeroporto}} *aeroporto);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_funcionario_a3f25c4dbde807c9b87fc8b73888df313}{getTelemovel}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_funcionario_ab8c9d99fe18b22385316afcbb15c1f6e}{setTelemovel}}(\textcolor{keywordtype}{int} telemovel);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_funcionario_aad07c1419c336b98315efec06441f877}{getNome}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_funcionario_aaf35fc861e3ead572931cc381af2f6ed}{setNome}}(\textcolor{keyword}{const} std::string \&nome);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_funcionario_a85d01b45c3911b4f1cc73c696a7a869d}{getMorada}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_funcionario_a68f7a46cd3ed01b6d3e03a423b4ebe2d}{setMorada}}(\textcolor{keyword}{const} std::string \&morada);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{43     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_funcionario_a3217e183c75db62641c4a0abf8b5f188}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} \&rhs);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{51     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_funcionario_a20accde557a4badc742fd50214291250}{operator>}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} \&rhs);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{59     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_funcionario_a24be7f0e1eb379c25a15ee6b3c5e1533}{operator<=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} \&rhs);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{67     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_funcionario_a22924908f74285c70e2feb5ff4c673c7}{operator>=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} \&rhs);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{74     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_funcionario_aaa085611e2fc6aa5b661e1bdb1817665}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} \&rhs) \textcolor{keyword}{const};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_funcionario_a44963d76d89f18400acdec30b3d88ebc}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} \&rhs) \textcolor{keyword}{const};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     std::string \mbox{\hyperlink{class_funcionario_ae28d19fa3ae1c3c450ac91eeb7fa019f}{getObjectName}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{79     std::string \mbox{\hyperlink{class_funcionario_a479789df08bb86db85a6bedffe0b039c}{getObjectID}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{80     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_funcionario_a887220bc0c46c26da4580bb1218ce4b7}{findFunc}}(std::string nomeFunc) \textcolor{keyword}{override};}
+\DoxyCodeLine{81     std::stack<std::string> \mbox{\hyperlink{class_funcionario_a91551e6ab291fcd1abe883587ef1d2fc}{funcs}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{82     std::vector<Terminal*> *\mbox{\hyperlink{class_funcionario_a51fe6ecd0cd58e2d5972a515355f6cb8}{getV}}(std::string nameVector) \textcolor{keyword}{override};}
+\DoxyCodeLine{83 \};}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO1\_FUNCIONARIO\_H}}
+
+\end{DoxyCode}

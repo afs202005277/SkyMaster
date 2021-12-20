@@ -1,0 +1,67 @@
+\hypertarget{_carrinho_transporte_8h_source}{}\doxysection{Carrinho\+Transporte.\+h}
+\label{_carrinho_transporte_8h_source}\index{src/CarrinhoTransporte.h@{src/CarrinhoTransporte.h}}
+\mbox{\hyperlink{_carrinho_transporte_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJETO1\_CARRINHOTRANSPORTE\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJETO1\_CARRINHOTRANSPORTE\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mala_8h}{Mala.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <stack>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_terminal_8h}{Terminal.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_aeroporto_8h}{Aeroporto.h}}"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_mala}{Mala}};}
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_aviao}{Aviao}};}
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_terminal}{Terminal}};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_carrinho_transporte}{CarrinhoTransporte}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terminal}{Terminal}} \{}
+\DoxyCodeLine{16 \textcolor{keyword}{private}:}
+\DoxyCodeLine{17     \textcolor{keywordtype}{int} nCarruagens, nPilhas, nMalas;}
+\DoxyCodeLine{18     std::vector<std::vector<std::stack<Mala*>>> carga;}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_aviao}{Aviao}} * aviao;}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_aeroporto}{Aeroporto}} * aeroporto;}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{public}:}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_carrinho_transporte_a9465b9ad64697eec9a53b11272c21eb3}{CarrinhoTransporte}}(\textcolor{keywordtype}{int} nCarruagens, \textcolor{keywordtype}{int} nPilhas, \textcolor{keywordtype}{int} nMalas, \mbox{\hyperlink{class_aeroporto}{Aeroporto}} *aeroporto, \mbox{\hyperlink{class_aviao}{Aviao}} *aviao = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keyword}{const} vector<vector<stack<Mala *>>> \&\mbox{\hyperlink{class_carrinho_transporte_a8e333555dd3d34b4683bb6a62a3eab18}{getCarga}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_carrinho_transporte_a59427063a692992119d5ca36609f11b5}{setCarga}}(\textcolor{keyword}{const} vector<vector<stack<Mala *>>> \&carga);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \mbox{\hyperlink{class_aviao}{Aviao}} *\mbox{\hyperlink{class_carrinho_transporte_acd250570c6610e56f77722befecbfd3d}{getAviao}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_carrinho_transporte_a36f104a78494de549bb5282b8f340753}{setAviao}}(\mbox{\hyperlink{class_aviao}{Aviao}} *aviao);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_carrinho_transporte_a5f4f1395b30731dee3c604a6e8f1cf3f}{getNCarruagens}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_carrinho_transporte_a830e143fa2b7501e9d2b086910de35d3}{setNCarruagens}}(\textcolor{keywordtype}{int} nCarruagens);}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_carrinho_transporte_ad01a0ce77e611344eca8e42c3d4ff9eb}{getNPilhas}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_carrinho_transporte_ad580031a52d476b495df24ca901076d9}{setNPilhas}}(\textcolor{keywordtype}{int} nPilhas);}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_carrinho_transporte_ac4971bffc1fb4e0d68090f17417cf051}{getNMalas}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_carrinho_transporte_a7f0f8e239501b1ebe65bb13269199291}{setNMalas}}(\textcolor{keywordtype}{int} nMalas);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_carrinho_transporte_a5d451516d368e415f015e69d5d0d3f36}{addMalas}}(vector<Mala*> m);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_carrinho_transporte_ad59f515114222f800c05b3e68306da68}{descarregarMalasAviao}}();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_carrinho_transporte_aa2e5e32bc54399c04ffa48cc02146de3}{descarregarMalasAeroporto}}();}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     std::string \mbox{\hyperlink{class_carrinho_transporte_af214a147686cd3a97308d75cd36285f4}{getObjectName}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{58     std::string \mbox{\hyperlink{class_carrinho_transporte_a72e301432aa57967da189d1c3b799fbb}{getObjectID}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{59     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_carrinho_transporte_aa8184a2aed9908f07a5b5abd9595c788}{findFunc}}(std::string nomeFunc) \textcolor{keyword}{override};}
+\DoxyCodeLine{60     std::stack<std::string> \mbox{\hyperlink{class_carrinho_transporte_ad4c61b396fa61e7cb5fa8c4ee867f86c}{funcs}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{61     std::vector<Terminal*> *\mbox{\hyperlink{class_carrinho_transporte_aec1edd56bdf80b2987cd6a94557f530b}{getV}}(std::string nameVector) \textcolor{keyword}{override};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_carrinho_transporte_a0bea75399b52a198be6a8e829bc189b2}{addMala}}(\mbox{\hyperlink{class_mala}{Mala}} *\&pMala);}
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO1\_CARRINHOTRANSPORTE\_H}}
+
+\end{DoxyCode}
