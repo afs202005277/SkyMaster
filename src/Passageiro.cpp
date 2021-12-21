@@ -304,12 +304,12 @@ bool Passageiro::findFunc(std::string nomeFunc) {
         getline(cin, temp2);
         try
         {
-            if (stoi(temp1) < 0 || stoi(temp1) >= Terminal::voos.size())
-                throw exception();
-            if ((temp1 == "y" || temp1 == "n") && stoi(temp2) < Terminal::voos.size())
+            if ((temp1 == "y" || temp1 == "n") && stoi(temp2) < Terminal::voos.size() && stoi(temp2) >= 0)
             {
                 checkIn(temp1=="y", *Terminal::voos[stoi(temp2)], malas);
             }
+            else
+                throw exception();
         }
         catch (exception &e)
         {
