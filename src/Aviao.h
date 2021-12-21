@@ -83,13 +83,13 @@ public:
 
     /**
      * Adiciona um Servico no fim da fila servicos
-     * @param servico
+     * @param servico apontador do serviço que vai ser adicionado
      */
     void addServico(Servico *servico);
 
     /**
      * Adiciona um voo ao plano de voo e mantém o plano de voo ordenado por ordem de partida
-     * @param voo
+     * @param voo apontador do voo que vai ser adicionado
      */
     void addToPlanoVoo(Voo *voo);
 
@@ -107,40 +107,39 @@ public:
 
     /**
      * Pesquisa na std::stack de servicos processados todos os servicos feitos pelo funcionario f
-     * @param f
+     * @param f funcionário que vai ser procurado
      * @return um vetor com apontadores para os servicos realizados pelo funcionario f, neste aviao
      */
     std::vector<Servico *> getPastServicesBy(const Funcionario &f) const;
 
     /**
      * Pesquisa na fila de servicos todos os servicos associados ao funcionario f
-     * @param f
+     * @param f funcionário que vai ser procurado
      * @return um vetor com apontadores para os servicos que vao ser realizados pelo funcionario f, neste aviao
      */
     std::vector<Servico *> getFutureServicesBy(const Funcionario &f) const;
 
     /**
      * Pesquisa no historico de servicos realizados e na std::lista de servicos por realizar, todos que estao associados ao funcionario f
-     * @param f
+     * @param f funcionário que vai ser procurado
      * @return um vetor com 2 posicoes: a posicao 0 contem os resultados da busca no historico de servicos e a posicao 1 contem os resultados da busca nos servicos futuros
      */
     std::vector<std::vector<Servico *>> getAllServicesBy(const Funcionario &f) const;
 
     /**
      * Descarrega as malas do aviao para o carrinho de transporte. Quando o carrinho ficar cheio, vai descarregar as malas no aeroporto e continua o processo
-     * @param carrinho
      */
     void descarregarMalas();
 
     /**
      * Adiciona uma mala ao armazenamento do avião
-     * @param m
+     * @param m apontador da mala que vai ser adicionada
      */
     void addMala(Mala *m);
 
     /**
      * Remove do plano de voo do aviao, o voo passado como argumento
-     * @param voo
+     * @param voo apontador do voo que vai ser removido
      * @return true se o voo existir no plano de voo
      */
     bool removeFromPlanoVoo(Voo &voo);

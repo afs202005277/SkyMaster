@@ -27,16 +27,16 @@ private:
 
     /**
      * Função auxiliar que compara 2 apontadores de funcionários
-     * @param f1
-     * @param f2
+     * @param f1 apontador do funcionário f1
+     * @param f2 apontador do funcionário f2
      * @return true se f1 e f2 estiverem em ordem alfabética
      */
     static bool sorterFuncionarios(const Funcionario * f1, const Funcionario * f2);
 
     /**
      * Funcao auxiliar que compara 2 apontadores de aviões
-     * @param a1
-     * @param a2
+     * @param a1 apontador do avião a1
+     * @param a2 apontador do avião a2
      * @return true se a1 descolar primeiro que a2
      */
     static bool sorterAvioes(const Aviao* a1, const Aviao* a2);
@@ -84,14 +84,14 @@ public:
 
     /**
      * Adiciona o transporte t à BST de transportes.
-     * @param t
+     * @param t transporte que vai ser adicionado
      * @return true se o transporte adicionado não for um duplicado
      */
     bool addTransporte(Transporte &t);
 
     /**
      * Remove o transporte t da BST
-     * @param t
+     * @param t transporte que vai ser removido
      * @return true se o transporte existir na BST
      */
     bool removeTransporte(Transporte &t);
@@ -118,20 +118,20 @@ public:
 
     /**
      * Verifica se o transporte t existe na BST
-     * @param t
+     * @param t transporte que vai ser procurado
      * @return true se o transporte existir
      */
     bool existsTransport(Transporte t) const;
 
     /**
      * Adiciona o apontador do funcionário f ao vetor de funcionários (mantendo a ordem alfabética)
-     * @param f
+     * @param f apontador do funcionário que vai ser adicionado
      */
     void addFuncionario(Funcionario *f);
 
     /**
      * Remove o apontador do funcionário f do vetor de funcionários
-     * @param f
+     * @param f apontador do funcionário que vai ser removido
      * @return nullptr se o funcionário não existir
      */
     Funcionario* removeFuncionario(const Funcionario &f);
@@ -139,14 +139,14 @@ public:
     /**
      * Adiciona o apontador do avião à lista de aviões, mantendo a ordem de partida dos mesmos
      * Associa um carrinho de transporte ao avião que foi adicionado
-     * @param a
+     * @param a apontador do avião que vai ser adicionado
      */
     void addAviao(Aviao * a);
 
     /**
      * Remove o aviao da lista de aviões, mantendo a posição relativa dos restantes
      * O carrinho de transporte que lhe foi associado, passa a estar disponível para outros aviões
-     * @param a
+     * @param a apontador do avião que vai ser removido
      * @return true se o avião existir no aeroporto
      */
     bool removeAviao(Aviao * a);

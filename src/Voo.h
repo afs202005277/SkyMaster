@@ -79,23 +79,23 @@ public:
 
     /**
      * Adiciona um bilhete para o voo à fila de bilhetes do passageiro, se existirem lugares disponiveis
-     * @param levaBagagem
-     * @param passageiro
+     * @param levaBagagem boolean a indicar se leva bagagem ou não
+     * @param passageiro o passageiro que pretende comprar o bilhete
      * @return true se ainda existirem lugares disponiveis
      */
     bool sellBilhete(bool levaBagagem, Passageiro *passageiro);
 
     /**
      * Adiciona um bilhete à fila de bilhetes de cada passageiro
-     * @param levaBagagem (cada posição do índice corresponde
-     * @param passageiros
-     * @return true se existirem lugares disponiveis para todas as pessoas do grupo
+     * @param levaBagagem cada posição do vetor indica se o passageiro com esse índice leva malas ou não
+     * @param passageiros vetor com os passageiros que querem comprar bilhetes
+     * @return true se existirem lugares disponíveis para todas as pessoas do grupo
      */
     bool sellBilheteGroup(const vector<bool> &levaBagagem, const vector<Passageiro *> &passageiros);
 
     /**
      * Adiciona um passageiro à lista de passageiros presentes no Voo
-     * @param p
+     * @param p apontador do passageiro que vai ser adicionado ao voo
      */
     void addPassageiro(Passageiro *p);
 

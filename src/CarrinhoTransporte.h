@@ -62,7 +62,7 @@ public:
 
     /**
      * Adiciona uma mala ao carrinho
-     * @param pMala
+     * @param pMala apontador da mala que vai ser adicionada
      * @return true se conseguir adicionar (se tiver espaço)
      */
     bool addMala(Mala *&pMala);

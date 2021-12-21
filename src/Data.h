@@ -17,7 +17,7 @@ public:
 
     /**
      * Converte uma string no formato yyyy/mm/dd na data correspondente
-     * @param data
+     * @param data string no formato yyyy/mm/dd
      */
     Data(std::string data);
 

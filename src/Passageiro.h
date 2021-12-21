@@ -32,13 +32,13 @@ public:
 
     /**
      * Adiciona uma mala à fila de malas do passageiro
-     * @param m
+     * @param m apontador da mala que vai ser adicionada
      */
     void addMala(Mala *m);
 
     /**
      * Remove a mala da fila de malas do passageiro
-     * @param m
+     * @param m apontador da mala que vai ser removida
      */
     void removeMala(Mala *m);
 
@@ -46,7 +46,7 @@ public:
 
     /**
      * Adiciona o bilhete à fila de bilhetes
-     * @param bilhete
+     * @param bilhete apontador do bilhete que vai ser adicionado
      */
     void addBilhete(Bilhete *bilhete);
 
@@ -77,29 +77,29 @@ public:
 
     /**
      * Remove o bilhete no índice index da lista
-     * @param index
+     * @param index índice do bilhete que vai ser removido
      */
     void removeBilhete(int index);
 
     /**
      * Verifica se o passageiro tem bilhete para o voo recebido como argumento
-     * @param nVoo
+     * @param nVoo número do voo pretendido
      * @return true se tiver bilhete
      */
     bool hasBilhete(int nVoo) const;
 
     /**
      * Faz o check-in do passageiro e, caso pretenda fazer check-in automtico, envia as suas malas para o carrinho de transporte
-     * @param checkInAutomatico
-     * @param voo
-     * @param malas
+     * @param checkInAutomatico boolean que indica se pretende checkIn automático
+     * @param voo o voo em que o passageiro quer fazer checkIn
+     * @param malas as malas que o passageiro quer levar
      * @return true se o passageiro tiver bilhete para o voo
      */
     bool checkIn(bool checkInAutomatico, Voo &voo, std::queue<Mala *> malas) const;
 
     /**
      * "Simula" a entrada do passageiro no aviao: adiciona o passageiro à lista de passageiros presentes no voo
-     * @param voo
+     * @param voo o voo em que o passageiro quer entrar
      * @return true se o passageiro tiver bilhete para o voo
      */
     bool getIntoPlane(Voo &voo);
