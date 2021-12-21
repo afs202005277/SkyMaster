@@ -19,6 +19,13 @@ private:
     Aviao * aviao;
     Aeroporto * aeroporto;
 
+    /**
+     * Ordena as malas alfabeticmente, pelo nome do dono
+     * @param m1 apontador da mala m1
+     * @param m2 apontador da mala m2
+     * @return true se dono de m1 < dono de m2
+     */
+    static bool sorterMalas(Mala* m1, Mala* m2);
 public:
     CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas, Aeroporto *aeroporto, Aviao *aviao = nullptr);
 
@@ -79,6 +86,8 @@ public:
     Aeroporto *getAeroporto() const;
 
     void setAeroporto(Aeroporto *aeroporto);
+
+    list<Mala*> getMalasAlfabeticamente();
 };
 
 

@@ -32,6 +32,13 @@ private:
     std::list<Passageiro *> passageiros;
     Aviao *aviao;
 
+    /**
+     * Ordena os passageiros por ordem crescente de idades
+     * @param p1 apontador do passageiro p1
+     * @param p2 apontador do passageiro p2
+     * @return true se idade de p1 < idade de p2
+     */
+    static bool sorterMenores(const Passageiro* p1, const Passageiro* p2);
 public:
     Voo(int nVoo, int duracao, const Data &dataPartida, Aeroporto *origem, Aeroporto *destino, Aviao *aviao,
         Tempo &partida, int bilhetesVendidos = 0);
@@ -140,6 +147,12 @@ public:
      * @return true se tiverem o mesmo número de voo
      */
     friend bool operator==(const Voo &lhs, const Voo &rhs);
+
+    /**
+     * Retorna os passageiros menores de idade
+     * @return lista de passageiros menores de idade, ordenados por ordem crescente de idades
+     */
+    list<Passageiro*> getPassageirosMenores() const;
 
     std::string getObjectName() override;
     std::string getObjectID() override;

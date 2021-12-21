@@ -22,7 +22,7 @@ const std::list<Voo *> & Aviao::getPlano() const {
 
 void Aviao::setPlano(std::list<Voo *> plano) {
     this->plano = std::move(plano);
-    sortPlano();
+    plano.sort(sortPlano);
 }
 
 Aviao::Aviao(int capacidade, std::list<Voo *> plano, std::string matricula, std::string tipo) : capacidade(capacidade),
@@ -30,7 +30,8 @@ Aviao::Aviao(int capacidade, std::list<Voo *> plano, std::string matricula, std:
                                                                                                 matricula(std::move(matricula)),
                                                                                                 carrinhoAssociado(nullptr),
                                                                                                 tipo(tipo)
-                                                                                            {sortPlano();}
+                                                                                            {
+                                                                                                plano.sort(sortPlano);}
 
 std::queue<Servico *> Aviao::getServicos() const {
     return servicos;
@@ -42,7 +43,8 @@ void Aviao::setServicos(const std::queue<Servico *> &servicos) {
 
 Aviao::Aviao(int capacidade, std::list<Voo *> plano, std::string matricula, std::queue<Servico *> servicos,
              std::string tipo) : capacidade(capacidade), plano(std::move(plano)), matricula(std::move(matricula)),
-                                                      servicos(std::move(servicos)), tipo(tipo) {sortPlano();}
+                                                      servicos(std::move(servicos)), tipo(tipo) {
+    plano.sort(sortPlano);}
 
 void Aviao::addServico(Servico *servico) {
     servicos.push(servico);
@@ -50,11 +52,11 @@ void Aviao::addServico(Servico *servico) {
 
 void Aviao::addToPlanoVoo(Voo *voo) {
     plano.push_back(voo);
-    sortPlano();
+    plano.sort(sortPlano);
 }
 
-void Aviao::sortPlano() {
-    plano.sort();
+bool Aviao::sortPlano(const Voo *v1, const Voo *v2) {
+    return v1->getDataPartida() < v2->getDataPartida();
 }
 
 bool Aviao::processService() {
@@ -229,11 +231,8 @@ std::stack<std::string> Aviao::funcs() {
     temp.push("getAllServicesBy()");
     temp.push("descarregarMalas()");
     temp.push("viajar()");
+    temp.push("getAllServicesAfter()");
     return temp;
-}
-
-bool Aviao::operator==(Aviao &a) {
-    return this->matricula == a.matricula;
 }
 
 bool Aviao::findFunc(std::string nomeFunc) {
@@ -490,6 +489,30 @@ bool Aviao::findFunc(std::string nomeFunc) {
         viajar();
         Terminal::updateVec();
     }
+    else if (nomeFunc == "getAllServicesAfter")
+    {
+        cout << "input data (YYYY/MM/DD): ";
+        string temp1;
+        getline(cin, temp1);
+        try
+        {
+            auto d = Data(temp1);
+            auto lista = getAllServicesAfter(d);
+            if (lista.empty())
+                cout << "empty." << endl;
+            else
+                for (auto &s:lista)
+                {
+                    cout << s->getObjectName() << endl;
+                }
+            return true;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+            return true;
+        }
+    }
     else
     {
         return false;
@@ -536,5 +559,29 @@ std::vector<Terminal *> *Aviao::getV(std::string nameVector) {
         temp->push_back(carrinhoAssociado);
     }
     return temp;
+}
+
+bool Aviao::sorterServicos(const Servico* s1, const Servico* s2) {
+    return *(s1) < *(s2);
+}
+
+list<Servico *> Aviao::getAllServicesAfter(Data d) {
+    list<Servico*> res;
+    auto aux_servico = servicos;
+    while(!aux_servico.empty())
+    {
+        if (aux_servico.front()->getData() >= d)
+            res.push_back(aux_servico.front());
+        aux_servico.pop();
+    }
+    auto aux_servicosProc = servicosProcessados;
+    while(!aux_servicosProc.empty())
+    {
+        if (aux_servicosProc.top()->getData() >= d)
+            res.push_back(aux_servicosProc.top());
+        aux_servicosProc.pop();
+    }
+    res.sort(sorterServicos);
+    return res;
 }
 

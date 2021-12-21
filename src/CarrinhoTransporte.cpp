@@ -160,6 +160,28 @@ bool operator<(const CarrinhoTransporte &lhs, const CarrinhoTransporte &rhs) {
     return false;
 }
 
+bool CarrinhoTransporte::sorterMalas(Mala *m1, Mala *m2) {
+    return m1->getDono()->getNome() < m2->getDono()->getNome();
+}
+
+list<Mala *> CarrinhoTransporte::getMalasAlfabeticamente() {
+    list<Mala*> tmp;
+    for (auto c : carga)
+    {
+        for (auto p : c)
+        {
+            auto m = p;
+            while (!m.empty())
+            {
+                tmp.push_back(m.top());
+                m.pop();
+            }
+        }
+    }
+    tmp.sort(sorterMalas);
+    return tmp;
+}
+
 std::stack<std::string> CarrinhoTransporte::funcs() {
     stack<string> temp;
     temp.push("getNCarruagens()");
@@ -171,6 +193,7 @@ std::stack<std::string> CarrinhoTransporte::funcs() {
     temp.push("addMalas()");
     temp.push("descarregarMalasAviao()");
     temp.push("descarregarMalasAeroporto()");
+    temp.push("getMalasAlfabeticamente()");
     return temp;
 }
 
@@ -251,6 +274,13 @@ bool CarrinhoTransporte::findFunc(std::string nomeFunc) {
     else if (nomeFunc == "descarregarMalasAeroporto"){
         descarregarMalasAeroporto();
         Terminal::updateVec();
+    }
+    else if (nomeFunc == "getMalasAlfabeticamente")
+    {
+        auto lista = getMalasAlfabeticamente();
+        for (auto &m:lista)
+            cout << m->getObjectName() << endl;
+        return true;
     }
     else {
         return false;
