@@ -1,0 +1,45 @@
+\hypertarget{_servico_8cpp}{}\doxysection{src/\+Servico.cpp File Reference}
+\label{_servico_8cpp}\index{src/Servico.cpp@{src/Servico.cpp}}
+{\ttfamily \#include \char`\"{}Servico.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_servico_8cpp_aab52c5867e996eaa7d76761b5e103c53}{operator$<$}} (const \mbox{\hyperlink{class_servico}{Servico}} \&lhs, const \mbox{\hyperlink{class_servico}{Servico}} \&rhs)
+\item 
+bool \mbox{\hyperlink{_servico_8cpp_a599c9472f64ad959f2f69a98843218cf}{operator==}} (const \mbox{\hyperlink{class_servico}{Servico}} \&lhs, const \mbox{\hyperlink{class_servico}{Servico}} \&rhs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_servico_8cpp_aab52c5867e996eaa7d76761b5e103c53}\label{_servico_8cpp_aab52c5867e996eaa7d76761b5e103c53}} 
+\index{Servico.cpp@{Servico.cpp}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Servico.cpp@{Servico.cpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_servico}{Servico}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_servico}{Servico}} \&}]{rhs }\end{DoxyParamCaption})}
+
+Um serviço é menor que outro quando a data é menor, ou, em caso de empate, quando o nome do funcionário é menor (ordem alfabética) ou, em caso de empate, quando um tipo é menor que o outro 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o serviço lhs for menor que rhs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_servico_8cpp_a599c9472f64ad959f2f69a98843218cf}\label{_servico_8cpp_a599c9472f64ad959f2f69a98843218cf}} 
+\index{Servico.cpp@{Servico.cpp}!operator==@{operator==}}
+\index{operator==@{operator==}!Servico.cpp@{Servico.cpp}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_servico}{Servico}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_servico}{Servico}} \&}]{rhs }\end{DoxyParamCaption})}
+
+Dois serviços são iguais se tiverem o mesmo valor em todos os atributos 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se forem iguais 
+\end{DoxyReturn}

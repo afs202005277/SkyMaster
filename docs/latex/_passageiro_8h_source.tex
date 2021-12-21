@@ -1,0 +1,85 @@
+\hypertarget{_passageiro_8h_source}{}\doxysection{Passageiro.\+h}
+\label{_passageiro_8h_source}\index{src/Passageiro.h@{src/Passageiro.h}}
+\mbox{\hyperlink{_passageiro_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJETO1\_PASSAGEIRO\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJETO1\_PASSAGEIRO\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_bilhete_8h}{Bilhete.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_voo_8h}{Voo.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_terminal_8h}{Terminal.h}}"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_voo}{Voo}};}
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_bilhete}{Bilhete}};}
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_mala}{Mala}};}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_terminal}{Terminal}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_passageiro}{Passageiro}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terminal}{Terminal}} \{}
+\DoxyCodeLine{19 \textcolor{keyword}{private}:}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} idade, id;}
+\DoxyCodeLine{21     std::string nome;}
+\DoxyCodeLine{22     std::queue<Bilhete *> bilhetes;}
+\DoxyCodeLine{23     std::queue<Mala*> malas;}
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_passageiro_ab0acc951c2a2fb68782aa6c9cc7ab4cb}{Passageiro}}(std::string nome, \textcolor{keywordtype}{int} idade, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \mbox{\hyperlink{class_passageiro_af7a42f808145b4d370c79e92f26dc623}{Passageiro}}(\textcolor{keywordtype}{int} idade, \textcolor{keywordtype}{int} \textcolor{keywordtype}{id}, std::string nome, \textcolor{keyword}{const} std::queue<Bilhete *> \&bilhetes);}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keyword}{const} std::queue<Mala *> \&\mbox{\hyperlink{class_passageiro_a2768f27ab2fcec81b25821ee1fafc9ea}{getMalas}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_passageiro_a732be3d77031a00f0dbc0e927ca94e35}{setMalas}}(\textcolor{keyword}{const} std::queue<Mala *> \&malas);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_passageiro_af9f0606c49ab5c32bea0f65ff2f067c9}{addMala}}(\mbox{\hyperlink{class_mala}{Mala}} *m);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_passageiro_afcfdd27cdec23ef4d9462e674cea68c9}{removeMala}}(\mbox{\hyperlink{class_mala}{Mala}} *m);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keyword}{const} std::queue<Bilhete *> \& \mbox{\hyperlink{class_passageiro_a9f70cab11b2539539a3f8882a91dc0e2}{getBilhetes}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_passageiro_ace2e6e718cf0632af4b25bbba0f3f125}{addBilhete}}(\mbox{\hyperlink{class_bilhete}{Bilhete}} *bilhete);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{57     \mbox{\hyperlink{class_bilhete}{Bilhete}}* \mbox{\hyperlink{class_passageiro_a821ecf0313a99fa09d2b05d0542d8cc6}{getNextBilhete}}();}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_passageiro_a59ba2fb6c54f457447fc8a1b2d747294}{removeNextBilhete}}();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_passageiro_aa8323f68a3a7a18272ba96c94cc5ea70}{setBilhetes}}(\textcolor{keyword}{const} std::queue<Bilhete *> \&bilhetes);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_passageiro_a84775f9a33fdbdd4c89b5bf62cbd8d26}{getNome}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_passageiro_ad6788cb3dfe0ca8a3305388a82b37bc4}{setNome}}(\textcolor{keyword}{const} std::string \&nome);}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_passageiro_acecf0852a06d23b8d13305d6aeecc117}{getIdade}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_passageiro_a1778399558eaf62b71f0c3b2b1387323}{setIdade}}(\textcolor{keywordtype}{int} idade);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_passageiro_a0ddc7648b7ba1e35a212bcc0d13418fe}{getId}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_passageiro_aa6ecdabec31816c0d7351af3dd71430c}{setId}}(\textcolor{keywordtype}{int} \textcolor{keywordtype}{id});}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{82     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_passageiro_ab2b5152ab5e5aea3d6222d9fa8faaf87}{removeBilhete}}(\textcolor{keywordtype}{int} index);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{89     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_passageiro_afdaabba5208e75704424423c281b16ff}{hasBilhete}}(\textcolor{keywordtype}{int} nVoo) \textcolor{keyword}{const};}
+\DoxyCodeLine{90 }
+\DoxyCodeLine{98     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_passageiro_af222251069b77be32263e7679db0b521}{checkIn}}(\textcolor{keywordtype}{bool} checkInAutomatico, \mbox{\hyperlink{class_voo}{Voo}} \&voo, std::queue<Mala *> malas) \textcolor{keyword}{const};}
+\DoxyCodeLine{99 }
+\DoxyCodeLine{105     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_passageiro_a59e8b941b425b7bac794c0c11adb3109}{getIntoPlane}}(\mbox{\hyperlink{class_voo}{Voo}} \&voo);}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{113     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_passageiro_a078b6717927c7b4ada73d2c6f4024adc}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_passageiro}{Passageiro}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_passageiro}{Passageiro}} \&rhs);}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{122     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_passageiro_ad0908380f43998ae57a324c9c9d6c0fb}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_passageiro}{Passageiro}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_passageiro}{Passageiro}} \&rhs);}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124     std::string \mbox{\hyperlink{class_passageiro_ac1641383c2c464f9934dee2001f5fe2f}{getObjectName}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{125     std::string \mbox{\hyperlink{class_passageiro_a05a63a3aafbabe80121f2100ff3b1089}{getObjectID}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{126     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_passageiro_a097b15a09d8d071aba28ddca8e3b594b}{findFunc}}(std::string nomeFunc) \textcolor{keyword}{override};}
+\DoxyCodeLine{127     std::stack<std::string> \mbox{\hyperlink{class_passageiro_a4bb562c04e10ee49ab533263b1e47c04}{funcs}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{128     std::vector<Terminal*> *\mbox{\hyperlink{class_passageiro_a9dce2db415841e87584f5e918d55d567}{getV}}(std::string nameVector) \textcolor{keyword}{override};}
+\DoxyCodeLine{129 \};}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO1\_PASSAGEIRO\_H}}
+
+\end{DoxyCode}

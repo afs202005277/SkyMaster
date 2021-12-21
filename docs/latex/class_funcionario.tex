@@ -1,0 +1,287 @@
+\hypertarget{class_funcionario}{}\doxysection{Funcionario Class Reference}
+\label{class_funcionario}\index{Funcionario@{Funcionario}}
+
+
+{\ttfamily \#include $<$Funcionario.\+h$>$}
+
+Inheritance diagram for Funcionario\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_funcionario}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_funcionario_a6011355ca676d4eb6fed45ece798e19a}{Funcionario}} (int telemovel, std\+::string nome, std\+::string morada, \mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$aeroporto)
+\item 
+\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$ \mbox{\hyperlink{class_funcionario_ac20eb20735ead33db0c0ed3d140ae0c5}{get\+Aeroporto}} () const
+\item 
+void \mbox{\hyperlink{class_funcionario_a3edd698bce3c1b46a0997861e90f4f6e}{set\+Aeroporto}} (\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$aeroporto)
+\item 
+int \mbox{\hyperlink{class_funcionario_a3f25c4dbde807c9b87fc8b73888df313}{get\+Telemovel}} () const
+\item 
+void \mbox{\hyperlink{class_funcionario_ab8c9d99fe18b22385316afcbb15c1f6e}{set\+Telemovel}} (int telemovel)
+\item 
+const std\+::string \& \mbox{\hyperlink{class_funcionario_aad07c1419c336b98315efec06441f877}{get\+Nome}} () const
+\item 
+void \mbox{\hyperlink{class_funcionario_aaf35fc861e3ead572931cc381af2f6ed}{set\+Nome}} (const std\+::string \&nome)
+\item 
+const std\+::string \& \mbox{\hyperlink{class_funcionario_a85d01b45c3911b4f1cc73c696a7a869d}{get\+Morada}} () const
+\item 
+void \mbox{\hyperlink{class_funcionario_a68f7a46cd3ed01b6d3e03a423b4ebe2d}{set\+Morada}} (const std\+::string \&morada)
+\item 
+bool \mbox{\hyperlink{class_funcionario_aaa085611e2fc6aa5b661e1bdb1817665}{operator==}} (const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&rhs) const
+\item 
+bool \mbox{\hyperlink{class_funcionario_a44963d76d89f18400acdec30b3d88ebc}{operator!=}} (const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&rhs) const
+\item 
+std\+::string \mbox{\hyperlink{class_funcionario_ae28d19fa3ae1c3c450ac91eeb7fa019f}{get\+Object\+Name}} () override
+\item 
+std\+::string \mbox{\hyperlink{class_funcionario_a479789df08bb86db85a6bedffe0b039c}{get\+Object\+ID}} () override
+\item 
+bool \mbox{\hyperlink{class_funcionario_a887220bc0c46c26da4580bb1218ce4b7}{find\+Func}} (std\+::string nome\+Func) override
+\item 
+std\+::stack$<$ std\+::string $>$ \mbox{\hyperlink{class_funcionario_a91551e6ab291fcd1abe883587ef1d2fc}{funcs}} () override
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{class_funcionario_a51fe6ecd0cd58e2d5972a515355f6cb8}{getV}} (std\+::string name\+Vector) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_funcionario_a3217e183c75db62641c4a0abf8b5f188}{operator$<$}} (const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&lhs, const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&rhs)
+\item 
+bool \mbox{\hyperlink{class_funcionario_a20accde557a4badc742fd50214291250}{operator$>$}} (const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&lhs, const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&rhs)
+\item 
+bool \mbox{\hyperlink{class_funcionario_a24be7f0e1eb379c25a15ee6b3c5e1533}{operator$<$=}} (const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&lhs, const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&rhs)
+\item 
+bool \mbox{\hyperlink{class_funcionario_a22924908f74285c70e2feb5ff4c673c7}{operator$>$=}} (const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&lhs, const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&rhs)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_funcionario_a6011355ca676d4eb6fed45ece798e19a}\label{class_funcionario_a6011355ca676d4eb6fed45ece798e19a}} 
+\index{Funcionario@{Funcionario}!Funcionario@{Funcionario}}
+\index{Funcionario@{Funcionario}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{Funcionario()}{Funcionario()}}
+{\footnotesize\ttfamily Funcionario\+::\+Funcionario (\begin{DoxyParamCaption}\item[{int}]{telemovel,  }\item[{std\+::string}]{nome,  }\item[{std\+::string}]{morada,  }\item[{\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$}]{aeroporto }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_funcionario_a887220bc0c46c26da4580bb1218ce4b7}\label{class_funcionario_a887220bc0c46c26da4580bb1218ce4b7}} 
+\index{Funcionario@{Funcionario}!findFunc@{findFunc}}
+\index{findFunc@{findFunc}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{findFunc()}{findFunc()}}
+{\footnotesize\ttfamily bool Funcionario\+::find\+Func (\begin{DoxyParamCaption}\item[{std\+::string}]{nome\+Func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Executa o metodo cujo nome recebeu como argumento 
+\begin{DoxyParams}{Parameters}
+{\em nome\+Func} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se encontrar um metodo com o nome referido e se o input pedido estiver correto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a8a1e4d1e1b65529614f9eb85067e8e42}{Terminal}}.
+
+\mbox{\Hypertarget{class_funcionario_a91551e6ab291fcd1abe883587ef1d2fc}\label{class_funcionario_a91551e6ab291fcd1abe883587ef1d2fc}} 
+\index{Funcionario@{Funcionario}!funcs@{funcs}}
+\index{funcs@{funcs}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{funcs()}{funcs()}}
+{\footnotesize\ttfamily std\+::stack$<$ std\+::string $>$ Funcionario\+::funcs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+stack de strings contendo os nomes de todos os metodos do respetivo objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a1a0f6a32ab54a19f7d800fac1f2fb3ad}{Terminal}}.
+
+\mbox{\Hypertarget{class_funcionario_ac20eb20735ead33db0c0ed3d140ae0c5}\label{class_funcionario_ac20eb20735ead33db0c0ed3d140ae0c5}} 
+\index{Funcionario@{Funcionario}!getAeroporto@{getAeroporto}}
+\index{getAeroporto@{getAeroporto}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{getAeroporto()}{getAeroporto()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$ Funcionario\+::get\+Aeroporto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_funcionario_a85d01b45c3911b4f1cc73c696a7a869d}\label{class_funcionario_a85d01b45c3911b4f1cc73c696a7a869d}} 
+\index{Funcionario@{Funcionario}!getMorada@{getMorada}}
+\index{getMorada@{getMorada}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{getMorada()}{getMorada()}}
+{\footnotesize\ttfamily const std\+::string \& Funcionario\+::get\+Morada (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_funcionario_aad07c1419c336b98315efec06441f877}\label{class_funcionario_aad07c1419c336b98315efec06441f877}} 
+\index{Funcionario@{Funcionario}!getNome@{getNome}}
+\index{getNome@{getNome}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
+{\footnotesize\ttfamily const std\+::string \& Funcionario\+::get\+Nome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_funcionario_a479789df08bb86db85a6bedffe0b039c}\label{class_funcionario_a479789df08bb86db85a6bedffe0b039c}} 
+\index{Funcionario@{Funcionario}!getObjectID@{getObjectID}}
+\index{getObjectID@{getObjectID}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{getObjectID()}{getObjectID()}}
+{\footnotesize\ttfamily std\+::string Funcionario\+::get\+Object\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+string com o identificador do objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a08c2842d197fe3eb4d0a92aed94cf704}{Terminal}}.
+
+\mbox{\Hypertarget{class_funcionario_ae28d19fa3ae1c3c450ac91eeb7fa019f}\label{class_funcionario_ae28d19fa3ae1c3c450ac91eeb7fa019f}} 
+\index{Funcionario@{Funcionario}!getObjectName@{getObjectName}}
+\index{getObjectName@{getObjectName}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{getObjectName()}{getObjectName()}}
+{\footnotesize\ttfamily std\+::string Funcionario\+::get\+Object\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+string com toda a informacao relativa ao objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a1b9939ed1d6c2155704ac8b91d79e3ca}{Terminal}}.
+
+\mbox{\Hypertarget{class_funcionario_a3f25c4dbde807c9b87fc8b73888df313}\label{class_funcionario_a3f25c4dbde807c9b87fc8b73888df313}} 
+\index{Funcionario@{Funcionario}!getTelemovel@{getTelemovel}}
+\index{getTelemovel@{getTelemovel}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{getTelemovel()}{getTelemovel()}}
+{\footnotesize\ttfamily int Funcionario\+::get\+Telemovel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_funcionario_a51fe6ecd0cd58e2d5972a515355f6cb8}\label{class_funcionario_a51fe6ecd0cd58e2d5972a515355f6cb8}} 
+\index{Funcionario@{Funcionario}!getV@{getV}}
+\index{getV@{getV}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{getV()}{getV()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ Funcionario\+::getV (\begin{DoxyParamCaption}\item[{std\+::string}]{name\+Vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Retorna a estrutura de dados com nome name\+Vector da classe respetiva 
+\begin{DoxyParams}{Parameters}
+{\em name\+Vector} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+apontador para um vetor de apontadores de terminais com a informacao requerida 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_aab50b800bcbe1e86ee982b3c8504a5be}{Terminal}}.
+
+\mbox{\Hypertarget{class_funcionario_a44963d76d89f18400acdec30b3d88ebc}\label{class_funcionario_a44963d76d89f18400acdec30b3d88ebc}} 
+\index{Funcionario@{Funcionario}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool Funcionario\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_funcionario_aaa085611e2fc6aa5b661e1bdb1817665}\label{class_funcionario_aaa085611e2fc6aa5b661e1bdb1817665}} 
+\index{Funcionario@{Funcionario}!operator==@{operator==}}
+\index{operator==@{operator==}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Funcionario\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&}]{rhs }\end{DoxyParamCaption}) const}
+
+Verifica se 2 funcionarios sao iguais 
+\begin{DoxyParams}{Parameters}
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se tiverem o mesmo numero de telemovel 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_funcionario_a3edd698bce3c1b46a0997861e90f4f6e}\label{class_funcionario_a3edd698bce3c1b46a0997861e90f4f6e}} 
+\index{Funcionario@{Funcionario}!setAeroporto@{setAeroporto}}
+\index{setAeroporto@{setAeroporto}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{setAeroporto()}{setAeroporto()}}
+{\footnotesize\ttfamily void Funcionario\+::set\+Aeroporto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$}]{aeroporto }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_funcionario_a68f7a46cd3ed01b6d3e03a423b4ebe2d}\label{class_funcionario_a68f7a46cd3ed01b6d3e03a423b4ebe2d}} 
+\index{Funcionario@{Funcionario}!setMorada@{setMorada}}
+\index{setMorada@{setMorada}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{setMorada()}{setMorada()}}
+{\footnotesize\ttfamily void Funcionario\+::set\+Morada (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{morada }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_funcionario_aaf35fc861e3ead572931cc381af2f6ed}\label{class_funcionario_aaf35fc861e3ead572931cc381af2f6ed}} 
+\index{Funcionario@{Funcionario}!setNome@{setNome}}
+\index{setNome@{setNome}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{setNome()}{setNome()}}
+{\footnotesize\ttfamily void Funcionario\+::set\+Nome (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nome }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_funcionario_ab8c9d99fe18b22385316afcbb15c1f6e}\label{class_funcionario_ab8c9d99fe18b22385316afcbb15c1f6e}} 
+\index{Funcionario@{Funcionario}!setTelemovel@{setTelemovel}}
+\index{setTelemovel@{setTelemovel}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{setTelemovel()}{setTelemovel()}}
+{\footnotesize\ttfamily void Funcionario\+::set\+Telemovel (\begin{DoxyParamCaption}\item[{int}]{telemovel }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_funcionario_a3217e183c75db62641c4a0abf8b5f188}\label{class_funcionario_a3217e183c75db62641c4a0abf8b5f188}} 
+\index{Funcionario@{Funcionario}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{operator$<$}{operator<}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Verifica se um funcionario é menor que outro 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o nome de lhs for menor que o de rhs (ordem alfabetica) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_funcionario_a24be7f0e1eb379c25a15ee6b3c5e1533}\label{class_funcionario_a24be7f0e1eb379c25a15ee6b3c5e1533}} 
+\index{Funcionario@{Funcionario}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{operator$<$=}{operator<=}}
+{\footnotesize\ttfamily bool operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Verifica se um funcionario é menor ou igual que outro 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+!(rhs \texorpdfstring{$<$}{<} lhs) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_funcionario_a20accde557a4badc742fd50214291250}\label{class_funcionario_a20accde557a4badc742fd50214291250}} 
+\index{Funcionario@{Funcionario}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{operator$>$}{operator>}}
+{\footnotesize\ttfamily bool operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Verifica se um funcionario é maior que outro 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+rhs \texorpdfstring{$<$}{<} lhs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_funcionario_a22924908f74285c70e2feb5ff4c673c7}\label{class_funcionario_a22924908f74285c70e2feb5ff4c673c7}} 
+\index{Funcionario@{Funcionario}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Funcionario@{Funcionario}}
+\doxysubsubsection{\texorpdfstring{operator$>$=}{operator>=}}
+{\footnotesize\ttfamily bool operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_funcionario}{Funcionario}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Verifica se um funcionario é maior ou igual que outro 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+!(lhs \texorpdfstring{$<$}{<} rhs) 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_funcionario_8h}{Funcionario.\+h}}\item 
+src/\mbox{\hyperlink{_funcionario_8cpp}{Funcionario.\+cpp}}\end{DoxyCompactItemize}

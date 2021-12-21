@@ -1,0 +1,57 @@
+\hypertarget{_servico_8h_source}{}\doxysection{Servico.\+h}
+\label{_servico_8h_source}\index{src/Servico.h@{src/Servico.h}}
+\mbox{\hyperlink{_servico_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJETO1\_SERVICO\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJETO1\_SERVICO\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <stack>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_data_8h}{Data.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_funcionario_8h}{Funcionario.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_terminal_8h}{Terminal.h}}"{}}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_funcionario}{Funcionario}};}
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_terminal}{Terminal}};}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{enum} \mbox{\hyperlink{_servico_8h_adbc6fd1c40bcc87f0ffb9a41a4a4155a}{Tipo}} \{\mbox{\hyperlink{_servico_8h_adbc6fd1c40bcc87f0ffb9a41a4a4155aa7502c2af941c32987f6525dfcb2c137f}{manutencao}}, \mbox{\hyperlink{_servico_8h_adbc6fd1c40bcc87f0ffb9a41a4a4155aae84ed15dc2a1925b3ef29b79d5067af6}{limpeza}}\};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_servico}{Servico}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terminal}{Terminal}} \{}
+\DoxyCodeLine{18 \textcolor{keyword}{private}:}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_data}{Data}} data;}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_funcionario}{Funcionario}} * funcionario;}
+\DoxyCodeLine{21     \mbox{\hyperlink{_servico_8h_adbc6fd1c40bcc87f0ffb9a41a4a4155a}{Tipo}} tipo;}
+\DoxyCodeLine{22 \textcolor{keyword}{public}:}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_servico_a6f16f6d4bc85ac1fb3f74b6bc2707d09}{Servico}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_data}{Data}} \&data, \mbox{\hyperlink{class_funcionario}{Funcionario}} *funcionario, \mbox{\hyperlink{_servico_8h_adbc6fd1c40bcc87f0ffb9a41a4a4155a}{Tipo}} tipo);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{class_servico_a89ffc3574522a8a1e05813724896af64}{Servico}}(\textcolor{keyword}{const} std::string \&data, \mbox{\hyperlink{class_funcionario}{Funcionario}} * funcionario, \textcolor{keyword}{const} std::string\& tipo);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \mbox{\hyperlink{_servico_8h_adbc6fd1c40bcc87f0ffb9a41a4a4155a}{Tipo}} \mbox{\hyperlink{class_servico_a7b3479a7d7fa94427ebc2a21fd69c396}{getTipo}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_servico_af8ddb6d4612cfc5a880fc591ba68f9f7}{setTipo}}(\mbox{\hyperlink{_servico_8h_adbc6fd1c40bcc87f0ffb9a41a4a4155a}{Tipo}} tipo);}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keyword}{const} \mbox{\hyperlink{class_data}{Data}} \&\mbox{\hyperlink{class_servico_a63863b132d3744f9dea9f57a8ebad23d}{getData}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_servico_a7edce8c5125bce15eeab072916bf8656}{setData}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_data}{Data}} \&data);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} * \mbox{\hyperlink{class_servico_ab17e1ace04315ee6e95ca79ef4dbdb1b}{getFuncionario}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_servico_ad6d3d9183ab0a24e75087d8a856aa191}{setFuncionario}}(\mbox{\hyperlink{class_funcionario}{Funcionario}} *funcionario);}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{46     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_servico_aab52c5867e996eaa7d76761b5e103c53}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_servico}{Servico}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_servico}{Servico}} \&rhs);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{54     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_servico_a599c9472f64ad959f2f69a98843218cf}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_servico}{Servico}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_servico}{Servico}} \&rhs);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     std::string \mbox{\hyperlink{class_servico_ab62b5c828facd5bbdeaca447d447b1cd}{getObjectName}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{57     std::string \mbox{\hyperlink{class_servico_aea44387b8f8291748c082536193963d2}{getObjectID}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{58     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_servico_a8f76900b5bee8ff671fb3131620f4156}{findFunc}}(std::string nomeFunc) \textcolor{keyword}{override};}
+\DoxyCodeLine{59     std::stack<std::string> \mbox{\hyperlink{class_servico_a033777920e8c879ae66a76ae23d5cf82}{funcs}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{60     std::vector<Terminal*> *\mbox{\hyperlink{class_servico_a0b45208a38bd27e6185f8c543cb926e8}{getV}}(std::string nameVector) \textcolor{keyword}{override};}
+\DoxyCodeLine{61 \};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO1\_SERVICO\_H}}
+
+\end{DoxyCode}

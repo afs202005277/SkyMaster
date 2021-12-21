@@ -1,0 +1,222 @@
+\hypertarget{class_terminal}{}\doxysection{Terminal Class Reference}
+\label{class_terminal}\index{Terminal@{Terminal}}
+
+
+{\ttfamily \#include $<$Terminal.\+h$>$}
+
+Inheritance diagram for Terminal\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=11.000000cm]{class_terminal}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual std\+::string \mbox{\hyperlink{class_terminal_a1b9939ed1d6c2155704ac8b91d79e3ca}{get\+Object\+Name}} ()=0
+\item 
+virtual std\+::string \mbox{\hyperlink{class_terminal_a08c2842d197fe3eb4d0a92aed94cf704}{get\+Object\+ID}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{class_terminal_a8a1e4d1e1b65529614f9eb85067e8e42}{find\+Func}} (std\+::string nome\+Func)=0
+\item 
+virtual std\+::stack$<$ std\+::string $>$ \mbox{\hyperlink{class_terminal_a1a0f6a32ab54a19f7d800fac1f2fb3ad}{funcs}} ()=0
+\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{class_terminal_aab50b800bcbe1e86ee982b3c8504a5be}{getV}} (std\+::string name\+Vector)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{class_terminal_afd4bed5b75fc9c2ee6e785cf38b22f52}{process\+String}} (std\+::string \&s, char y, int occurence=1, bool after=false)
+\item 
+static void \mbox{\hyperlink{class_terminal_a901c6f2c7394aa26c9c75d15c1760a90}{handle\+List\+Dir}} (std\+::string new\+\_\+dir, \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$\mbox{\hyperlink{class_terminal_a6a504a257d82b9ff7b4a116054d61a16}{cur\+\_\+obj}}, std\+::multimap$<$ std\+::string, std\+::tuple$<$ std\+::string, std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ $>$ $>$ \&\mbox{\hyperlink{class_terminal_a5d140ab4552e5a92eaf7971a4259de5c}{dir}}, bool in)
+\item 
+static void \mbox{\hyperlink{class_terminal_ac9d349557a7ab392a40090c16fbf3a7c}{update\+Vec}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$ $>$ \mbox{\hyperlink{class_terminal_adadfb189cc88e5eec0a044720c052d8c}{aeroportos}}
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{class_passageiro}{Passageiro}} $\ast$ $>$ \mbox{\hyperlink{class_terminal_adf0eada42125dd47b6e2fe8aadf75499}{passageiros}}
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{class_voo}{Voo}} $\ast$ $>$ \mbox{\hyperlink{class_terminal_a15447363d095529cd06a0184849212dc}{voos}}
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{class_funcionario}{Funcionario}} $\ast$ $>$ \mbox{\hyperlink{class_terminal_a19b06977c27f161bea812594d7818fcb}{funcionarios}}
+\item 
+static std\+::stack$<$ std\+::string $>$ \mbox{\hyperlink{class_terminal_a720f52814c078381c655f8d65abe7edd}{cur\+\_\+dir}}
+\item 
+static std\+::stack$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ \mbox{\hyperlink{class_terminal_a6a504a257d82b9ff7b4a116054d61a16}{cur\+\_\+obj}}
+\item 
+static std\+::multimap$<$ std\+::string, std\+::tuple$<$ std\+::string, std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ $>$ $>$ \mbox{\hyperlink{class_terminal_a5d140ab4552e5a92eaf7971a4259de5c}{dir}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_terminal_a8a1e4d1e1b65529614f9eb85067e8e42}\label{class_terminal_a8a1e4d1e1b65529614f9eb85067e8e42}} 
+\index{Terminal@{Terminal}!findFunc@{findFunc}}
+\index{findFunc@{findFunc}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{findFunc()}{findFunc()}}
+{\footnotesize\ttfamily virtual bool Terminal\+::find\+Func (\begin{DoxyParamCaption}\item[{std\+::string}]{nome\+Func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Executa o metodo cujo nome recebeu como argumento 
+\begin{DoxyParams}{Parameters}
+{\em nome\+Func} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se encontrar um metodo com o nome referido e se o input pedido estiver correto 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_aeroporto_ad996d4c8b0ec4eb79c0bce5165d7a859}{Aeroporto}}, \mbox{\hyperlink{class_aviao_a4d2118c252bdbe3be5edb7b9847fed62}{Aviao}}, \mbox{\hyperlink{class_bilhete_a3a758badf8e734cf3071ebcbb95b6853}{Bilhete}}, \mbox{\hyperlink{class_carrinho_transporte_aa8184a2aed9908f07a5b5abd9595c788}{Carrinho\+Transporte}}, \mbox{\hyperlink{class_funcionario_a887220bc0c46c26da4580bb1218ce4b7}{Funcionario}}, \mbox{\hyperlink{class_mala_a5395c95db37f13c42b6c18e292e28fd9}{Mala}}, \mbox{\hyperlink{class_passageiro_a097b15a09d8d071aba28ddca8e3b594b}{Passageiro}}, \mbox{\hyperlink{class_servico_a8f76900b5bee8ff671fb3131620f4156}{Servico}}, \mbox{\hyperlink{class_transporte_a00f351041b1b3fcaff81fc35976263fb}{Transporte}}, and \mbox{\hyperlink{class_voo_a94c87b6a590ce039618b359d4a4e0f1f}{Voo}}.
+
+\mbox{\Hypertarget{class_terminal_a1a0f6a32ab54a19f7d800fac1f2fb3ad}\label{class_terminal_a1a0f6a32ab54a19f7d800fac1f2fb3ad}} 
+\index{Terminal@{Terminal}!funcs@{funcs}}
+\index{funcs@{funcs}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{funcs()}{funcs()}}
+{\footnotesize\ttfamily virtual std\+::stack$<$ std\+::string $>$ Terminal\+::funcs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+stack de strings contendo os nomes de todos os metodos do respetivo objeto 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_aeroporto_a33c037a0c10e73d6a42c42708dd7f661}{Aeroporto}}, \mbox{\hyperlink{class_aviao_a7d115e2eb28214c55af573e00dca24af}{Aviao}}, \mbox{\hyperlink{class_bilhete_aba4fd75c1715c2b3a549f267c56d7991}{Bilhete}}, \mbox{\hyperlink{class_carrinho_transporte_ad4c61b396fa61e7cb5fa8c4ee867f86c}{Carrinho\+Transporte}}, \mbox{\hyperlink{class_funcionario_a91551e6ab291fcd1abe883587ef1d2fc}{Funcionario}}, \mbox{\hyperlink{class_mala_a80f17ce1450c318398abcc559795a4fb}{Mala}}, \mbox{\hyperlink{class_passageiro_a4bb562c04e10ee49ab533263b1e47c04}{Passageiro}}, \mbox{\hyperlink{class_servico_a033777920e8c879ae66a76ae23d5cf82}{Servico}}, \mbox{\hyperlink{class_transporte_a48c182e3a76cb76b28fc00ea66d9674d}{Transporte}}, and \mbox{\hyperlink{class_voo_afeb7a9598123829a6afe19b2c5909312}{Voo}}.
+
+\mbox{\Hypertarget{class_terminal_a08c2842d197fe3eb4d0a92aed94cf704}\label{class_terminal_a08c2842d197fe3eb4d0a92aed94cf704}} 
+\index{Terminal@{Terminal}!getObjectID@{getObjectID}}
+\index{getObjectID@{getObjectID}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{getObjectID()}{getObjectID()}}
+{\footnotesize\ttfamily virtual std\+::string Terminal\+::get\+Object\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+string com o identificador do objeto 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_aeroporto_ae986841a1ec1c98213f5d0b20e48bab6}{Aeroporto}}, \mbox{\hyperlink{class_aviao_a618a269ba787b6ed2fa86113b39da684}{Aviao}}, \mbox{\hyperlink{class_bilhete_a91b0947bde92510081b5a0783c4b7e48}{Bilhete}}, \mbox{\hyperlink{class_carrinho_transporte_a72e301432aa57967da189d1c3b799fbb}{Carrinho\+Transporte}}, \mbox{\hyperlink{class_funcionario_a479789df08bb86db85a6bedffe0b039c}{Funcionario}}, \mbox{\hyperlink{class_mala_a076518ba550645793398f39b1e624d0d}{Mala}}, \mbox{\hyperlink{class_passageiro_a05a63a3aafbabe80121f2100ff3b1089}{Passageiro}}, \mbox{\hyperlink{class_servico_aea44387b8f8291748c082536193963d2}{Servico}}, \mbox{\hyperlink{class_transporte_a9b2b5aee1938440aead93e7420b52e55}{Transporte}}, and \mbox{\hyperlink{class_voo_a6f2fe8c01f87efec9f4423f282a30658}{Voo}}.
+
+\mbox{\Hypertarget{class_terminal_a1b9939ed1d6c2155704ac8b91d79e3ca}\label{class_terminal_a1b9939ed1d6c2155704ac8b91d79e3ca}} 
+\index{Terminal@{Terminal}!getObjectName@{getObjectName}}
+\index{getObjectName@{getObjectName}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{getObjectName()}{getObjectName()}}
+{\footnotesize\ttfamily virtual std\+::string Terminal\+::get\+Object\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\begin{DoxyReturn}{Returns}
+string com toda a informacao relativa ao objeto 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_aeroporto_a7d0140170dd809c3db2b304625c47c72}{Aeroporto}}, \mbox{\hyperlink{class_aviao_ab3bc584fab39d589c8662cb18888391f}{Aviao}}, \mbox{\hyperlink{class_bilhete_af05783816b2f876485bf5f5804305c14}{Bilhete}}, \mbox{\hyperlink{class_carrinho_transporte_af214a147686cd3a97308d75cd36285f4}{Carrinho\+Transporte}}, \mbox{\hyperlink{class_funcionario_ae28d19fa3ae1c3c450ac91eeb7fa019f}{Funcionario}}, \mbox{\hyperlink{class_mala_a3ddad0aa0354484764f7d3d6b9e765a3}{Mala}}, \mbox{\hyperlink{class_passageiro_ac1641383c2c464f9934dee2001f5fe2f}{Passageiro}}, \mbox{\hyperlink{class_servico_ab62b5c828facd5bbdeaca447d447b1cd}{Servico}}, \mbox{\hyperlink{class_transporte_adf76088441dab1669b96b849b88d4e12}{Transporte}}, and \mbox{\hyperlink{class_voo_a2fcdc06812906fcabebf72f3bd4a1f2f}{Voo}}.
+
+\mbox{\Hypertarget{class_terminal_aab50b800bcbe1e86ee982b3c8504a5be}\label{class_terminal_aab50b800bcbe1e86ee982b3c8504a5be}} 
+\index{Terminal@{Terminal}!getV@{getV}}
+\index{getV@{getV}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{getV()}{getV()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ Terminal\+::getV (\begin{DoxyParamCaption}\item[{std\+::string}]{name\+Vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Retorna a estrutura de dados com nome name\+Vector da classe respetiva 
+\begin{DoxyParams}{Parameters}
+{\em name\+Vector} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+apontador para um vetor de apontadores de terminais com a informacao requerida 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_aeroporto_a5c8f4080d1210b1b6dbbdd2192c35fdb}{Aeroporto}}, \mbox{\hyperlink{class_aviao_a3726d5adbc9e86c7de51ea8074cbc2b6}{Aviao}}, \mbox{\hyperlink{class_bilhete_a12b83e76c904d3dd9c146d9f189c7f4f}{Bilhete}}, \mbox{\hyperlink{class_carrinho_transporte_aec1edd56bdf80b2987cd6a94557f530b}{Carrinho\+Transporte}}, \mbox{\hyperlink{class_funcionario_a51fe6ecd0cd58e2d5972a515355f6cb8}{Funcionario}}, \mbox{\hyperlink{class_mala_af972bff0f15a687562bef454d547b623}{Mala}}, \mbox{\hyperlink{class_passageiro_a9dce2db415841e87584f5e918d55d567}{Passageiro}}, \mbox{\hyperlink{class_servico_a0b45208a38bd27e6185f8c543cb926e8}{Servico}}, \mbox{\hyperlink{class_transporte_a6eae7b9961b6da2cb1a893c55d3fcb66}{Transporte}}, and \mbox{\hyperlink{class_voo_a02085fda442f6dda4abc86656d4fd4a8}{Voo}}.
+
+\mbox{\Hypertarget{class_terminal_a901c6f2c7394aa26c9c75d15c1760a90}\label{class_terminal_a901c6f2c7394aa26c9c75d15c1760a90}} 
+\index{Terminal@{Terminal}!handleListDir@{handleListDir}}
+\index{handleListDir@{handleListDir}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{handleListDir()}{handleListDir()}}
+{\footnotesize\ttfamily static void Terminal\+::handle\+List\+Dir (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+\_\+dir,  }\item[{\mbox{\hyperlink{class_terminal}{Terminal}} $\ast$}]{cur\+\_\+obj,  }\item[{std\+::multimap$<$ std\+::string, std\+::tuple$<$ std\+::string, std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ $>$ $>$ \&}]{dir,  }\item[{bool}]{in }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Trata de acrescentar e retirar as diretorias acessiveis dependendo de onde estamos acessando no momento 
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+dir} & \\
+\hline
+{\em cur\+\_\+obj} & \\
+\hline
+{\em dir} & \\
+\hline
+{\em in} & \+: Verifica se estamos a entrar ou a sair da diretoria \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_terminal_afd4bed5b75fc9c2ee6e785cf38b22f52}\label{class_terminal_afd4bed5b75fc9c2ee6e785cf38b22f52}} 
+\index{Terminal@{Terminal}!processString@{processString}}
+\index{processString@{processString}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{processString()}{processString()}}
+{\footnotesize\ttfamily static std\+::string Terminal\+::process\+String (\begin{DoxyParamCaption}\item[{std\+::string \&}]{s,  }\item[{char}]{y,  }\item[{int}]{occurence = {\ttfamily 1},  }\item[{bool}]{after = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Recebe string e retorna string até ou depois da \textquotesingle{}occurence\textquotesingle{} de \textquotesingle{}y\textquotesingle{} 
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+{\em y} & \\
+\hline
+{\em occurence} & \\
+\hline
+{\em after} & \+: se falso, retorna até \textquotesingle{}y\textquotesingle{}. se verdadeiro, retorna depois de \textquotesingle{}y\textquotesingle{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_terminal_ac9d349557a7ab392a40090c16fbf3a7c}\label{class_terminal_ac9d349557a7ab392a40090c16fbf3a7c}} 
+\index{Terminal@{Terminal}!updateVec@{updateVec}}
+\index{updateVec@{updateVec}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{updateVec()}{updateVec()}}
+{\footnotesize\ttfamily static void Terminal\+::update\+Vec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Updates directory vectors with the new changes 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_terminal_adadfb189cc88e5eec0a044720c052d8c}\label{class_terminal_adadfb189cc88e5eec0a044720c052d8c}} 
+\index{Terminal@{Terminal}!aeroportos@{aeroportos}}
+\index{aeroportos@{aeroportos}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{aeroportos}{aeroportos}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_aeroporto}{Aeroporto}}$\ast$$>$ Terminal\+::aeroportos\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_terminal_a720f52814c078381c655f8d65abe7edd}\label{class_terminal_a720f52814c078381c655f8d65abe7edd}} 
+\index{Terminal@{Terminal}!cur\_dir@{cur\_dir}}
+\index{cur\_dir@{cur\_dir}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{cur\_dir}{cur\_dir}}
+{\footnotesize\ttfamily std\+::stack$<$std\+::string$>$ Terminal\+::cur\+\_\+dir\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_terminal_a6a504a257d82b9ff7b4a116054d61a16}\label{class_terminal_a6a504a257d82b9ff7b4a116054d61a16}} 
+\index{Terminal@{Terminal}!cur\_obj@{cur\_obj}}
+\index{cur\_obj@{cur\_obj}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{cur\_obj}{cur\_obj}}
+{\footnotesize\ttfamily std\+::stack$<$\mbox{\hyperlink{class_terminal}{Terminal}}$\ast$$>$ Terminal\+::cur\+\_\+obj\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_terminal_a5d140ab4552e5a92eaf7971a4259de5c}\label{class_terminal_a5d140ab4552e5a92eaf7971a4259de5c}} 
+\index{Terminal@{Terminal}!dir@{dir}}
+\index{dir@{dir}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{dir}{dir}}
+{\footnotesize\ttfamily std\+::multimap$<$std\+::string, std\+::tuple$<$std\+::string, std\+::vector$<$\mbox{\hyperlink{class_terminal}{Terminal}}$\ast$$>$$\ast$$>$ $>$ Terminal\+::dir\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_terminal_a19b06977c27f161bea812594d7818fcb}\label{class_terminal_a19b06977c27f161bea812594d7818fcb}} 
+\index{Terminal@{Terminal}!funcionarios@{funcionarios}}
+\index{funcionarios@{funcionarios}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{funcionarios}{funcionarios}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_funcionario}{Funcionario}}$\ast$$>$ Terminal\+::funcionarios\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_terminal_adf0eada42125dd47b6e2fe8aadf75499}\label{class_terminal_adf0eada42125dd47b6e2fe8aadf75499}} 
+\index{Terminal@{Terminal}!passageiros@{passageiros}}
+\index{passageiros@{passageiros}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{passageiros}{passageiros}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_passageiro}{Passageiro}}$\ast$$>$ Terminal\+::passageiros\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_terminal_a15447363d095529cd06a0184849212dc}\label{class_terminal_a15447363d095529cd06a0184849212dc}} 
+\index{Terminal@{Terminal}!voos@{voos}}
+\index{voos@{voos}!Terminal@{Terminal}}
+\doxysubsubsection{\texorpdfstring{voos}{voos}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_voo}{Voo}}$\ast$$>$ Terminal\+::voos\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_terminal_8h}{Terminal.\+h}}\end{DoxyCompactItemize}

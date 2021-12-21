@@ -1,0 +1,113 @@
+\hypertarget{_aeroporto_8h_source}{}\doxysection{Aeroporto.\+h}
+\label{_aeroporto_8h_source}\index{src/Aeroporto.h@{src/Aeroporto.h}}
+\mbox{\hyperlink{_aeroporto_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJETO1\_AEROPORTO\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJETO1\_AEROPORTO\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_transporte_8h}{Transporte.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_funcionario_8h}{Funcionario.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_carrinho_transporte_8h}{CarrinhoTransporte.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{bst_8h}{bst.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_aviao_8h}{Aviao.h}}"{}}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_terminal}{Terminal}};}
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_funcionario}{Funcionario}};}
+\DoxyCodeLine{17 \textcolor{keyword}{class }\mbox{\hyperlink{class_carrinho_transporte}{CarrinhoTransporte}};}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{class }\mbox{\hyperlink{class_aeroporto}{Aeroporto}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terminal}{Terminal}} \{}
+\DoxyCodeLine{20 \textcolor{keyword}{private}:}
+\DoxyCodeLine{21     std::string name, city, country;}
+\DoxyCodeLine{22     std::vector<Funcionario*> funcionarios;}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_b_s_t}{BST<Transporte>}} transportes;}
+\DoxyCodeLine{24     std::vector<CarrinhoTransporte*> carrinhos;}
+\DoxyCodeLine{25     std::list<Aviao*> avioes;}
+\DoxyCodeLine{26     std::queue<Mala*> storage;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{34     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} sorterFuncionarios(\textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} * f1, \textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} * f2);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{42     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} sorterAvioes(\textcolor{keyword}{const} \mbox{\hyperlink{class_aviao}{Aviao}}* a1, \textcolor{keyword}{const} \mbox{\hyperlink{class_aviao}{Aviao}}* a2);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{public}:}
+\DoxyCodeLine{45     \mbox{\hyperlink{class_aeroporto_ad4040272d4c6bf266edbe6117b366a91}{Aeroporto}}(std::string name, std::string city, std::string country, \textcolor{keyword}{const} std::vector<Funcionario *> \&funcionarios,}
+\DoxyCodeLine{46               \textcolor{keyword}{const} \mbox{\hyperlink{class_b_s_t}{BST<Transporte>}} \&transportes, \textcolor{keyword}{const} std::vector<CarrinhoTransporte *> \&carrinhos,}
+\DoxyCodeLine{47               \textcolor{keyword}{const} std::list<Aviao *> \&avioes);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \mbox{\hyperlink{class_aeroporto_ad4040272d4c6bf266edbe6117b366a91}{Aeroporto}}(std::string name, std::string city, std::string country);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_aeroporto_a4405ca595971e88de8ab2d124c4a29ea}{getName}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keyword}{const} std::queue<Mala *> \&\mbox{\hyperlink{class_aeroporto_abe53aa684566b52a5bcd605323a9ea7a}{getStorage}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aeroporto_a2a8e23d623386396b9bcfd9013e048a0}{setStorage}}(\textcolor{keyword}{const} std::queue<Mala *> \&storage);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aeroporto_a2b95839ae64482f28cf12b0d69085776}{addMalas}}(std::queue<Mala *> \&malas);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     std::vector<CarrinhoTransporte *> \& \mbox{\hyperlink{class_aeroporto_a1213efe291f020e9fbdb2add80e230ad}{getCarrinhos}}();}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aeroporto_a36b67868da3ccf1a36051de724919ecf}{setCarrinhos}}(\textcolor{keyword}{const} std::vector<CarrinhoTransporte *> \&Carrinhos);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aeroporto_a49dc0f10391c7c1704377d55a8b5e74f}{setName}}(\textcolor{keyword}{const} std::string \&Name);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_aeroporto_a0350f5f940565131cc64d91e4a9d767a}{getCity}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aeroporto_a232372146e981da9355461dfe3fea157}{setCity}}(\textcolor{keyword}{const} std::string \&City);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     \textcolor{keyword}{const} std::list<Aviao *> \&\mbox{\hyperlink{class_aeroporto_a48bf87a713e7603eda8f496fedfe1249}{getAvioes}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aeroporto_a341bd8564b378cc4960c92dedf9cd010}{setAvioes}}(\textcolor{keyword}{const} std::list<Aviao *> \&Avioes);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73     \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_aeroporto_ab3ebf8fe5337156d5247b1c35c8c8c84}{getCountry}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aeroporto_a8f070b0ae3bb99f56aad449f902344a4}{setCountry}}(\textcolor{keyword}{const} std::string \&Country);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aeroporto_aee2a24e4b02d20d9f09b8a60e5348ad1}{setTransportes}}(\mbox{\hyperlink{class_b_s_t}{BST<Transporte>}} \&t);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79     \textcolor{keyword}{const} std::vector<Funcionario *> \&\mbox{\hyperlink{class_aeroporto_abf129c3b9440a50b4c126786b247e950}{getFuncionarios}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aeroporto_a6f8bdf8287f1e5d7710f3a15ccd50e59}{setFuncionarios}}(std::vector<Funcionario *> \&funcionariosNew);}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \mbox{\hyperlink{class_b_s_t}{BST<Transporte>}} \mbox{\hyperlink{class_aeroporto_ad9760a0c80c2d0ba1ec6965601e6790a}{getTransportes}}();}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{90     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_aeroporto_a789feef0474b03c5e37a5704aa2f8cf0}{addTransporte}}(\mbox{\hyperlink{class_transporte}{Transporte}} \&t);}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{97     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_aeroporto_a5954a1af0095dd74094f507139b2fb51}{removeTransporte}}(\mbox{\hyperlink{class_transporte}{Transporte}} \&t);}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{103     \mbox{\hyperlink{class_transporte}{Transporte}} \mbox{\hyperlink{class_aeroporto_af5f92e6411291faf8a9c88311f7ab560}{getNearestTransport}}();}
+\DoxyCodeLine{104 }
+\DoxyCodeLine{109     \mbox{\hyperlink{class_transporte}{Transporte}} \mbox{\hyperlink{class_aeroporto_ad8771118d1473f09caacb403957ac688}{getNextTransport}}();}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{117     std::vector<Transporte> \mbox{\hyperlink{class_aeroporto_a6ea0dce6395bb0197156be3014a70794}{getAvailableTransports}}(\mbox{\hyperlink{class_tempo}{Tempo}} min, \mbox{\hyperlink{class_tempo}{Tempo}} max);}
+\DoxyCodeLine{118 }
+\DoxyCodeLine{124     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_aeroporto_a765d38d64379f86410ca4e2585b136f4}{existsTransport}}(\mbox{\hyperlink{class_transporte}{Transporte}} t) \textcolor{keyword}{const};}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{130     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aeroporto_af350e008a406607e5c2be137b0cf7645}{addFuncionario}}(\mbox{\hyperlink{class_funcionario}{Funcionario}} *f);}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{137     \mbox{\hyperlink{class_funcionario}{Funcionario}}* \mbox{\hyperlink{class_aeroporto_ad39021c60d3465a9d615134f2c9cc6ab}{removeFuncionario}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} \&f);}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{144     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aeroporto_a99127133c274b739bd3a3ec677476acc}{addAviao}}(\mbox{\hyperlink{class_aviao}{Aviao}} * a);}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{152     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_aeroporto_aa0f21adcd3587e804de13f092ac9b69b}{removeAviao}}(\mbox{\hyperlink{class_aviao}{Aviao}} * a);}
+\DoxyCodeLine{153 }
+\DoxyCodeLine{160     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_aeroporto_ada783ed7f86679b2f0716f153f92d5bd}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_aeroporto}{Aeroporto}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_aeroporto}{Aeroporto}} \&rhs);}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{168     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_aeroporto_a02fed7c8e0e26ed27090a45254da5ed3}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_aeroporto}{Aeroporto}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_aeroporto}{Aeroporto}} \&rhs);}
+\DoxyCodeLine{169 }
+\DoxyCodeLine{174     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aeroporto_a98b5cc8b50c28caff6f8ba9591ac8ad2}{addCarrinho}}(\mbox{\hyperlink{class_carrinho_transporte}{CarrinhoTransporte}} * c);}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176     std::string \mbox{\hyperlink{class_aeroporto_a7d0140170dd809c3db2b304625c47c72}{getObjectName}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{177     std::string \mbox{\hyperlink{class_aeroporto_ae986841a1ec1c98213f5d0b20e48bab6}{getObjectID}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{178     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_aeroporto_ad996d4c8b0ec4eb79c0bce5165d7a859}{findFunc}}(std::string nomeFunc) \textcolor{keyword}{override};}
+\DoxyCodeLine{179     std::stack<std::string> \mbox{\hyperlink{class_aeroporto_a33c037a0c10e73d6a42c42708dd7f661}{funcs}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{180     std::vector<Terminal*> *\mbox{\hyperlink{class_aeroporto_a5c8f4080d1210b1b6dbbdd2192c35fdb}{getV}}(std::string nameVector) \textcolor{keyword}{override};}
+\DoxyCodeLine{181 \};}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183 }
+\DoxyCodeLine{184 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO1\_AEROPORTO\_H}}
+
+\end{DoxyCode}

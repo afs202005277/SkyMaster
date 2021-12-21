@@ -1,0 +1,259 @@
+\hypertarget{class_transporte}{}\doxysection{Transporte Class Reference}
+\label{class_transporte}\index{Transporte@{Transporte}}
+
+
+{\ttfamily \#include $<$Transporte.\+h$>$}
+
+Inheritance diagram for Transporte\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_transporte}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_transporte_a18352cbbe2e15d00c78b6f51ab82bafc}{Transporte}} (int distancia, const \mbox{\hyperlink{class_tempo}{Tempo}} \&hora\+Chegada, const \mbox{\hyperlink{class_tempo}{Tempo}} \&hora\+Partida, \mbox{\hyperlink{_transporte_8h_ab57838a4b81abc99a94efd2e17034916}{Tipo\+Transporte}} tipo, std\+::string nome\+Aeroporto)
+\item 
+\mbox{\hyperlink{class_transporte_ab89de97fccf2cc5b1212a5b78e86991c}{Transporte}} (int distancia, const std\+::string \&hora\+Chegada, const std\+::string \&hora\+Partida, const std\+::string \&tipo, std\+::string nome\+Aeroporto)
+\item 
+\mbox{\hyperlink{class_transporte_a0cbb4b20eea36e3011b8b3208a812778}{Transporte}} ()
+\item 
+const std\+::string \& \mbox{\hyperlink{class_transporte_afbd697ac9682f13b7f29834e9d140b29}{get\+Nome\+Aeroporto}} () const
+\item 
+void \mbox{\hyperlink{class_transporte_afe9aadcc5d56132cf8259d96a4811dcb}{set\+Nome\+Aeroporto}} (const std\+::string \&nome\+Aeroporto)
+\item 
+\mbox{\hyperlink{_transporte_8h_ab57838a4b81abc99a94efd2e17034916}{Tipo\+Transporte}} \mbox{\hyperlink{class_transporte_aecdfd28a10ce8704bce25deeaccd1c39}{get\+Tipo}} () const
+\item 
+void \mbox{\hyperlink{class_transporte_a117576bb0aad7350882f6c56e2c7ea51}{set\+Tipo}} (\mbox{\hyperlink{_transporte_8h_ab57838a4b81abc99a94efd2e17034916}{Tipo\+Transporte}} tipo)
+\item 
+int \mbox{\hyperlink{class_transporte_a9523227b8ef88a6152735db3051cfcde}{get\+Distancia}} () const
+\item 
+void \mbox{\hyperlink{class_transporte_ad88a59c5e69084b537a15e7127086f33}{set\+Distancia}} (int distancia)
+\item 
+const \mbox{\hyperlink{class_tempo}{Tempo}} \& \mbox{\hyperlink{class_transporte_ae09f896055f1589f570dbcc7a5050f51}{get\+Hora\+Chegada}} () const
+\item 
+void \mbox{\hyperlink{class_transporte_a61e03eb9f7e0d680218486fd5439f3d4}{set\+Hora\+Chegada}} (const \mbox{\hyperlink{class_tempo}{Tempo}} \&hora\+Chegada)
+\item 
+const \mbox{\hyperlink{class_tempo}{Tempo}} \& \mbox{\hyperlink{class_transporte_a4a60cce6eaef8d8a00491c0474ba132b}{get\+Hora\+Partida}} () const
+\item 
+void \mbox{\hyperlink{class_transporte_ab4464eb8afb0b61c2051468627e1ec38}{set\+Hora\+Partida}} (const \mbox{\hyperlink{class_tempo}{Tempo}} \&hora\+Saida)
+\item 
+std\+::string \mbox{\hyperlink{class_transporte_adf76088441dab1669b96b849b88d4e12}{get\+Object\+Name}} () override
+\item 
+std\+::string \mbox{\hyperlink{class_transporte_a9b2b5aee1938440aead93e7420b52e55}{get\+Object\+ID}} () override
+\item 
+bool \mbox{\hyperlink{class_transporte_a00f351041b1b3fcaff81fc35976263fb}{find\+Func}} (std\+::string nome\+Func) override
+\item 
+std\+::stack$<$ std\+::string $>$ \mbox{\hyperlink{class_transporte_a48c182e3a76cb76b28fc00ea66d9674d}{funcs}} () override
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{class_transporte_a6eae7b9961b6da2cb1a893c55d3fcb66}{getV}} (std\+::string name\+Vector) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_transporte_a00d39924887e98cd36cc0a5e15019ecd}{operator$<$}} (const \mbox{\hyperlink{class_transporte}{Transporte}} \&lhs, const \mbox{\hyperlink{class_transporte}{Transporte}} \&rhs)
+\item 
+bool \mbox{\hyperlink{class_transporte_ae6bf974ef20d26c93fe49f28d7168c70}{operator==}} (const \mbox{\hyperlink{class_transporte}{Transporte}} \&lhs, const \mbox{\hyperlink{class_transporte}{Transporte}} \&rhs)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_transporte_a18352cbbe2e15d00c78b6f51ab82bafc}\label{class_transporte_a18352cbbe2e15d00c78b6f51ab82bafc}} 
+\index{Transporte@{Transporte}!Transporte@{Transporte}}
+\index{Transporte@{Transporte}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{Transporte()}{Transporte()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Transporte\+::\+Transporte (\begin{DoxyParamCaption}\item[{int}]{distancia,  }\item[{const \mbox{\hyperlink{class_tempo}{Tempo}} \&}]{hora\+Chegada,  }\item[{const \mbox{\hyperlink{class_tempo}{Tempo}} \&}]{hora\+Partida,  }\item[{\mbox{\hyperlink{_transporte_8h_ab57838a4b81abc99a94efd2e17034916}{Tipo\+Transporte}}}]{tipo,  }\item[{std\+::string}]{nome\+Aeroporto }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_transporte_ab89de97fccf2cc5b1212a5b78e86991c}\label{class_transporte_ab89de97fccf2cc5b1212a5b78e86991c}} 
+\index{Transporte@{Transporte}!Transporte@{Transporte}}
+\index{Transporte@{Transporte}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{Transporte()}{Transporte()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Transporte\+::\+Transporte (\begin{DoxyParamCaption}\item[{int}]{distancia,  }\item[{const std\+::string \&}]{hora\+Chegada,  }\item[{const std\+::string \&}]{hora\+Partida,  }\item[{const std\+::string \&}]{tipo,  }\item[{std\+::string}]{nome\+Aeroporto }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_transporte_a0cbb4b20eea36e3011b8b3208a812778}\label{class_transporte_a0cbb4b20eea36e3011b8b3208a812778}} 
+\index{Transporte@{Transporte}!Transporte@{Transporte}}
+\index{Transporte@{Transporte}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{Transporte()}{Transporte()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Transporte\+::\+Transporte (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_transporte_a00f351041b1b3fcaff81fc35976263fb}\label{class_transporte_a00f351041b1b3fcaff81fc35976263fb}} 
+\index{Transporte@{Transporte}!findFunc@{findFunc}}
+\index{findFunc@{findFunc}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{findFunc()}{findFunc()}}
+{\footnotesize\ttfamily bool Transporte\+::find\+Func (\begin{DoxyParamCaption}\item[{std\+::string}]{nome\+Func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Executa o metodo cujo nome recebeu como argumento 
+\begin{DoxyParams}{Parameters}
+{\em nome\+Func} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se encontrar um metodo com o nome referido e se o input pedido estiver correto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a8a1e4d1e1b65529614f9eb85067e8e42}{Terminal}}.
+
+\mbox{\Hypertarget{class_transporte_a48c182e3a76cb76b28fc00ea66d9674d}\label{class_transporte_a48c182e3a76cb76b28fc00ea66d9674d}} 
+\index{Transporte@{Transporte}!funcs@{funcs}}
+\index{funcs@{funcs}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{funcs()}{funcs()}}
+{\footnotesize\ttfamily std\+::stack$<$ std\+::string $>$ Transporte\+::funcs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+stack de strings contendo os nomes de todos os metodos do respetivo objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a1a0f6a32ab54a19f7d800fac1f2fb3ad}{Terminal}}.
+
+\mbox{\Hypertarget{class_transporte_a9523227b8ef88a6152735db3051cfcde}\label{class_transporte_a9523227b8ef88a6152735db3051cfcde}} 
+\index{Transporte@{Transporte}!getDistancia@{getDistancia}}
+\index{getDistancia@{getDistancia}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{getDistancia()}{getDistancia()}}
+{\footnotesize\ttfamily int Transporte\+::get\+Distancia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_transporte_ae09f896055f1589f570dbcc7a5050f51}\label{class_transporte_ae09f896055f1589f570dbcc7a5050f51}} 
+\index{Transporte@{Transporte}!getHoraChegada@{getHoraChegada}}
+\index{getHoraChegada@{getHoraChegada}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{getHoraChegada()}{getHoraChegada()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_tempo}{Tempo}} \& Transporte\+::get\+Hora\+Chegada (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_transporte_a4a60cce6eaef8d8a00491c0474ba132b}\label{class_transporte_a4a60cce6eaef8d8a00491c0474ba132b}} 
+\index{Transporte@{Transporte}!getHoraPartida@{getHoraPartida}}
+\index{getHoraPartida@{getHoraPartida}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{getHoraPartida()}{getHoraPartida()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_tempo}{Tempo}} \& Transporte\+::get\+Hora\+Partida (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_transporte_afbd697ac9682f13b7f29834e9d140b29}\label{class_transporte_afbd697ac9682f13b7f29834e9d140b29}} 
+\index{Transporte@{Transporte}!getNomeAeroporto@{getNomeAeroporto}}
+\index{getNomeAeroporto@{getNomeAeroporto}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{getNomeAeroporto()}{getNomeAeroporto()}}
+{\footnotesize\ttfamily const string \& Transporte\+::get\+Nome\+Aeroporto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_transporte_a9b2b5aee1938440aead93e7420b52e55}\label{class_transporte_a9b2b5aee1938440aead93e7420b52e55}} 
+\index{Transporte@{Transporte}!getObjectID@{getObjectID}}
+\index{getObjectID@{getObjectID}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{getObjectID()}{getObjectID()}}
+{\footnotesize\ttfamily std\+::string Transporte\+::get\+Object\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+string com o identificador do objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a08c2842d197fe3eb4d0a92aed94cf704}{Terminal}}.
+
+\mbox{\Hypertarget{class_transporte_adf76088441dab1669b96b849b88d4e12}\label{class_transporte_adf76088441dab1669b96b849b88d4e12}} 
+\index{Transporte@{Transporte}!getObjectName@{getObjectName}}
+\index{getObjectName@{getObjectName}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{getObjectName()}{getObjectName()}}
+{\footnotesize\ttfamily std\+::string Transporte\+::get\+Object\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+string com toda a informacao relativa ao objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a1b9939ed1d6c2155704ac8b91d79e3ca}{Terminal}}.
+
+\mbox{\Hypertarget{class_transporte_aecdfd28a10ce8704bce25deeaccd1c39}\label{class_transporte_aecdfd28a10ce8704bce25deeaccd1c39}} 
+\index{Transporte@{Transporte}!getTipo@{getTipo}}
+\index{getTipo@{getTipo}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{getTipo()}{getTipo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_transporte_8h_ab57838a4b81abc99a94efd2e17034916}{Tipo\+Transporte}} Transporte\+::get\+Tipo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_transporte_a6eae7b9961b6da2cb1a893c55d3fcb66}\label{class_transporte_a6eae7b9961b6da2cb1a893c55d3fcb66}} 
+\index{Transporte@{Transporte}!getV@{getV}}
+\index{getV@{getV}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{getV()}{getV()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ Transporte\+::getV (\begin{DoxyParamCaption}\item[{std\+::string}]{name\+Vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Retorna a estrutura de dados com nome name\+Vector da classe respetiva 
+\begin{DoxyParams}{Parameters}
+{\em name\+Vector} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+apontador para um vetor de apontadores de terminais com a informacao requerida 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_aab50b800bcbe1e86ee982b3c8504a5be}{Terminal}}.
+
+\mbox{\Hypertarget{class_transporte_ad88a59c5e69084b537a15e7127086f33}\label{class_transporte_ad88a59c5e69084b537a15e7127086f33}} 
+\index{Transporte@{Transporte}!setDistancia@{setDistancia}}
+\index{setDistancia@{setDistancia}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{setDistancia()}{setDistancia()}}
+{\footnotesize\ttfamily void Transporte\+::set\+Distancia (\begin{DoxyParamCaption}\item[{int}]{distancia }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_transporte_a61e03eb9f7e0d680218486fd5439f3d4}\label{class_transporte_a61e03eb9f7e0d680218486fd5439f3d4}} 
+\index{Transporte@{Transporte}!setHoraChegada@{setHoraChegada}}
+\index{setHoraChegada@{setHoraChegada}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{setHoraChegada()}{setHoraChegada()}}
+{\footnotesize\ttfamily void Transporte\+::set\+Hora\+Chegada (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tempo}{Tempo}} \&}]{hora\+Chegada }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_transporte_ab4464eb8afb0b61c2051468627e1ec38}\label{class_transporte_ab4464eb8afb0b61c2051468627e1ec38}} 
+\index{Transporte@{Transporte}!setHoraPartida@{setHoraPartida}}
+\index{setHoraPartida@{setHoraPartida}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{setHoraPartida()}{setHoraPartida()}}
+{\footnotesize\ttfamily void Transporte\+::set\+Hora\+Partida (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_tempo}{Tempo}} \&}]{hora\+Saida }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_transporte_afe9aadcc5d56132cf8259d96a4811dcb}\label{class_transporte_afe9aadcc5d56132cf8259d96a4811dcb}} 
+\index{Transporte@{Transporte}!setNomeAeroporto@{setNomeAeroporto}}
+\index{setNomeAeroporto@{setNomeAeroporto}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{setNomeAeroporto()}{setNomeAeroporto()}}
+{\footnotesize\ttfamily void Transporte\+::set\+Nome\+Aeroporto (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{nome\+Aeroporto }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_transporte_a117576bb0aad7350882f6c56e2c7ea51}\label{class_transporte_a117576bb0aad7350882f6c56e2c7ea51}} 
+\index{Transporte@{Transporte}!setTipo@{setTipo}}
+\index{setTipo@{setTipo}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{setTipo()}{setTipo()}}
+{\footnotesize\ttfamily void Transporte\+::set\+Tipo (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_transporte_8h_ab57838a4b81abc99a94efd2e17034916}{Tipo\+Transporte}}}]{tipo }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_transporte_a00d39924887e98cd36cc0a5e15019ecd}\label{class_transporte_a00d39924887e98cd36cc0a5e15019ecd}} 
+\index{Transporte@{Transporte}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{operator$<$}{operator<}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_transporte}{Transporte}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_transporte}{Transporte}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Verifica se um transporte é menor que outro 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se lhs estiver mais perto do que rhs, ou, em caso de empate, se lhs chegar primeiro que rhs 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_transporte_ae6bf974ef20d26c93fe49f28d7168c70}\label{class_transporte_ae6bf974ef20d26c93fe49f28d7168c70}} 
+\index{Transporte@{Transporte}!operator==@{operator==}}
+\index{operator==@{operator==}!Transporte@{Transporte}}
+\doxysubsubsection{\texorpdfstring{operator==}{operator==}}
+{\footnotesize\ttfamily bool operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_transporte}{Transporte}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_transporte}{Transporte}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Dois transportes são iguais quando têm o mesmo valor em todos os atributos 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se forem iguais 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_transporte_8h}{Transporte.\+h}}\item 
+src/\mbox{\hyperlink{_transporte_8cpp}{Transporte.\+cpp}}\end{DoxyCompactItemize}

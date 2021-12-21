@@ -1,0 +1,54 @@
+\hypertarget{_tempo_8h_source}{}\doxysection{Tempo.\+h}
+\label{_tempo_8h_source}\index{src/Tempo.h@{src/Tempo.h}}
+\mbox{\hyperlink{_tempo_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJETO1\_TEMPO\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJETO1\_TEMPO\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_terminal_8h}{Terminal.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_terminal}{Terminal}};}
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_tempo}{Tempo}} \{}
+\DoxyCodeLine{11 \textcolor{keyword}{private}:}
+\DoxyCodeLine{12     \textcolor{keywordtype}{int} hora;}
+\DoxyCodeLine{13     \textcolor{keywordtype}{int} minuto;}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} segundo;}
+\DoxyCodeLine{15 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_tempo_aff401972a7f7afa0ad2c16045643e5b9}{Tempo}}(\textcolor{keywordtype}{int} hora, \textcolor{keywordtype}{int} minuto, \textcolor{keywordtype}{int} segundo=0);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \mbox{\hyperlink{class_tempo_aff401972a7f7afa0ad2c16045643e5b9}{Tempo}}(\textcolor{keyword}{const} std::string \&tempo);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_tempo_a6379a2e5873254d2b47b08db51c13ce0}{getHora}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_tempo_af3374341ab1da3e9c03a67a10b083161}{setHora}}(\textcolor{keywordtype}{int} hora);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_tempo_af4cfbc1260805f38298ace799fa27324}{getMinuto}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_tempo_a3cdf30b2c31c44c3ddc1f12bff155aa0}{setMinuto}}(\textcolor{keywordtype}{int} minuto);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_tempo_abe41052648dbffa9af807d4c71de4dd0}{getSegundo}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_tempo_a1e7521765041182a66275320070fa549}{setSegundo}}(\textcolor{keywordtype}{int} segundo);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{36     std::string \mbox{\hyperlink{class_tempo_a1eb36442467f23f970bc3bb764bd3b00}{getTempo}}();}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{45     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_tempo_abbc355019c141c76d3eeca1cc2593fca}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&rhs);}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_tempo_aded4f1fb75ce1f65377a01fe04c5d773}{operator>}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&rhs);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_tempo_a09cc3e201ced4444a1a75183fb833b01}{operator<=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&rhs);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_tempo_aaacc745dd77f458e07e11c6a96eb3352}{operator>=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&rhs);}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{59     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_tempo_a197074a5fbb2763085602123e2cab094}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&rhs);}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_tempo_a27d73d45c3a596cec338cf3b687f98e9}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_tempo}{Tempo}} \&rhs);}
+\DoxyCodeLine{62 \};}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO1\_TEMPO\_H}}
+
+\end{DoxyCode}

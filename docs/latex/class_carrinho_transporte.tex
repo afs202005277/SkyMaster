@@ -1,0 +1,281 @@
+\hypertarget{class_carrinho_transporte}{}\doxysection{Carrinho\+Transporte Class Reference}
+\label{class_carrinho_transporte}\index{CarrinhoTransporte@{CarrinhoTransporte}}
+
+
+{\ttfamily \#include $<$Carrinho\+Transporte.\+h$>$}
+
+Inheritance diagram for Carrinho\+Transporte\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_carrinho_transporte}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_carrinho_transporte_a9465b9ad64697eec9a53b11272c21eb3}{Carrinho\+Transporte}} (int n\+Carruagens, int n\+Pilhas, int n\+Malas, \mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$aeroporto, \mbox{\hyperlink{class_aviao}{Aviao}} $\ast$aviao=nullptr)
+\item 
+const std\+::vector$<$ std\+::vector$<$ std\+::stack$<$ \mbox{\hyperlink{class_mala}{Mala}} $\ast$ $>$ $>$ $>$ \& \mbox{\hyperlink{class_carrinho_transporte_a8e333555dd3d34b4683bb6a62a3eab18}{get\+Carga}} () const
+\item 
+void \mbox{\hyperlink{class_carrinho_transporte_adfedccb3080099ef11541a0794d15090}{set\+Carga}} (const std\+::vector$<$ std\+::vector$<$ std\+::stack$<$ \mbox{\hyperlink{class_mala}{Mala}} $\ast$ $>$ $>$ $>$ \&carga)
+\item 
+\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$ \mbox{\hyperlink{class_carrinho_transporte_acd250570c6610e56f77722befecbfd3d}{get\+Aviao}} () const
+\item 
+void \mbox{\hyperlink{class_carrinho_transporte_a36f104a78494de549bb5282b8f340753}{set\+Aviao}} (\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$aviao)
+\item 
+int \mbox{\hyperlink{class_carrinho_transporte_a5f4f1395b30731dee3c604a6e8f1cf3f}{get\+NCarruagens}} () const
+\item 
+void \mbox{\hyperlink{class_carrinho_transporte_a830e143fa2b7501e9d2b086910de35d3}{set\+NCarruagens}} (int n\+Carruagens)
+\item 
+int \mbox{\hyperlink{class_carrinho_transporte_ad01a0ce77e611344eca8e42c3d4ff9eb}{get\+NPilhas}} () const
+\item 
+void \mbox{\hyperlink{class_carrinho_transporte_ad580031a52d476b495df24ca901076d9}{set\+NPilhas}} (int n\+Pilhas)
+\item 
+int \mbox{\hyperlink{class_carrinho_transporte_ac4971bffc1fb4e0d68090f17417cf051}{get\+NMalas}} () const
+\item 
+void \mbox{\hyperlink{class_carrinho_transporte_a7f0f8e239501b1ebe65bb13269199291}{set\+NMalas}} (int n\+Malas)
+\item 
+bool \mbox{\hyperlink{class_carrinho_transporte_a2ff6edc6f9b811739b23435a8a2b7082}{add\+Malas}} (std\+::vector$<$ \mbox{\hyperlink{class_mala}{Mala}} $\ast$ $>$ m)
+\item 
+void \mbox{\hyperlink{class_carrinho_transporte_ad59f515114222f800c05b3e68306da68}{descarregar\+Malas\+Aviao}} ()
+\item 
+void \mbox{\hyperlink{class_carrinho_transporte_aa2e5e32bc54399c04ffa48cc02146de3}{descarregar\+Malas\+Aeroporto}} ()
+\item 
+std\+::string \mbox{\hyperlink{class_carrinho_transporte_af214a147686cd3a97308d75cd36285f4}{get\+Object\+Name}} () override
+\item 
+std\+::string \mbox{\hyperlink{class_carrinho_transporte_a72e301432aa57967da189d1c3b799fbb}{get\+Object\+ID}} () override
+\item 
+bool \mbox{\hyperlink{class_carrinho_transporte_aa8184a2aed9908f07a5b5abd9595c788}{find\+Func}} (std\+::string nome\+Func) override
+\item 
+std\+::stack$<$ std\+::string $>$ \mbox{\hyperlink{class_carrinho_transporte_ad4c61b396fa61e7cb5fa8c4ee867f86c}{funcs}} () override
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{class_carrinho_transporte_aec1edd56bdf80b2987cd6a94557f530b}{getV}} (std\+::string name\+Vector) override
+\item 
+bool \mbox{\hyperlink{class_carrinho_transporte_a0bea75399b52a198be6a8e829bc189b2}{add\+Mala}} (\mbox{\hyperlink{class_mala}{Mala}} $\ast$\&p\+Mala)
+\item 
+\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$ \mbox{\hyperlink{class_carrinho_transporte_ac3276090dc7c2493276b49585bd0b3fa}{get\+Aeroporto}} () const
+\item 
+void \mbox{\hyperlink{class_carrinho_transporte_ab0252ca3e6dd18cf5eb6ab04bec877dd}{set\+Aeroporto}} (\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$aeroporto)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_carrinho_transporte_abaac8968e4de4088fb41cb3857fd3c15}{operator$<$}} (const \mbox{\hyperlink{class_carrinho_transporte}{Carrinho\+Transporte}} \&lhs, const \mbox{\hyperlink{class_carrinho_transporte}{Carrinho\+Transporte}} \&rhs)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_carrinho_transporte_a9465b9ad64697eec9a53b11272c21eb3}\label{class_carrinho_transporte_a9465b9ad64697eec9a53b11272c21eb3}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!CarrinhoTransporte@{CarrinhoTransporte}}
+\index{CarrinhoTransporte@{CarrinhoTransporte}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{CarrinhoTransporte()}{CarrinhoTransporte()}}
+{\footnotesize\ttfamily Carrinho\+Transporte\+::\+Carrinho\+Transporte (\begin{DoxyParamCaption}\item[{int}]{n\+Carruagens,  }\item[{int}]{n\+Pilhas,  }\item[{int}]{n\+Malas,  }\item[{\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$}]{aeroporto,  }\item[{\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$}]{aviao = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_carrinho_transporte_a0bea75399b52a198be6a8e829bc189b2}\label{class_carrinho_transporte_a0bea75399b52a198be6a8e829bc189b2}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!addMala@{addMala}}
+\index{addMala@{addMala}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{addMala()}{addMala()}}
+{\footnotesize\ttfamily bool Carrinho\+Transporte\+::add\+Mala (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_mala}{Mala}} $\ast$\&}]{p\+Mala }\end{DoxyParamCaption})}
+
+Adiciona uma mala ao carrinho 
+\begin{DoxyParams}{Parameters}
+{\em p\+Mala} & apontador da mala que vai ser adicionada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se conseguir adicionar (se tiver espaço) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_carrinho_transporte_a2ff6edc6f9b811739b23435a8a2b7082}\label{class_carrinho_transporte_a2ff6edc6f9b811739b23435a8a2b7082}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!addMalas@{addMalas}}
+\index{addMalas@{addMalas}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{addMalas()}{addMalas()}}
+{\footnotesize\ttfamily bool Carrinho\+Transporte\+::add\+Malas (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_mala}{Mala}} $\ast$ $>$}]{m }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_carrinho_transporte_aa2e5e32bc54399c04ffa48cc02146de3}\label{class_carrinho_transporte_aa2e5e32bc54399c04ffa48cc02146de3}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!descarregarMalasAeroporto@{descarregarMalasAeroporto}}
+\index{descarregarMalasAeroporto@{descarregarMalasAeroporto}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{descarregarMalasAeroporto()}{descarregarMalasAeroporto()}}
+{\footnotesize\ttfamily void Carrinho\+Transporte\+::descarregar\+Malas\+Aeroporto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Descarrega as malas do carrinho no aeroporto que lhe foi atribuido \mbox{\Hypertarget{class_carrinho_transporte_ad59f515114222f800c05b3e68306da68}\label{class_carrinho_transporte_ad59f515114222f800c05b3e68306da68}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!descarregarMalasAviao@{descarregarMalasAviao}}
+\index{descarregarMalasAviao@{descarregarMalasAviao}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{descarregarMalasAviao()}{descarregarMalasAviao()}}
+{\footnotesize\ttfamily void Carrinho\+Transporte\+::descarregar\+Malas\+Aviao (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Descarrega as malas do carrinho no aviao que lhe foi atribuido \mbox{\Hypertarget{class_carrinho_transporte_aa8184a2aed9908f07a5b5abd9595c788}\label{class_carrinho_transporte_aa8184a2aed9908f07a5b5abd9595c788}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!findFunc@{findFunc}}
+\index{findFunc@{findFunc}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{findFunc()}{findFunc()}}
+{\footnotesize\ttfamily bool Carrinho\+Transporte\+::find\+Func (\begin{DoxyParamCaption}\item[{std\+::string}]{nome\+Func }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Executa o metodo cujo nome recebeu como argumento 
+\begin{DoxyParams}{Parameters}
+{\em nome\+Func} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se encontrar um metodo com o nome referido e se o input pedido estiver correto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a8a1e4d1e1b65529614f9eb85067e8e42}{Terminal}}.
+
+\mbox{\Hypertarget{class_carrinho_transporte_ad4c61b396fa61e7cb5fa8c4ee867f86c}\label{class_carrinho_transporte_ad4c61b396fa61e7cb5fa8c4ee867f86c}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!funcs@{funcs}}
+\index{funcs@{funcs}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{funcs()}{funcs()}}
+{\footnotesize\ttfamily std\+::stack$<$ std\+::string $>$ Carrinho\+Transporte\+::funcs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+stack de strings contendo os nomes de todos os metodos do respetivo objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a1a0f6a32ab54a19f7d800fac1f2fb3ad}{Terminal}}.
+
+\mbox{\Hypertarget{class_carrinho_transporte_ac3276090dc7c2493276b49585bd0b3fa}\label{class_carrinho_transporte_ac3276090dc7c2493276b49585bd0b3fa}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!getAeroporto@{getAeroporto}}
+\index{getAeroporto@{getAeroporto}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{getAeroporto()}{getAeroporto()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$ Carrinho\+Transporte\+::get\+Aeroporto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_carrinho_transporte_acd250570c6610e56f77722befecbfd3d}\label{class_carrinho_transporte_acd250570c6610e56f77722befecbfd3d}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!getAviao@{getAviao}}
+\index{getAviao@{getAviao}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{getAviao()}{getAviao()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_aviao}{Aviao}} $\ast$ Carrinho\+Transporte\+::get\+Aviao (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_carrinho_transporte_a8e333555dd3d34b4683bb6a62a3eab18}\label{class_carrinho_transporte_a8e333555dd3d34b4683bb6a62a3eab18}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!getCarga@{getCarga}}
+\index{getCarga@{getCarga}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{getCarga()}{getCarga()}}
+{\footnotesize\ttfamily const vector$<$ vector$<$ stack$<$ \mbox{\hyperlink{class_mala}{Mala}} $\ast$ $>$ $>$ $>$ \& Carrinho\+Transporte\+::get\+Carga (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_carrinho_transporte_a5f4f1395b30731dee3c604a6e8f1cf3f}\label{class_carrinho_transporte_a5f4f1395b30731dee3c604a6e8f1cf3f}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!getNCarruagens@{getNCarruagens}}
+\index{getNCarruagens@{getNCarruagens}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{getNCarruagens()}{getNCarruagens()}}
+{\footnotesize\ttfamily int Carrinho\+Transporte\+::get\+NCarruagens (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_carrinho_transporte_ac4971bffc1fb4e0d68090f17417cf051}\label{class_carrinho_transporte_ac4971bffc1fb4e0d68090f17417cf051}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!getNMalas@{getNMalas}}
+\index{getNMalas@{getNMalas}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{getNMalas()}{getNMalas()}}
+{\footnotesize\ttfamily int Carrinho\+Transporte\+::get\+NMalas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_carrinho_transporte_ad01a0ce77e611344eca8e42c3d4ff9eb}\label{class_carrinho_transporte_ad01a0ce77e611344eca8e42c3d4ff9eb}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!getNPilhas@{getNPilhas}}
+\index{getNPilhas@{getNPilhas}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{getNPilhas()}{getNPilhas()}}
+{\footnotesize\ttfamily int Carrinho\+Transporte\+::get\+NPilhas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_carrinho_transporte_a72e301432aa57967da189d1c3b799fbb}\label{class_carrinho_transporte_a72e301432aa57967da189d1c3b799fbb}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!getObjectID@{getObjectID}}
+\index{getObjectID@{getObjectID}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{getObjectID()}{getObjectID()}}
+{\footnotesize\ttfamily std\+::string Carrinho\+Transporte\+::get\+Object\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+string com o identificador do objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a08c2842d197fe3eb4d0a92aed94cf704}{Terminal}}.
+
+\mbox{\Hypertarget{class_carrinho_transporte_af214a147686cd3a97308d75cd36285f4}\label{class_carrinho_transporte_af214a147686cd3a97308d75cd36285f4}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!getObjectName@{getObjectName}}
+\index{getObjectName@{getObjectName}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{getObjectName()}{getObjectName()}}
+{\footnotesize\ttfamily std\+::string Carrinho\+Transporte\+::get\+Object\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+\begin{DoxyReturn}{Returns}
+string com toda a informacao relativa ao objeto 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_a1b9939ed1d6c2155704ac8b91d79e3ca}{Terminal}}.
+
+\mbox{\Hypertarget{class_carrinho_transporte_aec1edd56bdf80b2987cd6a94557f530b}\label{class_carrinho_transporte_aec1edd56bdf80b2987cd6a94557f530b}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!getV@{getV}}
+\index{getV@{getV}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{getV()}{getV()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_terminal}{Terminal}} $\ast$ $>$ $\ast$ Carrinho\+Transporte\+::getV (\begin{DoxyParamCaption}\item[{std\+::string}]{name\+Vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Retorna a estrutura de dados com nome name\+Vector da classe respetiva 
+\begin{DoxyParams}{Parameters}
+{\em name\+Vector} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+apontador para um vetor de apontadores de terminais com a informacao requerida 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_terminal_aab50b800bcbe1e86ee982b3c8504a5be}{Terminal}}.
+
+\mbox{\Hypertarget{class_carrinho_transporte_ab0252ca3e6dd18cf5eb6ab04bec877dd}\label{class_carrinho_transporte_ab0252ca3e6dd18cf5eb6ab04bec877dd}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!setAeroporto@{setAeroporto}}
+\index{setAeroporto@{setAeroporto}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{setAeroporto()}{setAeroporto()}}
+{\footnotesize\ttfamily void Carrinho\+Transporte\+::set\+Aeroporto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_aeroporto}{Aeroporto}} $\ast$}]{aeroporto }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_carrinho_transporte_a36f104a78494de549bb5282b8f340753}\label{class_carrinho_transporte_a36f104a78494de549bb5282b8f340753}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!setAviao@{setAviao}}
+\index{setAviao@{setAviao}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{setAviao()}{setAviao()}}
+{\footnotesize\ttfamily void Carrinho\+Transporte\+::set\+Aviao (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_aviao}{Aviao}} $\ast$}]{aviao }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_carrinho_transporte_adfedccb3080099ef11541a0794d15090}\label{class_carrinho_transporte_adfedccb3080099ef11541a0794d15090}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!setCarga@{setCarga}}
+\index{setCarga@{setCarga}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{setCarga()}{setCarga()}}
+{\footnotesize\ttfamily void Carrinho\+Transporte\+::set\+Carga (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ std\+::stack$<$ \mbox{\hyperlink{class_mala}{Mala}} $\ast$ $>$ $>$ $>$ \&}]{carga }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_carrinho_transporte_a830e143fa2b7501e9d2b086910de35d3}\label{class_carrinho_transporte_a830e143fa2b7501e9d2b086910de35d3}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!setNCarruagens@{setNCarruagens}}
+\index{setNCarruagens@{setNCarruagens}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{setNCarruagens()}{setNCarruagens()}}
+{\footnotesize\ttfamily void Carrinho\+Transporte\+::set\+NCarruagens (\begin{DoxyParamCaption}\item[{int}]{n\+Carruagens }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_carrinho_transporte_a7f0f8e239501b1ebe65bb13269199291}\label{class_carrinho_transporte_a7f0f8e239501b1ebe65bb13269199291}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!setNMalas@{setNMalas}}
+\index{setNMalas@{setNMalas}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{setNMalas()}{setNMalas()}}
+{\footnotesize\ttfamily void Carrinho\+Transporte\+::set\+NMalas (\begin{DoxyParamCaption}\item[{int}]{n\+Malas }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_carrinho_transporte_ad580031a52d476b495df24ca901076d9}\label{class_carrinho_transporte_ad580031a52d476b495df24ca901076d9}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!setNPilhas@{setNPilhas}}
+\index{setNPilhas@{setNPilhas}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{setNPilhas()}{setNPilhas()}}
+{\footnotesize\ttfamily void Carrinho\+Transporte\+::set\+NPilhas (\begin{DoxyParamCaption}\item[{int}]{n\+Pilhas }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_carrinho_transporte_abaac8968e4de4088fb41cb3857fd3c15}\label{class_carrinho_transporte_abaac8968e4de4088fb41cb3857fd3c15}} 
+\index{CarrinhoTransporte@{CarrinhoTransporte}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!CarrinhoTransporte@{CarrinhoTransporte}}
+\doxysubsubsection{\texorpdfstring{operator$<$}{operator<}}
+{\footnotesize\ttfamily bool operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_carrinho_transporte}{Carrinho\+Transporte}} \&}]{lhs,  }\item[{const \mbox{\hyperlink{class_carrinho_transporte}{Carrinho\+Transporte}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+Um carrinho é menor que outro quando tem menos carruagens. Em caso de empate, é menor quando tem menos pilhas por carruagem. Em caso de empate, é menor quando tem menos malas por pilha. 
+\begin{DoxyParams}{Parameters}
+{\em lhs} & \\
+\hline
+{\em rhs} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true se o carrrinho for menor que o outro 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_carrinho_transporte_8h}{Carrinho\+Transporte.\+h}}\item 
+src/\mbox{\hyperlink{_carrinho_transporte_8cpp}{Carrinho\+Transporte.\+cpp}}\end{DoxyCompactItemize}

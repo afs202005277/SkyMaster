@@ -1,0 +1,123 @@
+\hypertarget{_aviao_8h_source}{}\doxysection{Aviao.\+h}
+\label{_aviao_8h_source}\index{src/Aviao.h@{src/Aviao.h}}
+\mbox{\hyperlink{_aviao_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJETO1\_AVIAO\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJETO1\_AVIAO\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <queue>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <stack>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <list>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_data_8h}{Data.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_servico_8h}{Servico.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_aeroporto_8h}{Aeroporto.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_voo_8h}{Voo.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mala_8h}{Mala.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_carrinho_transporte_8h}{CarrinhoTransporte.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_terminal_8h}{Terminal.h}}"{}}}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{class_carrinho_transporte}{CarrinhoTransporte}};}
+\DoxyCodeLine{21 \textcolor{keyword}{class }\mbox{\hyperlink{class_mala}{Mala}};}
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{class_servico}{Servico}};}
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_funcionario}{Funcionario}};}
+\DoxyCodeLine{24 \textcolor{keyword}{class }\mbox{\hyperlink{class_voo}{Voo}};}
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{class_terminal}{Terminal}};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{class }\mbox{\hyperlink{class_aviao}{Aviao}} : \textcolor{keyword}{public} \mbox{\hyperlink{class_terminal}{Terminal}} \{}
+\DoxyCodeLine{28 \textcolor{keyword}{private}:}
+\DoxyCodeLine{29     \textcolor{keywordtype}{int} capacidade;}
+\DoxyCodeLine{30     std::list<Voo*> plano;}
+\DoxyCodeLine{31     std::string matricula, tipo;}
+\DoxyCodeLine{32     std::queue<Servico*> servicos;}
+\DoxyCodeLine{33     std::stack<Servico*> servicosProcessados;}
+\DoxyCodeLine{34     std::vector<Mala*> carga;}
+\DoxyCodeLine{35     \mbox{\hyperlink{class_carrinho_transporte}{CarrinhoTransporte}} *carrinhoAssociado;}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} sortPlano();}
+\DoxyCodeLine{40 \textcolor{keyword}{public}:}
+\DoxyCodeLine{41     \mbox{\hyperlink{class_aviao_a590f3d6c5228e18787435dd803f1cd8b}{Aviao}}(\textcolor{keywordtype}{int} capacidade, \textcolor{keyword}{const} std::list<Voo *> \&plano, \textcolor{keyword}{const} std::string \&matricula, \textcolor{keyword}{const} std::queue<Servico *> \&servicos,}
+\DoxyCodeLine{42           \textcolor{keyword}{const} std::stack<Servico *> \&pastServices, \textcolor{keyword}{const} std::vector<Mala *> \&carga, \mbox{\hyperlink{class_carrinho_transporte}{CarrinhoTransporte}} *carrinhoAssociado,}
+\DoxyCodeLine{43           std::string tipo);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \mbox{\hyperlink{class_aviao_a590f3d6c5228e18787435dd803f1cd8b}{Aviao}}(\textcolor{keywordtype}{int} capacidade, std::list<Voo *> plano, std::string matricula, std::queue<Servico *> servicos,}
+\DoxyCodeLine{46           std::string tipo);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \mbox{\hyperlink{class_aviao_a590f3d6c5228e18787435dd803f1cd8b}{Aviao}}(\textcolor{keywordtype}{int} capacidade, std::list<Voo *> plano, std::string matricula, std::string tipo);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \mbox{\hyperlink{class_aviao_a590f3d6c5228e18787435dd803f1cd8b}{Aviao}}(\textcolor{keywordtype}{int} capacidade, std::string matricula, std::string tipo);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_aviao_a93d19d54fb414ba4e04cbb673d9c4071}{getCapacidade}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aviao_a9ca4f9a4db503685035156cc05b8ccc4}{setCapacidade}}(\textcolor{keywordtype}{int} capacidade);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{keyword}{const} std::list<Voo *> \& \mbox{\hyperlink{class_aviao_a547f5c7f0eda5226b57d9035187d4ce6}{getPlano}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aviao_a969085b86459463c91f279c0a50a8615}{setPlano}}(std::list<Voo *> plano);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_aviao_aade7c5b92a5eec989666cea6e51af89a}{getMatricula}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aviao_aa3f0cfd81a7f3f97ff3f1620fc486768}{setMatricula}}(\textcolor{keyword}{const} std::string \&matricula);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64     \textcolor{keyword}{const} std::string \&\mbox{\hyperlink{class_aviao_a0e79f3dfe722513c629677433c0d0802}{getTipo}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aviao_a7c66c5cd1c54006b94985c693210d4a9}{setTipo}}(\textcolor{keyword}{const} std::string \&tipo);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     std::queue<Servico *> \mbox{\hyperlink{class_aviao_abc24422029590fb03a81d14e724b63f3}{getServicos}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aviao_afef864e73e29031cba81e04e4a7f0d0f}{setServicos}}(\textcolor{keyword}{const} std::queue<Servico *> \&servicos);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keyword}{const} std::stack<Servico *> \&\mbox{\hyperlink{class_aviao_a7acf62cba4d5be1b47e3bc61c7eee7b4}{getServicosProcessados}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aviao_a8c5fe395d4001e842af4a48ff340a39f}{setServicosProcessados}}(\textcolor{keyword}{const} std::stack<Servico *> \&servicosProcessados);}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76     \textcolor{keyword}{const} std::vector<Mala *> \&\mbox{\hyperlink{class_aviao_a91f537d44f2ea7c4fa306bf2c7226a46}{getCarga}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aviao_a9e834bdedce0c16390cfc97b00ee80d6}{setCarga}}(\textcolor{keyword}{const} std::vector<Mala *> \&carga);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \mbox{\hyperlink{class_carrinho_transporte}{CarrinhoTransporte}} *\mbox{\hyperlink{class_aviao_ae6c025aa828e1048b13b0069794f7c66}{getCarrinhoAssociado}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{81 }
+\DoxyCodeLine{82     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aviao_ae5014f989a48c97c998114c8924c015c}{setCarrinhoAssociado}}(\mbox{\hyperlink{class_carrinho_transporte}{CarrinhoTransporte}} *carrinhoAssociado);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{88     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aviao_a7407beae2dd1a373de2df29dbd4ded57}{addServico}}(\mbox{\hyperlink{class_servico}{Servico}} *servico);}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{94     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aviao_a3d2b3463dc9e80b615605661319f84e9}{addToPlanoVoo}}(\mbox{\hyperlink{class_voo}{Voo}} *voo);}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{100     \mbox{\hyperlink{class_voo}{Voo}}\& \mbox{\hyperlink{class_aviao_ac066ff63f334d2075c6a290237534e07}{getNextVoo}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{106     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_aviao_a403ed6cc86194d17b2288872666991a4}{processService}}();}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{113     std::vector<Servico *> \mbox{\hyperlink{class_aviao_ac54398c7c531603401e1815a6b98408d}{getPastServicesBy}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} \&f) \textcolor{keyword}{const};}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{120     std::vector<Servico *> \mbox{\hyperlink{class_aviao_a3e4844b8275101c24f5972d72e51095b}{getFutureServicesBy}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} \&f) \textcolor{keyword}{const};}
+\DoxyCodeLine{121 }
+\DoxyCodeLine{127     std::vector<std::vector<Servico *>> \mbox{\hyperlink{class_aviao_a6d5467557541cb16d755b7c7b48bef27}{getAllServicesBy}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_funcionario}{Funcionario}} \&f) \textcolor{keyword}{const};}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{132     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aviao_ab273e85b649bdde227b84e523851751c}{descarregarMalas}}();}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{138     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aviao_ab566ac9436f1ff871d02db07f727cf5e}{addMala}}(\mbox{\hyperlink{class_mala}{Mala}} *m);}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{145     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_aviao_a3887414cfa3209d647174a38683cde6d}{removeFromPlanoVoo}}(\mbox{\hyperlink{class_voo}{Voo}} \&voo);}
+\DoxyCodeLine{146 }
+\DoxyCodeLine{154     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_aviao_ac95f4c2112c66f2db48894749272cc55}{viajar}}();}
+\DoxyCodeLine{155 }
+\DoxyCodeLine{162     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_aviao_a7aa341aebe254d8b7c6fed9fd5af3239}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_aviao}{Aviao}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_aviao}{Aviao}} \&rhs);}
+\DoxyCodeLine{163 }
+\DoxyCodeLine{164     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_aviao_a7aa341aebe254d8b7c6fed9fd5af3239}{operator==}}(\mbox{\hyperlink{class_aviao}{Aviao}} \&a);}
+\DoxyCodeLine{165 }
+\DoxyCodeLine{166     std::string \mbox{\hyperlink{class_aviao_ab3bc584fab39d589c8662cb18888391f}{getObjectName}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{167     std::string \mbox{\hyperlink{class_aviao_a618a269ba787b6ed2fa86113b39da684}{getObjectID}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{168     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_aviao_a4d2118c252bdbe3be5edb7b9847fed62}{findFunc}}(std::string nomeFunc) \textcolor{keyword}{override};}
+\DoxyCodeLine{169     std::stack<std::string> \mbox{\hyperlink{class_aviao_a7d115e2eb28214c55af573e00dca24af}{funcs}}() \textcolor{keyword}{override};}
+\DoxyCodeLine{170     std::vector<Terminal*> *\mbox{\hyperlink{class_aviao_a3726d5adbc9e86c7de51ea8074cbc2b6}{getV}}(std::string nameVector) \textcolor{keyword}{override};}
+\DoxyCodeLine{171 }
+\DoxyCodeLine{172     \textcolor{keyword}{friend} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_aviao_a4cfa2eeff2020be21d54e99a67f42570}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_aviao}{Aviao}} \&lhs, \textcolor{keyword}{const} \mbox{\hyperlink{class_aviao}{Aviao}} \&rhs);}
+\DoxyCodeLine{173 \};}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO1\_AVIAO\_H}}
+
+\end{DoxyCode}

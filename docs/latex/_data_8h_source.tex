@@ -1,0 +1,56 @@
+\hypertarget{_data_8h_source}{}\doxysection{Data.\+h}
+\label{_data_8h_source}\index{src/Data.h@{src/Data.h}}
+\mbox{\hyperlink{_data_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PROJETO1\_DATA\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PROJETO1\_DATA\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_terminal_8h}{Terminal.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{class_terminal}{Terminal}};}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_data}{Data}} \{}
+\DoxyCodeLine{10 \textcolor{keyword}{private}:}
+\DoxyCodeLine{11     \textcolor{keywordtype}{int} day, month, year;}
+\DoxyCodeLine{12 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_data_af11f741cb7f587e2e495452a8905a22a}{Data}}();}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{22     \mbox{\hyperlink{class_data_af11f741cb7f587e2e495452a8905a22a}{Data}}(std::string data);}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \mbox{\hyperlink{class_data_af11f741cb7f587e2e495452a8905a22a}{Data}}(\textcolor{keywordtype}{int} year, \textcolor{keywordtype}{int} month, \textcolor{keywordtype}{int} day);}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_data_af47e5aeeaa27ce915608038c13db0fd9}{getYear}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_data_aa32e0921f3473fef8db78c30501a5600}{setYear}}(\textcolor{keywordtype}{int} year);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_data_ab3d6db1197cae2954ef304e825d0cb9b}{getMonth}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_data_ac60bfb207226f376bee671719f4a4962}{setMonth}}(\textcolor{keywordtype}{int} month);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_data_a2f0f53eeb7adf41164bdc8e1a31ae78b}{getDay}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_data_ab858da7d5f8549d202a6945243ca130e}{setDay}}(\textcolor{keywordtype}{int} day);}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{42     std::string \mbox{\hyperlink{class_data_ae143aca6de478f6afa9e0cf8d9377965}{getDate}}();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_data_ac8df9a30d53a4e27115cd6b94e939615}{operator<}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_data}{Data}} \&rhs) \textcolor{keyword}{const};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_data_aac8ecf11246ba431c1ce8ae22f8e50dd}{operator>}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_data}{Data}} \&rhs) \textcolor{keyword}{const};}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{63     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_data_adf3f2b0fe3eaf45da424a7138b831dab}{operator<=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_data}{Data}} \&rhs) \textcolor{keyword}{const};}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_data_af5ab5c1a84e36abc8d496a4d2e4002e7}{operator>=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_data}{Data}} \&rhs) \textcolor{keyword}{const};}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_data_ae398cd0e79ba9f76e899c6e9b268c6af}{operator==}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_data}{Data}} \&rhs) \textcolor{keyword}{const};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_data_a6f6255ce575dc38507700eea520d2242}{operator!=}}(\textcolor{keyword}{const} \mbox{\hyperlink{class_data}{Data}} \&rhs) \textcolor{keyword}{const};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{82     \textcolor{keyword}{friend} std::ostream \&\mbox{\hyperlink{class_data_acb3cdcaca8cbd58ff06965caec4ccbc6}{operator<<}}(std::ostream \&os, \textcolor{keyword}{const} \mbox{\hyperlink{class_data}{Data}} \&data);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84 \};}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//PROJETO1\_DATA\_H}}
+
+\end{DoxyCode}
