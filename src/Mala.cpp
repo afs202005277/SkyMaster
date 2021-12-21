@@ -129,9 +129,9 @@ bool operator==(const Mala &lhs, const Mala &rhs) {
 }
 
 bool operator<(const Mala &lhs, const Mala &rhs) {
-    if (lhs.dono < rhs.dono)
+    if (lhs.peso < rhs.peso)
         return true;
-    if (lhs.dono < rhs.dono && lhs.peso < rhs.peso)
+    if (lhs.peso == rhs.peso && lhs.dono->getNome() < rhs.dono->getNome())
         return true;
-    return lhs.peso < rhs.peso;
+    return false;
 }

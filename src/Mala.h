@@ -32,13 +32,25 @@ public:
 
     void setPeso(float peso);
 
+    /**
+     * Duas malas são iguais quando todos os seus atributos são iguais
+     * @param lhs
+     * @param rhs
+     * @return true se as malas forem iguais
+     */
     friend bool operator==(const Mala &lhs, const Mala &rhs);
+
+    /**
+     * Uma mala é menor que outra quando é mais leve, ou, em caso de empate,
+     * quando o nome do dono é menor que o nome do dono da outra mala
+     * @param lhs
+     * @param rhs
+     * @return
+     */
+    friend bool operator<(const Mala &lhs, const Mala &rhs);
 
     std::string getObjectName() override;
     std::string getObjectID() override;
-
-    friend bool operator<(const Mala &lhs, const Mala &rhs);
-
     bool findFunc(std::string nomeFunc) override;
     std::stack<std::string> funcs() override;
     std::vector<Terminal*> *getV(std::string nameVector) override;

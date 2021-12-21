@@ -18,9 +18,9 @@ stack<Terminal*> Terminal::Terminal::cur_obj;
 std::multimap<string, tuple<string, vector<Terminal*>*>> Terminal::Terminal::dir;
 
 /**
- * Breaks an instruction to create an object in the different arguments
+ * Decompoe uma instrucao nos respetivos argumentos
  * @param instruction
- * @param arguments : a vector to store the resulting arguments
+ * @param arguments : um vetor com os argumentos resultantes
  */
 
 void addToFile(fstream & stream, queue<string> &to_add){
@@ -69,15 +69,15 @@ void processInput(const string &instruction, vector<string> & arguments){
 }
 
      /**
-     * Removes duplicates from list objects
-     * @tparam T : changes the given list directly
+     * Elimina duplicados de uma lista ordenada
+     * @tparam T : altera diretamente a lista (passada por referencia)
      */
 template <class T>
 void removeDuplicates(list<T> &temp)
 {
     list<T> nova;
     set<T> s;
-    for (typename list<T>::iterator it=temp.begin();it!=temp.end();it++)
+    for (auto it=temp.begin();it!=temp.end();it++)
     {
         if (s.insert(*it).second) {
             nova.push_back(*it);
@@ -106,7 +106,7 @@ T* find(list <T> &l, T val){
 
     /**
      * Funcao que lê de um ficheiro fileName os diferentes atributos das diferentes classes e
-     * cria objetos que são guardados nos seus respetivos vetores dados
+     * cria objetos que são guardados nos seus respetivos vetores dados. Para alem disso, também estabelece as relacoes entre os objetos
      * @param string fileName
      * @param list aeroportos
      * @param list transportes
@@ -264,7 +264,8 @@ void readFromFile(string fileName, list<Aeroporto> &aeroportos, list<Transporte>
 }
 
 /**
- * Reads 'povoar.txt' which contains saved objects and creates vectors with said objects. Afterwards, the program runs the Terminal.
+ * O ficheiro "povoar.txt" é lido e utilizado para criar os objetos, usando as informações fornecidas
+ * De seguida, o terminal é executado
  */
 int main() {
     list<Aeroporto> aeroportos;
@@ -282,8 +283,6 @@ int main() {
     readFromFile(fileName, aeroportos, transportes, funcionarios, servicos, passageiros, malas, avioes, voos, carrinhosTransporte);
 
     //ASSOCIA 1 AEROPORTO A CADA AVIAO
-    auto a1 = &aeroportos.front();
-    auto a2 = &aeroportos.back();
     for (auto &a:avioes){
         if (a.getPlano().empty())
             continue;
@@ -293,22 +292,34 @@ int main() {
         }
     }
 
-    // TERMINAL STUFF
+    // Envia a informação do ficheiro de texto para o terminal
+    Terminal::aeroportos = vector<Aeroporto*>(aeroportos.size());
+    Terminal::passageiros = vector<Passageiro*>(passageiros.size());
+    Terminal::voos = vector<Voo*>(voos.size());
+    Terminal::funcionarios = vector<Funcionario*>(funcionarios.size());
+    int index = 0;
     for (auto &a: aeroportos)
     {
-        Terminal::aeroportos.push_back(&a);
+        Terminal::aeroportos[index] = &a;
+        index++;
     }
+    index = 0;
     for (auto &p : passageiros)
     {
-        Terminal::passageiros.push_back(&p);
+        Terminal::passageiros[index] = &p;
+        index++;
     }
+    index = 0;
     for (auto &v : voos)
     {
-        Terminal::voos.push_back(&v);
+        Terminal::voos[index] = &v;
+        index++;
     }
+    index = 0;
     for (auto &f : funcionarios)
     {
-        Terminal::funcionarios.push_back(&f);
+        Terminal::funcionarios[index] = &f;
+        index++;
     }
 
     vector<Terminal*> term_aero(Terminal::aeroportos.begin(), Terminal::aeroportos.end());
@@ -317,7 +328,7 @@ int main() {
     vector<Terminal*> term_func(Terminal::funcionarios.begin(), Terminal::funcionarios.end());
 
     /**
-    * Creates 'main' directory
+    * Cria o diretório "main"
     */
     bool run = true;
     string command;
@@ -329,7 +340,7 @@ int main() {
     Terminal::dir.insert({"FUNCIONARIO[list]", {"main", &term_func}});
 
     /**
-     * Starts running the Terminal.
+     * Inicia a execução do terminal
      */
     cout << "Welcome to Airport Management Terminal\n";
     cout << "Type 'help' to get started.\n";
@@ -342,14 +353,14 @@ int main() {
         else
             std::transform(command.begin(), command.end()-command.size()+command_temp, command.begin(), ::toupper);
         /**
-         * Ends program.
+         * Termina a execução da aplicação
          */
         if (command == "QUIT")
         {
             return 0;
         }
         /**
-         * Prints the available commands on the Terminal.
+         * O utilizador é informado acerca dos comandos possíveis
          */
         else if (command == "HELP")
         {
@@ -371,7 +382,7 @@ int main() {
             cout<<endl;
         }
         /**
-         * Prints existing objects and functions inside the directory on the Terminal.
+         * Imprime os objetos e funções existentes dentro do diretório
          */
         else if (command == "LS")
         {
@@ -405,7 +416,7 @@ int main() {
             }
         }
         /**
-         * Prints the vectors getObjectName on the Terminal of given list. If list is empty prints 'empty.'.
+         * Imprime os vetores getObjectName da lista fornecida. Se a lista estiver vazia, é enviada a mensagem 'empty.'.
          */
         else if (Terminal::processString(command, ' ') == "LIST")
         {
@@ -416,7 +427,7 @@ int main() {
             }
             else
             {
-                if (get<1>(t->second)->size() == 0)
+                if (get<1>(t->second)->empty())
                 {
                     cout << "empty." << endl;
                 }
@@ -429,7 +440,7 @@ int main() {
             }
         }
         /**
-         * Accesses inside given object if found.
+         * Acede ao objeto, se existir.
          */
         else if (Terminal::processString(command, ' ') == "ACCESS")
         {
@@ -498,7 +509,7 @@ int main() {
             }
         }
         /**
-         * Runs given function if found.
+         * Executa a função, se existir
          */
         else if (Terminal::processString(command, ' ') == "FUNC")
         {
@@ -614,7 +625,7 @@ int main() {
                     cout << "input aeroporto destino (index): ";
                     string temp5;
                     getline(cin, temp5);
-                    cout << "input aviao (index dos avioes do aerporto origem): ";
+                    cout << "input aviao (index dos avioes do aeroporto origem): ";
                     string temp6;
                     getline(cin, temp6);
                     cout << "input horaPartida (HH:MM:SS): ";
@@ -706,7 +717,7 @@ int main() {
             }
         }
         /**
-         * Saves given object/list to 'povoar.txt' for later use.
+         * Guarda o objeto/lista pretendida no ficheiro "povoar.txt" para uso futuro
          */
         else if (Terminal::processString(command, ' ') == "SAVE")
         {
@@ -787,7 +798,7 @@ int main() {
             }
         }
         /**
-         * Goes back to previous directory. If in 'main' prints 'Nothing to go back to'.
+         * Regressa ao diretório anterior. Se o diretório atual for o main, é enviada a mensagem 'Nothing to go back to'.
          */
         else if (command == "BACK")
         {

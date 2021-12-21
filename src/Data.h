@@ -77,7 +77,7 @@ public:
      * Imprime a data no formato dd/mm/yyyy
      * @param os
      * @param data
-     * @return referencia da stream para onde enviou a data
+     * @return referência da stream para onde enviou a data
      */
     friend std::ostream &operator<<(std::ostream &os, const Data &data);
 

@@ -134,9 +134,9 @@ bool Servico::findFunc(std::string nomeFunc) {
 bool operator<(const Servico &lhs, const Servico &rhs) {
     if (lhs.data < rhs.data)
         return true;
-    if (lhs.data == rhs.data && lhs.funcionario < rhs.funcionario)
+    if (lhs.data == rhs.data && lhs.funcionario->getNome() < rhs.funcionario->getNome())
         return true;
-    if (lhs.data == rhs.data && lhs.funcionario < rhs.funcionario && lhs.tipo < rhs.tipo)
+    if (lhs.data == rhs.data && lhs.funcionario->getNome() < rhs.funcionario->getNome() && lhs.tipo < rhs.tipo)
         return true;
     return false;
 }

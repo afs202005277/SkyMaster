@@ -33,8 +33,6 @@ public:
     bool findFunc(std::string nomeFunc) override;
     std::stack<std::string> funcs() override;
     std::vector<Terminal*> *getV(std::string nameVector) override;
-
-    bool isLevaBagagem() const;
 };
 
 

@@ -1,10 +1,10 @@
 #ifndef PROJETO1_TRANSPORTE_H
 #define PROJETO1_TRANSPORTE_H
 
-#include "Tempo.h"
-#include "Terminal.h"
 #include <string>
 
+#include "Tempo.h"
+#include "Terminal.h"
 
 enum TipoTransporte {autocarro, metro, comboio};
 class Aeroporto;
@@ -53,6 +53,12 @@ public:
      */
     friend bool operator<(const Transporte &lhs, const Transporte &rhs);
 
+    /**
+     * Dois transportes são iguais quando têm o mesmo valor em todos os atributos
+     * @param lhs
+     * @param rhs
+     * @return true se forem iguais
+     */
     friend bool operator==(const Transporte &lhs, const Transporte &rhs);
 
     std::string getObjectName() override;

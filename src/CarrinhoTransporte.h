@@ -22,9 +22,9 @@ private:
 public:
     CarrinhoTransporte(int nCarruagens, int nPilhas, int nMalas, Aeroporto *aeroporto, Aviao *aviao = nullptr);
 
-    const vector<vector<stack<Mala *>>> &getCarga() const;
+    const std::vector<std::vector<std::stack<Mala *>>> &getCarga() const;
 
-    void setCarga(const vector<vector<stack<Mala *>>> &carga);
+    void setCarga(const std::vector<std::vector<std::stack<Mala *>>> &carga);
 
     Aviao *getAviao() const;
 
@@ -42,7 +42,7 @@ public:
 
     void setNMalas(int nMalas);
 
-    bool addMalas(vector<Mala*> m);
+    bool addMalas(std::vector<Mala*> m);
 
     /**
      * Descarrega as malas do carrinho no aviao que lhe foi atribuido
@@ -60,8 +60,20 @@ public:
     std::stack<std::string> funcs() override;
     std::vector<Terminal*> *getV(std::string nameVector) override;
 
+    /**
+     * Adiciona uma mala ao carrinho
+     * @param pMala
+     * @return true se conseguir adicionar (se tiver espaço)
+     */
     bool addMala(Mala *&pMala);
 
+    /**
+     * Um carrinho é menor que outro quando tem menos carruagens. Em caso de empate, é menor quando tem menos pilhas por carruagem.
+     * Em caso de empate, é menor quando tem menos malas por pilha.
+     * @param lhs
+     * @param rhs
+     * @return true se o carrrinho for menor que o outro
+     */
     friend bool operator<(const CarrinhoTransporte &lhs, const CarrinhoTransporte &rhs);
 
     Aeroporto *getAeroporto() const;

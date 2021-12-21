@@ -47,6 +47,8 @@ bool operator<(const Transporte &lhs, const Transporte &rhs) {
         return true;
     if (lhs.distancia == rhs.distancia && lhs.horaChegada < rhs.horaChegada)
         return true;
+    if (lhs.distancia == rhs.distancia && lhs.horaChegada == rhs.horaChegada && lhs.tipo < rhs.tipo)
+        return true;
     return false;
 }
 

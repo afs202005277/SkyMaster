@@ -28,21 +28,40 @@ public:
 
     const std::queue<Mala *> &getMalas() const;
 
-    void setMalas(const queue<Mala *> &malas);
+    void setMalas(const std::queue<Mala *> &malas);
 
+    /**
+     * Adiciona uma mala à fila de malas do passageiro
+     * @param m
+     */
     void addMala(Mala *m);
 
+    /**
+     * Remove a mala da fila de malas do passageiro
+     * @param m
+     */
     void removeMala(Mala *m);
-
-    friend bool operator<(const Passageiro &lhs, const Passageiro &rhs);
 
     const std::queue<Bilhete *> & getBilhetes() const;
 
+    /**
+     * Adiciona o bilhete à fila de bilhetes
+     * @param bilhete
+     */
     void addBilhete(Bilhete *bilhete);
 
+    /**
+     * Retorna o próximo bilhete
+     * @return próximo bilhete
+     */
     Bilhete* getNextBilhete();
 
+    /**
+     * Remove o próximo bilhete da lista
+     */
     void removeNextBilhete();
+
+    void setBilhetes(const std::queue<Bilhete *> &bilhetes);
 
     const std::string &getNome() const;
 
@@ -56,6 +75,10 @@ public:
 
     void setId(int id);
 
+    /**
+     * Remove o bilhete no índice index da lista
+     * @param index
+     */
     void removeBilhete(int index);
 
     /**
@@ -89,13 +112,20 @@ public:
      */
     friend bool operator==(const Passageiro &lhs, const Passageiro &rhs);
 
+    /**
+     * Um passageiro é menor que outro quando é mais novo, ou, em caso de empate, quando o nome é menor que outro
+     * (ordem alfabética) ou, em caso de empate, quando o seu id for menor que o do outro passageiro
+     * @param lhs
+     * @param rhs
+     * @return true se o passageiro lhs for menor que o rhs
+     */
+    friend bool operator<(const Passageiro &lhs, const Passageiro &rhs);
+
     std::string getObjectName() override;
     std::string getObjectID() override;
     bool findFunc(std::string nomeFunc) override;
     std::stack<std::string> funcs() override;
     std::vector<Terminal*> *getV(std::string nameVector) override;
-
-    void setBilhetes(const queue<Bilhete *> &bilhetes);
 };
 
 

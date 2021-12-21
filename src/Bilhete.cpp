@@ -37,10 +37,6 @@ std::string Bilhete::getObjectID() {
     return passageiro->getNome();
 }
 
-bool Bilhete::isLevaBagagem() const {
-    return levaBagagem;
-}
-
 std::stack<std::string> Bilhete::funcs() {
     stack<string> temp;
     temp.push("getNVoo()");

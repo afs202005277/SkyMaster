@@ -371,9 +371,9 @@ void Passageiro::setBilhetes(const queue<Bilhete *> &bilhetes) {
 bool operator<(const Passageiro &lhs, const Passageiro &rhs) {
     if (lhs.idade < rhs.idade)
         return true;
-    if (lhs.idade == rhs.idade && lhs.id < rhs.id)
+    if (lhs.idade == rhs.idade && lhs.nome < rhs.nome)
         return true;
-    if (lhs.idade == rhs.idade && lhs.id == rhs.id && lhs.nome < rhs.nome)
+    if (lhs.idade == rhs.idade && lhs.nome == rhs.nome && lhs.id < rhs.id)
         return true;
     return false;
 }

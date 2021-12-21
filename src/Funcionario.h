@@ -1,8 +1,10 @@
 #ifndef PROJETO1_FUNCIONARIO_H
 #define PROJETO1_FUNCIONARIO_H
 
-#include "Aeroporto.h"
 #include <string>
+#include <vector>
+#include <stack>
+#include "Aeroporto.h"
 #include "Terminal.h"
 
 class Terminal;

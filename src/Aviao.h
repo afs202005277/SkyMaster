@@ -33,11 +33,13 @@ private:
     std::stack<Servico*> servicosProcessados;
     std::vector<Mala*> carga;
     CarrinhoTransporte *carrinhoAssociado;
-
+    /**
+     * Função auxiliar que ordena os voos pelas suas datas de partida
+     */
     void sortPlano();
 public:
-    Aviao(int capacidade, const list<Voo *> &plano, const string &matricula, const queue<Servico *> &servicos,
-          const stack<Servico *> &pastServices, const vector<Mala *> &carga, CarrinhoTransporte *carrinhoAssociado,
+    Aviao(int capacidade, const std::list<Voo *> &plano, const std::string &matricula, const std::queue<Servico *> &servicos,
+          const std::stack<Servico *> &pastServices, const std::vector<Mala *> &carga, CarrinhoTransporte *carrinhoAssociado,
           std::string tipo);
 
     Aviao(int capacidade, std::list<Voo *> plano, std::string matricula, std::queue<Servico *> servicos,
@@ -59,58 +61,70 @@ public:
 
     void setMatricula(const std::string &matricula);
 
-    const string &getTipo() const;
+    const std::string &getTipo() const;
 
-    void setTipo(const string &tipo);
+    void setTipo(const std::string &tipo);
 
     std::queue<Servico *> getServicos() const;
 
     void setServicos(const std::queue<Servico *> &servicos);
 
-    const stack<Servico *> &getServicosProcessados() const;
+    const std::stack<Servico *> &getServicosProcessados() const;
 
-    void setServicosProcessados(const stack<Servico *> &servicosProcessados);
+    void setServicosProcessados(const std::stack<Servico *> &servicosProcessados);
 
-    const vector<Mala *> &getCarga() const;
+    const std::vector<Mala *> &getCarga() const;
 
-    void setCarga(const vector<Mala *> &carga);
+    void setCarga(const std::vector<Mala *> &carga);
 
     CarrinhoTransporte *getCarrinhoAssociado() const;
 
     void setCarrinhoAssociado(CarrinhoTransporte *carrinhoAssociado);
 
+    /**
+     * Adiciona um Servico no fim da fila servicos
+     * @param servico
+     */
     void addServico(Servico *servico);
 
+    /**
+     * Adiciona um voo ao plano de voo e mantém o plano de voo ordenado por ordem de partida
+     * @param voo
+     */
     void addToPlanoVoo(Voo *voo);
 
+    /**
+     * Retorna o voo a seguir ao atual, se existir
+     * @return o voo seguinte
+     */
     Voo& getNextVoo() const;
 
     /**
-     * Remove o primeiro servico da fila de servicos e adiciona-o na stack de servicos ja processados
+     * Remove o primeiro servico da fila de servicos e adiciona-o na std::stack de servicos ja processados
      * @return true se existir a fila servicos nao estiver vazia
      */
     bool processService();
 
     /**
-     * Pesquisa na stack de servicos processados todos os servicos feitos pelo funcionario f
+     * Pesquisa na std::stack de servicos processados todos os servicos feitos pelo funcionario f
      * @param f
      * @return um vetor com apontadores para os servicos realizados pelo funcionario f, neste aviao
      */
-    vector<Servico *> getPastServicesBy(const Funcionario &f) const;
+    std::vector<Servico *> getPastServicesBy(const Funcionario &f) const;
 
     /**
      * Pesquisa na fila de servicos todos os servicos associados ao funcionario f
      * @param f
      * @return um vetor com apontadores para os servicos que vao ser realizados pelo funcionario f, neste aviao
      */
-    vector<Servico *> getFutureServicesBy(const Funcionario &f) const;
+    std::vector<Servico *> getFutureServicesBy(const Funcionario &f) const;
 
     /**
-     * Pesquisa no historico de servicos realizados e na lista de servicos por realizar, todos que estao associados ao funcionario f
+     * Pesquisa no historico de servicos realizados e na std::lista de servicos por realizar, todos que estao associados ao funcionario f
      * @param f
      * @return um vetor com 2 posicoes: a posicao 0 contem os resultados da busca no historico de servicos e a posicao 1 contem os resultados da busca nos servicos futuros
      */
-    vector<vector<Servico *>> getAllServicesBy(const Funcionario &f) const;
+    std::vector<std::vector<Servico *>> getAllServicesBy(const Funcionario &f) const;
 
     /**
      * Descarrega as malas do aviao para o carrinho de transporte. Quando o carrinho ficar cheio, vai descarregar as malas no aeroporto e continua o processo

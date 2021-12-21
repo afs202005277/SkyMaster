@@ -57,6 +57,10 @@ public:
 
     void setPassageiros(const list<Passageiro *> &passageiros);
 
+    /**
+     * Retorna o número de bilhetes já vendidos
+     * @return número de bilhetes vendidos
+     */
     unsigned int getbilhetesVendidos() const;
 
     void setbilhetesVendidos(unsigned int bilhetesVendidos);
@@ -89,7 +93,13 @@ public:
      */
     bool sellBilheteGroup(const vector<bool> &levaBagagem, const vector<Passageiro *> &passageiros);
 
+    /**
+     * Adiciona um passageiro à lista de passageiros presentes no Voo
+     * @param p
+     */
     void addPassageiro(Passageiro *p);
+
+    const list<Passageiro *> & getPassageiros() const;
 
     /**
      * Verifica se lhs é menor que rhs
@@ -130,8 +140,6 @@ public:
      * @return true se tiverem o mesmo número de voo
      */
     friend bool operator==(const Voo &lhs, const Voo &rhs);
-
-    const list<Passageiro *> & getPassageiros() const;
 
     std::string getObjectName() override;
     std::string getObjectID() override;

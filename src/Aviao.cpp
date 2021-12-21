@@ -50,6 +50,7 @@ void Aviao::addServico(Servico *servico) {
 
 void Aviao::addToPlanoVoo(Voo *voo) {
     plano.push_back(voo);
+    sortPlano();
 }
 
 void Aviao::sortPlano() {
@@ -178,7 +179,8 @@ Aviao::Aviao(int capacidade, const list<Voo *> &plano, const string &matricula, 
 
 Voo& Aviao::getNextVoo() const {
     auto it=plano.begin();
-    return *(*next(it));
+    if (plano.size() >= 2)
+        return *(*next(it));
 }
 
 Aviao::Aviao(int capacidade, std::string matricula, std::string tipo) : capacidade(capacidade), matricula(matricula), tipo(tipo){

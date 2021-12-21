@@ -1,9 +1,12 @@
 #ifndef PROJETO1_SERVICO_H
 #define PROJETO1_SERVICO_H
 
+#include <string>
+#include <stack>
+#include <vector>
+
 #include "Data.h"
 #include "Funcionario.h"
-#include <string>
 #include "Terminal.h"
 
 class Funcionario;
@@ -33,8 +36,21 @@ public:
 
     void setFuncionario(Funcionario *funcionario);
 
+    /**
+     * Um serviço é menor que outro quando a data é menor, ou, em caso de empate, quando o nome do funcionário é menor (ordem alfabética)
+     * ou, em caso de empate, quando um tipo é menor que o outro
+     * @param lhs
+     * @param rhs
+     * @return true se o serviço lhs for menor que rhs
+     */
     friend bool operator<(const Servico &lhs, const Servico &rhs);
 
+    /**
+     * Dois serviços são iguais se tiverem o mesmo valor em todos os atributos
+     * @param lhs
+     * @param rhs
+     * @return true se forem iguais
+     */
     friend bool operator==(const Servico &lhs, const Servico &rhs);
 
     std::string getObjectName() override;

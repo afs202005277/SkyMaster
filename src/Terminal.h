@@ -127,7 +127,7 @@ public:
                 dir.erase("PLANO[list]");
                 dir.erase("SERVICO[list]");
                 dir.erase("SERVICOPROC[list]");
-                dir.erase("CARGA[list]");
+                dir.erase("CARGA_AVIAO[list]");
                 dir.erase("CARRINHO");
             }
         }

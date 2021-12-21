@@ -29,6 +29,10 @@ public:
 
     void setSegundo(int segundo);
 
+    /**
+     * Retorna uma string no formato hh:mm
+     * @return string no formato hh:mm
+     */
     std::string getTempo();
 
     /**
@@ -46,6 +50,12 @@ public:
 
     friend bool operator>=(const Tempo &lhs, const Tempo &rhs);
 
+    /**
+     * Dois tempos são iguais quando têm o mesmo valor em todos os atributos
+     * @param lhs
+     * @param rhs
+     * @return true se forem iguais
+     */
     friend bool operator==(const Tempo &lhs, const Tempo &rhs);
 
     friend bool operator!=(const Tempo &lhs, const Tempo &rhs);

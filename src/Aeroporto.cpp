@@ -42,17 +42,8 @@ BST<Transporte> Aeroporto::getTransportes() {
     return transportes;
 }
 
-void Aeroporto::addTransporte(Transporte &t) {
-    Transporte f = transportes.find(t);
-    if (f.getDistancia() == -1) // Not found
-    {
-        transportes.insert(t);
-    }
-    else
-    {
-        transportes.remove(t);
-        transportes.insert(t);
-    }
+bool Aeroporto::addTransporte(Transporte &t) {
+    return transportes.insert(t);
 }
 
 Transporte Aeroporto::getNearestTransport() {
