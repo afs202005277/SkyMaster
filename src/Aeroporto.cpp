@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <utility>
+#include <list>
 #include "Aeroporto.h"
 
 
@@ -240,6 +241,70 @@ std::string Aeroporto::getObjectID() {
     return name;
 }
 
+bool Aeroporto::existsTransport(Transporte t) const {
+    Transporte f = transportes.find(t);
+    if (f.getDistancia() == -1)
+        return false;
+    return true;
+}
+
+list<Mala *> Aeroporto::searchStorageByName(const string &nomeDono) {
+    auto tmp = storage;
+    list<Mala*> res;
+    while(!storage.empty())
+    {
+        if (storage.front()->getDono()->getNome() == nomeDono)
+        {
+            res.push_back(storage.front());
+        }
+        storage.pop();
+    }
+    storage = tmp;
+    return res;
+}
+
+std::list<Aviao *> Aeroporto::getPlanesDepartingTo(const string& destination) {
+    list<Aviao*> res;
+    for (auto &a:avioes)
+        if (!a->getPlano().empty() && a->getPlano().front()->getOrigem()->name == destination)
+            res.push_back(a);
+    return res;
+}
+
+std::list<Funcionario *> Aeroporto::getFuncionariosByNames(const string & Nome){
+    list<Funcionario*> res;
+    for (auto &f:funcionarios)
+    {
+        if (f->getNome() == Nome)
+            res.push_back(f);
+    }
+    return res;
+}
+
+list<Transporte> Aeroporto::searchTransportesTipo(const string &tipo) {
+    list <Transporte> res;
+    TipoTransporte t;
+    BSTItrIn<Transporte> it(transportes);
+    if (tipo == "autocarro")
+        t = autocarro;
+    else if (tipo == "metro")
+        t = metro;
+    else
+        t = comboio;
+    while(!it.isAtEnd())
+    {
+        if (it.retrieve().getTipo() == t)
+            res.push_back(it.retrieve());
+        it.advance();
+    }
+    res.sort(sorterTransportes);
+    return res;
+}
+
+bool Aeroporto::sorterTransportes(const Transporte &t1, const Transporte &t2) {
+    return t1.getHoraPartida() < t2.getHoraPartida();
+}
+
 std::stack<std::string> Aeroporto::funcs() {
     stack<string> temp;
     temp.push("getName()");
@@ -256,6 +321,10 @@ std::stack<std::string> Aeroporto::funcs() {
     temp.push("removeFuncionario()");
     temp.push("addAviao()");
     temp.push("removeAviao()");
+    temp.push("getPlanesDepartingTo()");
+    temp.push("getFuncionariosByNames()");
+    temp.push("searchStorageByName()");
+    temp.push("searchTransportesTipo()");
     return temp;
 }
 
@@ -447,6 +516,66 @@ bool Aeroporto::findFunc(std::string nomeFunc) {
             cout << "Function failed." << endl;
         }
     }
+    else if (nomeFunc == "getPlanesDepartingTo")
+    {
+        string temp1;
+        cout << "input country: ";
+        getline(cin, temp1);
+        auto lista = getPlanesDepartingTo(temp1);
+        if (lista.empty())
+            cout << "empty." << endl;
+        else
+            for (auto &t:lista)
+                {cout << t->getObjectName() << endl;}
+        return true;
+    }
+    else if (nomeFunc == "getFuncionariosByNames")
+    {
+        cout << "input name: ";
+        string temp1;
+        getline(cin, temp1);
+        auto lista = getFuncionariosByNames(temp1);
+        if (lista.empty())
+            cout << "empty." << endl;
+        else
+            for (auto &t:lista)
+            {cout << t->getObjectName() << endl;}
+        return true;
+    }
+    else if (nomeFunc == "searchStorageByName")
+    {
+        cout << "input name: ";
+        string temp1;
+        getline(cin, temp1);
+        auto lista = searchStorageByName(temp1);
+        if (lista.empty())
+            cout << "empty." << endl;
+        else
+            for (auto &t:lista)
+            {cout << t->getObjectName() << endl;}
+        return true;
+    }
+    else if (nomeFunc == "searchTransportesTipo")
+    {
+        cout << "input tipo (autocarro/metro/comboio): ";
+        string temp1;
+        getline(cin, temp1);
+        try{
+            if (!(temp1=="autocarro" || temp1 == "metro" || temp1=="comboio"))
+                throw exception();
+            auto lista = searchTransportesTipo(temp1);
+            for (auto t:lista)
+            {
+                cout << t.getObjectName() << endl;
+            }
+            return true;
+        }
+        catch (exception &e)
+        {
+            cout << "Function failed." << endl;
+            return true;
+        }
+    }
     else
     {
         return false;
@@ -511,10 +640,4 @@ bool operator<(const Aeroporto &lhs, const Aeroporto &rhs) {
     return false;
 }
 
-bool Aeroporto::existsTransport(Transporte t) const {
-    Transporte f = transportes.find(t);
-    if (f.getDistancia() == -1)
-        return false;
-    return true;
-}
 

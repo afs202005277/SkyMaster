@@ -140,6 +140,21 @@ std::string Voo::getObjectID() {
     return to_string(nVoo);
 }
 
+list<Passageiro *> Voo::getPassageirosMenores() const {
+    list<Passageiro*> res;
+    for (auto &p:passageiros)
+    {
+        if (p->getIdade() <= 18)
+            res.push_back(p);
+    }
+    res.sort(sorterMenores);
+    return res;
+}
+
+bool Voo::sorterMenores(const Passageiro *p1, const Passageiro *p2) {
+    return p1->getIdade() < p2->getIdade();
+}
+
 std::stack<std::string> Voo::funcs() {
     stack<string> temp;
     temp.push("getHoraPartida()");
@@ -159,6 +174,7 @@ std::stack<std::string> Voo::funcs() {
     temp.push("getDestino");
     temp.push("sellBilhete()");
     temp.push("sellBilheteGroup()");
+    temp.push("getPassageirosMenores()");
     return temp;
 }
 
@@ -397,6 +413,15 @@ bool Voo::findFunc(std::string nomeFunc) {
             cout << "Function failed." << endl;
         }
     }
+    else if (nomeFunc == "getPassageirosMenores")
+    {
+        auto lista = getPassageirosMenores();
+        for (auto &m:lista)
+        {
+            cout << m->getObjectName() << endl;
+        }
+        return true;
+    }
     else
         return false;
     return true;
@@ -422,4 +447,3 @@ std::vector<Terminal *> *Voo::getV(std::string nameVector) {
     }
     return temp;
 }
-

@@ -36,7 +36,15 @@ private:
     /**
      * Função auxiliar que ordena os voos pelas suas datas de partida
      */
-    void sortPlano();
+    static bool sortPlano(const Voo *v1, const Voo *v2);
+
+    /**
+     * Função auxiliar que ordena os serviços da resposta por odem cronológica, e em caso de empate, alfabeticamente
+     * @param s1 apontador do serviço s1
+     * @param s2 apontador do serviço s2
+     * @return true se s1 < s2
+     */
+    static bool sorterServicos(const Servico* s1, const Servico* s2);
 public:
     Aviao(int capacidade, const std::list<Voo *> &plano, const std::string &matricula, const std::queue<Servico *> &servicos,
           const std::stack<Servico *> &pastServices, const std::vector<Mala *> &carga, CarrinhoTransporte *carrinhoAssociado,
@@ -161,8 +169,7 @@ public:
      */
     friend bool operator==(const Aviao &lhs, const Aviao &rhs);
 
-    bool operator==(Aviao &a);
-
+    list<Servico*> getAllServicesAfter(Data d);
     std::string getObjectName() override;
     std::string getObjectID() override;
     bool findFunc(std::string nomeFunc) override;

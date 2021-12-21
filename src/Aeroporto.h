@@ -41,6 +41,13 @@ private:
      */
     static bool sorterAvioes(const Aviao* a1, const Aviao* a2);
 
+    /**
+     * Ordena os transportes por ordem de partida
+     * @param t1 transporte t1
+     * @param t2 transpote t2
+     * @return true se t1 < t2
+     */
+    static bool sorterTransportes(const Transporte &t1, const Transporte &t2);
 public:
     Aeroporto(std::string name, std::string city, std::string country, const std::vector<Funcionario *> &funcionarios,
               const BST<Transporte> &transportes, const std::vector<CarrinhoTransporte *> &carrinhos,
@@ -172,6 +179,34 @@ public:
      * @param c
      */
     void addCarrinho(CarrinhoTransporte * c);
+
+    /**
+     * Devolve todos os aviões que vão descolar para o país destination
+     * @param destination nome do país de destino
+     * @return lista com todos os aviões que vão descolar para o país destination
+     */
+    std::list<Aviao*> getPlanesDepartingTo(const string& destination);
+
+    /**
+     * Devolve todos os funcionários do aeroporto com o nome Nome
+     * @param Nome nome do funcionario a pesquisar
+     * @return todos os funcionários do aeroporto com o nome Nome
+     */
+    std::list<Funcionario *> getFuncionariosByNames(const string & Nome);
+
+    /**
+     * Procura no armazém todos as malas cujo dono chama-se nomeDono
+     * @param nomeDono nome do dono das malas a pesquisar
+     * @return lista com apontadores para as malas pretendidas
+     */
+    list<Mala*> searchStorageByName(const std::string & nomeDono);
+
+    /**
+     * Agrupa todos os transportes do tipo fornecido
+     * @param tipo tipo do transporte
+     * @return lista ordenada por hora de partida com os transportes
+     */
+    list<Transporte> searchTransportesTipo (const string &tipo);
 
     std::string getObjectName() override;
     std::string getObjectID() override;
