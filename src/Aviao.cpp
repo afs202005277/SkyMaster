@@ -135,10 +135,8 @@ void Aviao::viajar()
     if (!plano.empty())
     {
         carrinhoAssociado->descarregarMalasAviao();
-        carrinhoAssociado->setAviao(nullptr);
-        this->carrinhoAssociado = nullptr;
-        this->plano.front()->getDestino()->addAviao(this);
         this->plano.front()->getOrigem()->removeAviao(this);
+        this->plano.front()->getDestino()->addAviao(this);
         this->plano.erase(plano.begin());
     }
 }
@@ -164,12 +162,13 @@ CarrinhoTransporte *Aviao::getCarrinhoAssociado() const {
 }
 
 void Aviao::setCarrinhoAssociado(CarrinhoTransporte *carrinhoAssociado) {
-    if (carrinhoAssociado->getAviao() == nullptr)
-        Aviao::carrinhoAssociado = carrinhoAssociado;
-    else
-    {
-        carrinhoAssociado->descarregarMalasAviao();
-        Aviao::carrinhoAssociado = carrinhoAssociado;
+    if (carrinhoAssociado != nullptr) {
+        if (carrinhoAssociado->getAviao() == nullptr)
+            Aviao::carrinhoAssociado = carrinhoAssociado;
+        else {
+            carrinhoAssociado->descarregarMalasAviao();
+            Aviao::carrinhoAssociado = carrinhoAssociado;
+        }
     }
 }
 

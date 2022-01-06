@@ -156,9 +156,13 @@ void Aeroporto::addAviao(Aviao *a) {
     }
     if (!assigned)
     {
-        CarrinhoTransporte ref = *carrinhos.front();
-        auto* c = new CarrinhoTransporte(ref.getNCarruagens(), ref.getNPilhas(), ref.getNMalas(), this, a);
-        carrinhos.push_back(c);
+        auto *c = new CarrinhoTransporte(5, 5, 5, this, a);
+        if (!carrinhos.empty())
+        {
+            auto *ref = carrinhos.front();
+            c = new CarrinhoTransporte(ref->getNCarruagens(), ref->getNPilhas(), ref->getNMalas(), this, a);
+        }
+        a->setCarrinhoAssociado(c);
     }
 }
 
@@ -168,6 +172,7 @@ bool Aeroporto::removeAviao(Aviao *a)
     if (t != avioes.end())
     {
         (*t)->getCarrinhoAssociado()->setAviao(nullptr);
+        (*t)->setCarrinhoAssociado(nullptr);
         avioes.erase(t);
         return true;
     }
